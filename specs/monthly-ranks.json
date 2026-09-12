@@ -44,11 +44,11 @@
       "anchor": "start"
     }
   },
-  "description": "Monthly ranks for the seven species with the most annual records. Rank is among all named species recorded in that month.",
+  "description": "Monthly ranks for the seven species with the most annual records. Rank is among all named species recorded in that month. The selected bird is drawn in ochre over muted context lines.",
   "params": [
     {
       "name": "highlight",
-      "value": "All birds"
+      "value": "Welcome Swallow"
     }
   ],
   "data": {
@@ -1090,46 +1090,15 @@
         "tickCount": 9,
         "format": "d"
       }
-    },
-    "color": {
-      "field": "name",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Australian Magpie",
-          "Magpie-lark",
-          "Welcome Swallow",
-          "Rainbow Lorikeet",
-          "Willie Wagtail",
-          "Superb Fairy-wren",
-          "Noisy Miner"
-        ],
-        "range": [
-          "#315e4c",
-          "#d0892b",
-          "#2f6d9c",
-          "#8c4b67",
-          "#6f6a1c",
-          "#594f88",
-          "#7fb0d4"
-        ]
-      },
-      "legend": null
-    },
-    "opacity": {
-      "condition": {
-        "test": "highlight==='All birds'||datum.name===highlight",
-        "value": 1
-      },
-      "value": 0.13
     }
   },
   "layer": [
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 2.7,
-        "interpolate": "monotone"
+        "strokeWidth": 1.7,
+        "interpolate": "monotone",
+        "color": "#9aa093"
       },
       "encoding": {
         "detail": {
@@ -1141,9 +1110,64 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 58,
+        "size": 34,
+        "color": "#9aa093",
         "stroke": "#f8f5ec",
-        "strokeWidth": 1.2
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Bird"
+          },
+          {
+            "field": "label",
+            "title": "Month"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          },
+          {
+            "field": "count",
+            "title": "Records",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.name===highlight"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "interpolate": "monotone",
+        "color": "#ad7926"
+      },
+      "encoding": {
+        "detail": {
+          "field": "name"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.name===highlight"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 72,
+        "color": "#ad7926",
+        "stroke": "#f8f5ec",
+        "strokeWidth": 1.4
       },
       "encoding": {
         "tooltip": [
@@ -1256,14 +1280,181 @@
           }
         ]
       },
+      "transform": [
+        {
+          "filter": "!(datum.name===highlight)"
+        }
+      ],
       "mark": {
         "type": "text",
         "align": "left",
         "dx": 13,
         "fontSize": 11,
-        "fontWeight": 500
+        "color": "#60665c"
       },
       "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": {
+            "title": null,
+            "labelAngle": 0,
+            "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1,
+              9
+            ],
+            "reverse": true,
+            "zero": false
+          },
+          "axis": {
+            "title": "Most recorded → lower rank",
+            "tickCount": 9,
+            "format": "d"
+          }
+        },
+        "text": {
+          "field": "name"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "scientific": "Gymnorhina tibicen",
+            "name": "Australian Magpie",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 19186,
+            "rank": 1,
+            "per10k": 234.79625,
+            "relative": 0.9439,
+            "topSeven": true
+          },
+          {
+            "scientific": "Grallina cyanoleuca",
+            "name": "Magpie-lark",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 14895,
+            "rank": 3,
+            "per10k": 182.28344,
+            "relative": 0.92767,
+            "topSeven": true
+          },
+          {
+            "scientific": "Hirundo neoxena",
+            "name": "Welcome Swallow",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 15058,
+            "rank": 2,
+            "per10k": 184.27822,
+            "relative": 1.03203,
+            "topSeven": true
+          },
+          {
+            "scientific": "Trichoglossus moluccanus",
+            "name": "Rainbow Lorikeet",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 13924,
+            "rank": 5,
+            "per10k": 170.40045,
+            "relative": 0.96954,
+            "topSeven": true
+          },
+          {
+            "scientific": "Rhipidura leucophrys",
+            "name": "Willie Wagtail",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 12766,
+            "rank": 6,
+            "per10k": 156.22897,
+            "relative": 0.95106,
+            "topSeven": true
+          },
+          {
+            "scientific": "Malurus cyaneus",
+            "name": "Superb Fairy-wren",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 14571,
+            "rank": 4,
+            "per10k": 178.31837,
+            "relative": 1.08786,
+            "topSeven": true
+          },
+          {
+            "scientific": "Manorina melanocephala",
+            "name": "Noisy Miner",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 11636,
+            "rank": 8,
+            "per10k": 142.40014,
+            "relative": 0.93704,
+            "topSeven": true
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.name===highlight"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 13,
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#ad7926"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": {
+            "title": null,
+            "labelAngle": 0,
+            "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1,
+              9
+            ],
+            "reverse": true,
+            "zero": false
+          },
+          "axis": {
+            "title": "Most recorded → lower rank",
+            "tickCount": 9,
+            "format": "d"
+          }
+        },
         "text": {
           "field": "name"
         }

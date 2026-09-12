@@ -19,17 +19,17 @@ This is a planning and explanation aid. It does not guarantee a grade, replace t
 | Requirement | Evidence / remaining work |
 |---|---|
 | More than ten charts | Thirteen separately numbered figures; no repeated small multiples are counted as extra charts. |
-| At least eight advanced idioms | Gridded map, choropleth, proportional-symbol map, treemap, alluvial diagram, circular heatmap, bump chart, ridgeline, species heatmap, beeswarm and UpSet. Related heatmaps should not be double-counted as entirely new idioms. The paired-dot chart is retained for clarity, not claimed as advanced. Final classification is the tutor's judgement. |
+| At least eight advanced idioms | Gridded map, choropleth, proportional-symbol map, treemap, alluvial diagram, circular heatmap, bump chart, ridgeline, species heatmap, beeswarm and UpSet. The coverage calendar is now a categorical status matrix rather than a second continuous heatmap, so it no longer duplicates the species heatmap. The closing chart is a diverging lollipop and is not claimed as advanced. Final classification is the tutor's judgement. |
 | Three distinct map idioms | One-degree gridded count map, state record-density choropleth and seasonal proportional-symbol map. |
 | Vega / Vega-Lite | All thirteen diagrams use these libraries, with public readable JSON files prepared. |
 | Two different data sources combined | ALA-hosted community records join DCCEEW national listings by scientific name. Land-area comparison adds Geoscience Australia. ALA and GBIF are not falsely treated as independent duplicate datasets. |
 | Recent reliable data | Latest accessible snapshot retrieved September 2026, August 2026 conservation list, recent platform comparison. The 2024 seasonal baseline is explicitly justified by missing recent eBird coverage. |
+| Public GitHub page | Published and verified loading for a signed-out visitor at the live URL, with all thirteen charts drawing. Re-verify after the next push. |
 | Storytelling and annotation | Four narrative chapters, interpretive titles, margin findings, chart labels and reading guidance. This is a qualitative marking judgement, not a box that guarantees HD. |
-| Layout, colour, typography | User-selected field-journal design with original illustration, responsive spreads and meaningful colour. Verify in the final browser view. |
-| Interactivity | Season selector, species highlighting, tooltips and accessible data tables. Key findings are visible without operating controls. |
+| Layout, colour, typography | One twelve-column grid at a 24px gutter, three span patterns and five vertical sight lines down the page. Four type steps from 20px to 11px with every prose block capped near 60 characters and no centred multi-line text. Green means record volume on every figure; the only categorical hues left are the four seasons, which avoid red against green. |
+| Interactivity | Season selector, species highlighting, tooltips and accessible data tables. The bump chart opens on the Welcome Swallow, the bird its headline is about, so the claim is visible before any control is touched. |
 | Authorship and attribution | Author/date, original data references, library/font credits and explicit AI acknowledgement. |
 | Hand-drawn sketch | Still required from the student. The user reports their lecturer permits drawing it after the website. Draw the actual final layout by hand; include at least four clear sections and varied maps/diagrams. |
-| Public GitHub page | Not yet published. This is the final stage requested by the user. Localhost is not a submission URL. Verify all public files after publishing. |
 | Moodle description | Adapt the rationale above to the supplied template; include the page URL and hand-drawn sketch PDF URL. |
 | Interview | Student must explain the choices, transformations, limitations and course concepts in their own words. |
 
@@ -43,6 +43,11 @@ This is a planning and explanation aid. It does not guarantee a grade, replace t
 6. How to read an UpSet column and why summing per-state totals would double-count taxa.
 7. Why the recent eBird coverage requires separating the 2024 baseline from the recent view.
 8. The tradeoff between unusual visual forms and clarity, particularly the circular heatmap and ridgeline.
+9. Why the coverage calendar encodes only whether a month has records, rather than how many. A ramp normalised per row made 719,000 and 22,400 the same green, so colour meant something different in every row.
+10. Why the closing chart shows percentage change rather than change per 10,000. On the absolute scale the most-recorded birds top the ranking on base rate alone: the Kookaburra's fall of 5.1 is 2.6% of its share while the Silvereye's 6.2 is 10.7%.
+11. Why the species heatmap keeps four near-flat rows. They are the control that makes the migrant rows mean something; a chart of only movers would overstate how seasonal Australian birdlife is.
+12. Why no chart uses hue to name a species. Seven arbitrary hues would exceed the handful the colour notes allow and would make green mean both a bird and a record count.
+13. Why the data does not support a flow map. A flow map needs an origin, a destination and a magnitude on one row, and every table here is a count at one place or in one category. Drawing bee-eater arrows would manufacture the migration inference the captions disclaim.
 
 ## Before submission
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 775,
+  "width": 740,
   "height": 360,
   "padding": 8,
   "config": {
@@ -44,7 +44,7 @@
       "anchor": "start"
     }
   },
-  "description": "Source-by-month coverage for 2024–2026. Coloured cells contain records; crosses mean no records in this archived dataset snapshot, not zero birds. Months after August 2026 are outside the comparison.",
+  "description": "Source-by-month coverage for 2024–2026. Colour marks whether a month holds records at all; the printed number gives the count. Crosses mean no records in this archived dataset snapshot, not zero birds. Months after August 2026 are outside the comparison.",
   "data": {
     "values": [
       {
@@ -56,6 +56,7 @@
         "count": 719382,
         "relative": 0.70011,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "719k"
       },
       {
@@ -67,6 +68,7 @@
         "count": 549671,
         "relative": 0.53494,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "550k"
       },
       {
@@ -78,6 +80,7 @@
         "count": 590903,
         "relative": 0.57507,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "591k"
       },
       {
@@ -89,6 +92,7 @@
         "count": 612572,
         "relative": 0.59616,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "613k"
       },
       {
@@ -100,6 +104,7 @@
         "count": 546541,
         "relative": 0.5319,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "547k"
       },
       {
@@ -111,6 +116,7 @@
         "count": 576856,
         "relative": 0.5614,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "577k"
       },
       {
@@ -122,6 +128,7 @@
         "count": 619134,
         "relative": 0.60254,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "619k"
       },
       {
@@ -133,6 +140,7 @@
         "count": 709162,
         "relative": 0.69016,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "709k"
       },
       {
@@ -144,6 +152,7 @@
         "count": 817939,
         "relative": 0.79602,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "818k"
       },
       {
@@ -155,6 +164,7 @@
         "count": 1027534,
         "relative": 1,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "1028k"
       },
       {
@@ -166,6 +176,7 @@
         "count": 817971,
         "relative": 0.79605,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "818k"
       },
       {
@@ -177,6 +188,7 @@
         "count": 720876,
         "relative": 0.70156,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "721k"
       },
       {
@@ -188,6 +200,7 @@
         "count": 80514,
         "relative": 0.71041,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "80.5k"
       },
       {
@@ -199,6 +212,7 @@
         "count": 68217,
         "relative": 0.60191,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "68.2k"
       },
       {
@@ -210,6 +224,7 @@
         "count": 73243,
         "relative": 0.64626,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "73.2k"
       },
       {
@@ -221,6 +236,7 @@
         "count": 81376,
         "relative": 0.71802,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "81.4k"
       },
       {
@@ -232,6 +248,7 @@
         "count": 73844,
         "relative": 0.65156,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "73.8k"
       },
       {
@@ -243,6 +260,7 @@
         "count": 65501,
         "relative": 0.57795,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "65.5k"
       },
       {
@@ -254,6 +272,7 @@
         "count": 69333,
         "relative": 0.61176,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "69.3k"
       },
       {
@@ -265,6 +284,7 @@
         "count": 84011,
         "relative": 0.74127,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "84.0k"
       },
       {
@@ -276,6 +296,7 @@
         "count": 93152,
         "relative": 0.82192,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "93.2k"
       },
       {
@@ -287,6 +308,7 @@
         "count": 113334,
         "relative": 1,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "113k"
       },
       {
@@ -298,6 +320,7 @@
         "count": 85431,
         "relative": 0.7538,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "85.4k"
       },
       {
@@ -309,6 +332,7 @@
         "count": 69238,
         "relative": 0.61092,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "69.2k"
       },
       {
@@ -320,6 +344,7 @@
         "count": 22356,
         "relative": 0.55479,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "22.4k"
       },
       {
@@ -331,6 +356,7 @@
         "count": 18468,
         "relative": 0.45831,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "18.5k"
       },
       {
@@ -342,6 +368,7 @@
         "count": 22342,
         "relative": 0.55445,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "22.3k"
       },
       {
@@ -353,6 +380,7 @@
         "count": 24670,
         "relative": 0.61222,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "24.7k"
       },
       {
@@ -364,6 +392,7 @@
         "count": 21137,
         "relative": 0.52454,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "21.1k"
       },
       {
@@ -375,6 +404,7 @@
         "count": 21008,
         "relative": 0.52134,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "21.0k"
       },
       {
@@ -386,6 +416,7 @@
         "count": 24433,
         "relative": 0.60634,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "24.4k"
       },
       {
@@ -397,6 +428,7 @@
         "count": 28259,
         "relative": 0.70129,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "28.3k"
       },
       {
@@ -408,6 +440,7 @@
         "count": 40296,
         "relative": 1,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "40.3k"
       },
       {
@@ -419,6 +452,7 @@
         "count": 32383,
         "relative": 0.80363,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "32.4k"
       },
       {
@@ -430,6 +464,7 @@
         "count": 27815,
         "relative": 0.69027,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "27.8k"
       },
       {
@@ -441,6 +476,7 @@
         "count": 27020,
         "relative": 0.67054,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "27.0k"
       },
       {
@@ -452,6 +488,7 @@
         "count": 853674,
         "relative": 1,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "854k"
       },
       {
@@ -463,6 +500,7 @@
         "count": 626812,
         "relative": 0.73425,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "627k"
       },
       {
@@ -474,6 +512,7 @@
         "count": 643363,
         "relative": 0.75364,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "643k"
       },
       {
@@ -485,6 +524,7 @@
         "count": 699590,
         "relative": 0.8195,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "700k"
       },
       {
@@ -496,6 +536,7 @@
         "count": 629925,
         "relative": 0.7379,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "630k"
       },
       {
@@ -507,6 +548,7 @@
         "count": 662232,
         "relative": 0.77574,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "662k"
       },
       {
@@ -518,6 +560,7 @@
         "count": 702250,
         "relative": 0.82262,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "702k"
       },
       {
@@ -529,6 +572,7 @@
         "count": 782863,
         "relative": 0.91705,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "783k"
       },
       {
@@ -540,6 +584,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -551,6 +596,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -562,6 +608,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -573,6 +620,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -584,6 +632,7 @@
         "count": 73835,
         "relative": 0.66377,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "73.8k"
       },
       {
@@ -595,6 +644,7 @@
         "count": 66517,
         "relative": 0.59798,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "66.5k"
       },
       {
@@ -606,6 +656,7 @@
         "count": 70959,
         "relative": 0.63791,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "71.0k"
       },
       {
@@ -617,6 +668,7 @@
         "count": 81618,
         "relative": 0.73374,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "81.6k"
       },
       {
@@ -628,6 +680,7 @@
         "count": 72178,
         "relative": 0.64887,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "72.2k"
       },
       {
@@ -639,6 +692,7 @@
         "count": 64568,
         "relative": 0.58046,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "64.6k"
       },
       {
@@ -650,6 +704,7 @@
         "count": 73367,
         "relative": 0.65956,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "73.4k"
       },
       {
@@ -661,6 +716,7 @@
         "count": 77946,
         "relative": 0.70073,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "77.9k"
       },
       {
@@ -672,6 +728,7 @@
         "count": 94066,
         "relative": 0.84564,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "94.1k"
       },
       {
@@ -683,6 +740,7 @@
         "count": 111236,
         "relative": 1,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "111k"
       },
       {
@@ -694,6 +752,7 @@
         "count": 91529,
         "relative": 0.82284,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "91.5k"
       },
       {
@@ -705,6 +764,7 @@
         "count": 74448,
         "relative": 0.66928,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "74.4k"
       },
       {
@@ -716,6 +776,7 @@
         "count": 30140,
         "relative": 0.55528,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "30.1k"
       },
       {
@@ -727,6 +788,7 @@
         "count": 25182,
         "relative": 0.46394,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "25.2k"
       },
       {
@@ -738,6 +800,7 @@
         "count": 26243,
         "relative": 0.48348,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "26.2k"
       },
       {
@@ -749,6 +812,7 @@
         "count": 32622,
         "relative": 0.60101,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "32.6k"
       },
       {
@@ -760,6 +824,7 @@
         "count": 28546,
         "relative": 0.52591,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "28.5k"
       },
       {
@@ -771,6 +836,7 @@
         "count": 32665,
         "relative": 0.6018,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "32.7k"
       },
       {
@@ -782,6 +848,7 @@
         "count": 34103,
         "relative": 0.62829,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "34.1k"
       },
       {
@@ -793,6 +860,7 @@
         "count": 41422,
         "relative": 0.76313,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "41.4k"
       },
       {
@@ -804,6 +872,7 @@
         "count": 44261,
         "relative": 0.81544,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "44.3k"
       },
       {
@@ -815,6 +884,7 @@
         "count": 54279,
         "relative": 1,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "54.3k"
       },
       {
@@ -826,6 +896,7 @@
         "count": 39558,
         "relative": 0.72879,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "39.6k"
       },
       {
@@ -837,6 +908,7 @@
         "count": 38640,
         "relative": 0.71188,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "38.6k"
       },
       {
@@ -848,6 +920,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -859,6 +932,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -870,6 +944,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -881,6 +956,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -892,6 +968,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -903,6 +980,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -914,6 +992,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -925,6 +1004,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -936,6 +1016,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -947,6 +1028,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -958,6 +1040,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -969,6 +1052,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -980,6 +1064,7 @@
         "count": 73806,
         "relative": 0.93728,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "73.8k"
       },
       {
@@ -991,6 +1076,7 @@
         "count": 66275,
         "relative": 0.84164,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "66.3k"
       },
       {
@@ -1002,6 +1088,7 @@
         "count": 67798,
         "relative": 0.86098,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "67.8k"
       },
       {
@@ -1013,6 +1100,7 @@
         "count": 78745,
         "relative": 1,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "78.7k"
       },
       {
@@ -1024,6 +1112,7 @@
         "count": 65518,
         "relative": 0.83203,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "65.5k"
       },
       {
@@ -1035,6 +1124,7 @@
         "count": 47496,
         "relative": 0.60316,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "47.5k"
       },
       {
@@ -1046,6 +1136,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -1057,6 +1148,7 @@
         "count": 0,
         "relative": null,
         "availability": "No records in snapshot",
+        "coverage": "No records in this snapshot (×)",
         "cellLabel": "×"
       },
       {
@@ -1068,6 +1160,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -1079,6 +1172,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -1090,6 +1184,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -1101,6 +1196,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -1112,6 +1208,7 @@
         "count": 40729,
         "relative": 0.9062,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "40.7k"
       },
       {
@@ -1123,6 +1220,7 @@
         "count": 31928,
         "relative": 0.71038,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "31.9k"
       },
       {
@@ -1134,6 +1232,7 @@
         "count": 34702,
         "relative": 0.7721,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "34.7k"
       },
       {
@@ -1145,6 +1244,7 @@
         "count": 41762,
         "relative": 0.92918,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "41.8k"
       },
       {
@@ -1156,6 +1256,7 @@
         "count": 37003,
         "relative": 0.8233,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "37.0k"
       },
       {
@@ -1167,6 +1268,7 @@
         "count": 37931,
         "relative": 0.84394,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "37.9k"
       },
       {
@@ -1178,6 +1280,7 @@
         "count": 41951,
         "relative": 0.93339,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "42.0k"
       },
       {
@@ -1189,6 +1292,7 @@
         "count": 44945,
         "relative": 1,
         "availability": "Recorded",
+        "coverage": "Records in this snapshot",
         "cellLabel": "44.9k"
       },
       {
@@ -1200,6 +1304,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -1211,6 +1316,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -1222,6 +1328,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       },
       {
@@ -1233,6 +1340,7 @@
         "count": null,
         "relative": null,
         "availability": "Outside comparison",
+        "coverage": "Outside the comparison (—)",
         "cellLabel": "—"
       }
     ]
@@ -1278,7 +1386,7 @@
       "axis": {
         "title": null,
         "labelFontSize": 12,
-        "labelLimit": 140
+        "labelLimit": 170
       }
     },
     "tooltip": [
@@ -1315,32 +1423,35 @@
       },
       "encoding": {
         "color": {
-          "condition": {
-            "test": "datum.availability==='Recorded'",
-            "field": "relative",
-            "type": "quantitative",
-            "scale": {
-              "domain": [
-                0,
-                1
-              ],
-              "range": [
-                "#c9d6c2",
-                "#315e4c"
-              ]
-            },
-            "legend": {
-              "title": "Record volume relative to each row’s peak",
-              "orient": "bottom",
-              "gradientLength": 170,
-              "values": [
-                0,
-                1
-              ],
-              "format": ".0%"
-            }
+          "field": "coverage",
+          "type": "nominal",
+          "sort": [
+            "Records in this snapshot",
+            "No records in this snapshot (×)",
+            "Outside the comparison (—)"
+          ],
+          "scale": {
+            "domain": [
+              "Records in this snapshot",
+              "No records in this snapshot (×)",
+              "Outside the comparison (—)"
+            ],
+            "range": [
+              "#315e4c",
+              "#ddd7c6",
+              "#f2eee4"
+            ]
           },
-          "value": "#e5e0d4"
+          "legend": {
+            "title": null,
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 3,
+            "symbolType": "square",
+            "symbolSize": 170,
+            "labelLimit": 300,
+            "offset": 14
+          }
         }
       }
     },
@@ -1356,7 +1467,7 @@
         },
         "color": {
           "condition": {
-            "test": "datum.relative>0.58",
+            "test": "datum.availability==='Recorded'",
             "value": "#f8f5ec"
           },
           "value": "#60665c"
