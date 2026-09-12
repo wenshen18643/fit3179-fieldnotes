@@ -41,7 +41,7 @@
       "padding": 8
     }
   },
-  "description": "Treemap of the fifteen most-recorded bird families and the remainder. Rectangle area encodes records, not species richness.",
+  "description": "Treemap of the fifteen most-recorded bird families and the remainder. Rectangle area and colour lightness both encode records, not species richness.",
   "data": [
     {
       "name": "tree",
@@ -57,8 +57,10 @@
           "share": 0.11140786234474341,
           "id": "Meliphagidae",
           "parent": "root",
+          "rank": 0,
           "label": "Honeyeaters",
-          "rank": 0
+          "longLabel": "Honeyeaters",
+          "onDark": true
         },
         {
           "family": "Artamidae",
@@ -66,8 +68,10 @@
           "share": 0.06232454692091268,
           "id": "Artamidae",
           "parent": "root",
-          "label": "Magpies & allies",
-          "rank": 1
+          "rank": 1,
+          "label": "Magpies",
+          "longLabel": "Magpies, butcherbirds & woodswallows",
+          "onDark": false
         },
         {
           "family": "Psittacidae",
@@ -75,8 +79,10 @@
           "share": 0.05774587554075733,
           "id": "Psittacidae",
           "parent": "root",
+          "rank": 2,
           "label": "Parrots",
-          "rank": 2
+          "longLabel": "Parrots & lorikeets",
+          "onDark": false
         },
         {
           "family": "Anatidae",
@@ -84,8 +90,10 @@
           "share": 0.05577781439740215,
           "id": "Anatidae",
           "parent": "root",
-          "label": "Ducks & allies",
-          "rank": 3
+          "rank": 3,
+          "label": "Ducks",
+          "longLabel": "Ducks, geese & swans",
+          "onDark": false
         },
         {
           "family": "Columbidae",
@@ -93,8 +101,10 @@
           "share": 0.04518771142872718,
           "id": "Columbidae",
           "parent": "root",
-          "label": "Pigeons & doves",
-          "rank": 4
+          "rank": 4,
+          "label": "Pigeons",
+          "longLabel": "Pigeons & doves",
+          "onDark": false
         },
         {
           "family": "Cacatuidae",
@@ -102,8 +112,10 @@
           "share": 0.04345732974850881,
           "id": "Cacatuidae",
           "parent": "root",
+          "rank": 5,
           "label": "Cockatoos",
-          "rank": 5
+          "longLabel": "Cockatoos",
+          "onDark": false
         },
         {
           "family": "Acanthizidae",
@@ -111,8 +123,10 @@
           "share": 0.03817501855173841,
           "id": "Acanthizidae",
           "parent": "root",
-          "label": "Thornbills & allies",
-          "rank": 6
+          "rank": 6,
+          "label": "Thornbills",
+          "longLabel": "Thornbills & allies",
+          "onDark": false
         },
         {
           "family": "Rhipiduridae",
@@ -120,8 +134,10 @@
           "share": 0.03246193943517919,
           "id": "Rhipiduridae",
           "parent": "root",
+          "rank": 7,
           "label": "Fantails",
-          "rank": 7
+          "longLabel": "Fantails",
+          "onDark": false
         },
         {
           "family": "Rallidae",
@@ -129,8 +145,10 @@
           "share": 0.029663984313990862,
           "id": "Rallidae",
           "parent": "root",
-          "label": "Rallidae",
-          "rank": 8
+          "rank": 8,
+          "label": "Rails",
+          "longLabel": "Rails, crakes & coots",
+          "onDark": false
         },
         {
           "family": "Corvidae",
@@ -138,8 +156,10 @@
           "share": 0.027292828826299964,
           "id": "Corvidae",
           "parent": "root",
-          "label": "Crows & ravens",
-          "rank": 9
+          "rank": 9,
+          "label": "Crows",
+          "longLabel": "Crows & ravens",
+          "onDark": false
         },
         {
           "family": "Ardeidae",
@@ -147,8 +167,10 @@
           "share": 0.026857048334353602,
           "id": "Ardeidae",
           "parent": "root",
-          "label": "Ardeidae",
-          "rank": 10
+          "rank": 10,
+          "label": "Herons",
+          "longLabel": "Herons, egrets & bitterns",
+          "onDark": false
         },
         {
           "family": "Phalacrocoracidae",
@@ -156,8 +178,10 @@
           "share": 0.026651741733067582,
           "id": "Phalacrocoracidae",
           "parent": "root",
-          "label": "Phalacrocoracidae",
-          "rank": 11
+          "rank": 11,
+          "label": "Cormorants",
+          "longLabel": "Cormorants",
+          "onDark": false
         },
         {
           "family": "Monarchidae",
@@ -165,8 +189,10 @@
           "share": 0.02539222854989838,
           "id": "Monarchidae",
           "parent": "root",
-          "label": "Monarchidae",
-          "rank": 12
+          "rank": 12,
+          "label": "Monarchs",
+          "longLabel": "Monarch flycatchers",
+          "onDark": false
         },
         {
           "family": "Accipitridae",
@@ -174,8 +200,10 @@
           "share": 0.024624887295447897,
           "id": "Accipitridae",
           "parent": "root",
-          "label": "Accipitridae",
-          "rank": 13
+          "rank": 13,
+          "label": "Hawks",
+          "longLabel": "Hawks, eagles & kites",
+          "onDark": false
         },
         {
           "family": "Pachycephalidae",
@@ -183,8 +211,10 @@
           "share": 0.02381577460635122,
           "id": "Pachycephalidae",
           "parent": "root",
-          "label": "Whistlers & allies",
-          "rank": 14
+          "rank": 14,
+          "label": "Whistlers",
+          "longLabel": "Whistlers & allies",
+          "onDark": false
         },
         {
           "family": "Other families / unassigned",
@@ -192,8 +222,10 @@
           "share": 0.3691634079726213,
           "id": "Other families / unassigned",
           "parent": "root",
+          "rank": 15,
           "label": "Other families / unassigned",
-          "rank": 15
+          "longLabel": "Other families / unassigned",
+          "onDark": true
         }
       ],
       "transform": [
@@ -213,7 +245,7 @@
           "ratio": 1.35,
           "size": [
             904,
-            380
+            336
           ],
           "paddingInner": 4
         }
@@ -233,42 +265,14 @@
   "scales": [
     {
       "name": "fill",
-      "type": "ordinal",
+      "type": "log",
       "domain": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
+        228058,
+        3535080
       ],
       "range": [
-        "#315e4c",
-        "#856125",
-        "#536a48",
-        "#4b6974",
-        "#775238",
-        "#5b714d",
-        "#526b58",
-        "#716347",
-        "#315e4c",
-        "#856125",
-        "#536a48",
-        "#4b6974",
-        "#775238",
-        "#5b714d",
-        "#526b58",
-        "#ded8c7"
+        "#e2e7d8",
+        "#315e4c"
       ]
     }
   ],
@@ -294,24 +298,13 @@
           },
           "fill": {
             "scale": "fill",
-            "field": "rank"
-          },
-          "fillOpacity": {
-            "value": 0.94
+            "field": "count"
           },
           "tooltip": {
-            "signal": "{'Family':datum.family,'Records':format(datum.count,','),'Share':format(datum.share,'.1%')}"
-          }
-        },
-        "update": {
-          "fillOpacity": {
-            "value": 0.94
+            "signal": "{'Family':datum.longLabel,'Scientific family':datum.family,'Records':format(datum.count,','),'Share':format(datum.share,'.1%')}"
           }
         },
         "hover": {
-          "fillOpacity": {
-            "value": 1
-          },
           "stroke": {
             "value": "#292e27"
           },
@@ -338,19 +331,19 @@
             "field": "label"
           },
           "fill": {
-            "signal": "datum.rank===15?'#292e27':'#fffdf5'"
+            "signal": "datum.onDark?'#fffdf5':'#292e27'"
           },
           "fontSize": {
-            "value": 13
+            "value": 12
           },
           "fontWeight": {
             "value": 500
           },
           "limit": {
-            "signal": "datum.x1-datum.x0-22"
+            "signal": "datum.x1-datum.x0-20"
           },
           "opacity": {
-            "signal": "datum.x1-datum.x0>70 && datum.y1-datum.y0>48?1:0"
+            "signal": "datum.x1-datum.x0 > length(datum.label)*6.959999999999999+22 && datum.y1-datum.y0>42?1:0"
           }
         }
       }
@@ -372,16 +365,36 @@
             "signal": "format(datum.share,'.1%')"
           },
           "fill": {
-            "signal": "datum.rank===15?'#292e27':'#fffdf5'"
+            "signal": "datum.onDark?'#fffdf5':'#292e27'"
           },
           "fontSize": {
-            "value": 12
+            "value": 11
           },
           "opacity": {
-            "signal": "datum.x1-datum.x0>65 && datum.y1-datum.y0>53?1:0"
+            "signal": "datum.x1-datum.x0>58 && datum.y1-datum.y0>48?1:0"
           }
         }
       }
+    }
+  ],
+  "legends": [
+    {
+      "fill": "fill",
+      "type": "gradient",
+      "direction": "horizontal",
+      "orient": "none",
+      "legendX": 0,
+      "legendY": 350,
+      "title": "Records",
+      "titleLimit": 904,
+      "values": [
+        300000,
+        1000000,
+        3000000
+      ],
+      "format": ".0s",
+      "gradientLength": 240,
+      "gradientThickness": 9
     }
   ]
 }

@@ -225,7 +225,8 @@
           "label": "New South Wales",
           "count": 2455993,
           "y0": 32,
-          "y1": 105.86505278551768
+          "y1": 105.86505278551768,
+          "labelY": 68.93252639275883
         },
         {
           "side": "right",
@@ -233,7 +234,8 @@
           "label": "Victoria",
           "count": 2450501,
           "y0": 116.86505278551768,
-          "y1": 190.5649312933
+          "y1": 190.5649312933,
+          "labelY": 153.71499203940883
         },
         {
           "side": "right",
@@ -241,7 +243,8 @@
           "label": "Queensland",
           "count": 2335374,
           "y0": 201.5649312933,
-          "y1": 271.80231543239387
+          "y1": 271.80231543239387,
+          "labelY": 214
         },
         {
           "side": "right",
@@ -249,7 +252,8 @@
           "label": "Western Australia",
           "count": 706605,
           "y0": 282.80231543239387,
-          "y1": 304.05376672867635
+          "y1": 304.05376672867635,
+          "labelY": 248
         },
         {
           "side": "right",
@@ -257,7 +261,8 @@
           "label": "South Australia",
           "count": 490319,
           "y0": 315.05376672867635,
-          "y1": 329.80032293496123
+          "y1": 329.80032293496123,
+          "labelY": 282
         },
         {
           "side": "right",
@@ -265,7 +270,8 @@
           "label": "Tasmania",
           "count": 463068,
           "y0": 340.80032293496123,
-          "y1": 354.727293518055
+          "y1": 354.727293518055,
+          "labelY": 316
         },
         {
           "side": "right",
@@ -273,7 +279,8 @@
           "label": "Australian Capital Territory",
           "count": 343863,
           "y0": 365.7272935180549,
-          "y1": 376.0691221169094
+          "y1": 376.0691221169094,
+          "labelY": 350
         },
         {
           "side": "right",
@@ -281,7 +288,8 @@
           "label": "Northern Territory",
           "count": 330199,
           "y0": 387.0691221169094,
-          "y1": 396.99999999999994
+          "y1": 396.99999999999994,
+          "labelY": 384
         },
         {
           "side": "left",
@@ -290,7 +298,8 @@
           "count": 8308541,
           "y0": 46.5,
           "y1": 296.38296771840874,
-          "source": "eBird Australia"
+          "source": "eBird Australia",
+          "labelY": 171.44148385920437
         },
         {
           "side": "left",
@@ -299,7 +308,8 @@
           "count": 957194,
           "y0": 320.38296771840874,
           "y1": 349.1709916810099,
-          "source": "BirdLife Australia, Birdata"
+          "source": "BirdLife Australia, Birdata",
+          "labelY": 334.77697969970933
         },
         {
           "side": "left",
@@ -308,7 +318,37 @@
           "count": 310187,
           "y0": 373.1709916810099,
           "y1": 382.5,
-          "source": "iNaturalist Australia"
+          "source": "iNaturalist Australia",
+          "labelY": 377.83549584050496
+        }
+      ]
+    },
+    {
+      "name": "leaders",
+      "values": [
+        {
+          "y": 236.68362336284693,
+          "labelY": 214
+        },
+        {
+          "y": 293.4280410805351,
+          "labelY": 248
+        },
+        {
+          "y": 322.42704483181876,
+          "labelY": 282
+        },
+        {
+          "y": 347.7638082265081,
+          "labelY": 316
+        },
+        {
+          "y": 370.89820781748216,
+          "labelY": 350
+        },
+        {
+          "y": 392.03456105845464,
+          "labelY": 384
         }
       ]
     }
@@ -392,6 +432,34 @@
       }
     },
     {
+      "type": "rule",
+      "from": {
+        "data": "leaders"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 766
+          },
+          "x2": {
+            "value": 771
+          },
+          "y": {
+            "field": "y"
+          },
+          "y2": {
+            "field": "labelY"
+          },
+          "stroke": {
+            "value": "#d5d0c1"
+          },
+          "strokeWidth": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
       "type": "text",
       "from": {
         "data": "nodes"
@@ -402,7 +470,7 @@
             "signal": "datum.side==='left'?136:773"
           },
           "y": {
-            "signal": "(datum.y0+datum.y1)/2-6"
+            "signal": "datum.labelY-6"
           },
           "text": {
             "field": "name"
@@ -430,7 +498,7 @@
             "signal": "datum.side==='left'?136:773"
           },
           "y": {
-            "signal": "(datum.y0+datum.y1)/2+11"
+            "signal": "datum.labelY+11"
           },
           "text": {
             "signal": "format(datum.count/9575922,'.1%')"

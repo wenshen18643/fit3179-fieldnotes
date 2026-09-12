@@ -44,7 +44,7 @@
       "anchor": "start"
     }
   },
-  "description": "Paired-endpoint comparison of 2024 and 2025 iNaturalist record shares. The six largest absolute changes among the featured species are shown. Platform-specific record share is not population change.",
+  "description": "Percentage change in each featured bird’s share of all iNaturalist Australian bird records between 2024 and 2025, around a zero midpoint. Relative change removes the base-rate advantage of the most-recorded birds. Platform-specific record share is not population change.",
   "data": {
     "values": [
       {
@@ -54,7 +54,8 @@
         "count2025": 6856,
         "rate2024": 149.2326,
         "rate2025": 160.3139,
-        "difference": 11.0813
+        "difference": 11.0813,
+        "pct": 7.425522305448005
       },
       {
         "scientific": "Rhipidura leucophrys",
@@ -63,7 +64,8 @@
         "count2025": 4665,
         "rate2024": 115.8978,
         "rate2025": 109.0817,
-        "difference": -6.8161
+        "difference": -6.8161,
+        "pct": -5.8811297539729015
       },
       {
         "scientific": "Eolophus roseicapilla",
@@ -72,7 +74,8 @@
         "count2025": 5373,
         "rate2024": 118.9283,
         "rate2025": 125.6369,
-        "difference": 6.7086
+        "difference": 6.7086,
+        "pct": 5.640877738940188
       },
       {
         "scientific": "Zosterops lateralis",
@@ -81,7 +84,8 @@
         "count2025": 2242,
         "rate2024": 58.6743,
         "rate2025": 52.4247,
-        "difference": -6.2496
+        "difference": -6.2496,
+        "pct": -10.651341387967134
       },
       {
         "scientific": "Dacelo novaeguineae",
@@ -90,7 +94,8 @@
         "count2025": 8267,
         "rate2024": 198.4287,
         "rate2025": 193.3073,
-        "difference": -5.1214
+        "difference": -5.1214,
+        "pct": -2.5809774493306636
       },
       {
         "scientific": "Hirundo neoxena",
@@ -99,48 +104,66 @@
         "count2025": 3535,
         "rate2024": 78.8879,
         "rate2025": 82.6589,
-        "difference": 3.771
+        "difference": 3.771,
+        "pct": 4.780200765896925
       }
     ]
-  },
-  "encoding": {
-    "y": {
-      "field": "name",
-      "type": "ordinal",
-      "sort": {
-        "field": "difference",
-        "order": "descending"
-      },
-      "axis": {
-        "title": null,
-        "labelLimit": 190,
-        "labelFontSize": 12
-      }
-    },
-    "x": {
-      "type": "quantitative",
-      "scale": {
-        "zero": true
-      },
-      "axis": {
-        "title": "Records per 10,000 iNaturalist bird records",
-        "tickCount": 4
-      }
-    }
   },
   "layer": [
     {
       "mark": {
         "type": "rule",
-        "strokeWidth": 3,
-        "color": "#b7bdac"
+        "color": "#d5d0c1",
+        "strokeWidth": 1.2
       },
       "encoding": {
         "x": {
-          "field": "rate2024"
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "name",
+          "type": "ordinal",
+          "sort": {
+            "field": "pct",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labelLimit": 190,
+            "labelFontSize": 12
+          }
+        },
+        "x": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "zero": true,
+            "nice": true
+          },
+          "axis": {
+            "title": "Change relative to the bird’s own 2024 share",
+            "titleLimit": 400,
+            "tickCount": 5,
+            "labelExpr": "format(datum.value,'+.0f')+'%'"
+          }
         },
         "x2": {
-          "field": "rate2025"
+          "datum": 0
+        },
+        "color": {
+          "condition": {
+            "test": "datum.pct>=0",
+            "value": "#315e4c"
+          },
+          "value": "#ad7926"
         }
       }
     },
@@ -148,14 +171,44 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "fill": "#f8f5ec",
-        "stroke": "#315e4c",
-        "strokeWidth": 2,
-        "size": 90
+        "size": 110,
+        "stroke": "#f8f5ec",
+        "strokeWidth": 1.5
       },
       "encoding": {
+        "y": {
+          "field": "name",
+          "type": "ordinal",
+          "sort": {
+            "field": "pct",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labelLimit": 190,
+            "labelFontSize": 12
+          }
+        },
         "x": {
-          "field": "rate2024"
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "zero": true,
+            "nice": true
+          },
+          "axis": {
+            "title": "Change relative to the bird’s own 2024 share",
+            "titleLimit": 400,
+            "tickCount": 5,
+            "labelExpr": "format(datum.value,'+.0f')+'%'"
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.pct>=0",
+            "value": "#315e4c"
+          },
+          "value": "#ad7926"
         },
         "tooltip": [
           {
@@ -163,38 +216,14 @@
             "title": "Bird"
           },
           {
-            "field": "count2024",
-            "title": "2024 records",
-            "format": ","
+            "field": "pct",
+            "title": "Change in share",
+            "format": "+.1f"
           },
           {
             "field": "rate2024",
             "title": "2024 per 10,000",
             "format": ".1f"
-          }
-        ]
-      }
-    },
-    {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "color": "#315e4c",
-        "size": 90
-      },
-      "encoding": {
-        "x": {
-          "field": "rate2025"
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Bird"
-          },
-          {
-            "field": "count2025",
-            "title": "2025 records",
-            "format": ","
           },
           {
             "field": "rate2025",
@@ -202,11 +231,126 @@
             "format": ".1f"
           },
           {
-            "field": "difference",
-            "title": "Change in share (per 10,000)",
-            "format": "+.1f"
+            "field": "count2024",
+            "title": "2024 records",
+            "format": ","
+          },
+          {
+            "field": "count2025",
+            "title": "2025 records",
+            "format": ","
           }
         ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.pct>=0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dx": 11,
+        "align": "left",
+        "fontSize": 11,
+        "fontWeight": 500
+      },
+      "encoding": {
+        "y": {
+          "field": "name",
+          "type": "ordinal",
+          "sort": {
+            "field": "pct",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labelLimit": 190,
+            "labelFontSize": 12
+          }
+        },
+        "x": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "zero": true,
+            "nice": true
+          },
+          "axis": {
+            "title": "Change relative to the bird’s own 2024 share",
+            "titleLimit": 400,
+            "tickCount": 5,
+            "labelExpr": "format(datum.value,'+.0f')+'%'"
+          }
+        },
+        "text": {
+          "field": "pct",
+          "type": "quantitative",
+          "format": "+.1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.pct>=0",
+            "value": "#315e4c"
+          },
+          "value": "#ad7926"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.pct<0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dx": -11,
+        "align": "right",
+        "fontSize": 11,
+        "fontWeight": 500
+      },
+      "encoding": {
+        "y": {
+          "field": "name",
+          "type": "ordinal",
+          "sort": {
+            "field": "pct",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labelLimit": 190,
+            "labelFontSize": 12
+          }
+        },
+        "x": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "zero": true,
+            "nice": true
+          },
+          "axis": {
+            "title": "Change relative to the bird’s own 2024 share",
+            "titleLimit": 400,
+            "tickCount": 5,
+            "labelExpr": "format(datum.value,'+.0f')+'%'"
+          }
+        },
+        "text": {
+          "field": "pct",
+          "type": "quantitative",
+          "format": "+.1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.pct>=0",
+            "value": "#315e4c"
+          },
+          "value": "#ad7926"
+        }
       }
     }
   ]

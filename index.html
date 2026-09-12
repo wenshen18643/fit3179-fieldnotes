@@ -107,7 +107,6 @@
         <h2 id="seasons-title">Turn the calendar.<br><em>The cast changes.</em></h2>
         <p>Birds move, breeding seasons arrive, and people change when they go outside. The records carry all of those influences. Follow a full year before drawing a conclusion.</p>
       </header>
-      <div class="season-key" aria-label="Australian calendar seasons"><span><i class="summer"></i>Summer · Dec–Feb</span><span><i class="autumn"></i>Autumn · Mar–May</span><span><i class="winter"></i>Winter · Jun–Aug</span><span><i class="spring"></i>Spring · Sep–Nov</span></div>
 
       <div class="clock-spread">
         <figure class="figure" id="fig-seasonal-clock" data-chart="seasonal-clock">
@@ -137,6 +136,7 @@
         <h3>One bird.<br><em>Two very different maps.</em></h3>
         <p>For rainbow bee-eaters, <strong data-stat="beeSummerSouth">48.3%</strong> of summer records lie at or south of 30°S. In winter, that share falls to <strong data-stat="beeWinterSouth">1.0%</strong>. The seasonal contrast is visible in both the map and the latitude profiles.</p>
       </div>
+      <div class="season-key" aria-label="Australian calendar seasons"><span><i class="summer"></i>Summer · Dec–Feb</span><span><i class="autumn"></i>Autumn · Mar–May</span><span><i class="winter"></i>Winter · Jun–Aug</span><span><i class="spring"></i>Spring · Sep–Nov</span></div>
       <div class="paired-spread migration-pair">
         <figure class="figure" id="fig-seasonal-footprint" data-chart="seasonal-footprint">
           <div class="figure-heading"><h3>Change the season, watch the footprint</h3></div>
@@ -154,10 +154,10 @@
       <aside class="field-citation"><span aria-hidden="true">✳</span><p><strong>The natural-history connection.</strong> BirdLife Australia describes bee-eaters returning to summer breeding areas after wintering in the north, alongside resident northern populations. Our recorded pattern is consistent with that account, but observer coverage also affects it. <a href="https://birdlife.org.au/bird-profiles/rainbow-bee-eater/" target="_blank" rel="noopener noreferrer">Read the species profile ↗</a></p></aside>
 
       <figure class="figure full-figure" id="fig-seasonal-signatures" data-chart="seasonal-signatures">
-        <div class="figure-heading"><h3>Every bird leaves a different seasonal signature</h3><span class="figure-period">2024 · eight featured species</span></div>
-        <p class="figure-deck">A species can become more prominent in the records even when the total number of sightings changes. Compare its monthly share with its usual share across the year.</p>
+        <div class="figure-heading"><h3>Some birds arrive and leave. Others are here all year.</h3><span class="figure-period">2024 · eight featured species</span></div>
+        <p class="figure-deck">The top four birds swing between almost absent and several times their usual share. The bottom four barely move all year. Each row compares a bird’s monthly share of the records with its own annual share.</p>
         <div class="chart" id="seasonal-signatures" role="img" aria-label="Heatmap of monthly record shares for eight bird species relative to their annual shares"></div>
-        <figcaption>Green means a larger-than-usual share; ochre means a smaller share. At 4, a species’ share is four times its annual share. Colour is capped at 0.25–4; tooltips retain the actual values. This adjusts for total record volume, not survey effort or detectability.</figcaption>
+        <figcaption>Green means a larger-than-usual share; ochre means a smaller share. At 4, a species’ share is four times its annual share. Colour is capped at 0.25 to 4; tooltips retain the actual values. Groups are named from the pattern in these records, not from an external migration list. This adjusts for total record volume, not survey effort or detectability.</figcaption>
       </figure>
     </section>
 
@@ -202,19 +202,17 @@
       </header>
       <figure class="figure full-figure" id="fig-coverage-calendar" data-chart="coverage-calendar">
         <div class="figure-heading"><h3>Check the coverage before comparing the years</h3><span class="figure-period">2024–August 2026</span></div>
-        <p class="figure-deck">eBird’s 2025 rows stop in August, and no 2026 eBird records appear in this filtered ALA snapshot. Those gaps are why the main seasonal story uses 2024.</p>
+        <p class="figure-deck">Green means the month holds records; the number inside is how many. eBird’s 2025 rows stop in August, and no 2026 eBird records appear in this filtered ALA snapshot. Those gaps are why the main seasonal story uses 2024.</p>
         <div class="chart" id="coverage-calendar" role="img" aria-label="Heatmap showing monthly data availability by platform from 2024 to August 2026"></div>
-        <div class="coverage-key"><span><b>×</b> No records in this source snapshot</span><span><b>—</b> Outside the comparison period</span></div>
-        <figcaption>Colour is relative to the largest month within each source-year row, so small platforms remain visible. Labels and tooltips show actual counts. Gaps can reflect data-transfer schedules; they are not evidence of birds disappearing. September 2026 is in progress and is excluded.</figcaption>
+        <figcaption>Colour marks coverage only, so a small platform’s month is as green as a large one’s; the printed counts and the tooltips carry the volume. Gaps can reflect data-transfer schedules; they are not evidence of birds disappearing. September 2026 is in progress and is excluded.</figcaption>
       </figure>
       <div class="recent-spread">
         <div class="inset-copy"><h3>One source.<br>Two complete calendars.</h3><p>iNaturalist has records in every month of both 2024 and 2025. That permits a comparison without switching between platforms.</p><p>We compare each bird’s share of all iNaturalist bird records, rather than interpreting platform growth as bird growth.</p></div>
         <figure class="figure" id="fig-recent-shares" data-chart="recent-shares">
-          <div class="figure-heading"><h3>Which featured birds changed their share?</h3><span class="figure-period">iNaturalist · 2024 vs 2025</span></div>
-          <p class="figure-deck">The six largest absolute share changes among the featured birds. Read from the open 2024 circle to the filled 2025 circle.</p>
-          <div class="comparison-key"><span><i class="open-dot"></i>2024</span><span><i class="solid-dot"></i>2025</span></div>
-          <div class="chart" id="recent-shares" role="img" aria-label="Paired-dot comparison of species record shares in iNaturalist in 2024 and 2025"></div>
-          <figcaption>Rates are records per 10,000 bird records in that year: <span data-stat="inat2024">310,187</span> total records in 2024 and <span data-stat="inat2025">427,661</span> in 2025. Photographer preferences, coverage and detectability can change; this is not a population trend.</figcaption>
+          <div class="figure-heading"><h3>Which featured birds gained ground, and which lost it?</h3><span class="figure-period">iNaturalist · 2024 vs 2025</span></div>
+          <p class="figure-deck">Each bar is how much a bird’s share of iNaturalist records grew or shrank, as a percentage of its own 2024 share. Green is a gain, ochre a loss.</p>
+            <div class="chart" id="recent-shares" role="img" aria-label="Paired-dot comparison of species record shares in iNaturalist in 2024 and 2025"></div>
+          <figcaption>Shares are records per 10,000 bird records in that year, from <span data-stat="inat2024">310,187</span> records in 2024 and <span data-stat="inat2025">427,661</span> in 2025. Percentage change is used so a common bird’s small shift is not ranked above a scarcer bird’s large one; the data table keeps both. Photographer preferences, coverage and detectability can change; this is not a population trend.</figcaption>
         </figure>
       </div>
     </section>

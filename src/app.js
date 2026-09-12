@@ -24,6 +24,10 @@ function fillStats(){
   for(const el of document.querySelectorAll('[data-stat]')) if(values[el.dataset.stat]!==undefined)el.textContent=values[el.dataset.stat];
   const select=document.getElementById('bird-highlight');
   for(const name of new Set(D.rankings.map(r=>r.name))){const option=document.createElement('option');option.textContent=name;select.append(option);}
+  // The bump chart's headline promises a bird changing places, so the page must
+  // land on that bird rather than on an unhighlighted default the reader has to
+  // discover. 'All birds' remains in the list as the reset.
+  if([...select.options].some(o=>o.value==='Welcome Swallow')) select.value='Welcome Swallow';
 }
 
 const tableKeys={

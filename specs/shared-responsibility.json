@@ -53,118 +53,61 @@
       "values": [
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3
         }
@@ -175,9 +118,6 @@
       "values": [
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "code": "WA",
@@ -186,9 +126,6 @@
         },
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "code": "NT",
@@ -197,9 +134,6 @@
         },
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "code": "SA",
@@ -208,9 +142,6 @@
         },
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "code": "QLD",
@@ -219,9 +150,6 @@
         },
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "code": "NSW",
@@ -230,9 +158,6 @@
         },
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "code": "VIC",
@@ -241,9 +166,6 @@
         },
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "code": "TAS",
@@ -252,9 +174,6 @@
         },
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "code": "ACT",
@@ -263,14 +182,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "code": "WA",
@@ -279,14 +190,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "code": "NT",
@@ -295,14 +198,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "code": "SA",
@@ -311,14 +206,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "code": "QLD",
@@ -327,14 +214,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "code": "NSW",
@@ -343,14 +222,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "code": "VIC",
@@ -359,14 +230,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "code": "TAS",
@@ -375,14 +238,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "code": "ACT",
@@ -391,9 +246,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "code": "WA",
@@ -402,9 +254,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "code": "NT",
@@ -413,9 +262,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "code": "SA",
@@ -424,9 +270,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "code": "QLD",
@@ -435,9 +278,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "code": "NSW",
@@ -446,9 +286,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "code": "VIC",
@@ -457,9 +294,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "code": "TAS",
@@ -468,9 +302,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "code": "ACT",
@@ -479,15 +310,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "code": "WA",
@@ -496,15 +318,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "code": "NT",
@@ -513,15 +326,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "code": "SA",
@@ -530,15 +334,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "code": "QLD",
@@ -547,15 +342,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "code": "NSW",
@@ -564,15 +350,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "code": "VIC",
@@ -581,15 +358,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "code": "TAS",
@@ -598,15 +366,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "code": "ACT",
@@ -615,9 +374,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "code": "WA",
@@ -626,9 +382,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "code": "NT",
@@ -637,9 +390,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "code": "SA",
@@ -648,9 +398,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "code": "QLD",
@@ -659,9 +406,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "code": "NSW",
@@ -670,9 +414,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "code": "VIC",
@@ -681,9 +422,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "code": "TAS",
@@ -692,9 +430,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "code": "ACT",
@@ -703,10 +438,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "code": "WA",
@@ -715,10 +446,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "code": "NT",
@@ -727,10 +454,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "code": "SA",
@@ -739,10 +462,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "code": "QLD",
@@ -751,10 +470,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "code": "NSW",
@@ -763,10 +478,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "code": "VIC",
@@ -775,10 +486,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "code": "TAS",
@@ -787,10 +494,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "code": "ACT",
@@ -799,9 +502,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "code": "WA",
@@ -810,9 +510,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "code": "NT",
@@ -821,9 +518,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "code": "SA",
@@ -832,9 +526,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "code": "QLD",
@@ -843,9 +534,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "code": "NSW",
@@ -854,9 +542,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "code": "VIC",
@@ -865,9 +550,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "code": "TAS",
@@ -876,9 +558,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "code": "ACT",
@@ -887,9 +566,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "code": "WA",
@@ -898,9 +574,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "code": "NT",
@@ -909,9 +582,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "code": "SA",
@@ -920,9 +590,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "code": "QLD",
@@ -931,9 +598,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "code": "NSW",
@@ -942,9 +606,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "code": "VIC",
@@ -953,9 +614,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "code": "TAS",
@@ -964,9 +622,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "code": "ACT",
@@ -975,9 +630,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "code": "WA",
@@ -986,9 +638,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "code": "NT",
@@ -997,9 +646,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "code": "SA",
@@ -1008,9 +654,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "code": "QLD",
@@ -1019,9 +662,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "code": "NSW",
@@ -1030,9 +670,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "code": "VIC",
@@ -1041,9 +678,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "code": "TAS",
@@ -1052,9 +686,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "code": "ACT",
@@ -1063,11 +694,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "code": "WA",
@@ -1076,11 +702,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "code": "NT",
@@ -1089,11 +710,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "code": "SA",
@@ -1102,11 +718,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "code": "QLD",
@@ -1115,11 +726,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "code": "NSW",
@@ -1128,11 +734,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "code": "VIC",
@@ -1141,11 +742,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "code": "TAS",
@@ -1154,11 +750,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "code": "ACT",
@@ -1167,12 +758,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "code": "WA",
@@ -1181,12 +766,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "code": "NT",
@@ -1195,12 +774,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "code": "SA",
@@ -1209,12 +782,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "code": "QLD",
@@ -1223,12 +790,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "code": "NSW",
@@ -1237,12 +798,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "code": "VIC",
@@ -1251,12 +806,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "code": "TAS",
@@ -1265,12 +814,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "code": "ACT",
@@ -1279,13 +822,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "code": "WA",
@@ -1294,13 +830,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "code": "NT",
@@ -1309,13 +838,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "code": "SA",
@@ -1324,13 +846,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "code": "QLD",
@@ -1339,13 +854,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "code": "NSW",
@@ -1354,13 +862,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "code": "VIC",
@@ -1369,13 +870,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "code": "TAS",
@@ -1384,13 +878,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "code": "ACT",
@@ -1404,9 +891,6 @@
       "values": [
         {
           "id": 0,
-          "states": [
-            "SA"
-          ],
           "combination": "SA",
           "count": 19,
           "min": 2,
@@ -1414,14 +898,6 @@
         },
         {
           "id": 1,
-          "states": [
-            "WA",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + SA + QLD + NSW + VIC + TAS",
           "count": 16,
           "min": 0,
@@ -1429,9 +905,6 @@
         },
         {
           "id": 2,
-          "states": [
-            "WA"
-          ],
           "combination": "WA",
           "count": 15,
           "min": 0,
@@ -1439,15 +912,6 @@
         },
         {
           "id": 3,
-          "states": [
-            "WA",
-            "NT",
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
           "count": 11,
           "min": 0,
@@ -1455,9 +919,6 @@
         },
         {
           "id": 4,
-          "states": [
-            "TAS"
-          ],
           "combination": "TAS",
           "count": 10,
           "min": 6,
@@ -1465,10 +926,6 @@
         },
         {
           "id": 5,
-          "states": [
-            "QLD",
-            "NSW"
-          ],
           "combination": "QLD + NSW",
           "count": 8,
           "min": 3,
@@ -1476,9 +933,6 @@
         },
         {
           "id": 6,
-          "states": [
-            "NT"
-          ],
           "combination": "NT",
           "count": 5,
           "min": 1,
@@ -1486,9 +940,6 @@
         },
         {
           "id": 7,
-          "states": [
-            "QLD"
-          ],
           "combination": "QLD",
           "count": 5,
           "min": 3,
@@ -1496,9 +947,6 @@
         },
         {
           "id": 8,
-          "states": [
-            "NSW"
-          ],
           "combination": "NSW",
           "count": 4,
           "min": 4,
@@ -1506,11 +954,6 @@
         },
         {
           "id": 9,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC"
-          ],
           "combination": "SA + NSW + VIC",
           "count": 4,
           "min": 2,
@@ -1518,12 +961,6 @@
         },
         {
           "id": 10,
-          "states": [
-            "SA",
-            "NSW",
-            "VIC",
-            "TAS"
-          ],
           "combination": "SA + NSW + VIC + TAS",
           "count": 4,
           "min": 2,
@@ -1531,13 +968,6 @@
         },
         {
           "id": 11,
-          "states": [
-            "SA",
-            "QLD",
-            "NSW",
-            "VIC",
-            "ACT"
-          ],
           "combination": "SA + QLD + NSW + VIC + ACT",
           "count": 3,
           "min": 2,
