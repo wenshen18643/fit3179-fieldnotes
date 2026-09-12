@@ -5,10 +5,15 @@ if(document.readyState==='loading') await new Promise(resolve=>document.addEvent
 const format=new Intl.NumberFormat('en-AU');
 const views=new Map();
 const widths=new Map();
-const pending=new Map();
 const errors=[];
 let D;
-let renderQueue=Promise.resolve();
+// Charts are drawn one at a time. A chart's width is measured when it is drawn,
+// not when it is queued, so a resize arriving mid-queue cannot strand a figure
+// at a stale width. A request made while a chart is drawing re-queues it.
+const queue=[];
+const forced=new Set();
+const waiting=new Map();
+let draining=false;
 
 function fillStats(){
   const i=D.insights;
@@ -72,28 +77,51 @@ function addFigureTools(){
   }
 }
 
-async function render(id,force=false){
+async function draw(id,force){
   const el=document.getElementById(id);if(!el)return;
   const width=Math.floor(el.getBoundingClientRect().width);
+  if(width<1)return;
   if(!force&&views.has(id)&&Math.abs((widths.get(id)||0)-width)<4)return;
-  if(pending.has(id))return pending.get(id);
-  const task=async()=>{
-    el.classList.add('is-loading');el.setAttribute('aria-busy','true');widths.set(id,width);
-    try{
-      if(views.has(id)){views.get(id).finalize();views.delete(id);}
-      const spec=chartBuilders[id](D,width);
-      const result=await window.vegaEmbed(el,spec,{actions:false,renderer:'svg',tooltip:{theme:'light'},hover:true});
-      views.set(id,result.view);
-      if(id==='seasonal-footprint')await result.view.signal('season',document.getElementById('season-select').value).runAsync();
-      if(id==='monthly-ranks')await result.view.signal('highlight',document.getElementById('bird-highlight').value).runAsync();
-      el.dataset.rendered='true';
-    }catch(error){
-      errors.push(`${id}: ${error.message}`);
-      el.replaceChildren();const message=document.createElement('p');message.className='chart-error';message.textContent='This figure could not be drawn. The data table and CSV below are still available.';el.append(message);
-      console.error(id,error);
-    }finally{el.classList.remove('is-loading');el.removeAttribute('aria-busy');pending.delete(id);}
-  };
-  const promise=renderQueue.then(task);renderQueue=promise.catch(()=>{});pending.set(id,promise);return promise;
+  el.classList.add('is-loading');el.setAttribute('aria-busy','true');widths.set(id,width);
+  try{
+    if(views.has(id)){views.get(id).finalize();views.delete(id);}
+    const spec=chartBuilders[id](D,width);
+    const result=await window.vegaEmbed(el,spec,{actions:false,renderer:'svg',tooltip:{theme:'light'},hover:true});
+    views.set(id,result.view);
+    if(id==='seasonal-footprint')await result.view.signal('season',document.getElementById('season-select').value).runAsync();
+    if(id==='monthly-ranks')await result.view.signal('highlight',document.getElementById('bird-highlight').value).runAsync();
+    el.dataset.rendered='true';
+  }catch(error){
+    errors.push(`${id}: ${error.message}`);
+    el.replaceChildren();const message=document.createElement('p');message.className='chart-error';message.textContent='This figure could not be drawn. The data table and CSV below are still available.';el.append(message);
+    console.error(id,error);
+  }finally{el.classList.remove('is-loading');el.removeAttribute('aria-busy');}
+}
+
+async function drain(){
+  if(draining)return;
+  draining=true;
+  try{
+    while(queue.length){
+      const id=queue.shift();
+      const force=forced.delete(id);
+      try{await draw(id,force);}catch(error){errors.push(`${id}: ${error.message}`);}
+      if(!queue.includes(id)){const waiter=waiting.get(id);waiting.delete(id);if(waiter)waiter();}
+    }
+  }finally{draining=false;}
+}
+
+function render(id,force=false){
+  if(!document.getElementById(id)||!chartBuilders[id])return Promise.resolve();
+  if(force)forced.add(id);
+  if(!queue.includes(id))queue.push(id);
+  let promise=waiting.get(id)&&waiting.get(id).promise;
+  if(!promise){
+    let resolve;promise=new Promise(r=>{resolve=r;});
+    const waiter=()=>resolve();waiter.promise=promise;waiting.set(id,waiter);
+  }
+  drain();
+  return promise;
 }
 
 function setupControls(){
@@ -104,7 +132,7 @@ function setupControls(){
     await render('monthly-ranks');const view=views.get('monthly-ranks');if(view)await view.signal('highlight',event.target.value).runAsync();
   });
   let timer;
-  const resize=new ResizeObserver(()=>{clearTimeout(timer);timer=setTimeout(()=>{for(const id of views.keys())render(id);},180);});
+  const resize=new ResizeObserver(()=>{clearTimeout(timer);timer=setTimeout(()=>{for(const id of widths.keys())render(id);},180);});
   for(const el of document.querySelectorAll('.chart'))resize.observe(el);
   const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){render(entry.target.id);observer.unobserve(entry.target);}},{rootMargin:'700px 0px'});
   for(const el of document.querySelectorAll('.chart')){el.classList.add('is-loading');observer.observe(el);}

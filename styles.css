@@ -83,8 +83,11 @@ h1 em {color:var(--green)}
 .chart {margin:19px 0 14px;min-height:300px;position:relative;min-width:0}
 .chart.is-loading::before {content:'Drawing from the field notes…';position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-family:var(--book-font);font-size:14px;font-style:italic;color:var(--muted);white-space:nowrap}
 .chart svg {display:block;max-width:100%;height:auto}
-.chart .vega-embed {display:block;width:100%;padding:0!important}
-.chart .vega-embed>div {max-width:100%}
+/* Vega-Embed puts .vega-embed on the chart element itself and its stylesheet
+   makes that inline-block, so the box would shrink-wrap the drawn figure and
+   each resize would re-measure the shrunken width and redraw smaller. */
+.chart.vega-embed,.chart .vega-embed {display:block;width:100%;padding:0!important}
+.chart.vega-embed>div,.chart .vega-embed>div {max-width:100%}
 .figure figcaption {font-size:11px;line-height:1.7;color:var(--muted);max-width:100ch}
 .figure-tools {display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:10px;color:var(--muted)}
 .figure-tools a,.figure-tools button {text-decoration:none;border:0;background:none;padding:0;color:inherit;cursor:pointer;font:inherit}
