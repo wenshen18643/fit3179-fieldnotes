@@ -1,0 +1,85 @@
+scientific,name,month,label,season,count,rank,per10k,relative,topSeven
+Gymnorhina tibicen,Australian Magpie,1,Jan,Summer,20779,1,252.70842,1.01591,True
+Grallina cyanoleuca,Magpie-lark,1,Jan,Summer,16331,2,198.61308,1.01077,True
+Hirundo neoxena,Welcome Swallow,1,Jan,Summer,13474,6,163.86704,0.91772,True
+Trichoglossus moluccanus,Rainbow Lorikeet,1,Jan,Summer,15323,3,186.35406,1.06032,True
+Rhipidura leucophrys,Willie Wagtail,1,Jan,Summer,13525,5,164.48729,1.00133,True
+Malurus cyaneus,Superb Fairy-wren,1,Jan,Summer,15122,4,183.90956,1.12197,True
+Manorina melanocephala,Noisy Miner,1,Jan,Summer,12782,8,155.45113,1.02292,True
+Gymnorhina tibicen,Australian Magpie,2,Feb,Summer,16939,1,266.18748,1.0701,True
+Grallina cyanoleuca,Magpie-lark,2,Feb,Summer,12978,2,203.94245,1.03789,True
+Hirundo neoxena,Welcome Swallow,2,Feb,Summer,10601,5,166.58914,0.93297,True
+Trichoglossus moluccanus,Rainbow Lorikeet,2,Feb,Summer,12271,3,192.83231,1.09718,True
+Rhipidura leucophrys,Willie Wagtail,2,Feb,Summer,9763,9,153.42041,0.93396,True
+Malurus cyaneus,Superb Fairy-wren,2,Feb,Summer,11764,4,184.86508,1.1278,True
+Manorina melanocephala,Noisy Miner,2,Feb,Summer,10490,6,164.84484,1.08473,True
+Gymnorhina tibicen,Australian Magpie,3,Mar,Autumn,18773,1,273.46436,1.09935,True
+Grallina cyanoleuca,Magpie-lark,3,Mar,Autumn,14126,2,205.77199,1.0472,True
+Hirundo neoxena,Welcome Swallow,3,Mar,Autumn,12479,4,181.78031,1.01804,True
+Trichoglossus moluccanus,Rainbow Lorikeet,3,Mar,Autumn,12574,3,183.16416,1.04217,True
+Rhipidura leucophrys,Willie Wagtail,3,Mar,Autumn,11604,6,169.03427,1.02901,True
+Malurus cyaneus,Superb Fairy-wren,3,Mar,Autumn,11673,5,170.03939,1.03735,True
+Manorina melanocephala,Noisy Miner,3,Mar,Autumn,11060,7,161.10988,1.06015,True
+Gymnorhina tibicen,Australian Magpie,4,Apr,Autumn,20271,1,282.08311,1.134,True
+Grallina cyanoleuca,Magpie-lark,4,Apr,Autumn,14968,2,208.28869,1.06001,True
+Hirundo neoxena,Welcome Swallow,4,Apr,Autumn,14537,3,202.29106,1.13291,True
+Trichoglossus moluccanus,Rainbow Lorikeet,4,Apr,Autumn,13584,4,189.0295,1.07554,True
+Rhipidura leucophrys,Willie Wagtail,4,Apr,Autumn,13322,5,185.38361,1.12854,True
+Malurus cyaneus,Superb Fairy-wren,4,Apr,Autumn,11879,7,165.3034,1.00846,True
+Manorina melanocephala,Noisy Miner,4,Apr,Autumn,11726,8,163.17432,1.07374,True
+Gymnorhina tibicen,Australian Magpie,5,May,Autumn,17711,1,276.07783,1.10986,True
+Grallina cyanoleuca,Magpie-lark,5,May,Autumn,13500,2,210.43705,1.07094,True
+Hirundo neoxena,Welcome Swallow,5,May,Autumn,11746,4,183.09583,1.02541,True
+Trichoglossus moluccanus,Rainbow Lorikeet,5,May,Autumn,12728,3,198.40317,1.12887,True
+Rhipidura leucophrys,Willie Wagtail,5,May,Autumn,11662,5,181.78644,1.10664,True
+Malurus cyaneus,Superb Fairy-wren,5,May,Autumn,10169,8,158.51366,0.96704,True
+Manorina melanocephala,Noisy Miner,5,May,Autumn,10742,6,167.44554,1.10184,True
+Gymnorhina tibicen,Australian Magpie,6,Jun,Winter,17127,1,258.18365,1.03792,True
+Grallina cyanoleuca,Magpie-lark,6,Jun,Winter,13943,2,210.18595,1.06966,True
+Hirundo neoxena,Welcome Swallow,6,Jun,Winter,9895,8,149.16373,0.83538,True
+Trichoglossus moluccanus,Rainbow Lorikeet,6,Jun,Winter,12314,3,185.62933,1.05619,True
+Rhipidura leucophrys,Willie Wagtail,6,Jun,Winter,11701,4,176.38856,1.07378,True
+Malurus cyaneus,Superb Fairy-wren,6,Jun,Winter,10224,6,154.1233,0.94026,True
+Manorina melanocephala,Noisy Miner,6,Jun,Winter,10912,5,164.49466,1.08242,True
+Gymnorhina tibicen,Australian Magpie,7,Jul,Winter,17795,1,249.61425,1.00347,True
+Grallina cyanoleuca,Magpie-lark,7,Jul,Winter,15314,2,214.81274,1.09321,True
+Hirundo neoxena,Welcome Swallow,7,Jul,Winter,10532,7,147.73461,0.82737,True
+Trichoglossus moluccanus,Rainbow Lorikeet,7,Jul,Winter,13069,3,183.32164,1.04306,True
+Rhipidura leucophrys,Willie Wagtail,7,Jul,Winter,12125,4,170.07996,1.03538,True
+Malurus cyaneus,Superb Fairy-wren,7,Jul,Winter,10414,8,146.07939,0.89118,True
+Manorina melanocephala,Noisy Miner,7,Jul,Winter,11553,5,162.05639,1.06638,True
+Gymnorhina tibicen,Australian Magpie,8,Aug,Winter,20427,1,248.67548,0.9997,True
+Grallina cyanoleuca,Magpie-lark,8,Aug,Winter,16654,2,202.7435,1.03179,True
+Hirundo neoxena,Welcome Swallow,8,Aug,Winter,14832,3,180.56272,1.01123,True
+Trichoglossus moluccanus,Rainbow Lorikeet,8,Aug,Winter,14324,4,174.3784,0.99218,True
+Rhipidura leucophrys,Willie Wagtail,8,Aug,Winter,13731,5,167.1593,1.0176,True
+Malurus cyaneus,Superb Fairy-wren,8,Aug,Winter,13244,6,161.23063,0.98362,True
+Manorina melanocephala,Noisy Miner,8,Aug,Winter,12539,8,152.64806,1.00447,True
+Gymnorhina tibicen,Australian Magpie,9,Sep,Spring,21984,1,231.07316,0.92893,True
+Grallina cyanoleuca,Magpie-lark,9,Sep,Spring,17943,3,188.59833,0.9598,True
+Hirundo neoxena,Welcome Swallow,9,Sep,Spring,18509,2,194.54754,1.08955,True
+Trichoglossus moluccanus,Rainbow Lorikeet,9,Sep,Spring,15193,5,159.69316,0.90862,True
+Rhipidura leucophrys,Willie Wagtail,9,Sep,Spring,15952,4,167.67099,1.02071,True
+Malurus cyaneus,Superb Fairy-wren,9,Sep,Spring,14294,7,150.2438,0.91659,True
+Manorina melanocephala,Noisy Miner,9,Sep,Spring,13083,8,137.51502,0.90489,True
+Gymnorhina tibicen,Australian Magpie,10,Oct,Spring,26282,1,224.01004,0.90054,True
+Grallina cyanoleuca,Magpie-lark,10,Oct,Spring,20888,3,178.03522,0.90605,True
+Hirundo neoxena,Welcome Swallow,10,Oct,Spring,21781,2,185.64655,1.0397,True
+Trichoglossus moluccanus,Rainbow Lorikeet,10,Oct,Spring,18462,5,157.35763,0.89533,True
+Rhipidura leucophrys,Willie Wagtail,10,Oct,Spring,17277,6,147.25749,0.89645,True
+Malurus cyaneus,Superb Fairy-wren,10,Oct,Spring,18478,4,157.49401,0.96082,True
+Manorina melanocephala,Noisy Miner,10,Oct,Spring,16017,8,136.5181,0.89833,True
+Gymnorhina tibicen,Australian Magpie,11,Nov,Spring,20928,1,224.73817,0.90347,True
+Grallina cyanoleuca,Magpie-lark,11,Nov,Spring,16624,3,178.51908,0.90851,True
+Hirundo neoxena,Welcome Swallow,11,Nov,Spring,17542,2,188.37715,1.05499,True
+Trichoglossus moluccanus,Rainbow Lorikeet,11,Nov,Spring,14534,5,156.07533,0.88804,True
+Rhipidura leucophrys,Willie Wagtail,11,Nov,Spring,13874,6,148.98783,0.90698,True
+Malurus cyaneus,Superb Fairy-wren,11,Nov,Spring,15133,4,162.50777,0.99141,True
+Manorina melanocephala,Noisy Miner,11,Nov,Spring,12984,9,139.43044,0.91749,True
+Gymnorhina tibicen,Australian Magpie,12,Dec,Summer,19186,1,234.79625,0.9439,True
+Grallina cyanoleuca,Magpie-lark,12,Dec,Summer,14895,3,182.28344,0.92767,True
+Hirundo neoxena,Welcome Swallow,12,Dec,Summer,15058,2,184.27822,1.03203,True
+Trichoglossus moluccanus,Rainbow Lorikeet,12,Dec,Summer,13924,5,170.40045,0.96954,True
+Rhipidura leucophrys,Willie Wagtail,12,Dec,Summer,12766,6,156.22897,0.95106,True
+Malurus cyaneus,Superb Fairy-wren,12,Dec,Summer,14571,4,178.31837,1.08786,True
+Manorina melanocephala,Noisy Miner,12,Dec,Summer,11636,8,142.40014,0.93704,True

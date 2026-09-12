@@ -1,0 +1,193 @@
+scientific,name,month,label,season,count,rank,per10k,relative,topSeven
+Merops ornatus,Rainbow Bee-eater,1,Jan,Summer,2655,87,32.28937,0.82018,False
+Gymnorhina tibicen,Australian Magpie,1,Jan,Summer,20779,1,252.70842,1.01591,True
+Grallina cyanoleuca,Magpie-lark,1,Jan,Summer,16331,2,198.61308,1.01077,True
+Hirundo neoxena,Welcome Swallow,1,Jan,Summer,13474,6,163.86704,0.91772,True
+Trichoglossus moluccanus,Rainbow Lorikeet,1,Jan,Summer,15323,3,186.35406,1.06032,True
+Rhipidura leucophrys,Willie Wagtail,1,Jan,Summer,13525,5,164.48729,1.00133,True
+Malurus cyaneus,Superb Fairy-wren,1,Jan,Summer,15122,4,183.90956,1.12197,True
+Manorina melanocephala,Noisy Miner,1,Jan,Summer,12782,8,155.45113,1.02292,True
+Eolophus roseicapilla,Galah,1,Jan,Summer,9939,15,120.87535,0.87809,False
+Dacelo novaeguineae,Laughing Kookaburra,1,Jan,Summer,10885,11,132.38034,1.03932,False
+Cacatua galerita,Sulphur-crested Cockatoo,1,Jan,Summer,11497,10,139.82331,1.02931,False
+Zosterops lateralis,Silvereye,1,Jan,Summer,8826,21,107.33936,1.1624,False
+Calidris ruficollis,Red-necked Stint,1,Jan,Summer,1054,165,12.81845,1.20024,False
+Hirundapus caudacutus,White-throated Needletail,1,Jan,Summer,966,171,11.74822,2.61446,False
+Eudynamys orientalis,Eastern Koel,1,Jan,Summer,4375,59,53.20753,2.08023,False
+Lathamus discolor,Swift Parrot,1,Jan,Summer,80,438,0.97294,0.45918,False
+Merops ornatus,Rainbow Bee-eater,2,Feb,Summer,2045,84,32.1361,0.81629,False
+Gymnorhina tibicen,Australian Magpie,2,Feb,Summer,16939,1,266.18748,1.0701,True
+Grallina cyanoleuca,Magpie-lark,2,Feb,Summer,12978,2,203.94245,1.03789,True
+Hirundo neoxena,Welcome Swallow,2,Feb,Summer,10601,5,166.58914,0.93297,True
+Trichoglossus moluccanus,Rainbow Lorikeet,2,Feb,Summer,12271,3,192.83231,1.09718,True
+Rhipidura leucophrys,Willie Wagtail,2,Feb,Summer,9763,9,153.42041,0.93396,True
+Malurus cyaneus,Superb Fairy-wren,2,Feb,Summer,11764,4,184.86508,1.1278,True
+Manorina melanocephala,Noisy Miner,2,Feb,Summer,10490,6,164.84484,1.08473,True
+Eolophus roseicapilla,Galah,2,Feb,Summer,7264,20,114.14994,0.82924,False
+Dacelo novaeguineae,Laughing Kookaburra,2,Feb,Summer,8360,12,131.37301,1.03141,False
+Cacatua galerita,Sulphur-crested Cockatoo,2,Feb,Summer,9317,10,146.41176,1.07781,False
+Zosterops lateralis,Silvereye,2,Feb,Summer,7111,21,111.74563,1.21011,False
+Calidris ruficollis,Red-necked Stint,2,Feb,Summer,855,160,13.43588,1.25805,False
+Hirundapus caudacutus,White-throated Needletail,2,Feb,Summer,853,161,13.40445,2.98303,False
+Eudynamys orientalis,Eastern Koel,2,Feb,Summer,1752,93,27.53176,1.0764,False
+Lathamus discolor,Swift Parrot,2,Feb,Summer,78,424,1.22573,0.57849,False
+Merops ornatus,Rainbow Bee-eater,3,Mar,Autumn,2367,76,34.47985,0.87582,False
+Gymnorhina tibicen,Australian Magpie,3,Mar,Autumn,18773,1,273.46436,1.09935,True
+Grallina cyanoleuca,Magpie-lark,3,Mar,Autumn,14126,2,205.77199,1.0472,True
+Hirundo neoxena,Welcome Swallow,3,Mar,Autumn,12479,4,181.78031,1.01804,True
+Trichoglossus moluccanus,Rainbow Lorikeet,3,Mar,Autumn,12574,3,183.16416,1.04217,True
+Rhipidura leucophrys,Willie Wagtail,3,Mar,Autumn,11604,6,169.03427,1.02901,True
+Malurus cyaneus,Superb Fairy-wren,3,Mar,Autumn,11673,5,170.03939,1.03735,True
+Manorina melanocephala,Noisy Miner,3,Mar,Autumn,11060,7,161.10988,1.06015,True
+Eolophus roseicapilla,Galah,3,Mar,Autumn,8135,17,118.50171,0.86085,False
+Dacelo novaeguineae,Laughing Kookaburra,3,Mar,Autumn,8766,14,127.69342,1.00252,False
+Cacatua galerita,Sulphur-crested Cockatoo,3,Mar,Autumn,9584,11,139.60914,1.02773,False
+Zosterops lateralis,Silvereye,3,Mar,Autumn,7690,21,112.01944,1.21308,False
+Calidris ruficollis,Red-necked Stint,3,Mar,Autumn,786,170,11.44958,1.07207,False
+Hirundapus caudacutus,White-throated Needletail,3,Mar,Autumn,708,182,10.31336,2.29514,False
+Eudynamys orientalis,Eastern Koel,3,Mar,Autumn,561,205,8.17203,0.3195,False
+Lathamus discolor,Swift Parrot,3,Mar,Autumn,78,429,1.13622,0.53624,False
+Merops ornatus,Rainbow Bee-eater,4,Apr,Autumn,2196,87,30.55866,0.77622,False
+Gymnorhina tibicen,Australian Magpie,4,Apr,Autumn,20271,1,282.08311,1.134,True
+Grallina cyanoleuca,Magpie-lark,4,Apr,Autumn,14968,2,208.28869,1.06001,True
+Hirundo neoxena,Welcome Swallow,4,Apr,Autumn,14537,3,202.29106,1.13291,True
+Trichoglossus moluccanus,Rainbow Lorikeet,4,Apr,Autumn,13584,4,189.0295,1.07554,True
+Rhipidura leucophrys,Willie Wagtail,4,Apr,Autumn,13322,5,185.38361,1.12854,True
+Malurus cyaneus,Superb Fairy-wren,4,Apr,Autumn,11879,7,165.3034,1.00846,True
+Manorina melanocephala,Noisy Miner,4,Apr,Autumn,11726,8,163.17432,1.07374,True
+Eolophus roseicapilla,Galah,4,Apr,Autumn,9329,13,129.81862,0.94306,False
+Dacelo novaeguineae,Laughing Kookaburra,4,Apr,Autumn,8358,18,116.30658,0.91312,False
+Cacatua galerita,Sulphur-crested Cockatoo,4,Apr,Autumn,9744,12,135.5936,0.99817,False
+Zosterops lateralis,Silvereye,4,Apr,Autumn,8219,19,114.37231,1.23856,False
+Calidris ruficollis,Red-necked Stint,4,Apr,Autumn,692,181,9.62959,0.90165,False
+Hirundapus caudacutus,White-throated Needletail,4,Apr,Autumn,70,441,0.97409,0.21678,False
+Eudynamys orientalis,Eastern Koel,4,Apr,Autumn,54,469,0.75144,0.02938,False
+Lathamus discolor,Swift Parrot,4,Apr,Autumn,212,307,2.95011,1.39231,False
+Merops ornatus,Rainbow Bee-eater,5,May,Autumn,2469,76,38.4866,0.9776,False
+Gymnorhina tibicen,Australian Magpie,5,May,Autumn,17711,1,276.07783,1.10986,True
+Grallina cyanoleuca,Magpie-lark,5,May,Autumn,13500,2,210.43705,1.07094,True
+Hirundo neoxena,Welcome Swallow,5,May,Autumn,11746,4,183.09583,1.02541,True
+Trichoglossus moluccanus,Rainbow Lorikeet,5,May,Autumn,12728,3,198.40317,1.12887,True
+Rhipidura leucophrys,Willie Wagtail,5,May,Autumn,11662,5,181.78644,1.10664,True
+Malurus cyaneus,Superb Fairy-wren,5,May,Autumn,10169,8,158.51366,0.96704,True
+Manorina melanocephala,Noisy Miner,5,May,Autumn,10742,6,167.44554,1.10184,True
+Eolophus roseicapilla,Galah,5,May,Autumn,8729,12,136.06704,0.98845,False
+Dacelo novaeguineae,Laughing Kookaburra,5,May,Autumn,7416,16,115.60009,0.90757,False
+Cacatua galerita,Sulphur-crested Cockatoo,5,May,Autumn,8558,13,133.4015,0.98204,False
+Zosterops lateralis,Silvereye,5,May,Autumn,7058,20,110.01961,1.19142,False
+Calidris ruficollis,Red-necked Stint,5,May,Autumn,286,266,4.45815,0.41743,False
+Hirundapus caudacutus,White-throated Needletail,5,May,Autumn,3,658,0.04676,0.01041,False
+Eudynamys orientalis,Eastern Koel,5,May,Autumn,15,571,0.23382,0.00914,False
+Lathamus discolor,Swift Parrot,5,May,Autumn,167,323,2.60318,1.22858,False
+Merops ornatus,Rainbow Bee-eater,6,Jun,Winter,3254,64,49.05293,1.24599,False
+Gymnorhina tibicen,Australian Magpie,6,Jun,Winter,17127,1,258.18365,1.03792,True
+Grallina cyanoleuca,Magpie-lark,6,Jun,Winter,13943,2,210.18595,1.06966,True
+Hirundo neoxena,Welcome Swallow,6,Jun,Winter,9895,8,149.16373,0.83538,True
+Trichoglossus moluccanus,Rainbow Lorikeet,6,Jun,Winter,12314,3,185.62933,1.05619,True
+Rhipidura leucophrys,Willie Wagtail,6,Jun,Winter,11701,4,176.38856,1.07378,True
+Malurus cyaneus,Superb Fairy-wren,6,Jun,Winter,10224,6,154.1233,0.94026,True
+Manorina melanocephala,Noisy Miner,6,Jun,Winter,10912,5,164.49466,1.08242,True
+Eolophus roseicapilla,Galah,6,Jun,Winter,8751,11,131.91833,0.95831,False
+Dacelo novaeguineae,Laughing Kookaburra,6,Jun,Winter,7955,13,119.9189,0.94148,False
+Cacatua galerita,Sulphur-crested Cockatoo,6,Jun,Winter,8171,12,123.17502,0.90675,False
+Zosterops lateralis,Silvereye,6,Jun,Winter,5979,26,90.13138,0.97605,False
+Calidris ruficollis,Red-necked Stint,6,Jun,Winter,197,328,2.96971,0.27806,False
+Hirundapus caudacutus,White-throated Needletail,6,Jun,Winter,0,,0.0,0.0,False
+Eudynamys orientalis,Eastern Koel,6,Jun,Winter,2,671,0.03015,0.00118,False
+Lathamus discolor,Swift Parrot,6,Jun,Winter,330,266,4.97464,2.34779,False
+Merops ornatus,Rainbow Bee-eater,7,Jul,Winter,3653,63,51.24141,1.30158,False
+Gymnorhina tibicen,Australian Magpie,7,Jul,Winter,17795,1,249.61425,1.00347,True
+Grallina cyanoleuca,Magpie-lark,7,Jul,Winter,15314,2,214.81274,1.09321,True
+Hirundo neoxena,Welcome Swallow,7,Jul,Winter,10532,7,147.73461,0.82737,True
+Trichoglossus moluccanus,Rainbow Lorikeet,7,Jul,Winter,13069,3,183.32164,1.04306,True
+Rhipidura leucophrys,Willie Wagtail,7,Jul,Winter,12125,4,170.07996,1.03538,True
+Malurus cyaneus,Superb Fairy-wren,7,Jul,Winter,10414,8,146.07939,0.89118,True
+Manorina melanocephala,Noisy Miner,7,Jul,Winter,11553,5,162.05639,1.06638,True
+Eolophus roseicapilla,Galah,7,Jul,Winter,10406,9,145.96718,1.06037,False
+Dacelo novaeguineae,Laughing Kookaburra,7,Jul,Winter,9191,13,128.92411,1.01218,False
+Cacatua galerita,Sulphur-crested Cockatoo,7,Jul,Winter,9762,10,136.93365,1.00804,False
+Zosterops lateralis,Silvereye,7,Jul,Winter,5745,28,80.58634,0.87268,False
+Calidris ruficollis,Red-necked Stint,7,Jul,Winter,279,293,3.91359,0.36644,False
+Hirundapus caudacutus,White-throated Needletail,7,Jul,Winter,0,,0.0,0.0,False
+Eudynamys orientalis,Eastern Koel,7,Jul,Winter,5,658,0.07014,0.00274,False
+Lathamus discolor,Swift Parrot,7,Jul,Winter,164,354,2.30046,1.08571,False
+Merops ornatus,Rainbow Bee-eater,8,Aug,Winter,3757,69,45.7372,1.16177,False
+Gymnorhina tibicen,Australian Magpie,8,Aug,Winter,20427,1,248.67548,0.9997,True
+Grallina cyanoleuca,Magpie-lark,8,Aug,Winter,16654,2,202.7435,1.03179,True
+Hirundo neoxena,Welcome Swallow,8,Aug,Winter,14832,3,180.56272,1.01123,True
+Trichoglossus moluccanus,Rainbow Lorikeet,8,Aug,Winter,14324,4,174.3784,0.99218,True
+Rhipidura leucophrys,Willie Wagtail,8,Aug,Winter,13731,5,167.1593,1.0176,True
+Malurus cyaneus,Superb Fairy-wren,8,Aug,Winter,13244,6,161.23063,0.98362,True
+Manorina melanocephala,Noisy Miner,8,Aug,Winter,12539,8,152.64806,1.00447,True
+Eolophus roseicapilla,Galah,8,Aug,Winter,13139,7,159.95238,1.16197,False
+Dacelo novaeguineae,Laughing Kookaburra,8,Aug,Winter,11733,10,142.83593,1.1214,False
+Cacatua galerita,Sulphur-crested Cockatoo,8,Aug,Winter,11804,9,143.70027,1.05785,False
+Zosterops lateralis,Silvereye,8,Aug,Winter,5472,42,66.61537,0.72139,False
+Calidris ruficollis,Red-necked Stint,8,Aug,Winter,377,278,4.58955,0.42974,False
+Hirundapus caudacutus,White-throated Needletail,8,Aug,Winter,1,695,0.01217,0.00271,False
+Eudynamys orientalis,Eastern Koel,8,Aug,Winter,68,492,0.82782,0.03237,False
+Lathamus discolor,Swift Parrot,8,Aug,Winter,95,449,1.15652,0.54582,False
+Merops ornatus,Rainbow Bee-eater,9,Sep,Spring,3724,76,39.14285,0.99427,False
+Gymnorhina tibicen,Australian Magpie,9,Sep,Spring,21984,1,231.07316,0.92893,True
+Grallina cyanoleuca,Magpie-lark,9,Sep,Spring,17943,3,188.59833,0.9598,True
+Hirundo neoxena,Welcome Swallow,9,Sep,Spring,18509,2,194.54754,1.08955,True
+Trichoglossus moluccanus,Rainbow Lorikeet,9,Sep,Spring,15193,5,159.69316,0.90862,True
+Rhipidura leucophrys,Willie Wagtail,9,Sep,Spring,15952,4,167.67099,1.02071,True
+Malurus cyaneus,Superb Fairy-wren,9,Sep,Spring,14294,7,150.2438,0.91659,True
+Manorina melanocephala,Noisy Miner,9,Sep,Spring,13083,8,137.51502,0.90489,True
+Eolophus roseicapilla,Galah,9,Sep,Spring,14910,6,156.71856,1.13847,False
+Dacelo novaeguineae,Laughing Kookaburra,9,Sep,Spring,12153,14,127.73982,1.00288,False
+Cacatua galerita,Sulphur-crested Cockatoo,9,Sep,Spring,12954,10,136.1591,1.00234,False
+Zosterops lateralis,Silvereye,9,Sep,Spring,7315,26,76.88774,0.83263,False
+Calidris ruficollis,Red-necked Stint,9,Sep,Spring,996,198,10.46893,0.98024,False
+Hirundapus caudacutus,White-throated Needletail,9,Sep,Spring,3,678,0.03153,0.00702,False
+Eudynamys orientalis,Eastern Koel,9,Sep,Spring,1126,173,11.83535,0.46272,False
+Lathamus discolor,Swift Parrot,9,Sep,Spring,117,447,1.22978,0.5804,False
+Merops ornatus,Rainbow Bee-eater,10,Oct,Spring,5620,64,47.90109,1.21674,False
+Gymnorhina tibicen,Australian Magpie,10,Oct,Spring,26282,1,224.01004,0.90054,True
+Grallina cyanoleuca,Magpie-lark,10,Oct,Spring,20888,3,178.03522,0.90605,True
+Hirundo neoxena,Welcome Swallow,10,Oct,Spring,21781,2,185.64655,1.0397,True
+Trichoglossus moluccanus,Rainbow Lorikeet,10,Oct,Spring,18462,5,157.35763,0.89533,True
+Rhipidura leucophrys,Willie Wagtail,10,Oct,Spring,17277,6,147.25749,0.89645,True
+Malurus cyaneus,Superb Fairy-wren,10,Oct,Spring,18478,4,157.49401,0.96082,True
+Manorina melanocephala,Noisy Miner,10,Oct,Spring,16017,8,136.5181,0.89833,True
+Eolophus roseicapilla,Galah,10,Oct,Spring,16731,7,142.60376,1.03594,False
+Dacelo novaeguineae,Laughing Kookaburra,10,Oct,Spring,13825,14,117.83497,0.92512,False
+Cacatua galerita,Sulphur-crested Cockatoo,10,Oct,Spring,16005,9,136.41582,1.00423,False
+Zosterops lateralis,Silvereye,10,Oct,Spring,9509,26,81.0483,0.87769,False
+Calidris ruficollis,Red-necked Stint,10,Oct,Spring,1509,168,12.8617,1.20429,False
+Hirundapus caudacutus,White-throated Needletail,10,Oct,Spring,203,413,1.73024,0.38505,False
+Eudynamys orientalis,Eastern Koel,10,Oct,Spring,5833,59,49.71656,1.94375,False
+Lathamus discolor,Swift Parrot,10,Oct,Spring,282,376,2.40358,1.13438,False
+Merops ornatus,Rainbow Bee-eater,11,Nov,Spring,3567,77,38.30471,0.97298,False
+Gymnorhina tibicen,Australian Magpie,11,Nov,Spring,20928,1,224.73817,0.90347,True
+Grallina cyanoleuca,Magpie-lark,11,Nov,Spring,16624,3,178.51908,0.90851,True
+Hirundo neoxena,Welcome Swallow,11,Nov,Spring,17542,2,188.37715,1.05499,True
+Trichoglossus moluccanus,Rainbow Lorikeet,11,Nov,Spring,14534,5,156.07533,0.88804,True
+Rhipidura leucophrys,Willie Wagtail,11,Nov,Spring,13874,6,148.98783,0.90698,True
+Malurus cyaneus,Superb Fairy-wren,11,Nov,Spring,15133,4,162.50777,0.99141,True
+Manorina melanocephala,Noisy Miner,11,Nov,Spring,12984,9,139.43044,0.91749,True
+Eolophus roseicapilla,Galah,11,Nov,Spring,13673,7,146.82936,1.06663,False
+Dacelo novaeguineae,Laughing Kookaburra,11,Nov,Spring,12077,12,129.6905,1.0182,False
+Cacatua galerita,Sulphur-crested Cockatoo,11,Nov,Spring,11968,14,128.51999,0.9461,False
+Zosterops lateralis,Silvereye,11,Nov,Spring,7629,28,81.92505,0.88718,False
+Calidris ruficollis,Red-necked Stint,11,Nov,Spring,1291,157,13.86358,1.2981,False
+Hirundapus caudacutus,White-throated Needletail,11,Nov,Spring,631,244,6.77608,1.50795,False
+Eudynamys orientalis,Eastern Koel,11,Nov,Spring,5819,47,62.48812,2.44307,False
+Lathamus discolor,Swift Parrot,11,Nov,Spring,358,316,3.84443,1.81439,False
+Merops ornatus,Rainbow Bee-eater,12,Dec,Summer,2392,94,29.27304,0.74356,False
+Gymnorhina tibicen,Australian Magpie,12,Dec,Summer,19186,1,234.79625,0.9439,True
+Grallina cyanoleuca,Magpie-lark,12,Dec,Summer,14895,3,182.28344,0.92767,True
+Hirundo neoxena,Welcome Swallow,12,Dec,Summer,15058,2,184.27822,1.03203,True
+Trichoglossus moluccanus,Rainbow Lorikeet,12,Dec,Summer,13924,5,170.40045,0.96954,True
+Rhipidura leucophrys,Willie Wagtail,12,Dec,Summer,12766,6,156.22897,0.95106,True
+Malurus cyaneus,Superb Fairy-wren,12,Dec,Summer,14571,4,178.31837,1.08786,True
+Manorina melanocephala,Noisy Miner,12,Dec,Summer,11636,8,142.40014,0.93704,True
+Eolophus roseicapilla,Galah,12,Dec,Summer,10813,12,132.32836,0.96129,False
+Dacelo novaeguineae,Laughing Kookaburra,12,Dec,Summer,11252,11,137.70079,1.08109,False
+Cacatua galerita,Sulphur-crested Cockatoo,12,Dec,Summer,10717,13,131.15352,0.96549,False
+Zosterops lateralis,Silvereye,12,Dec,Summer,7874,21,96.36118,1.04351,False
+Calidris ruficollis,Red-necked Stint,12,Dec,Summer,1905,108,23.31319,2.1829,False
+Hirundapus caudacutus,White-throated Needletail,12,Dec,Summer,865,182,10.58578,2.35577,False
+Eudynamys orientalis,Eastern Koel,12,Dec,Summer,4883,51,59.75764,2.33632,False
+Lathamus discolor,Swift Parrot,12,Dec,Summer,68,456,0.83218,0.39275,False

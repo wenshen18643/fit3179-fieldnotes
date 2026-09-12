@@ -1,0 +1,16 @@
+{
+  "name": "australia-birdwatching-field-journal",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build-specs.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "vega": "5.33.0",
+    "vega-lite": "5.23.0",
+    "vega-embed": "6.29.0"
+  }
+}

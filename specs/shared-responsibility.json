@@ -1,0 +1,1777 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 854,
+  "height": 390,
+  "padding": {
+    "left": 45,
+    "right": 10,
+    "top": 20,
+    "bottom": 18
+  },
+  "background": "transparent",
+  "autosize": {
+    "type": "pad",
+    "contains": "padding"
+  },
+  "config": {
+    "text": {
+      "font": "Bricolage Grotesque",
+      "fill": "#292e27"
+    },
+    "axis": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e0dccf",
+      "gridOpacity": 0.75,
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "gradientThickness": 9,
+      "gradientLength": 130,
+      "padding": 8
+    }
+  },
+  "description": "An UpSet chart of the twelve most common exact state combinations among 150 extant threatened bird taxa listed by DCCEEW in the eight jurisdictions. A connected column is an exact combination of states, and the bar above counts listed taxa in it.",
+  "data": [
+    {
+      "name": "bars",
+      "values": [
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "matrix",
+      "values": [
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "code": "SA",
+          "row": 2,
+          "active": true
+        },
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "code": "QLD",
+          "row": 3,
+          "active": false
+        },
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "code": "NSW",
+          "row": 4,
+          "active": false
+        },
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "code": "VIC",
+          "row": 5,
+          "active": false
+        },
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "code": "TAS",
+          "row": 6,
+          "active": false
+        },
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "code": "WA",
+          "row": 0,
+          "active": true
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "code": "SA",
+          "row": 2,
+          "active": true
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "code": "QLD",
+          "row": 3,
+          "active": true
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "code": "NSW",
+          "row": 4,
+          "active": true
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "code": "VIC",
+          "row": 5,
+          "active": true
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "code": "TAS",
+          "row": 6,
+          "active": true
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "code": "WA",
+          "row": 0,
+          "active": true
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "code": "SA",
+          "row": 2,
+          "active": false
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "code": "QLD",
+          "row": 3,
+          "active": false
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "code": "NSW",
+          "row": 4,
+          "active": false
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "code": "VIC",
+          "row": 5,
+          "active": false
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "code": "TAS",
+          "row": 6,
+          "active": false
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "code": "WA",
+          "row": 0,
+          "active": true
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "code": "NT",
+          "row": 1,
+          "active": true
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "code": "SA",
+          "row": 2,
+          "active": true
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "code": "QLD",
+          "row": 3,
+          "active": true
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "code": "NSW",
+          "row": 4,
+          "active": true
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "code": "VIC",
+          "row": 5,
+          "active": true
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "code": "TAS",
+          "row": 6,
+          "active": true
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "code": "SA",
+          "row": 2,
+          "active": false
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "code": "QLD",
+          "row": 3,
+          "active": false
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "code": "NSW",
+          "row": 4,
+          "active": false
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "code": "VIC",
+          "row": 5,
+          "active": false
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "code": "TAS",
+          "row": 6,
+          "active": true
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "code": "SA",
+          "row": 2,
+          "active": false
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "code": "QLD",
+          "row": 3,
+          "active": true
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "code": "NSW",
+          "row": 4,
+          "active": true
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "code": "VIC",
+          "row": 5,
+          "active": false
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "code": "TAS",
+          "row": 6,
+          "active": false
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "code": "NT",
+          "row": 1,
+          "active": true
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "code": "SA",
+          "row": 2,
+          "active": false
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "code": "QLD",
+          "row": 3,
+          "active": false
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "code": "NSW",
+          "row": 4,
+          "active": false
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "code": "VIC",
+          "row": 5,
+          "active": false
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "code": "TAS",
+          "row": 6,
+          "active": false
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "code": "SA",
+          "row": 2,
+          "active": false
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "code": "QLD",
+          "row": 3,
+          "active": true
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "code": "NSW",
+          "row": 4,
+          "active": false
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "code": "VIC",
+          "row": 5,
+          "active": false
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "code": "TAS",
+          "row": 6,
+          "active": false
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "code": "SA",
+          "row": 2,
+          "active": false
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "code": "QLD",
+          "row": 3,
+          "active": false
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "code": "NSW",
+          "row": 4,
+          "active": true
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "code": "VIC",
+          "row": 5,
+          "active": false
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "code": "TAS",
+          "row": 6,
+          "active": false
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "code": "SA",
+          "row": 2,
+          "active": true
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "code": "QLD",
+          "row": 3,
+          "active": false
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "code": "NSW",
+          "row": 4,
+          "active": true
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "code": "VIC",
+          "row": 5,
+          "active": true
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "code": "TAS",
+          "row": 6,
+          "active": false
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "code": "SA",
+          "row": 2,
+          "active": true
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "code": "QLD",
+          "row": 3,
+          "active": false
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "code": "NSW",
+          "row": 4,
+          "active": true
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "code": "VIC",
+          "row": 5,
+          "active": true
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "code": "TAS",
+          "row": 6,
+          "active": true
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "code": "ACT",
+          "row": 7,
+          "active": false
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "code": "WA",
+          "row": 0,
+          "active": false
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "code": "NT",
+          "row": 1,
+          "active": false
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "code": "SA",
+          "row": 2,
+          "active": true
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "code": "QLD",
+          "row": 3,
+          "active": true
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "code": "NSW",
+          "row": 4,
+          "active": true
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "code": "VIC",
+          "row": 5,
+          "active": true
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "code": "TAS",
+          "row": 6,
+          "active": false
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "code": "ACT",
+          "row": 7,
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "values": [
+        {
+          "id": 0,
+          "states": [
+            "SA"
+          ],
+          "combination": "SA",
+          "count": 19,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "id": 1,
+          "states": [
+            "WA",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + SA + QLD + NSW + VIC + TAS",
+          "count": 16,
+          "min": 0,
+          "max": 6
+        },
+        {
+          "id": 2,
+          "states": [
+            "WA"
+          ],
+          "combination": "WA",
+          "count": 15,
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": 3,
+          "states": [
+            "WA",
+            "NT",
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "WA + NT + SA + QLD + NSW + VIC + TAS",
+          "count": 11,
+          "min": 0,
+          "max": 6
+        },
+        {
+          "id": 4,
+          "states": [
+            "TAS"
+          ],
+          "combination": "TAS",
+          "count": 10,
+          "min": 6,
+          "max": 6
+        },
+        {
+          "id": 5,
+          "states": [
+            "QLD",
+            "NSW"
+          ],
+          "combination": "QLD + NSW",
+          "count": 8,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "id": 6,
+          "states": [
+            "NT"
+          ],
+          "combination": "NT",
+          "count": 5,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": 7,
+          "states": [
+            "QLD"
+          ],
+          "combination": "QLD",
+          "count": 5,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": 8,
+          "states": [
+            "NSW"
+          ],
+          "combination": "NSW",
+          "count": 4,
+          "min": 4,
+          "max": 4
+        },
+        {
+          "id": 9,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC"
+          ],
+          "combination": "SA + NSW + VIC",
+          "count": 4,
+          "min": 2,
+          "max": 5
+        },
+        {
+          "id": 10,
+          "states": [
+            "SA",
+            "NSW",
+            "VIC",
+            "TAS"
+          ],
+          "combination": "SA + NSW + VIC + TAS",
+          "count": 4,
+          "min": 2,
+          "max": 6
+        },
+        {
+          "id": 11,
+          "states": [
+            "SA",
+            "QLD",
+            "NSW",
+            "VIC",
+            "ACT"
+          ],
+          "combination": "SA + QLD + NSW + VIC + ACT",
+          "count": 3,
+          "min": 2,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "name": "codes",
+      "values": [
+        {
+          "code": "WA",
+          "row": 0
+        },
+        {
+          "code": "NT",
+          "row": 1
+        },
+        {
+          "code": "SA",
+          "row": 2
+        },
+        {
+          "code": "QLD",
+          "row": 3
+        },
+        {
+          "code": "NSW",
+          "row": 4
+        },
+        {
+          "code": "VIC",
+          "row": 5
+        },
+        {
+          "code": "TAS",
+          "row": 6
+        },
+        {
+          "code": "ACT",
+          "row": 7
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "domain": {
+        "data": "bars",
+        "field": "id"
+      },
+      "range": "width",
+      "padding": 0.28
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [
+        0,
+        22.8
+      ],
+      "range": [
+        140,
+        0
+      ],
+      "zero": true
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "bars"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "scale": "x",
+            "field": "id"
+          },
+          "width": {
+            "scale": "x",
+            "band": 1
+          },
+          "y": {
+            "scale": "y",
+            "field": "count"
+          },
+          "y2": {
+            "value": 140
+          },
+          "fill": {
+            "value": "#a74735"
+          },
+          "tooltip": {
+            "signal": "{'Exactly these states':datum.combination,'Listed bird taxa':datum.count}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "bars"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "scale": "x",
+            "field": "id",
+            "band": 0.5
+          },
+          "y": {
+            "scale": "y",
+            "field": "count",
+            "offset": -7
+          },
+          "text": {
+            "field": "count"
+          },
+          "align": {
+            "value": "center"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 600
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 0
+          },
+          "x2": {
+            "signal": "width"
+          },
+          "y": {
+            "value": 157
+          },
+          "stroke": {
+            "value": "#d5d0c1"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "from": {
+        "data": "links"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "scale": "x",
+            "field": "id",
+            "band": 0.5
+          },
+          "y": {
+            "signal": "178+datum.min*27"
+          },
+          "y2": {
+            "signal": "178+datum.max*27"
+          },
+          "stroke": {
+            "value": "#292e27"
+          },
+          "strokeWidth": {
+            "value": 1.5
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {
+        "data": "matrix"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "scale": "x",
+            "field": "id",
+            "band": 0.5
+          },
+          "y": {
+            "signal": "178+datum.row*27"
+          },
+          "size": {
+            "value": 54
+          },
+          "fill": {
+            "signal": "datum.active?'#292e27':'#dedace'"
+          },
+          "tooltip": {
+            "signal": "{'Exactly these states':datum.combination,'Listed bird taxa':datum.count,'State':datum.code,'Included':datum.active?'Yes':'No'}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "codes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "value": -12
+          },
+          "y": {
+            "signal": "178+datum.row*27"
+          },
+          "text": {
+            "field": "code"
+          },
+          "align": {
+            "value": "right"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 11
+          }
+        }
+      }
+    }
+  ]
+}

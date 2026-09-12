@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f5ec">
+  <meta name="description" content="A visual field journal of Australian birdwatching: millions of real observations, a year of seasonal change, and the gaps between seeing and knowing.">
+  <title>Australia, through a birdwatcher's eyes — Fieldnotes</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/vega.min.js"></script>
+  <script defer src="vendor/vega-lite.min.js"></script>
+  <script defer src="vendor/vega-embed.min.js"></script>
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#atlas">Skip to the visualisations</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="masthead">
+    <a href="#top" class="wordmark" aria-label="Fieldnotes, back to the cover"><span class="wordmark-symbol" aria-hidden="true">✳</span> fieldnotes<span class="wordmark-place">Australia</span></a>
+    <nav aria-label="Journal chapters">
+      <a href="#atlas">The atlas</a>
+      <a href="#seasons">The seasons</a>
+      <a href="#conservation">The blind spots</a>
+      <a href="#new-entries">New entries</a>
+    </nav>
+    <a class="source-nav" href="#sources">Sources <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="cover" aria-labelledby="cover-title">
+      <div class="cover-copy">
+        <p class="edition">A visual field journal · 2024–2026</p>
+        <h1 id="cover-title">Australia,<br>through a<br><em>birdwatcher’s</em><br>eyes.</h1>
+        <p class="cover-deck">Millions of sightings. A continent of contrasts.<br>A different story every season.</p>
+        <p class="cover-intro">Open the notebook to discover where Australian birds are recorded, how the sightings change, and what remains beyond our view.</p>
+        <a class="begin-link" href="#atlas">Open the field journal <span aria-hidden="true">↓</span></a>
+        <div class="cover-credit"><span>Recorded by a community.<br>Interpreted through data.</span><span>By Wen-Shen Lum<br>Monash University Malaysia</span></div>
+      </div>
+      <figure class="cover-plate">
+        <img src="assets/rainbow-bee-eater.webp" width="1024" height="1536" alt="Natural-history illustration of a rainbow bee-eater perched on a eucalyptus branch, with a golden throat, green feathers and long tail streamers." fetchpriority="high">
+        <figcaption><span class="plate-id">From the field</span><strong>Rainbow Bee-eater</strong><i>Merops ornatus</i><span class="plate-note">Watch its recorded range<br>change with the seasons.</span><a href="#bee-eater">Find its story <span aria-hidden="true">↘</span></a></figcaption>
+        <span class="illustration-credit">AI-assisted illustration · not an identification plate</span>
+      </figure>
+    </section>
+
+    <aside class="orientation" aria-label="Before you begin">
+      <span class="orientation-mark" aria-hidden="true">N<br>↑</span>
+      <p><strong>A note for readers in Malaysia.</strong> Australia lies south of the equator. In the south, summer is December–February and winter is June–August. The tropical north also has wet and dry seasons.</p>
+      <p><strong>One record is not one bird.</strong> It is a database entry documenting a sighting. The same bird may be recorded more than once, and places with more observers can produce more records.</p>
+    </aside>
+
+    <section id="atlas" class="chapter" aria-labelledby="atlas-title">
+      <header class="chapter-heading">
+        <div class="chapter-tab" aria-hidden="true">The atlas</div>
+        <h2 id="atlas-title">First, look at<br><em>where we look.</em></h2>
+        <p>The notebook begins with <strong data-stat="total">9,575,922</strong> filtered sighting records from 2024. They come from three citizen-science datasets: eBird, Birdata and iNaturalist, shared through the Atlas of Living Australia.</p>
+      </header>
+
+      <div class="atlas-spread">
+        <figure class="figure dominant-map" id="fig-observation-atlas" data-chart="observation-atlas">
+          <div class="figure-heading"><h3>A continent, unevenly observed</h3><span class="figure-period">2024 · all three sources</span></div>
+          <p class="figure-deck">Darker cells hold more records. The east coast stands out; the interior is much quieter.</p>
+          <div class="chart" id="observation-atlas" role="img" aria-label="Map of Australian bird observation records in one-degree cells"></div>
+          <figcaption>Each cell groups locations rounded to 1° of latitude and longitude. Blank cells have no records in this filtered snapshot. Cell area varies with latitude; colour represents counts.</figcaption>
+        </figure>
+        <aside class="margin-note">
+          <span class="note-label">An observation</span>
+          <p class="finding"><strong data-stat="eastShare">75.6%</strong> of records come from just three states.</p>
+          <p>New South Wales, Victoria and Queensland together hold more than three-quarters of these records.</p>
+          <p>That tells us where the notebook is fullest. It does not establish where three-quarters of Australia’s birds live.</p>
+          <div class="note-line" aria-hidden="true"></div>
+          <p class="handnote">A map of sightings<br>is also a map of attention.</p>
+        </aside>
+      </div>
+
+      <div class="paired-spread">
+        <figure class="figure" id="fig-record-density" data-chart="record-density">
+          <div class="figure-heading"><h3>Small places, dense notebooks</h3><span class="figure-period">2024</span></div>
+          <p class="figure-deck">Adjusting for land area changes the comparison. Tiny ACT, home to Canberra, has the highest record density.</p>
+          <div class="chart" id="record-density" role="img" aria-label="Choropleth of observation records per thousand square kilometres by Australian state"></div>
+          <figcaption>Records per 1,000 km², using Geoscience Australia land areas. ACT is very small at this scale: <strong data-stat="actDensity">145,828</strong> records per 1,000 km². Density of records is not density of birds.</figcaption>
+        </figure>
+        <figure class="figure" id="fig-family-canopy" data-chart="family-canopy">
+          <div class="figure-heading"><h3>The families filling the pages</h3><span class="figure-period">2024</span></div>
+          <p class="figure-deck">Honeyeaters occupy the largest named family block. But the recorded birdlife spans many families.</p>
+          <div class="chart" id="family-canopy" role="img" aria-label="Treemap of the most-recorded bird families"></div>
+          <figcaption>Rectangle area represents record count. The fifteen most-recorded families are shown separately; the remaining families and unassigned records are grouped. Hover for scientific family names.</figcaption>
+        </figure>
+      </div>
+
+      <div class="inset-spread">
+        <div class="inset-copy"><h3>Three ways<br>of seeing.</h3><p>The platforms do not contribute equally. <strong data-stat="ebirdShare">86.8%</strong> of our 2024 records come from eBird.</p><p>A pattern in the combined dataset will therefore reflect eBird much more strongly than iNaturalist. Source composition matters.</p></div>
+        <figure class="figure" id="fig-record-rivers" data-chart="record-rivers">
+          <div class="figure-heading"><h3>Follow the records into each state</h3><span class="figure-period">2024</span></div>
+          <p class="figure-deck">Wider ribbons carry more records. Trace a dataset on the left to its state contributions on the right.</p>
+          <div class="chart" id="record-rivers" role="img" aria-label="Alluvial diagram linking the three observation datasets to Australian states"></div>
+          <figcaption>Percentages at both ends use the same total of <span data-stat="total">9,575,922</span> records. These ribbons show database composition, not bird migration.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="seasons" class="chapter seasonal-chapter" aria-labelledby="seasons-title">
+      <header class="chapter-heading">
+        <div class="chapter-tab" aria-hidden="true">The seasons</div>
+        <h2 id="seasons-title">Turn the calendar.<br><em>The cast changes.</em></h2>
+        <p>Birds move, breeding seasons arrive, and people change when they go outside. The records carry all of those influences. Follow a full year before drawing a conclusion.</p>
+      </header>
+      <div class="season-key" aria-label="Australian calendar seasons"><span><i class="summer"></i>Summer · Dec–Feb</span><span><i class="autumn"></i>Autumn · Mar–May</span><span><i class="winter"></i>Winter · Jun–Aug</span><span><i class="spring"></i>Spring · Sep–Nov</span></div>
+
+      <div class="clock-spread">
+        <figure class="figure" id="fig-seasonal-clock" data-chart="seasonal-clock">
+          <div class="figure-heading"><h3>A year around the notebook</h3><span class="figure-period">2024</span></div>
+          <p class="figure-deck">Follow each state’s ring clockwise. Green marks a faster recording pace than its own yearly average.</p>
+          <div class="chart" id="seasonal-clock" role="img" aria-label="Circular heatmap of the daily recording pace across months and states"></div>
+          <figcaption>Daily pace = records in a month ÷ days in that month, relative to the state’s annual daily average. A value of 1 is typical; 1.5 is 50% above it. Rings roughly run from northern to southern jurisdictions.</figcaption>
+        </figure>
+        <aside class="season-note">
+          <p class="handnote">Every place keeps<br>its own calendar.</p>
+          <h3>October is the busiest page.</h3>
+          <p>Across the three sources, October averages <strong data-stat="peakDaily">37,847</strong> records a day—the highest daily pace of 2024.</p>
+          <p>The circular view also lets us compare <em>when</em> each state is busy without large states drowning out smaller ones.</p>
+          <p class="small-note">Four calendar seasons are used consistently for comparison. They do not describe every region’s ecology, especially the tropical north.</p>
+        </aside>
+      </div>
+
+      <figure class="figure full-figure" id="fig-monthly-ranks" data-chart="monthly-ranks">
+        <div class="figure-heading"><h3>Familiar faces trade places</h3><span class="figure-period">2024 · seven annual leaders</span></div>
+        <div class="figure-intro"><p class="figure-deck">Follow a line to see a species rise or fall in the monthly rankings. These seven birds have the most records over the full year.</p><label class="control">Follow a bird<select id="bird-highlight"><option>All birds</option></select></label></div>
+        <div class="chart" id="monthly-ranks" role="img" aria-label="Bump chart of monthly ranks for the seven most-recorded species"></div>
+        <figcaption>Rank 1 means the most records among all named species that month. Ranks are not population estimates. The selected seven are fixed by their annual record totals.</figcaption>
+      </figure>
+
+      <div id="bee-eater" class="migration-intro">
+        <span class="specimen-label">Field study · <i>Merops ornatus</i></span>
+        <h3>One bird.<br><em>Two very different maps.</em></h3>
+        <p>For rainbow bee-eaters, <strong data-stat="beeSummerSouth">48.3%</strong> of summer records lie at or south of 30°S. In winter, that share falls to <strong data-stat="beeWinterSouth">1.0%</strong>. The seasonal contrast is visible in both the map and the latitude profiles.</p>
+      </div>
+      <div class="paired-spread migration-pair">
+        <figure class="figure" id="fig-seasonal-footprint" data-chart="seasonal-footprint">
+          <div class="figure-heading"><h3>Change the season, watch the footprint</h3></div>
+          <label class="control inline-control">Australian season<select id="season-select"><option>Summer</option><option>Autumn</option><option>Winter</option><option>Spring</option></select></label>
+          <div class="chart" id="seasonal-footprint" role="img" aria-label="Season-selectable proportional-symbol map of rainbow bee-eater records"></div>
+          <figcaption>Bubble area represents records near each rounded 1° location. The map extent and bubble-size scale stay fixed across seasons. The dashed reference runs along 30°S. Calendar-season groups are within 2024.</figcaption>
+        </figure>
+        <figure class="figure" id="fig-latitude-ridges" data-chart="latitude-ridges">
+          <div class="figure-heading"><h3>A seasonal signature in latitude</h3><span class="figure-period">2024</span></div>
+          <p class="figure-deck">Each ridge shows where that month’s bee-eater records fall. South is left; north is right.</p>
+          <div class="chart" id="latitude-ridges" role="img" aria-label="Monthly ridgeline distributions of rainbow bee-eater sighting latitude"></div>
+          <figcaption>Ridge heights show shares of that month’s bee-eater records in 1° latitude bins. Each month is normalised separately. Curves connect aggregated bins; they do not track individual birds.</figcaption>
+        </figure>
+      </div>
+      <aside class="field-citation"><span aria-hidden="true">✳</span><p><strong>The natural-history connection.</strong> BirdLife Australia describes bee-eaters returning to summer breeding areas after wintering in the north, alongside resident northern populations. Our recorded pattern is consistent with that account, but observer coverage also affects it. <a href="https://birdlife.org.au/bird-profiles/rainbow-bee-eater/" target="_blank" rel="noopener noreferrer">Read the species profile ↗</a></p></aside>
+
+      <figure class="figure full-figure" id="fig-seasonal-signatures" data-chart="seasonal-signatures">
+        <div class="figure-heading"><h3>Every bird leaves a different seasonal signature</h3><span class="figure-period">2024 · eight featured species</span></div>
+        <p class="figure-deck">A species can become more prominent in the records even when the total number of sightings changes. Compare its monthly share with its usual share across the year.</p>
+        <div class="chart" id="seasonal-signatures" role="img" aria-label="Heatmap of monthly record shares for eight bird species relative to their annual shares"></div>
+        <figcaption>Green means a larger-than-usual share; ochre means a smaller share. At 4, a species’ share is four times its annual share. Colour is capped at 0.25–4; tooltips retain the actual values. This adjusts for total record volume, not survey effort or detectability.</figcaption>
+      </figure>
+    </section>
+
+    <section id="conservation" class="chapter conservation-chapter" aria-labelledby="conservation-title">
+      <header class="chapter-heading">
+        <div class="chapter-tab" aria-hidden="true">The blind spots</div>
+        <h2 id="conservation-title">Often recorded<br>doesn’t mean <em>safe.</em></h2>
+        <p>A busy notebook cannot tell us whether a population is secure. To add that context, we turn to a second source: Australia’s national threatened-species list, dated 28 August 2026.</p>
+      </header>
+      <div class="conservation-spread">
+        <figure class="figure" id="fig-threatened-swarm" data-chart="threatened-swarm">
+          <div class="figure-heading"><h3>Threatened birds are still being seen</h3><span class="figure-period">2024 records × August 2026 listings</span></div>
+          <p class="figure-deck">Each dot is one of <strong data-stat="matchedThreatenedSpecies">65</strong> threatened species matched by scientific name. Some have thousands of records; others have only a handful.</p>
+          <div class="chart" id="threatened-swarm" role="img" aria-label="Beeswarm of record counts for threatened bird species by conservation category"></div>
+          <figcaption>The horizontal scale advances by powers of ten. Only exact, species-level name matches with records are shown. Listed subspecies and unmatched names are excluded, not counted as zero. Current status is context for historical sightings.</figcaption>
+        </figure>
+        <aside class="margin-note risk-note">
+          <span class="note-label">Read with care</span>
+          <h3>A record is evidence of presence.<br>It is not proof of recovery.</h3>
+          <p>Repeated visits to a well-known location can produce many records of a threatened species.</p>
+          <p>“Vulnerable”, “Endangered” and “Critically Endangered” describe increasing levels of extinction risk in the national listing system.</p>
+          <p class="small-note">Our comparison does not measure population size, decline or conservation success.</p>
+        </aside>
+      </div>
+
+      <div class="inset-spread responsibility-spread">
+        <div class="inset-copy"><h3>Conservation crosses<br>state lines.</h3><p>The current list contains <strong data-stat="listedTaxa">150</strong> extant threatened bird taxa associated with at least one of the eight jurisdictions.</p><p>Some are species; others are subspecies. Their listed state associations overlap, so adding state totals would count some taxa more than once.</p><p class="handnote">Follow a column<br>from the dots to the count.</p></div>
+        <figure class="figure" id="fig-shared-responsibility" data-chart="shared-responsibility">
+          <div class="figure-heading"><h3>Which states share the same listed birds?</h3><span class="figure-period">28 August 2026</span></div>
+          <p class="figure-deck">Connected dark dots identify an exact combination of states. The number above counts the listed bird taxa associated with exactly that combination.</p>
+          <div class="chart" id="shared-responsibility" role="img" aria-label="UpSet chart showing overlap of threatened bird taxa across states"></div>
+          <figcaption>The 12 most common combinations contain <span data-stat="upsetShown">104</span> of <span data-stat="listedTaxa">150</span> taxa; there are <span data-stat="upsetCombinations">42</span> combinations in total. State associations are from DCCEEW, not inferred from the sighting records. Offshore-only and extinct listings are outside this view.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="new-entries" class="chapter new-chapter" aria-labelledby="new-title">
+      <header class="chapter-heading">
+        <div class="chapter-tab" aria-hidden="true">New entries</div>
+        <h2 id="new-title">A newer page<br>can still be <em>unfinished.</em></h2>
+        <p>The latest records matter. So does knowing what has actually reached the database. Here is what the three sources contain in the snapshot retrieved on 10 September 2026.</p>
+      </header>
+      <figure class="figure full-figure" id="fig-coverage-calendar" data-chart="coverage-calendar">
+        <div class="figure-heading"><h3>Check the coverage before comparing the years</h3><span class="figure-period">2024–August 2026</span></div>
+        <p class="figure-deck">eBird’s 2025 rows stop in August, and no 2026 eBird records appear in this filtered ALA snapshot. Those gaps are why the main seasonal story uses 2024.</p>
+        <div class="chart" id="coverage-calendar" role="img" aria-label="Heatmap showing monthly data availability by platform from 2024 to August 2026"></div>
+        <div class="coverage-key"><span><b>×</b> No records in this source snapshot</span><span><b>—</b> Outside the comparison period</span></div>
+        <figcaption>Colour is relative to the largest month within each source-year row, so small platforms remain visible. Labels and tooltips show actual counts. Gaps can reflect data-transfer schedules; they are not evidence of birds disappearing. September 2026 is in progress and is excluded.</figcaption>
+      </figure>
+      <div class="recent-spread">
+        <div class="inset-copy"><h3>One source.<br>Two complete calendars.</h3><p>iNaturalist has records in every month of both 2024 and 2025. That permits a comparison without switching between platforms.</p><p>We compare each bird’s share of all iNaturalist bird records, rather than interpreting platform growth as bird growth.</p></div>
+        <figure class="figure" id="fig-recent-shares" data-chart="recent-shares">
+          <div class="figure-heading"><h3>Which featured birds changed their share?</h3><span class="figure-period">iNaturalist · 2024 vs 2025</span></div>
+          <p class="figure-deck">The six largest absolute share changes among the featured birds. Read from the open 2024 circle to the filled 2025 circle.</p>
+          <div class="comparison-key"><span><i class="open-dot"></i>2024</span><span><i class="solid-dot"></i>2025</span></div>
+          <div class="chart" id="recent-shares" role="img" aria-label="Paired-dot comparison of species record shares in iNaturalist in 2024 and 2025"></div>
+          <figcaption>Rates are records per 10,000 bird records in that year: <span data-stat="inat2024">310,187</span> total records in 2024 and <span data-stat="inat2025">427,661</span> in 2025. Photographer preferences, coverage and detectability can change; this is not a population trend.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <span class="closing-symbol" aria-hidden="true">✳</span>
+      <h2 id="closing-title">Every sighting adds a page.<br><em>The gaps are part of the story.</em></h2>
+      <p>Citizen observations reveal an extraordinary seasonal record. Reading it well means paying attention to the birds, the people looking for them, and the places still waiting to be observed.</p>
+      <a href="#atlas">Revisit the atlas <span aria-hidden="true">↑</span></a>
+    </section>
+
+    <section id="sources" class="sources" aria-labelledby="sources-title">
+      <div class="sources-heading"><h2 id="sources-title">Inside the notebook</h2><p>Sources, definitions and a reproducible record of the work.</p></div>
+      <div class="source-columns">
+        <div><h3>Observation data</h3><p><a href="https://www.ala.org.au/" target="_blank" rel="noopener noreferrer">Atlas of Living Australia</a>, hosting <a href="https://collections.ala.org.au/public/show/dr2009" target="_blank" rel="noopener noreferrer">eBird Australia</a>, <a href="https://collections.ala.org.au/public/show/dr359" target="_blank" rel="noopener noreferrer">BirdLife Australia’s Birdata</a> and <a href="https://collections.ala.org.au/public/show/dr1411" target="_blank" rel="noopener noreferrer">iNaturalist Australia</a>. Downloaded 10 September 2026 through exhaustive aggregate queries.</p><p>We retain human observations marked present, spatially valid, with a known month, in the eight states/territories and within 112–154°E, 44–10°S. This focuses on mainland Australia, Tasmania and nearby islands and waters.</p></div>
+        <div><h3>Conservation & geography</h3><p><a href="https://data.gov.au/data/dataset/threatened-species-state-lists" target="_blank" rel="noopener noreferrer">DCCEEW Threatened Species State Lists</a>, 28 August 2026. The bird subset excludes extinct entries and offshore-only listings for the overlap chart.</p><p><a href="https://www.ga.gov.au/scientific-topics/national-location-information/dimensions/area-of-australia-states-and-territories" target="_blank" rel="noopener noreferrer">Geoscience Australia land areas</a>, published table updated 2014. Boundaries: <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-1-states-provinces/" target="_blank" rel="noopener noreferrer">Natural Earth 1:50m</a>, public domain. Maps use an Australian Albers equal-area projection.</p></div>
+        <div><h3>How to read the evidence</h3><p>Record counts are not bird counts, unique observer counts or complete survey checklists. Cross-platform duplicates are possible. ALA’s spatial-validity filter does not remove every possible error.</p><p>Seasonal comparisons describe this observation snapshot. Current conservation status does not establish a species’ status in 2024. Scientific-name joins are exact and intentionally leave uncertain matches out.</p></div>
+      </div>
+      <details class="method-details"><summary>Methods, name matching and limitations</summary><div class="method-body"><p>The main snapshot contains <span data-stat="total">9,575,922</span> records and <span data-stat="species">760</span> named species. A further <span data-stat="speciesUnassigned">217,108</span> records have no species-level assignment; these remain in overall totals but not species rankings. The species count includes all recorded taxa in scope, including introduced or unusual records, and is not a count of native Australian birds.</p><p>Monthly shares divide species records by all bird records in that month. Relative shares then divide by the equivalent annual share. The circular calendar instead adjusts counts for month length and compares each state with its own daily average. Neither method fully controls observer effort.</p><p>Conservation comparisons use the DCCEEW “Scientific Name” field at species level, with no inferred synonym matches and no promotion of subspecies listings to their parent species. <span data-stat="matchedThreatenedSpecies">65</span> species match exactly with positive 2024 records. An unmatched name can reflect taxonomy differences, geography or no records; it is not proof of absence.</p><p>The recent comparison uses six birds with the greatest absolute record-share changes among the journal’s featured set, not among all Australian species. Record density uses published total land area as a denominator; the sighting scope includes nearby coastal records, so it is a broad geographic comparison.</p><p>All three map idioms use a consistent projection. Rounded-coordinate grids have unequal physical area; they show counts, not equal-area density. The bee-eater latitude comparison uses rounded one-degree bins, so the 30°S threshold is approximate.</p></div></details>
+      <div class="source-downloads"><a href="data/provenance.json" download>Download source query log ↗</a><a href="data/story.json" download>Download chart data ↗</a><a href="docs/methodology.md">Read full methodology ↗</a></div>
+      <div class="acknowledgement"><p><strong>Authorship & AI acknowledgement.</strong> A FIT3179 data visualisation by Wen-Shen Lum, Monash University Malaysia, September 2026. Built with assistance from OpenAI Codex for research, data processing, writing and implementation. The rainbow bee-eater artwork was generated with OpenAI’s image-generation tool. It is decorative, not a scientific identification reference. Charts are original Vega/Vega-Lite specifications based on the cited real-world data.</p><p>Typeface credits: Literata, Bricolage Grotesque and Kalam, distributed under the SIL Open Font License. Source data retain their original licences; see the query log, dataset metadata and methodology for attribution.</p></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="wordmark" href="#top"><span class="wordmark-symbol" aria-hidden="true">✳</span> fieldnotes</a><span>Australia, through a birdwatcher’s eyes.</span><a href="#top">Close the notebook ↑</a></footer>
+  <noscript><p class="noscript-notice">JavaScript is needed to draw the interactive charts. The story and source links remain available; use “Download chart data” to inspect the values.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Cover artwork
+
+The rainbow bee-eater is an original decorative interpretation generated using the built-in OpenAI image-generation tool. It is not a scientific identification reference and is not evidence for any plotted observation.
+
+Saved assets: `assets/rainbow-bee-eater.png` (original generated raster) and `assets/rainbow-bee-eater.webp` (same image encoded for website delivery). The website uses the 143 KB WebP version. No reference photos or third-party bird illustrations were incorporated.
+
+## Generation prompt
+
+Use case: illustration-story. Asset type: hero artwork for a sophisticated interactive Australian birdwatching field journal website. Create an exquisite natural-history plate, a lifelike Australian rainbow bee-eater perched on a fine dry eucalyptus twig, in meticulous coloured pencil, delicate ink stippling and translucent watercolour. Anatomically credible slender turquoise green bird, golden orange throat with thin black collar, black eye stripe, long narrow curved black beak, slim elongated central tail feathers. Single bird in three-quarter side profile facing left, tail descending to lower right. Show entire bird and tail, feet naturally gripping branch. A small quiet cluster of slender eucalyptus leaves at lower right. A few very faint graphite observational construction marks near the bird, no diagrams or charts. Restrained natural hues: eucalyptus green, honey yellow, burnt sienna, turquoise and black. Museum-quality contemporary field sketch, not cartoon, no crude outline, no photo. Tall portrait composition with bird occupying central 75%, lots of breathing room around delicate branch. Background should be flat very pale warm ivory paper, no vignette, no heavy grain. No text, no letters, no numbers, no borders, no logo. This is a decorative interpretive illustration, not a scientific identification diagram. Beautiful refined feather detail and subtle pigment texture.

@@ -1,0 +1,1367 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 775,
+  "height": 360,
+  "padding": 8,
+  "config": {
+    "background": "transparent",
+    "font": "Bricolage Grotesque",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e0dccf",
+      "gridOpacity": 0.75,
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "gradientThickness": 9,
+      "gradientLength": 130,
+      "padding": 8
+    },
+    "title": {
+      "font": "Bricolage Grotesque",
+      "color": "#292e27",
+      "fontSize": 15,
+      "fontWeight": 500,
+      "anchor": "start"
+    }
+  },
+  "description": "Source-by-month coverage for 2024–2026. Coloured cells contain records; crosses mean no records in this archived dataset snapshot, not zero birds. Months after August 2026 are outside the comparison.",
+  "data": {
+    "values": [
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 1,
+        "label": "Jan",
+        "count": 719382,
+        "relative": 0.70011,
+        "availability": "Recorded",
+        "cellLabel": "719k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 2,
+        "label": "Feb",
+        "count": 549671,
+        "relative": 0.53494,
+        "availability": "Recorded",
+        "cellLabel": "550k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 3,
+        "label": "Mar",
+        "count": 590903,
+        "relative": 0.57507,
+        "availability": "Recorded",
+        "cellLabel": "591k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 4,
+        "label": "Apr",
+        "count": 612572,
+        "relative": 0.59616,
+        "availability": "Recorded",
+        "cellLabel": "613k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 5,
+        "label": "May",
+        "count": 546541,
+        "relative": 0.5319,
+        "availability": "Recorded",
+        "cellLabel": "547k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 6,
+        "label": "Jun",
+        "count": 576856,
+        "relative": 0.5614,
+        "availability": "Recorded",
+        "cellLabel": "577k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 7,
+        "label": "Jul",
+        "count": 619134,
+        "relative": 0.60254,
+        "availability": "Recorded",
+        "cellLabel": "619k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 8,
+        "label": "Aug",
+        "count": 709162,
+        "relative": 0.69016,
+        "availability": "Recorded",
+        "cellLabel": "709k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 9,
+        "label": "Sep",
+        "count": 817939,
+        "relative": 0.79602,
+        "availability": "Recorded",
+        "cellLabel": "818k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 10,
+        "label": "Oct",
+        "count": 1027534,
+        "relative": 1,
+        "availability": "Recorded",
+        "cellLabel": "1028k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 11,
+        "label": "Nov",
+        "count": 817971,
+        "relative": 0.79605,
+        "availability": "Recorded",
+        "cellLabel": "818k"
+      },
+      {
+        "year": 2024,
+        "source": "eBird Australia",
+        "row": "eBird · 2024",
+        "month": 12,
+        "label": "Dec",
+        "count": 720876,
+        "relative": 0.70156,
+        "availability": "Recorded",
+        "cellLabel": "721k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 1,
+        "label": "Jan",
+        "count": 80514,
+        "relative": 0.71041,
+        "availability": "Recorded",
+        "cellLabel": "80.5k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 2,
+        "label": "Feb",
+        "count": 68217,
+        "relative": 0.60191,
+        "availability": "Recorded",
+        "cellLabel": "68.2k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 3,
+        "label": "Mar",
+        "count": 73243,
+        "relative": 0.64626,
+        "availability": "Recorded",
+        "cellLabel": "73.2k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 4,
+        "label": "Apr",
+        "count": 81376,
+        "relative": 0.71802,
+        "availability": "Recorded",
+        "cellLabel": "81.4k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 5,
+        "label": "May",
+        "count": 73844,
+        "relative": 0.65156,
+        "availability": "Recorded",
+        "cellLabel": "73.8k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 6,
+        "label": "Jun",
+        "count": 65501,
+        "relative": 0.57795,
+        "availability": "Recorded",
+        "cellLabel": "65.5k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 7,
+        "label": "Jul",
+        "count": 69333,
+        "relative": 0.61176,
+        "availability": "Recorded",
+        "cellLabel": "69.3k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 8,
+        "label": "Aug",
+        "count": 84011,
+        "relative": 0.74127,
+        "availability": "Recorded",
+        "cellLabel": "84.0k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 9,
+        "label": "Sep",
+        "count": 93152,
+        "relative": 0.82192,
+        "availability": "Recorded",
+        "cellLabel": "93.2k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 10,
+        "label": "Oct",
+        "count": 113334,
+        "relative": 1,
+        "availability": "Recorded",
+        "cellLabel": "113k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 11,
+        "label": "Nov",
+        "count": 85431,
+        "relative": 0.7538,
+        "availability": "Recorded",
+        "cellLabel": "85.4k"
+      },
+      {
+        "year": 2024,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2024",
+        "month": 12,
+        "label": "Dec",
+        "count": 69238,
+        "relative": 0.61092,
+        "availability": "Recorded",
+        "cellLabel": "69.2k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 1,
+        "label": "Jan",
+        "count": 22356,
+        "relative": 0.55479,
+        "availability": "Recorded",
+        "cellLabel": "22.4k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 2,
+        "label": "Feb",
+        "count": 18468,
+        "relative": 0.45831,
+        "availability": "Recorded",
+        "cellLabel": "18.5k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 3,
+        "label": "Mar",
+        "count": 22342,
+        "relative": 0.55445,
+        "availability": "Recorded",
+        "cellLabel": "22.3k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 4,
+        "label": "Apr",
+        "count": 24670,
+        "relative": 0.61222,
+        "availability": "Recorded",
+        "cellLabel": "24.7k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 5,
+        "label": "May",
+        "count": 21137,
+        "relative": 0.52454,
+        "availability": "Recorded",
+        "cellLabel": "21.1k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 6,
+        "label": "Jun",
+        "count": 21008,
+        "relative": 0.52134,
+        "availability": "Recorded",
+        "cellLabel": "21.0k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 7,
+        "label": "Jul",
+        "count": 24433,
+        "relative": 0.60634,
+        "availability": "Recorded",
+        "cellLabel": "24.4k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 8,
+        "label": "Aug",
+        "count": 28259,
+        "relative": 0.70129,
+        "availability": "Recorded",
+        "cellLabel": "28.3k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 9,
+        "label": "Sep",
+        "count": 40296,
+        "relative": 1,
+        "availability": "Recorded",
+        "cellLabel": "40.3k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 10,
+        "label": "Oct",
+        "count": 32383,
+        "relative": 0.80363,
+        "availability": "Recorded",
+        "cellLabel": "32.4k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 11,
+        "label": "Nov",
+        "count": 27815,
+        "relative": 0.69027,
+        "availability": "Recorded",
+        "cellLabel": "27.8k"
+      },
+      {
+        "year": 2024,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2024",
+        "month": 12,
+        "label": "Dec",
+        "count": 27020,
+        "relative": 0.67054,
+        "availability": "Recorded",
+        "cellLabel": "27.0k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 1,
+        "label": "Jan",
+        "count": 853674,
+        "relative": 1,
+        "availability": "Recorded",
+        "cellLabel": "854k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 2,
+        "label": "Feb",
+        "count": 626812,
+        "relative": 0.73425,
+        "availability": "Recorded",
+        "cellLabel": "627k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 3,
+        "label": "Mar",
+        "count": 643363,
+        "relative": 0.75364,
+        "availability": "Recorded",
+        "cellLabel": "643k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 4,
+        "label": "Apr",
+        "count": 699590,
+        "relative": 0.8195,
+        "availability": "Recorded",
+        "cellLabel": "700k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 5,
+        "label": "May",
+        "count": 629925,
+        "relative": 0.7379,
+        "availability": "Recorded",
+        "cellLabel": "630k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 6,
+        "label": "Jun",
+        "count": 662232,
+        "relative": 0.77574,
+        "availability": "Recorded",
+        "cellLabel": "662k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 7,
+        "label": "Jul",
+        "count": 702250,
+        "relative": 0.82262,
+        "availability": "Recorded",
+        "cellLabel": "702k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 8,
+        "label": "Aug",
+        "count": 782863,
+        "relative": 0.91705,
+        "availability": "Recorded",
+        "cellLabel": "783k"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 9,
+        "label": "Sep",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 10,
+        "label": "Oct",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 11,
+        "label": "Nov",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2025,
+        "source": "eBird Australia",
+        "row": "eBird · 2025",
+        "month": 12,
+        "label": "Dec",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 1,
+        "label": "Jan",
+        "count": 73835,
+        "relative": 0.66377,
+        "availability": "Recorded",
+        "cellLabel": "73.8k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 2,
+        "label": "Feb",
+        "count": 66517,
+        "relative": 0.59798,
+        "availability": "Recorded",
+        "cellLabel": "66.5k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 3,
+        "label": "Mar",
+        "count": 70959,
+        "relative": 0.63791,
+        "availability": "Recorded",
+        "cellLabel": "71.0k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 4,
+        "label": "Apr",
+        "count": 81618,
+        "relative": 0.73374,
+        "availability": "Recorded",
+        "cellLabel": "81.6k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 5,
+        "label": "May",
+        "count": 72178,
+        "relative": 0.64887,
+        "availability": "Recorded",
+        "cellLabel": "72.2k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 6,
+        "label": "Jun",
+        "count": 64568,
+        "relative": 0.58046,
+        "availability": "Recorded",
+        "cellLabel": "64.6k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 7,
+        "label": "Jul",
+        "count": 73367,
+        "relative": 0.65956,
+        "availability": "Recorded",
+        "cellLabel": "73.4k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 8,
+        "label": "Aug",
+        "count": 77946,
+        "relative": 0.70073,
+        "availability": "Recorded",
+        "cellLabel": "77.9k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 9,
+        "label": "Sep",
+        "count": 94066,
+        "relative": 0.84564,
+        "availability": "Recorded",
+        "cellLabel": "94.1k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 10,
+        "label": "Oct",
+        "count": 111236,
+        "relative": 1,
+        "availability": "Recorded",
+        "cellLabel": "111k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 11,
+        "label": "Nov",
+        "count": 91529,
+        "relative": 0.82284,
+        "availability": "Recorded",
+        "cellLabel": "91.5k"
+      },
+      {
+        "year": 2025,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2025",
+        "month": 12,
+        "label": "Dec",
+        "count": 74448,
+        "relative": 0.66928,
+        "availability": "Recorded",
+        "cellLabel": "74.4k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 1,
+        "label": "Jan",
+        "count": 30140,
+        "relative": 0.55528,
+        "availability": "Recorded",
+        "cellLabel": "30.1k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 2,
+        "label": "Feb",
+        "count": 25182,
+        "relative": 0.46394,
+        "availability": "Recorded",
+        "cellLabel": "25.2k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 3,
+        "label": "Mar",
+        "count": 26243,
+        "relative": 0.48348,
+        "availability": "Recorded",
+        "cellLabel": "26.2k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 4,
+        "label": "Apr",
+        "count": 32622,
+        "relative": 0.60101,
+        "availability": "Recorded",
+        "cellLabel": "32.6k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 5,
+        "label": "May",
+        "count": 28546,
+        "relative": 0.52591,
+        "availability": "Recorded",
+        "cellLabel": "28.5k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 6,
+        "label": "Jun",
+        "count": 32665,
+        "relative": 0.6018,
+        "availability": "Recorded",
+        "cellLabel": "32.7k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 7,
+        "label": "Jul",
+        "count": 34103,
+        "relative": 0.62829,
+        "availability": "Recorded",
+        "cellLabel": "34.1k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 8,
+        "label": "Aug",
+        "count": 41422,
+        "relative": 0.76313,
+        "availability": "Recorded",
+        "cellLabel": "41.4k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 9,
+        "label": "Sep",
+        "count": 44261,
+        "relative": 0.81544,
+        "availability": "Recorded",
+        "cellLabel": "44.3k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 10,
+        "label": "Oct",
+        "count": 54279,
+        "relative": 1,
+        "availability": "Recorded",
+        "cellLabel": "54.3k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 11,
+        "label": "Nov",
+        "count": 39558,
+        "relative": 0.72879,
+        "availability": "Recorded",
+        "cellLabel": "39.6k"
+      },
+      {
+        "year": 2025,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2025",
+        "month": 12,
+        "label": "Dec",
+        "count": 38640,
+        "relative": 0.71188,
+        "availability": "Recorded",
+        "cellLabel": "38.6k"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 1,
+        "label": "Jan",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 2,
+        "label": "Feb",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 3,
+        "label": "Mar",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 4,
+        "label": "Apr",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 5,
+        "label": "May",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 6,
+        "label": "Jun",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 7,
+        "label": "Jul",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 8,
+        "label": "Aug",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 9,
+        "label": "Sep",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 10,
+        "label": "Oct",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 11,
+        "label": "Nov",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "eBird Australia",
+        "row": "eBird · 2026",
+        "month": 12,
+        "label": "Dec",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 1,
+        "label": "Jan",
+        "count": 73806,
+        "relative": 0.93728,
+        "availability": "Recorded",
+        "cellLabel": "73.8k"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 2,
+        "label": "Feb",
+        "count": 66275,
+        "relative": 0.84164,
+        "availability": "Recorded",
+        "cellLabel": "66.3k"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 3,
+        "label": "Mar",
+        "count": 67798,
+        "relative": 0.86098,
+        "availability": "Recorded",
+        "cellLabel": "67.8k"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 4,
+        "label": "Apr",
+        "count": 78745,
+        "relative": 1,
+        "availability": "Recorded",
+        "cellLabel": "78.7k"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 5,
+        "label": "May",
+        "count": 65518,
+        "relative": 0.83203,
+        "availability": "Recorded",
+        "cellLabel": "65.5k"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 6,
+        "label": "Jun",
+        "count": 47496,
+        "relative": 0.60316,
+        "availability": "Recorded",
+        "cellLabel": "47.5k"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 7,
+        "label": "Jul",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 8,
+        "label": "Aug",
+        "count": 0,
+        "relative": null,
+        "availability": "No records in snapshot",
+        "cellLabel": "×"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 9,
+        "label": "Sep",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 10,
+        "label": "Oct",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 11,
+        "label": "Nov",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "BirdLife Australia, Birdata",
+        "row": "Birdata · 2026",
+        "month": 12,
+        "label": "Dec",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 1,
+        "label": "Jan",
+        "count": 40729,
+        "relative": 0.9062,
+        "availability": "Recorded",
+        "cellLabel": "40.7k"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 2,
+        "label": "Feb",
+        "count": 31928,
+        "relative": 0.71038,
+        "availability": "Recorded",
+        "cellLabel": "31.9k"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 3,
+        "label": "Mar",
+        "count": 34702,
+        "relative": 0.7721,
+        "availability": "Recorded",
+        "cellLabel": "34.7k"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 4,
+        "label": "Apr",
+        "count": 41762,
+        "relative": 0.92918,
+        "availability": "Recorded",
+        "cellLabel": "41.8k"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 5,
+        "label": "May",
+        "count": 37003,
+        "relative": 0.8233,
+        "availability": "Recorded",
+        "cellLabel": "37.0k"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 6,
+        "label": "Jun",
+        "count": 37931,
+        "relative": 0.84394,
+        "availability": "Recorded",
+        "cellLabel": "37.9k"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 7,
+        "label": "Jul",
+        "count": 41951,
+        "relative": 0.93339,
+        "availability": "Recorded",
+        "cellLabel": "42.0k"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 8,
+        "label": "Aug",
+        "count": 44945,
+        "relative": 1,
+        "availability": "Recorded",
+        "cellLabel": "44.9k"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 9,
+        "label": "Sep",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 10,
+        "label": "Oct",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 11,
+        "label": "Nov",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      },
+      {
+        "year": 2026,
+        "source": "iNaturalist Australia",
+        "row": "iNaturalist · 2026",
+        "month": 12,
+        "label": "Dec",
+        "count": null,
+        "relative": null,
+        "availability": "Outside comparison",
+        "cellLabel": "—"
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "label",
+      "type": "ordinal",
+      "sort": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "sort": [
+        "eBird · 2024",
+        "Birdata · 2024",
+        "iNaturalist · 2024",
+        "eBird · 2025",
+        "Birdata · 2025",
+        "iNaturalist · 2025",
+        "eBird · 2026",
+        "Birdata · 2026",
+        "iNaturalist · 2026"
+      ],
+      "axis": {
+        "title": null,
+        "labelFontSize": 12,
+        "labelLimit": 140
+      }
+    },
+    "tooltip": [
+      {
+        "field": "source",
+        "title": "Source"
+      },
+      {
+        "field": "year",
+        "title": "Year"
+      },
+      {
+        "field": "label",
+        "title": "Month"
+      },
+      {
+        "field": "availability",
+        "title": "Coverage"
+      },
+      {
+        "field": "count",
+        "title": "Records",
+        "format": ","
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#f8f5ec",
+        "strokeWidth": 3,
+        "cornerRadius": 1
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.availability==='Recorded'",
+            "field": "relative",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                1
+              ],
+              "range": [
+                "#c9d6c2",
+                "#315e4c"
+              ]
+            },
+            "legend": {
+              "title": "Record volume relative to each row’s peak",
+              "orient": "bottom",
+              "gradientLength": 170,
+              "values": [
+                0,
+                1
+              ],
+              "format": ".0%"
+            }
+          },
+          "value": "#e5e0d4"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 500
+      },
+      "encoding": {
+        "text": {
+          "field": "cellLabel"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.relative>0.58",
+            "value": "#f8f5ec"
+          },
+          "value": "#60665c"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "scientific": "Merops ornatus",
+    "common": "Rainbow Bee-eater",
+    "family": "Meropidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Merops+ornatus%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Gymnorhina tibicen",
+    "common": "Australian Magpie",
+    "family": "Artamidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Gymnorhina+tibicen%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Grallina cyanoleuca",
+    "common": "Southern Magpie-lark",
+    "family": "Monarchidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Grallina+cyanoleuca%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Hirundo neoxena",
+    "common": "Welcome Swallow",
+    "family": "Hirundinidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Hirundo+neoxena%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Trichoglossus moluccanus",
+    "common": "Eastern Rainbow Lorikeet",
+    "family": "Psittacidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Trichoglossus+moluccanus%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Rhipidura leucophrys",
+    "common": "Willie Wagtail",
+    "family": "Rhipiduridae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Rhipidura+leucophrys%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Malurus cyaneus",
+    "common": "Superb Fairy-wren",
+    "family": "Maluridae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Malurus+cyaneus%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Manorina melanocephala",
+    "common": "Noisy Miner",
+    "family": "Meliphagidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Manorina+melanocephala%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Eolophus roseicapilla",
+    "common": "Galah",
+    "family": "Cacatuidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Eolophus+roseicapilla%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Dacelo novaeguineae",
+    "common": "Laughing Kookaburra",
+    "family": "Alcedinidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Dacelo+novaeguineae%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Cacatua galerita",
+    "common": "Sulphur-crested Cockatoo",
+    "family": "Cacatuidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Cacatua+galerita%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Zosterops lateralis",
+    "common": "Silvereye",
+    "family": "Zosteropidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Zosterops+lateralis%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Calidris ruficollis",
+    "common": "Red-necked Stint",
+    "family": "Scolopacidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Calidris+ruficollis%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Hirundapus caudacutus",
+    "common": "White-throated Needletail",
+    "family": "Apodidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Hirundapus+caudacutus%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Eudynamys orientalis",
+    "common": "Eastern Koel",
+    "family": "Cuculidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Eudynamys+orientalis%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Anthochaera phrygia",
+    "common": "Regent Honeyeater",
+    "family": "Meliphagidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Anthochaera+phrygia%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Lathamus discolor",
+    "common": "Swift Parrot",
+    "family": "Psittacidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Lathamus+discolor%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Neophema chrysogaster",
+    "common": "Orange-bellied Parrot",
+    "family": "Psittacidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Neophema+chrysogaster%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Calidris ferruginea",
+    "common": "Curlew Sandpiper",
+    "family": "Scolopacidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Calidris+ferruginea%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Numenius madagascariensis",
+    "common": "Eastern Curlew",
+    "family": "Scolopacidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Numenius+madagascariensis%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  },
+  {
+    "scientific": "Pardalotus quadragintus",
+    "common": "Forty-spotted Pardalote",
+    "family": "Pardalotidae",
+    "source": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&fq=species%3A%22Pardalotus+quadragintus%22&fq=country%3AAustralia&pageSize=1&facets=species&flimit=1"
+  }
+]

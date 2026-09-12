@@ -1,0 +1,97 @@
+state,code,month,label,season,count,dailyIndex
+Australian Capital Territory,ACT,1,Jan,Summer,48911,1.67935
+New South Wales,NSW,1,Jan,Summer,221522,1.0649
+Northern Territory,NT,1,Jan,Summer,20055,0.71708
+Queensland,QLD,1,Jan,Summer,161734,0.81764
+South Australia,SA,1,Jan,Summer,39320,0.94679
+Tasmania,TAS,1,Jan,Summer,39130,0.99766
+Victoria,VIC,1,Jan,Summer,231735,1.11649
+Western Australia,WA,1,Jan,Summer,59845,0.99993
+Australian Capital Territory,ACT,2,Feb,Summer,29034,1.06563
+New South Wales,NSW,2,Feb,Summer,169043,0.86867
+Northern Territory,NT,2,Feb,Summer,12264,0.46875
+Queensland,QLD,2,Feb,Summer,134640,0.72761
+South Australia,SA,2,Feb,Summer,33927,0.87327
+Tasmania,TAS,2,Feb,Summer,40327,1.09909
+Victoria,VIC,2,Feb,Summer,172671,0.8893
+Western Australia,WA,2,Feb,Summer,44450,0.79392
+Australian Capital Territory,ACT,3,Mar,Autumn,28940,0.99365
+New South Wales,NSW,3,Mar,Autumn,192311,0.92448
+Northern Territory,NT,3,Mar,Autumn,18430,0.65898
+Queensland,QLD,3,Mar,Autumn,138941,0.70241
+South Australia,SA,3,Mar,Autumn,39624,0.95411
+Tasmania,TAS,3,Mar,Autumn,37236,0.94937
+Victoria,VIC,3,Mar,Autumn,187540,0.90356
+Western Australia,WA,3,Mar,Autumn,43466,0.72626
+Australian Capital Territory,ACT,4,Apr,Autumn,25942,0.9204
+New South Wales,NSW,4,Apr,Autumn,195991,0.97357
+Northern Territory,NT,4,Apr,Autumn,18189,0.67204
+Queensland,QLD,4,Apr,Autumn,148920,0.77796
+South Australia,SA,4,Apr,Autumn,39641,0.98634
+Tasmania,TAS,4,Apr,Autumn,29783,0.78466
+Victoria,VIC,4,Apr,Autumn,209165,1.04134
+Western Australia,WA,4,Apr,Autumn,50987,0.88032
+Australian Capital Territory,ACT,5,May,Autumn,18525,0.63605
+New South Wales,NSW,5,May,Autumn,148784,0.71523
+Northern Territory,NT,5,May,Autumn,19600,0.70081
+Queensland,QLD,5,May,Autumn,158953,0.80358
+South Australia,SA,5,May,Autumn,40625,0.97821
+Tasmania,TAS,5,May,Autumn,31413,0.80091
+Victoria,VIC,5,May,Autumn,167582,0.80741
+Western Australia,WA,5,May,Autumn,56040,0.93636
+Australian Capital Territory,ACT,6,Jun,Winter,18022,0.63941
+New South Wales,NSW,6,Jun,Winter,156294,0.77638
+Northern Territory,NT,6,Jun,Winter,39630,1.46423
+Queensland,QLD,6,Jun,Winter,185423,0.96865
+South Australia,SA,6,Jun,Winter,32694,0.81348
+Tasmania,TAS,6,Jun,Winter,34434,0.9072
+Victoria,VIC,6,Jun,Winter,138798,0.69102
+Western Australia,WA,6,Jun,Winter,58070,1.00262
+Australian Capital Territory,ACT,7,Jul,Winter,20649,0.70898
+New South Wales,NSW,7,Jul,Winter,171336,0.82365
+Northern Territory,NT,7,Jul,Winter,39509,1.41267
+Queensland,QLD,7,Jul,Winter,231496,1.17032
+South Australia,SA,7,Jul,Winter,37045,0.89201
+Tasmania,TAS,7,Jul,Winter,21077,0.53738
+Victoria,VIC,7,Jul,Winter,137070,0.6604
+Western Australia,WA,7,Jul,Winter,54718,0.91427
+Australian Capital Territory,ACT,8,Aug,Winter,26635,0.91451
+New South Wales,NSW,8,Aug,Winter,205978,0.99018
+Northern Territory,NT,8,Aug,Winter,40239,1.43877
+Queensland,QLD,8,Aug,Winter,244266,1.23488
+South Australia,SA,8,Aug,Winter,35339,0.85093
+Tasmania,TAS,8,Aug,Winter,24289,0.61928
+Victoria,VIC,8,Aug,Winter,184050,0.88675
+Western Australia,WA,8,Aug,Winter,60636,1.01315
+Australian Capital Territory,ACT,9,Sep,Spring,26568,0.94261
+New South Wales,NSW,9,Sep,Spring,244114,1.21262
+Northern Territory,NT,9,Sep,Spring,46575,1.72083
+Queensland,QLD,9,Sep,Spring,244549,1.27752
+South Australia,SA,9,Sep,Spring,50944,1.26758
+Tasmania,TAS,9,Sep,Spring,41691,1.09839
+Victoria,VIC,9,Sep,Spring,214554,1.06817
+Western Australia,WA,9,Sep,Spring,82392,1.42255
+Australian Capital Territory,ACT,10,Oct,Spring,40145,1.37837
+New South Wales,NSW,10,Oct,Spring,300315,1.44367
+Northern Territory,NT,10,Oct,Spring,42847,1.53202
+Queensland,QLD,10,Oct,Spring,301355,1.5235
+South Australia,SA,10,Oct,Spring,59152,1.42433
+Tasmania,TAS,10,Oct,Spring,58919,1.50221
+Victoria,VIC,10,Oct,Spring,298474,1.43804
+Western Australia,WA,10,Oct,Spring,72044,1.20376
+Australian Capital Territory,ACT,11,Nov,Spring,30708,1.0895
+New South Wales,NSW,11,Nov,Spring,236097,1.1728
+Northern Territory,NT,11,Nov,Spring,19794,0.73134
+Queensland,QLD,11,Nov,Spring,219630,1.14735
+South Australia,SA,11,Nov,Spring,43845,1.09094
+Tasmania,TAS,11,Nov,Spring,60742,1.60031
+Victoria,VIC,11,Nov,Spring,257158,1.28028
+Western Australia,WA,11,Nov,Spring,63243,1.09193
+Australian Capital Territory,ACT,12,Dec,Summer,29784,1.02263
+New South Wales,NSW,12,Dec,Summer,214208,1.02974
+Northern Territory,NT,12,Dec,Summer,13067,0.46722
+Queensland,QLD,12,Dec,Summer,165467,0.83652
+South Australia,SA,12,Dec,Summer,38163,0.91893
+Tasmania,TAS,12,Dec,Summer,44027,1.12252
+Victoria,VIC,12,Dec,Summer,251704,1.2127
+Western Australia,WA,12,Dec,Summer,60714,1.01445

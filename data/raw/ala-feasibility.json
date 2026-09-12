@@ -1,0 +1,428 @@
+{
+  "pageSize": 0,
+  "startIndex": 0,
+  "totalRecords": 41712484,
+  "sort": "score",
+  "dir": "asc",
+  "status": "OK",
+  "occurrences": [],
+  "facetResults": [
+    {
+      "fieldName": "year",
+      "fieldResult": [
+        {
+          "label": "2021",
+          "i18nCode": "year.2021",
+          "count": 6946417,
+          "fq": "year:\"2021\""
+        },
+        {
+          "label": "2022",
+          "i18nCode": "year.2022",
+          "count": 7628604,
+          "fq": "year:\"2022\""
+        },
+        {
+          "label": "2023",
+          "i18nCode": "year.2023",
+          "count": 9367164,
+          "fq": "year:\"2023\""
+        },
+        {
+          "label": "2024",
+          "i18nCode": "year.2024",
+          "count": 10265330,
+          "fq": "year:\"2024\""
+        },
+        {
+          "label": "2025",
+          "i18nCode": "year.2025",
+          "count": 7504969,
+          "fq": "year:\"2025\""
+        }
+      ]
+    },
+    {
+      "fieldName": "data_resource",
+      "fieldResult": [
+        {
+          "label": "eBird Australia",
+          "i18nCode": "data_resource.eBird Australia",
+          "count": 34298742,
+          "fq": "data_resource:\"eBird Australia\""
+        },
+        {
+          "label": "BirdLife Australia, Birdata",
+          "i18nCode": "data_resource.BirdLife Australia, Birdata",
+          "count": 4760740,
+          "fq": "data_resource:\"BirdLife Australia, Birdata\""
+        },
+        {
+          "label": "iNaturalist Australia",
+          "i18nCode": "data_resource.iNaturalist Australia",
+          "count": 1314524,
+          "fq": "data_resource:\"iNaturalist Australia\""
+        },
+        {
+          "label": "NSW BioNet Atlas",
+          "i18nCode": "data_resource.NSW BioNet Atlas",
+          "count": 914462,
+          "fq": "data_resource:\"NSW BioNet Atlas\""
+        },
+        {
+          "label": "SA Fauna",
+          "i18nCode": "data_resource.SA Fauna",
+          "count": 147385,
+          "fq": "data_resource:\"SA Fauna\""
+        },
+        {
+          "label": "Garden Bird Surveys",
+          "i18nCode": "data_resource.Garden Bird Surveys",
+          "count": 53407,
+          "fq": "data_resource:\"Garden Bird Surveys\""
+        },
+        {
+          "label": "AWC Ecological Monitoring Surveys",
+          "i18nCode": "data_resource.AWC Ecological Monitoring Surveys",
+          "count": 49501,
+          "fq": "data_resource:\"AWC Ecological Monitoring Surveys\""
+        },
+        {
+          "label": "Fauna Atlas N.T.",
+          "i18nCode": "data_resource.Fauna Atlas N.T.",
+          "count": 39185,
+          "fq": "data_resource:\"Fauna Atlas N.T.\""
+        },
+        {
+          "label": "Earth Guardians Weekly Feed",
+          "i18nCode": "data_resource.Earth Guardians Weekly Feed",
+          "count": 35848,
+          "fq": "data_resource:\"Earth Guardians Weekly Feed\""
+        },
+        {
+          "label": "NatureMapr",
+          "i18nCode": "data_resource.NatureMapr",
+          "count": 35255,
+          "fq": "data_resource:\"NatureMapr\""
+        },
+        {
+          "label": "PAE Bird Monitoring Project",
+          "i18nCode": "data_resource.PAE Bird Monitoring Project",
+          "count": 23229,
+          "fq": "data_resource:\"PAE Bird Monitoring Project\""
+        },
+        {
+          "label": "Wildlife Watch NSC",
+          "i18nCode": "data_resource.Wildlife Watch NSC",
+          "count": 10242,
+          "fq": "data_resource:\"Wildlife Watch NSC\""
+        },
+        {
+          "label": "Observation.org, Nature data from around the World",
+          "i18nCode": "data_resource.Observation.org, Nature data from around the World",
+          "count": 9670,
+          "fq": "data_resource:\"Observation.org, Nature data from around the World\""
+        },
+        {
+          "label": "Xeno-canto - Bird sounds from around the world",
+          "i18nCode": "data_resource.Xeno-canto - Bird sounds from around the world",
+          "count": 4604,
+          "fq": "data_resource:\"Xeno-canto - Bird sounds from around the world\""
+        },
+        {
+          "label": "ALA species sightings and OzAtlas",
+          "i18nCode": "data_resource.ALA species sightings and OzAtlas",
+          "count": 3572,
+          "fq": "data_resource:\"ALA species sightings and OzAtlas\""
+        },
+        {
+          "label": "Birda - Global Observation Dataset",
+          "i18nCode": "data_resource.Birda - Global Observation Dataset",
+          "count": 3403,
+          "fq": "data_resource:\"Birda - Global Observation Dataset\""
+        },
+        {
+          "label": "Seabird and marine mammal observations from the RV Investigator voyage IN2023_V02, southwest of Tasmania, Australia (2023)",
+          "i18nCode": "data_resource.Seabird and marine mammal observations from the RV Investigator voyage IN2023_V02, southwest of Tasmania, Australia (2023)",
+          "count": 1871,
+          "fq": "data_resource:\"Seabird and marine mammal observations from the RV Investigator voyage IN2023_V02, southwest of Tasmania, Australia (2023)\""
+        },
+        {
+          "label": "Entangled Wildlife Australia",
+          "i18nCode": "data_resource.Entangled Wildlife Australia",
+          "count": 1719,
+          "fq": "data_resource:\"Entangled Wildlife Australia\""
+        },
+        {
+          "label": "Seabird observations on the RV Falkor, Voyage FK201228, Coral Sea, Australia (2020)",
+          "i18nCode": "data_resource.Seabird observations on the RV Falkor, Voyage FK201228, Coral Sea, Australia (2020)",
+          "count": 1311,
+          "fq": "data_resource:\"Seabird observations on the RV Falkor, Voyage FK201228, Coral Sea, Australia (2020)\""
+        },
+        {
+          "label": "Seabird observations on the RV Falkor, Voyage FK210206, Coral Sea, Australia (2021)",
+          "i18nCode": "data_resource.Seabird observations on the RV Falkor, Voyage FK210206, Coral Sea, Australia (2021)",
+          "count": 1121,
+          "fq": "data_resource:\"Seabird observations on the RV Falkor, Voyage FK210206, Coral Sea, Australia (2021)\""
+        },
+        {
+          "label": "Superb Parrot Monitoring project",
+          "i18nCode": "data_resource.Superb Parrot Monitoring project",
+          "count": 804,
+          "fq": "data_resource:\"Superb Parrot Monitoring project\""
+        },
+        {
+          "label": "Superb City Wrens",
+          "i18nCode": "data_resource.Superb City Wrens",
+          "count": 761,
+          "fq": "data_resource:\"Superb City Wrens\""
+        },
+        {
+          "label": "Eyre Peninsula's Bird Monitoring Program",
+          "i18nCode": "data_resource.Eyre Peninsula's Bird Monitoring Program",
+          "count": 280,
+          "fq": "data_resource:\"Eyre Peninsula's Bird Monitoring Program\""
+        },
+        {
+          "label": "Bush Stone-curlew Monitoring - North Coast",
+          "i18nCode": "data_resource.Bush Stone-curlew Monitoring - North Coast",
+          "count": 169,
+          "fq": "data_resource:\"Bush Stone-curlew Monitoring - North Coast\""
+        },
+        {
+          "label": "Breeding success of Red-tailed Tropicbirds (Phaethon rubricauda), Raine Island, Great Barrier Reef, Australia (2008-2021)",
+          "i18nCode": "data_resource.Breeding success of Red-tailed Tropicbirds (Phaethon rubricauda), Raine Island, Great Barrier Reef, Australia (2008-2021)",
+          "count": 166,
+          "fq": "data_resource:\"Breeding success of Red-tailed Tropicbirds (Phaethon rubricauda), Raine Island, Great Barrier Reef, Australia (2008-2021)\""
+        },
+        {
+          "label": "WCPS Bird Survey Project",
+          "i18nCode": "data_resource.WCPS Bird Survey Project",
+          "count": 127,
+          "fq": "data_resource:\"WCPS Bird Survey Project\""
+        },
+        {
+          "label": "RV Investigator Voyage IN2025_V01 Seabird Observations, Australia (2025)",
+          "i18nCode": "data_resource.RV Investigator Voyage IN2025_V01 Seabird Observations, Australia (2025)",
+          "count": 93,
+          "fq": "data_resource:\"RV Investigator Voyage IN2025_V01 Seabird Observations, Australia (2025)\""
+        },
+        {
+          "label": "Northern Territory WildWatch",
+          "i18nCode": "data_resource.Northern Territory WildWatch",
+          "count": 71,
+          "fq": "data_resource:\"Northern Territory WildWatch\""
+        },
+        {
+          "label": "Logan City Council Species Sightings",
+          "i18nCode": "data_resource.Logan City Council Species Sightings",
+          "count": 61,
+          "fq": "data_resource:\"Logan City Council Species Sightings\""
+        },
+        {
+          "label": "Manky Parrots: Mapping Psittacine Beak and Feather Disease in Australia",
+          "i18nCode": "data_resource.Manky Parrots: Mapping Psittacine Beak and Feather Disease in Australia",
+          "count": 41,
+          "fq": "data_resource:\"Manky Parrots: Mapping Psittacine Beak and Feather Disease in Australia\""
+        }
+      ]
+    },
+    {
+      "fieldName": "state",
+      "fieldResult": [
+        {
+          "label": "New South Wales",
+          "i18nCode": "state.New South Wales",
+          "count": 10914179,
+          "fq": "state:\"New South Wales\""
+        },
+        {
+          "label": "Victoria",
+          "i18nCode": "state.Victoria",
+          "count": 10418116,
+          "fq": "state:\"Victoria\""
+        },
+        {
+          "label": "Queensland",
+          "i18nCode": "state.Queensland",
+          "count": 10182866,
+          "fq": "state:\"Queensland\""
+        },
+        {
+          "label": "Western Australia",
+          "i18nCode": "state.Western Australia",
+          "count": 3245034,
+          "fq": "state:\"Western Australia\""
+        },
+        {
+          "label": "South Australia",
+          "i18nCode": "state.South Australia",
+          "count": 2145574,
+          "fq": "state:\"South Australia\""
+        },
+        {
+          "label": "Tasmania",
+          "i18nCode": "state.Tasmania",
+          "count": 1667078,
+          "fq": "state:\"Tasmania\""
+        },
+        {
+          "label": "Northern Territory",
+          "i18nCode": "state.Northern Territory",
+          "count": 1569797,
+          "fq": "state:\"Northern Territory\""
+        },
+        {
+          "label": "Australian Capital Territory",
+          "i18nCode": "state.Australian Capital Territory",
+          "count": 1554809,
+          "fq": "state:\"Australian Capital Territory\""
+        },
+        {
+          "label": "Ashmore and Cartier Islands",
+          "i18nCode": "state.Ashmore and Cartier Islands",
+          "count": 133,
+          "fq": "state:\"Ashmore and Cartier Islands\""
+        },
+        {
+          "label": "Coral Sea Islands",
+          "i18nCode": "state.Coral Sea Islands",
+          "count": 119,
+          "fq": "state:\"Coral Sea Islands\""
+        },
+        {
+          "label": "Not supplied",
+          "i18nCode": "state.novalue",
+          "count": 14779,
+          "fq": "-state:*"
+        }
+      ]
+    },
+    {
+      "fieldName": "month",
+      "fieldResult": [
+        {
+          "label": "January",
+          "i18nCode": "month.1",
+          "count": 4046560,
+          "fq": "month:\"1\""
+        },
+        {
+          "label": "February",
+          "i18nCode": "month.2",
+          "count": 3028564,
+          "fq": "month:\"2\""
+        },
+        {
+          "label": "March",
+          "i18nCode": "month.3",
+          "count": 3228020,
+          "fq": "month:\"3\""
+        },
+        {
+          "label": "April",
+          "i18nCode": "month.4",
+          "count": 3535178,
+          "fq": "month:\"4\""
+        },
+        {
+          "label": "May",
+          "i18nCode": "month.5",
+          "count": 3196894,
+          "fq": "month:\"5\""
+        },
+        {
+          "label": "June",
+          "i18nCode": "month.6",
+          "count": 3142259,
+          "fq": "month:\"6\""
+        },
+        {
+          "label": "July",
+          "i18nCode": "month.7",
+          "count": 3410040,
+          "fq": "month:\"7\""
+        },
+        {
+          "label": "August",
+          "i18nCode": "month.8",
+          "count": 3828529,
+          "fq": "month:\"8\""
+        },
+        {
+          "label": "September",
+          "i18nCode": "month.9",
+          "count": 3542920,
+          "fq": "month:\"9\""
+        },
+        {
+          "label": "October",
+          "i18nCode": "month.10",
+          "count": 4193683,
+          "fq": "month:\"10\""
+        },
+        {
+          "label": "November",
+          "i18nCode": "month.11",
+          "count": 3472297,
+          "fq": "month:\"11\""
+        },
+        {
+          "label": "December",
+          "i18nCode": "month.12",
+          "count": 3032980,
+          "fq": "month:\"12\""
+        },
+        {
+          "label": "Not supplied",
+          "i18nCode": "month.novalue",
+          "count": 54560,
+          "fq": "-month:*"
+        }
+      ]
+    }
+  ],
+  "query": "?q=class%3AAves&fq=country%3AAustralia&fq=year%3A%5B2021%20TO%202025%5D&fq=basis_of_record%3AHUMAN_OBSERVATION",
+  "urlParameters": "?q=class%3AAves&fq=country%3AAustralia&fq=year%3A%5B2021%20TO%202025%5D&fq=basis_of_record%3AHUMAN_OBSERVATION",
+  "queryTitle": "Class:Aves",
+  "activeFacetMap": {
+    "basis_of_record": {
+      "name": "basis_of_record",
+      "displayName": "Record type:Human observation",
+      "value": "HUMAN_OBSERVATION"
+    },
+    "country": {
+      "name": "country",
+      "displayName": "Country:Australia",
+      "value": "Australia"
+    },
+    "year": {
+      "name": "year",
+      "displayName": "Year:[2021 TO 2025]",
+      "value": "[2021 TO 2025]"
+    }
+  },
+  "activeFacetObj": {
+    "basis_of_record": [
+      {
+        "name": "basis_of_record",
+        "displayName": "Record type:Human observation",
+        "value": "basis_of_record:HUMAN_OBSERVATION"
+      }
+    ],
+    "country": [
+      {
+        "name": "country",
+        "displayName": "Country:Australia",
+        "value": "country:Australia"
+      }
+    ],
+    "year": [
+      {
+        "name": "year",
+        "displayName": "Year:[2021 TO 2025]",
+        "value": "year:[2021 TO 2025]"
+      }
+    ]
+  }
+}

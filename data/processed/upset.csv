@@ -1,0 +1,13 @@
+id,states,combination,count
+0,"[""SA""]",SA,19
+1,"[""WA"", ""SA"", ""QLD"", ""NSW"", ""VIC"", ""TAS""]",WA + SA + QLD + NSW + VIC + TAS,16
+2,"[""WA""]",WA,15
+3,"[""WA"", ""NT"", ""SA"", ""QLD"", ""NSW"", ""VIC"", ""TAS""]",WA + NT + SA + QLD + NSW + VIC + TAS,11
+4,"[""TAS""]",TAS,10
+5,"[""QLD"", ""NSW""]",QLD + NSW,8
+6,"[""NT""]",NT,5
+7,"[""QLD""]",QLD,5
+8,"[""NSW""]",NSW,4
+9,"[""SA"", ""NSW"", ""VIC""]",SA + NSW + VIC,4
+10,"[""SA"", ""NSW"", ""VIC"", ""TAS""]",SA + NSW + VIC + TAS,4
+11,"[""SA"", ""QLD"", ""NSW"", ""VIC"", ""ACT""]",SA + QLD + NSW + VIC + ACT,3

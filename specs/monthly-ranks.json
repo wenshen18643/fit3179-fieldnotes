@@ -1,0 +1,1273 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 730,
+  "height": 350,
+  "padding": 8,
+  "config": {
+    "background": "transparent",
+    "font": "Bricolage Grotesque",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e0dccf",
+      "gridOpacity": 0.75,
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "gradientThickness": 9,
+      "gradientLength": 130,
+      "padding": 8
+    },
+    "title": {
+      "font": "Bricolage Grotesque",
+      "color": "#292e27",
+      "fontSize": 15,
+      "fontWeight": 500,
+      "anchor": "start"
+    }
+  },
+  "description": "Monthly ranks for the seven species with the most annual records. Rank is among all named species recorded in that month.",
+  "params": [
+    {
+      "name": "highlight",
+      "value": "All birds"
+    }
+  ],
+  "data": {
+    "values": [
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 1,
+        "label": "Jan",
+        "season": "Summer",
+        "count": 20779,
+        "rank": 1,
+        "per10k": 252.70842,
+        "relative": 1.01591,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 1,
+        "label": "Jan",
+        "season": "Summer",
+        "count": 16331,
+        "rank": 2,
+        "per10k": 198.61308,
+        "relative": 1.01077,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 1,
+        "label": "Jan",
+        "season": "Summer",
+        "count": 13474,
+        "rank": 6,
+        "per10k": 163.86704,
+        "relative": 0.91772,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 1,
+        "label": "Jan",
+        "season": "Summer",
+        "count": 15323,
+        "rank": 3,
+        "per10k": 186.35406,
+        "relative": 1.06032,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 1,
+        "label": "Jan",
+        "season": "Summer",
+        "count": 13525,
+        "rank": 5,
+        "per10k": 164.48729,
+        "relative": 1.00133,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 1,
+        "label": "Jan",
+        "season": "Summer",
+        "count": 15122,
+        "rank": 4,
+        "per10k": 183.90956,
+        "relative": 1.12197,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 1,
+        "label": "Jan",
+        "season": "Summer",
+        "count": 12782,
+        "rank": 8,
+        "per10k": 155.45113,
+        "relative": 1.02292,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 2,
+        "label": "Feb",
+        "season": "Summer",
+        "count": 16939,
+        "rank": 1,
+        "per10k": 266.18748,
+        "relative": 1.0701,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 2,
+        "label": "Feb",
+        "season": "Summer",
+        "count": 12978,
+        "rank": 2,
+        "per10k": 203.94245,
+        "relative": 1.03789,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 2,
+        "label": "Feb",
+        "season": "Summer",
+        "count": 10601,
+        "rank": 5,
+        "per10k": 166.58914,
+        "relative": 0.93297,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 2,
+        "label": "Feb",
+        "season": "Summer",
+        "count": 12271,
+        "rank": 3,
+        "per10k": 192.83231,
+        "relative": 1.09718,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 2,
+        "label": "Feb",
+        "season": "Summer",
+        "count": 9763,
+        "rank": 9,
+        "per10k": 153.42041,
+        "relative": 0.93396,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 2,
+        "label": "Feb",
+        "season": "Summer",
+        "count": 11764,
+        "rank": 4,
+        "per10k": 184.86508,
+        "relative": 1.1278,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 2,
+        "label": "Feb",
+        "season": "Summer",
+        "count": 10490,
+        "rank": 6,
+        "per10k": 164.84484,
+        "relative": 1.08473,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 3,
+        "label": "Mar",
+        "season": "Autumn",
+        "count": 18773,
+        "rank": 1,
+        "per10k": 273.46436,
+        "relative": 1.09935,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 3,
+        "label": "Mar",
+        "season": "Autumn",
+        "count": 14126,
+        "rank": 2,
+        "per10k": 205.77199,
+        "relative": 1.0472,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 3,
+        "label": "Mar",
+        "season": "Autumn",
+        "count": 12479,
+        "rank": 4,
+        "per10k": 181.78031,
+        "relative": 1.01804,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 3,
+        "label": "Mar",
+        "season": "Autumn",
+        "count": 12574,
+        "rank": 3,
+        "per10k": 183.16416,
+        "relative": 1.04217,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 3,
+        "label": "Mar",
+        "season": "Autumn",
+        "count": 11604,
+        "rank": 6,
+        "per10k": 169.03427,
+        "relative": 1.02901,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 3,
+        "label": "Mar",
+        "season": "Autumn",
+        "count": 11673,
+        "rank": 5,
+        "per10k": 170.03939,
+        "relative": 1.03735,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 3,
+        "label": "Mar",
+        "season": "Autumn",
+        "count": 11060,
+        "rank": 7,
+        "per10k": 161.10988,
+        "relative": 1.06015,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 4,
+        "label": "Apr",
+        "season": "Autumn",
+        "count": 20271,
+        "rank": 1,
+        "per10k": 282.08311,
+        "relative": 1.134,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 4,
+        "label": "Apr",
+        "season": "Autumn",
+        "count": 14968,
+        "rank": 2,
+        "per10k": 208.28869,
+        "relative": 1.06001,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 4,
+        "label": "Apr",
+        "season": "Autumn",
+        "count": 14537,
+        "rank": 3,
+        "per10k": 202.29106,
+        "relative": 1.13291,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 4,
+        "label": "Apr",
+        "season": "Autumn",
+        "count": 13584,
+        "rank": 4,
+        "per10k": 189.0295,
+        "relative": 1.07554,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 4,
+        "label": "Apr",
+        "season": "Autumn",
+        "count": 13322,
+        "rank": 5,
+        "per10k": 185.38361,
+        "relative": 1.12854,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 4,
+        "label": "Apr",
+        "season": "Autumn",
+        "count": 11879,
+        "rank": 7,
+        "per10k": 165.3034,
+        "relative": 1.00846,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 4,
+        "label": "Apr",
+        "season": "Autumn",
+        "count": 11726,
+        "rank": 8,
+        "per10k": 163.17432,
+        "relative": 1.07374,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 5,
+        "label": "May",
+        "season": "Autumn",
+        "count": 17711,
+        "rank": 1,
+        "per10k": 276.07783,
+        "relative": 1.10986,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 5,
+        "label": "May",
+        "season": "Autumn",
+        "count": 13500,
+        "rank": 2,
+        "per10k": 210.43705,
+        "relative": 1.07094,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 5,
+        "label": "May",
+        "season": "Autumn",
+        "count": 11746,
+        "rank": 4,
+        "per10k": 183.09583,
+        "relative": 1.02541,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 5,
+        "label": "May",
+        "season": "Autumn",
+        "count": 12728,
+        "rank": 3,
+        "per10k": 198.40317,
+        "relative": 1.12887,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 5,
+        "label": "May",
+        "season": "Autumn",
+        "count": 11662,
+        "rank": 5,
+        "per10k": 181.78644,
+        "relative": 1.10664,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 5,
+        "label": "May",
+        "season": "Autumn",
+        "count": 10169,
+        "rank": 8,
+        "per10k": 158.51366,
+        "relative": 0.96704,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 5,
+        "label": "May",
+        "season": "Autumn",
+        "count": 10742,
+        "rank": 6,
+        "per10k": 167.44554,
+        "relative": 1.10184,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 6,
+        "label": "Jun",
+        "season": "Winter",
+        "count": 17127,
+        "rank": 1,
+        "per10k": 258.18365,
+        "relative": 1.03792,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 6,
+        "label": "Jun",
+        "season": "Winter",
+        "count": 13943,
+        "rank": 2,
+        "per10k": 210.18595,
+        "relative": 1.06966,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 6,
+        "label": "Jun",
+        "season": "Winter",
+        "count": 9895,
+        "rank": 8,
+        "per10k": 149.16373,
+        "relative": 0.83538,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 6,
+        "label": "Jun",
+        "season": "Winter",
+        "count": 12314,
+        "rank": 3,
+        "per10k": 185.62933,
+        "relative": 1.05619,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 6,
+        "label": "Jun",
+        "season": "Winter",
+        "count": 11701,
+        "rank": 4,
+        "per10k": 176.38856,
+        "relative": 1.07378,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 6,
+        "label": "Jun",
+        "season": "Winter",
+        "count": 10224,
+        "rank": 6,
+        "per10k": 154.1233,
+        "relative": 0.94026,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 6,
+        "label": "Jun",
+        "season": "Winter",
+        "count": 10912,
+        "rank": 5,
+        "per10k": 164.49466,
+        "relative": 1.08242,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 7,
+        "label": "Jul",
+        "season": "Winter",
+        "count": 17795,
+        "rank": 1,
+        "per10k": 249.61425,
+        "relative": 1.00347,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 7,
+        "label": "Jul",
+        "season": "Winter",
+        "count": 15314,
+        "rank": 2,
+        "per10k": 214.81274,
+        "relative": 1.09321,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 7,
+        "label": "Jul",
+        "season": "Winter",
+        "count": 10532,
+        "rank": 7,
+        "per10k": 147.73461,
+        "relative": 0.82737,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 7,
+        "label": "Jul",
+        "season": "Winter",
+        "count": 13069,
+        "rank": 3,
+        "per10k": 183.32164,
+        "relative": 1.04306,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 7,
+        "label": "Jul",
+        "season": "Winter",
+        "count": 12125,
+        "rank": 4,
+        "per10k": 170.07996,
+        "relative": 1.03538,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 7,
+        "label": "Jul",
+        "season": "Winter",
+        "count": 10414,
+        "rank": 8,
+        "per10k": 146.07939,
+        "relative": 0.89118,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 7,
+        "label": "Jul",
+        "season": "Winter",
+        "count": 11553,
+        "rank": 5,
+        "per10k": 162.05639,
+        "relative": 1.06638,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 8,
+        "label": "Aug",
+        "season": "Winter",
+        "count": 20427,
+        "rank": 1,
+        "per10k": 248.67548,
+        "relative": 0.9997,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 8,
+        "label": "Aug",
+        "season": "Winter",
+        "count": 16654,
+        "rank": 2,
+        "per10k": 202.7435,
+        "relative": 1.03179,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 8,
+        "label": "Aug",
+        "season": "Winter",
+        "count": 14832,
+        "rank": 3,
+        "per10k": 180.56272,
+        "relative": 1.01123,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 8,
+        "label": "Aug",
+        "season": "Winter",
+        "count": 14324,
+        "rank": 4,
+        "per10k": 174.3784,
+        "relative": 0.99218,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 8,
+        "label": "Aug",
+        "season": "Winter",
+        "count": 13731,
+        "rank": 5,
+        "per10k": 167.1593,
+        "relative": 1.0176,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 8,
+        "label": "Aug",
+        "season": "Winter",
+        "count": 13244,
+        "rank": 6,
+        "per10k": 161.23063,
+        "relative": 0.98362,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 8,
+        "label": "Aug",
+        "season": "Winter",
+        "count": 12539,
+        "rank": 8,
+        "per10k": 152.64806,
+        "relative": 1.00447,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 9,
+        "label": "Sep",
+        "season": "Spring",
+        "count": 21984,
+        "rank": 1,
+        "per10k": 231.07316,
+        "relative": 0.92893,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 9,
+        "label": "Sep",
+        "season": "Spring",
+        "count": 17943,
+        "rank": 3,
+        "per10k": 188.59833,
+        "relative": 0.9598,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 9,
+        "label": "Sep",
+        "season": "Spring",
+        "count": 18509,
+        "rank": 2,
+        "per10k": 194.54754,
+        "relative": 1.08955,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 9,
+        "label": "Sep",
+        "season": "Spring",
+        "count": 15193,
+        "rank": 5,
+        "per10k": 159.69316,
+        "relative": 0.90862,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 9,
+        "label": "Sep",
+        "season": "Spring",
+        "count": 15952,
+        "rank": 4,
+        "per10k": 167.67099,
+        "relative": 1.02071,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 9,
+        "label": "Sep",
+        "season": "Spring",
+        "count": 14294,
+        "rank": 7,
+        "per10k": 150.2438,
+        "relative": 0.91659,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 9,
+        "label": "Sep",
+        "season": "Spring",
+        "count": 13083,
+        "rank": 8,
+        "per10k": 137.51502,
+        "relative": 0.90489,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 10,
+        "label": "Oct",
+        "season": "Spring",
+        "count": 26282,
+        "rank": 1,
+        "per10k": 224.01004,
+        "relative": 0.90054,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 10,
+        "label": "Oct",
+        "season": "Spring",
+        "count": 20888,
+        "rank": 3,
+        "per10k": 178.03522,
+        "relative": 0.90605,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 10,
+        "label": "Oct",
+        "season": "Spring",
+        "count": 21781,
+        "rank": 2,
+        "per10k": 185.64655,
+        "relative": 1.0397,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 10,
+        "label": "Oct",
+        "season": "Spring",
+        "count": 18462,
+        "rank": 5,
+        "per10k": 157.35763,
+        "relative": 0.89533,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 10,
+        "label": "Oct",
+        "season": "Spring",
+        "count": 17277,
+        "rank": 6,
+        "per10k": 147.25749,
+        "relative": 0.89645,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 10,
+        "label": "Oct",
+        "season": "Spring",
+        "count": 18478,
+        "rank": 4,
+        "per10k": 157.49401,
+        "relative": 0.96082,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 10,
+        "label": "Oct",
+        "season": "Spring",
+        "count": 16017,
+        "rank": 8,
+        "per10k": 136.5181,
+        "relative": 0.89833,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 11,
+        "label": "Nov",
+        "season": "Spring",
+        "count": 20928,
+        "rank": 1,
+        "per10k": 224.73817,
+        "relative": 0.90347,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 11,
+        "label": "Nov",
+        "season": "Spring",
+        "count": 16624,
+        "rank": 3,
+        "per10k": 178.51908,
+        "relative": 0.90851,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 11,
+        "label": "Nov",
+        "season": "Spring",
+        "count": 17542,
+        "rank": 2,
+        "per10k": 188.37715,
+        "relative": 1.05499,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 11,
+        "label": "Nov",
+        "season": "Spring",
+        "count": 14534,
+        "rank": 5,
+        "per10k": 156.07533,
+        "relative": 0.88804,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 11,
+        "label": "Nov",
+        "season": "Spring",
+        "count": 13874,
+        "rank": 6,
+        "per10k": 148.98783,
+        "relative": 0.90698,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 11,
+        "label": "Nov",
+        "season": "Spring",
+        "count": 15133,
+        "rank": 4,
+        "per10k": 162.50777,
+        "relative": 0.99141,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 11,
+        "label": "Nov",
+        "season": "Spring",
+        "count": 12984,
+        "rank": 9,
+        "per10k": 139.43044,
+        "relative": 0.91749,
+        "topSeven": true
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "month": 12,
+        "label": "Dec",
+        "season": "Summer",
+        "count": 19186,
+        "rank": 1,
+        "per10k": 234.79625,
+        "relative": 0.9439,
+        "topSeven": true
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "month": 12,
+        "label": "Dec",
+        "season": "Summer",
+        "count": 14895,
+        "rank": 3,
+        "per10k": 182.28344,
+        "relative": 0.92767,
+        "topSeven": true
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "month": 12,
+        "label": "Dec",
+        "season": "Summer",
+        "count": 15058,
+        "rank": 2,
+        "per10k": 184.27822,
+        "relative": 1.03203,
+        "topSeven": true
+      },
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "month": 12,
+        "label": "Dec",
+        "season": "Summer",
+        "count": 13924,
+        "rank": 5,
+        "per10k": 170.40045,
+        "relative": 0.96954,
+        "topSeven": true
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "month": 12,
+        "label": "Dec",
+        "season": "Summer",
+        "count": 12766,
+        "rank": 6,
+        "per10k": 156.22897,
+        "relative": 0.95106,
+        "topSeven": true
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "month": 12,
+        "label": "Dec",
+        "season": "Summer",
+        "count": 14571,
+        "rank": 4,
+        "per10k": 178.31837,
+        "relative": 1.08786,
+        "topSeven": true
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "month": 12,
+        "label": "Dec",
+        "season": "Summer",
+        "count": 11636,
+        "rank": 8,
+        "per10k": 142.40014,
+        "relative": 0.93704,
+        "topSeven": true
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": "ascending",
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          1,
+          9
+        ],
+        "reverse": true,
+        "zero": false
+      },
+      "axis": {
+        "title": "Most recorded → lower rank",
+        "tickCount": 9,
+        "format": "d"
+      }
+    },
+    "color": {
+      "field": "name",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Australian Magpie",
+          "Magpie-lark",
+          "Welcome Swallow",
+          "Rainbow Lorikeet",
+          "Willie Wagtail",
+          "Superb Fairy-wren",
+          "Noisy Miner"
+        ],
+        "range": [
+          "#315e4c",
+          "#b26931",
+          "#456e94",
+          "#8c4b67",
+          "#777129",
+          "#594f88",
+          "#a84436"
+        ]
+      },
+      "legend": null
+    },
+    "opacity": {
+      "condition": {
+        "test": "highlight==='All birds'||datum.name===highlight",
+        "value": 1
+      },
+      "value": 0.13
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.7,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "detail": {
+          "field": "name"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 58,
+        "stroke": "#f8f5ec",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Bird"
+          },
+          {
+            "field": "label",
+            "title": "Month"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          },
+          {
+            "field": "count",
+            "title": "Records",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "scientific": "Gymnorhina tibicen",
+            "name": "Australian Magpie",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 19186,
+            "rank": 1,
+            "per10k": 234.79625,
+            "relative": 0.9439,
+            "topSeven": true
+          },
+          {
+            "scientific": "Grallina cyanoleuca",
+            "name": "Magpie-lark",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 14895,
+            "rank": 3,
+            "per10k": 182.28344,
+            "relative": 0.92767,
+            "topSeven": true
+          },
+          {
+            "scientific": "Hirundo neoxena",
+            "name": "Welcome Swallow",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 15058,
+            "rank": 2,
+            "per10k": 184.27822,
+            "relative": 1.03203,
+            "topSeven": true
+          },
+          {
+            "scientific": "Trichoglossus moluccanus",
+            "name": "Rainbow Lorikeet",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 13924,
+            "rank": 5,
+            "per10k": 170.40045,
+            "relative": 0.96954,
+            "topSeven": true
+          },
+          {
+            "scientific": "Rhipidura leucophrys",
+            "name": "Willie Wagtail",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 12766,
+            "rank": 6,
+            "per10k": 156.22897,
+            "relative": 0.95106,
+            "topSeven": true
+          },
+          {
+            "scientific": "Malurus cyaneus",
+            "name": "Superb Fairy-wren",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 14571,
+            "rank": 4,
+            "per10k": 178.31837,
+            "relative": 1.08786,
+            "topSeven": true
+          },
+          {
+            "scientific": "Manorina melanocephala",
+            "name": "Noisy Miner",
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 11636,
+            "rank": 8,
+            "per10k": 142.40014,
+            "relative": 0.93704,
+            "topSeven": true
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 13,
+        "fontSize": 11,
+        "fontWeight": 500
+      },
+      "encoding": {
+        "text": {
+          "field": "name"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 300,
+  "padding": 8,
+  "config": {
+    "background": "transparent",
+    "font": "Bricolage Grotesque",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e0dccf",
+      "gridOpacity": 0.75,
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "gradientThickness": 9,
+      "gradientLength": 130,
+      "padding": 8
+    },
+    "title": {
+      "font": "Bricolage Grotesque",
+      "color": "#292e27",
+      "fontSize": 15,
+      "fontWeight": 500,
+      "anchor": "start"
+    }
+  },
+  "description": "Paired-endpoint comparison of 2024 and 2025 iNaturalist record shares. The six largest absolute changes among the featured species are shown. Platform-specific record share is not population change.",
+  "data": {
+    "values": [
+      {
+        "scientific": "Trichoglossus moluccanus",
+        "name": "Rainbow Lorikeet",
+        "count2024": 4629,
+        "count2025": 6856,
+        "rate2024": 149.2326,
+        "rate2025": 160.3139,
+        "difference": 11.0813
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "count2024": 3595,
+        "count2025": 4665,
+        "rate2024": 115.8978,
+        "rate2025": 109.0817,
+        "difference": -6.8161
+      },
+      {
+        "scientific": "Eolophus roseicapilla",
+        "name": "Galah",
+        "count2024": 3689,
+        "count2025": 5373,
+        "rate2024": 118.9283,
+        "rate2025": 125.6369,
+        "difference": 6.7086
+      },
+      {
+        "scientific": "Zosterops lateralis",
+        "name": "Silvereye",
+        "count2024": 1820,
+        "count2025": 2242,
+        "rate2024": 58.6743,
+        "rate2025": 52.4247,
+        "difference": -6.2496
+      },
+      {
+        "scientific": "Dacelo novaeguineae",
+        "name": "Laughing Kookaburra",
+        "count2024": 6155,
+        "count2025": 8267,
+        "rate2024": 198.4287,
+        "rate2025": 193.3073,
+        "difference": -5.1214
+      },
+      {
+        "scientific": "Hirundo neoxena",
+        "name": "Welcome Swallow",
+        "count2024": 2447,
+        "count2025": 3535,
+        "rate2024": 78.8879,
+        "rate2025": 82.6589,
+        "difference": 3.771
+      }
+    ]
+  },
+  "encoding": {
+    "y": {
+      "field": "name",
+      "type": "ordinal",
+      "sort": {
+        "field": "difference",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null,
+        "labelLimit": 190,
+        "labelFontSize": 12
+      }
+    },
+    "x": {
+      "type": "quantitative",
+      "scale": {
+        "zero": true
+      },
+      "axis": {
+        "title": "Records per 10,000 iNaturalist bird records",
+        "tickCount": 4
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "color": "#b7bdac"
+      },
+      "encoding": {
+        "x": {
+          "field": "rate2024"
+        },
+        "x2": {
+          "field": "rate2025"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "fill": "#f8f5ec",
+        "stroke": "#315e4c",
+        "strokeWidth": 2,
+        "size": 90
+      },
+      "encoding": {
+        "x": {
+          "field": "rate2024"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Bird"
+          },
+          {
+            "field": "count2024",
+            "title": "2024 records",
+            "format": ","
+          },
+          {
+            "field": "rate2024",
+            "title": "2024 per 10,000",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#315e4c",
+        "size": 90
+      },
+      "encoding": {
+        "x": {
+          "field": "rate2025"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Bird"
+          },
+          {
+            "field": "count2025",
+            "title": "2025 records",
+            "format": ","
+          },
+          {
+            "field": "rate2025",
+            "title": "2025 per 10,000",
+            "format": ".1f"
+          },
+          {
+            "field": "difference",
+            "title": "Change in share (per 10,000)",
+            "format": "+.1f"
+          }
+        ]
+      }
+    }
+  ]
+}

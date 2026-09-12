@@ -1,0 +1,413 @@
+{
+  "scope": [
+    "country:Australia",
+    "basis_of_record:HUMAN_OBSERVATION",
+    "occurrence_status:PRESENT",
+    "geospatial_kosher:true",
+    "month:[1 TO 12]",
+    "decimalLatitude:[-44 TO -10]",
+    "decimalLongitude:[112 TO 154]",
+    "state:(\"Western Australia\" OR \"Northern Territory\" OR \"South Australia\" OR \"Queensland\" OR \"New South Wales\" OR \"Victoria\" OR \"Tasmania\" OR \"Australian Capital Territory\")"
+  ],
+  "sources": [
+    {
+      "file": "data/raw/overview-2024.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=month&facets=data_resource_uid&facets=species&facets=family&facets=point-1",
+      "retrieved": "2026-09-10T09:16:28.542391+00:00",
+      "sha256": "3666f1a3b3d2e36eca3dd07dcbfe9403f5b4acc7616f55dedcc27a67621fdeeb",
+      "total": 9575922
+    },
+    {
+      "file": "data/raw/month-2024-01.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A1&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:27.291401+00:00",
+      "sha256": "74dfbe3b015d58fcb1f84736dc749817b6273203bb0b2b26a0cc146b68b84daa",
+      "total": 822252
+    },
+    {
+      "file": "data/raw/inat-2025-01.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A1&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:24.784547+00:00",
+      "sha256": "6b0dd0adfe1da4e9e37b5286e5eaef92808d5b375e79c23969a72137aa319502",
+      "total": 30140
+    },
+    {
+      "file": "data/raw/bee-eater-2024-01.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A1&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:17:56.919855+00:00",
+      "sha256": "5ea61fb1d33d955f5c87d082e38639405479418319a265f5b1470d0735ce0760",
+      "total": 2655
+    },
+    {
+      "file": "data/raw/month-2024-02.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A2&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:29.171781+00:00",
+      "sha256": "82bba6e0998b4e322e95b576dc686f47662add9562bffc19b8fffa8c1d3f5dd4",
+      "total": 636356
+    },
+    {
+      "file": "data/raw/inat-2025-02.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A2&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:30.223797+00:00",
+      "sha256": "a60656965a6df0de3dbdb2519d916ef7c79a6ad5b1e0be9f105539becaa13527",
+      "total": 25182
+    },
+    {
+      "file": "data/raw/bee-eater-2024-02.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A2&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:17:56.916852+00:00",
+      "sha256": "e4aafbb52ff14e3b873e67ab544b70a75e4e36faf2d7d93c3db8ae4b105269d6",
+      "total": 2045
+    },
+    {
+      "file": "data/raw/month-2024-03.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A3&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:31.231922+00:00",
+      "sha256": "e51cbf9a74200956a834f56b3ae4a34dc24bb2582da6c820e52d2a4f9e4e8e3b",
+      "total": 686488
+    },
+    {
+      "file": "data/raw/inat-2025-03.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A3&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:31.200699+00:00",
+      "sha256": "fc4c0644bc587c7d07baeb8f0ffa6a9d1983ccfb63f643fa7d64d8001be5492c",
+      "total": 26243
+    },
+    {
+      "file": "data/raw/bee-eater-2024-03.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A3&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:17:56.946492+00:00",
+      "sha256": "b16f3c8346d53731ec71b3a81274c12a9d42ce67ef6e51212c3c82d80f9b3988",
+      "total": 2367
+    },
+    {
+      "file": "data/raw/month-2024-04.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A4&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:32.229200+00:00",
+      "sha256": "6f3a3a90465482c72466e3b5028c253bf2ba81009659afcbe0a618461f712617",
+      "total": 718618
+    },
+    {
+      "file": "data/raw/inat-2025-04.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A4&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:33.058655+00:00",
+      "sha256": "b6655ea9e35ad4a0ae38d6071340473d4475ab6b8cdd1506d68712f0ed36d028",
+      "total": 32622
+    },
+    {
+      "file": "data/raw/bee-eater-2024-04.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A4&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:17:58.454012+00:00",
+      "sha256": "9a87e841cf6047e77469f5b3fd77d9f0ebf59e3225405d6b79dea3c5f8ba4436",
+      "total": 2196
+    },
+    {
+      "file": "data/raw/month-2024-05.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A5&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:34.260676+00:00",
+      "sha256": "96a2946b4cd9ff7ee5415ff9f7292c170471ecb2fcf268181b9952e9f976d111",
+      "total": 641522
+    },
+    {
+      "file": "data/raw/inat-2025-05.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A5&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:33.894020+00:00",
+      "sha256": "2981f343c67b5aa7b3c042f843f8297e40d7c27e3378f6591f5291f30d8188c1",
+      "total": 28546
+    },
+    {
+      "file": "data/raw/bee-eater-2024-05.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A5&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:17:58.555567+00:00",
+      "sha256": "6503fb05ef04e58dfab582d847315a18562f6fcadd73333719215d8b4139eb98",
+      "total": 2469
+    },
+    {
+      "file": "data/raw/month-2024-06.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A6&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:35.110934+00:00",
+      "sha256": "fe43c14fc2ba8b0a8553bd5a98174a5a8edfe14af54bd95574fbb86437483ece",
+      "total": 663365
+    },
+    {
+      "file": "data/raw/inat-2025-06.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A6&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:35.393974+00:00",
+      "sha256": "ca2e8d64eaee8c07f0728db0b48e823fd2a5d5df8f615252415b429f933785cb",
+      "total": 32665
+    },
+    {
+      "file": "data/raw/bee-eater-2024-06.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A6&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:17:58.790056+00:00",
+      "sha256": "6cced3e05b13dda3c3ba5ffc88ea259925c0c6e5d4f6049ff4876966221f7889",
+      "total": 3254
+    },
+    {
+      "file": "data/raw/month-2024-07.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A7&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:36.145216+00:00",
+      "sha256": "f2b713de5729dfb69c33986d1284ec18f75daea528361277dd7123bd0585a92d",
+      "total": 712900
+    },
+    {
+      "file": "data/raw/inat-2025-07.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A7&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:36.907098+00:00",
+      "sha256": "c0327af7299aa98e96307a2d33ce020ec944595b04c436f17561bd796a0877b2",
+      "total": 34103
+    },
+    {
+      "file": "data/raw/bee-eater-2024-07.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A7&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:17:59.975154+00:00",
+      "sha256": "578c9a58d221a458551139cfdebcacef5fb53091cbc44e095a96768f2c508304",
+      "total": 3653
+    },
+    {
+      "file": "data/raw/month-2024-08.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A8&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:37.406013+00:00",
+      "sha256": "d6c451c1c5d7083321bfb38b015d60163c17e0851484b5cfdb75d0b92b10ba0a",
+      "total": 821432
+    },
+    {
+      "file": "data/raw/inat-2025-08.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A8&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:37.892962+00:00",
+      "sha256": "c46600eb4196211b503eeb7444da5e5ead1cab799d0a1f6bb422174c63aecbdb",
+      "total": 41422
+    },
+    {
+      "file": "data/raw/bee-eater-2024-08.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A8&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:18:00.177983+00:00",
+      "sha256": "d5b8ce0347628e97f5d415335c9bd7047dced1be0c377b763ea7e412d27e2794",
+      "total": 3757
+    },
+    {
+      "file": "data/raw/month-2024-09.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A9&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:38.755822+00:00",
+      "sha256": "47b64cab8606bb9da0a088081f6bce2001fa756b5853772b7c8acfca2c9748a2",
+      "total": 951387
+    },
+    {
+      "file": "data/raw/inat-2025-09.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A9&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:39.176780+00:00",
+      "sha256": "3fafc3791e40af7922c7555d9144d472d0ec59bd7c921c7003742cb274690a11",
+      "total": 44261
+    },
+    {
+      "file": "data/raw/bee-eater-2024-09.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A9&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:18:00.588103+00:00",
+      "sha256": "546e43ed4ad4910c1e7dc69e28e221458efac7d5e8ab8f02876899cf2275f9d9",
+      "total": 3724
+    },
+    {
+      "file": "data/raw/month-2024-10.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A10&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:40.201099+00:00",
+      "sha256": "4091bbd42dd6bbca345e9115353b6ed4276745c50543874556990778869519e7",
+      "total": 1173251
+    },
+    {
+      "file": "data/raw/inat-2025-10.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A10&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:40.276778+00:00",
+      "sha256": "f050e50a1f41c9e7b6bc8a0b9de3a95b663fa7e480a99d3e6fa7243c48107fe6",
+      "total": 54279
+    },
+    {
+      "file": "data/raw/bee-eater-2024-10.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A10&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:18:02.069323+00:00",
+      "sha256": "72fc6be5012336391b30e9fd88010f5e1fafc6d89a40e0f13ff59978538f8aa8",
+      "total": 5620
+    },
+    {
+      "file": "data/raw/month-2024-11.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A11&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:41.708101+00:00",
+      "sha256": "d3dbc93afa1ce01062cd7909eb257b4d6c02bf877ac9c1554b3605348b38142b",
+      "total": 931217
+    },
+    {
+      "file": "data/raw/inat-2025-11.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A11&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:42.012450+00:00",
+      "sha256": "3ed80bfc66894e449fa376f5275fb2f2eb335dbb1bc61da4e7c235d6a1d4662f",
+      "total": 39558
+    },
+    {
+      "file": "data/raw/bee-eater-2024-11.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A11&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:18:02.194102+00:00",
+      "sha256": "a6c6a2e8daa8f780b93bf967d4dbeb516d80af50e56970625da725c4efb81920",
+      "total": 3567
+    },
+    {
+      "file": "data/raw/month-2024-12.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A12&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=state&facets=species&facets=family&facets=point-1&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:42.730114+00:00",
+      "sha256": "75f4832bb22d14e6b51ecf8181fbb695267b3d4fdea4474f2bc15a4704e8085c",
+      "total": 817134
+    },
+    {
+      "file": "data/raw/inat-2025-12.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=month%3A12&fq=data_resource_uid%3Adr1411&facets=species&facets=state",
+      "retrieved": "2026-09-10T09:16:43.431596+00:00",
+      "sha256": "ade1bb2537f79ee8b14ca8762d4a351f6cf7160e7a308f8dcd4883a028e1d22a",
+      "total": 38640
+    },
+    {
+      "file": "data/raw/bee-eater-2024-12.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=month%3A12&fq=species%3A%22Merops+ornatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1&facets=state",
+      "retrieved": "2026-09-10T09:18:03.047036+00:00",
+      "sha256": "fec598c99f6ad9589a1b1f2862f974deb7df7e0271b822fd848c42fc201f7340",
+      "total": 2392
+    },
+    {
+      "file": "data/raw/inat-species-2024.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=data_resource_uid%3Adr1411&facets=species",
+      "retrieved": "2026-09-10T09:18:05.741110+00:00",
+      "sha256": "abb7d6e040016f880d2196ceb24f1fc60b055df0ea6060f71bdaebf0d92e4e9f",
+      "total": 310187
+    },
+    {
+      "file": "data/raw/inat-species-2025.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=data_resource_uid%3Adr1411&facets=species",
+      "retrieved": "2026-09-10T09:18:06.565627+00:00",
+      "sha256": "59698db30450da94ec8d594e3b0d1a4e8449a7d175a212b55612f73937c317a2",
+      "total": 427661
+    },
+    {
+      "file": "data/raw/coverage-2024-dr2009.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=data_resource_uid%3Adr2009&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:43.801914+00:00",
+      "sha256": "92d8d0465b1aa025584fde3fab613e72a55262e68c4ca949f72b905bbdd7750a",
+      "total": 8308541
+    },
+    {
+      "file": "data/raw/coverage-2024-dr359.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=data_resource_uid%3Adr359&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:43.842865+00:00",
+      "sha256": "9cda9f02fcff934611e2954988c24d6e7887942fdcdd8e5360be874980306c0f",
+      "total": 957194
+    },
+    {
+      "file": "data/raw/coverage-2024-dr1411.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=data_resource_uid%3Adr1411&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:44.555173+00:00",
+      "sha256": "f7681704fe58ea5aefa8f09087055c1d33f272647118ee79edc3e752bb766fbc",
+      "total": 310187
+    },
+    {
+      "file": "data/raw/coverage-2025-dr2009.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=data_resource_uid%3Adr2009&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:45.221887+00:00",
+      "sha256": "639fc0d7b372c8eddde7814450e628b2a5a18f6ca1be041cf1d1e82f1c04f0b8",
+      "total": 5600709
+    },
+    {
+      "file": "data/raw/coverage-2025-dr359.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=data_resource_uid%3Adr359&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:44.981172+00:00",
+      "sha256": "4d7878082034865cf0205e0e8b2dea8f85c3c17dc9d66421adc982cf3c1eb40a",
+      "total": 952267
+    },
+    {
+      "file": "data/raw/coverage-2025-dr1411.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2025&fq=data_resource_uid%3Adr1411&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:45.535424+00:00",
+      "sha256": "78f3c4fc02786af3e3a5259b7c2ba2adcda9a821e05b8a01f78b56b9a293ed1e",
+      "total": 427661
+    },
+    {
+      "file": "data/raw/coverage-2026-dr2009.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2026&fq=data_resource_uid%3Adr2009&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:45.952830+00:00",
+      "sha256": "39dacfa009ddd5d53c6f2b87db8650fde1231864be257a546bc18b941c614e1f",
+      "total": 0
+    },
+    {
+      "file": "data/raw/coverage-2026-dr359.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2026&fq=data_resource_uid%3Adr359&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:46.218052+00:00",
+      "sha256": "71387d54a71f04b0d7592f9388206e9fdd80c20fb1823d421585533acdac607d",
+      "total": 399638
+    },
+    {
+      "file": "data/raw/coverage-2026-dr1411.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2026&fq=data_resource_uid%3Adr1411&facets=month&facets=state&facets=license",
+      "retrieved": "2026-09-10T09:16:46.647257+00:00",
+      "sha256": "e29989559ba21149a5b55cb8e65291fe362bc82c98b2aa5dd163f7020523af69",
+      "total": 317173
+    },
+    {
+      "file": "data/raw/state-western-australia.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=state%3A%22Western+Australia%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species&facets=family&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:47.495495+00:00",
+      "sha256": "e6a6ea48602dde8c0a0ba36302403748b03e10db1ceaf1cee58d0dc94baca71f",
+      "total": 706605
+    },
+    {
+      "file": "data/raw/state-northern-territory.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=state%3A%22Northern+Territory%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species&facets=family&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:47.773383+00:00",
+      "sha256": "32b20278fb346d45c4f32ff331af8f97409cfdd9282803a4104720862cf7fcc1",
+      "total": 330199
+    },
+    {
+      "file": "data/raw/state-south-australia.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=state%3A%22South+Australia%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species&facets=family&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:48.437461+00:00",
+      "sha256": "8c5caf940d54afec6107e5e923388b872d86aaef7807d7bf98c704f7daacd781",
+      "total": 490319
+    },
+    {
+      "file": "data/raw/state-queensland.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=state%3A%22Queensland%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species&facets=family&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:49.194101+00:00",
+      "sha256": "9bb81766710feea2f07691d743b6739a15635b32ea3f06f24cb242eeb1868a6d",
+      "total": 2335374
+    },
+    {
+      "file": "data/raw/state-new-south-wales.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=state%3A%22New+South+Wales%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species&facets=family&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:49.426882+00:00",
+      "sha256": "7619fc2a904c0b41dba12f2b4b7d4c3e41e2e080e3208e1d43b4429056b1763c",
+      "total": 2455993
+    },
+    {
+      "file": "data/raw/state-victoria.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=state%3A%22Victoria%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species&facets=family&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:50.026035+00:00",
+      "sha256": "bf7ac52e96efb50c035e213a8cf52caaa8ac1a5ca35bdefe0a9da57aa8c31fdf",
+      "total": 2450501
+    },
+    {
+      "file": "data/raw/state-tasmania.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=state%3A%22Tasmania%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species&facets=family&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:50.783615+00:00",
+      "sha256": "b65c7fc24ba946c5d9ba705060499502d0634fc812e10e9f403cd4759d48e6ec",
+      "total": 463068
+    },
+    {
+      "file": "data/raw/state-australian-capital-territory.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=state%3A%22Australian+Capital+Territory%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species&facets=family&facets=data_resource_uid",
+      "retrieved": "2026-09-10T09:16:51.143111+00:00",
+      "sha256": "0bafa63a896f68bf2d3a531a1e549dd49e7c5fc5e5a91419f05ceb71c57d19b8",
+      "total": 343863
+    },
+    {
+      "file": "data/raw/threatened-species.csv",
+      "url": "https://data.gov.au/data/dataset/ae652011-f39e-4c6c-91b8-1dc2d2dfee8f/resource/78401dce-1f40-49d3-92c4-3713d6e34974/download/20260828spcs.csv",
+      "title": "Threatened Species State Lists - 28 August 2026 (CSV)",
+      "license": "Creative Commons Attribution 3.0 Australia",
+      "retrieved": "2026-09-10T09:18:06.675321+00:00"
+    }
+  ]
+}

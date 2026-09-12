@@ -1,0 +1,1581 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 904,
+  "height": 568,
+  "padding": 8,
+  "background": "transparent",
+  "autosize": {
+    "type": "pad",
+    "contains": "padding"
+  },
+  "config": {
+    "text": {
+      "font": "Bricolage Grotesque",
+      "fill": "#292e27"
+    },
+    "axis": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e0dccf",
+      "gridOpacity": 0.75,
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "gradientThickness": 9,
+      "gradientLength": 130,
+      "padding": 8
+    }
+  },
+  "description": "Circular heatmap of monthly records per day relative to each state’s annual daily average. Rings show states from north to south; sectors follow the calendar.",
+  "data": [
+    {
+      "name": "cells",
+      "values": [
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 1,
+          "label": "Jan",
+          "season": "Summer",
+          "count": 48911,
+          "dailyIndex": 1.67935,
+          "a0": 0.332,
+          "a1": 0.7782654422649655,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 1,
+          "label": "Jan",
+          "season": "Summer",
+          "count": 221522,
+          "dailyIndex": 1.0649,
+          "a0": 0.332,
+          "a1": 0.7782654422649655,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 1,
+          "label": "Jan",
+          "season": "Summer",
+          "count": 20055,
+          "dailyIndex": 0.71708,
+          "a0": 0.332,
+          "a1": 0.7782654422649655,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 1,
+          "label": "Jan",
+          "season": "Summer",
+          "count": 161734,
+          "dailyIndex": 0.81764,
+          "a0": 0.332,
+          "a1": 0.7782654422649655,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 1,
+          "label": "Jan",
+          "season": "Summer",
+          "count": 39320,
+          "dailyIndex": 0.94679,
+          "a0": 0.332,
+          "a1": 0.7782654422649655,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 1,
+          "label": "Jan",
+          "season": "Summer",
+          "count": 39130,
+          "dailyIndex": 0.99766,
+          "a0": 0.332,
+          "a1": 0.7782654422649655,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 1,
+          "label": "Jan",
+          "season": "Summer",
+          "count": 231735,
+          "dailyIndex": 1.11649,
+          "a0": 0.332,
+          "a1": 0.7782654422649655,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 1,
+          "label": "Jan",
+          "season": "Summer",
+          "count": 59845,
+          "dailyIndex": 0.99993,
+          "a0": 0.332,
+          "a1": 0.7782654422649655,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 2,
+          "label": "Feb",
+          "season": "Summer",
+          "count": 29034,
+          "dailyIndex": 1.06563,
+          "a0": 0.8022654422649655,
+          "a1": 1.248530884529931,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 2,
+          "label": "Feb",
+          "season": "Summer",
+          "count": 169043,
+          "dailyIndex": 0.86867,
+          "a0": 0.8022654422649655,
+          "a1": 1.248530884529931,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 2,
+          "label": "Feb",
+          "season": "Summer",
+          "count": 12264,
+          "dailyIndex": 0.46875,
+          "a0": 0.8022654422649655,
+          "a1": 1.248530884529931,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 2,
+          "label": "Feb",
+          "season": "Summer",
+          "count": 134640,
+          "dailyIndex": 0.72761,
+          "a0": 0.8022654422649655,
+          "a1": 1.248530884529931,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 2,
+          "label": "Feb",
+          "season": "Summer",
+          "count": 33927,
+          "dailyIndex": 0.87327,
+          "a0": 0.8022654422649655,
+          "a1": 1.248530884529931,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 2,
+          "label": "Feb",
+          "season": "Summer",
+          "count": 40327,
+          "dailyIndex": 1.09909,
+          "a0": 0.8022654422649655,
+          "a1": 1.248530884529931,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 2,
+          "label": "Feb",
+          "season": "Summer",
+          "count": 172671,
+          "dailyIndex": 0.8893,
+          "a0": 0.8022654422649655,
+          "a1": 1.248530884529931,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 2,
+          "label": "Feb",
+          "season": "Summer",
+          "count": 44450,
+          "dailyIndex": 0.79392,
+          "a0": 0.8022654422649655,
+          "a1": 1.248530884529931,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 3,
+          "label": "Mar",
+          "season": "Autumn",
+          "count": 28940,
+          "dailyIndex": 0.99365,
+          "a0": 1.272530884529931,
+          "a1": 1.7187963267948967,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 3,
+          "label": "Mar",
+          "season": "Autumn",
+          "count": 192311,
+          "dailyIndex": 0.92448,
+          "a0": 1.272530884529931,
+          "a1": 1.7187963267948967,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 3,
+          "label": "Mar",
+          "season": "Autumn",
+          "count": 18430,
+          "dailyIndex": 0.65898,
+          "a0": 1.272530884529931,
+          "a1": 1.7187963267948967,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 3,
+          "label": "Mar",
+          "season": "Autumn",
+          "count": 138941,
+          "dailyIndex": 0.70241,
+          "a0": 1.272530884529931,
+          "a1": 1.7187963267948967,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 3,
+          "label": "Mar",
+          "season": "Autumn",
+          "count": 39624,
+          "dailyIndex": 0.95411,
+          "a0": 1.272530884529931,
+          "a1": 1.7187963267948967,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 3,
+          "label": "Mar",
+          "season": "Autumn",
+          "count": 37236,
+          "dailyIndex": 0.94937,
+          "a0": 1.272530884529931,
+          "a1": 1.7187963267948967,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 3,
+          "label": "Mar",
+          "season": "Autumn",
+          "count": 187540,
+          "dailyIndex": 0.90356,
+          "a0": 1.272530884529931,
+          "a1": 1.7187963267948967,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 3,
+          "label": "Mar",
+          "season": "Autumn",
+          "count": 43466,
+          "dailyIndex": 0.72626,
+          "a0": 1.272530884529931,
+          "a1": 1.7187963267948967,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 4,
+          "label": "Apr",
+          "season": "Autumn",
+          "count": 25942,
+          "dailyIndex": 0.9204,
+          "a0": 1.7427963267948967,
+          "a1": 2.189061769059862,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 4,
+          "label": "Apr",
+          "season": "Autumn",
+          "count": 195991,
+          "dailyIndex": 0.97357,
+          "a0": 1.7427963267948967,
+          "a1": 2.189061769059862,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 4,
+          "label": "Apr",
+          "season": "Autumn",
+          "count": 18189,
+          "dailyIndex": 0.67204,
+          "a0": 1.7427963267948967,
+          "a1": 2.189061769059862,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 4,
+          "label": "Apr",
+          "season": "Autumn",
+          "count": 148920,
+          "dailyIndex": 0.77796,
+          "a0": 1.7427963267948967,
+          "a1": 2.189061769059862,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 4,
+          "label": "Apr",
+          "season": "Autumn",
+          "count": 39641,
+          "dailyIndex": 0.98634,
+          "a0": 1.7427963267948967,
+          "a1": 2.189061769059862,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 4,
+          "label": "Apr",
+          "season": "Autumn",
+          "count": 29783,
+          "dailyIndex": 0.78466,
+          "a0": 1.7427963267948967,
+          "a1": 2.189061769059862,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 4,
+          "label": "Apr",
+          "season": "Autumn",
+          "count": 209165,
+          "dailyIndex": 1.04134,
+          "a0": 1.7427963267948967,
+          "a1": 2.189061769059862,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 4,
+          "label": "Apr",
+          "season": "Autumn",
+          "count": 50987,
+          "dailyIndex": 0.88032,
+          "a0": 1.7427963267948967,
+          "a1": 2.189061769059862,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 5,
+          "label": "May",
+          "season": "Autumn",
+          "count": 18525,
+          "dailyIndex": 0.63605,
+          "a0": 2.213061769059862,
+          "a1": 2.6593272113248276,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 5,
+          "label": "May",
+          "season": "Autumn",
+          "count": 148784,
+          "dailyIndex": 0.71523,
+          "a0": 2.213061769059862,
+          "a1": 2.6593272113248276,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 5,
+          "label": "May",
+          "season": "Autumn",
+          "count": 19600,
+          "dailyIndex": 0.70081,
+          "a0": 2.213061769059862,
+          "a1": 2.6593272113248276,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 5,
+          "label": "May",
+          "season": "Autumn",
+          "count": 158953,
+          "dailyIndex": 0.80358,
+          "a0": 2.213061769059862,
+          "a1": 2.6593272113248276,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 5,
+          "label": "May",
+          "season": "Autumn",
+          "count": 40625,
+          "dailyIndex": 0.97821,
+          "a0": 2.213061769059862,
+          "a1": 2.6593272113248276,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 5,
+          "label": "May",
+          "season": "Autumn",
+          "count": 31413,
+          "dailyIndex": 0.80091,
+          "a0": 2.213061769059862,
+          "a1": 2.6593272113248276,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 5,
+          "label": "May",
+          "season": "Autumn",
+          "count": 167582,
+          "dailyIndex": 0.80741,
+          "a0": 2.213061769059862,
+          "a1": 2.6593272113248276,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 5,
+          "label": "May",
+          "season": "Autumn",
+          "count": 56040,
+          "dailyIndex": 0.93636,
+          "a0": 2.213061769059862,
+          "a1": 2.6593272113248276,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 6,
+          "label": "Jun",
+          "season": "Winter",
+          "count": 18022,
+          "dailyIndex": 0.63941,
+          "a0": 2.6833272113248277,
+          "a1": 3.129592653589793,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 6,
+          "label": "Jun",
+          "season": "Winter",
+          "count": 156294,
+          "dailyIndex": 0.77638,
+          "a0": 2.6833272113248277,
+          "a1": 3.129592653589793,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 6,
+          "label": "Jun",
+          "season": "Winter",
+          "count": 39630,
+          "dailyIndex": 1.46423,
+          "a0": 2.6833272113248277,
+          "a1": 3.129592653589793,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 6,
+          "label": "Jun",
+          "season": "Winter",
+          "count": 185423,
+          "dailyIndex": 0.96865,
+          "a0": 2.6833272113248277,
+          "a1": 3.129592653589793,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 6,
+          "label": "Jun",
+          "season": "Winter",
+          "count": 32694,
+          "dailyIndex": 0.81348,
+          "a0": 2.6833272113248277,
+          "a1": 3.129592653589793,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 6,
+          "label": "Jun",
+          "season": "Winter",
+          "count": 34434,
+          "dailyIndex": 0.9072,
+          "a0": 2.6833272113248277,
+          "a1": 3.129592653589793,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 6,
+          "label": "Jun",
+          "season": "Winter",
+          "count": 138798,
+          "dailyIndex": 0.69102,
+          "a0": 2.6833272113248277,
+          "a1": 3.129592653589793,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 6,
+          "label": "Jun",
+          "season": "Winter",
+          "count": 58070,
+          "dailyIndex": 1.00262,
+          "a0": 2.6833272113248277,
+          "a1": 3.129592653589793,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 7,
+          "label": "Jul",
+          "season": "Winter",
+          "count": 20649,
+          "dailyIndex": 0.70898,
+          "a0": 3.153592653589793,
+          "a1": 3.5998580958547586,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 7,
+          "label": "Jul",
+          "season": "Winter",
+          "count": 171336,
+          "dailyIndex": 0.82365,
+          "a0": 3.153592653589793,
+          "a1": 3.5998580958547586,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 7,
+          "label": "Jul",
+          "season": "Winter",
+          "count": 39509,
+          "dailyIndex": 1.41267,
+          "a0": 3.153592653589793,
+          "a1": 3.5998580958547586,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 7,
+          "label": "Jul",
+          "season": "Winter",
+          "count": 231496,
+          "dailyIndex": 1.17032,
+          "a0": 3.153592653589793,
+          "a1": 3.5998580958547586,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 7,
+          "label": "Jul",
+          "season": "Winter",
+          "count": 37045,
+          "dailyIndex": 0.89201,
+          "a0": 3.153592653589793,
+          "a1": 3.5998580958547586,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 7,
+          "label": "Jul",
+          "season": "Winter",
+          "count": 21077,
+          "dailyIndex": 0.53738,
+          "a0": 3.153592653589793,
+          "a1": 3.5998580958547586,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 7,
+          "label": "Jul",
+          "season": "Winter",
+          "count": 137070,
+          "dailyIndex": 0.6604,
+          "a0": 3.153592653589793,
+          "a1": 3.5998580958547586,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 7,
+          "label": "Jul",
+          "season": "Winter",
+          "count": 54718,
+          "dailyIndex": 0.91427,
+          "a0": 3.153592653589793,
+          "a1": 3.5998580958547586,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 8,
+          "label": "Aug",
+          "season": "Winter",
+          "count": 26635,
+          "dailyIndex": 0.91451,
+          "a0": 3.6238580958547586,
+          "a1": 4.0701235381197245,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 8,
+          "label": "Aug",
+          "season": "Winter",
+          "count": 205978,
+          "dailyIndex": 0.99018,
+          "a0": 3.6238580958547586,
+          "a1": 4.0701235381197245,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 8,
+          "label": "Aug",
+          "season": "Winter",
+          "count": 40239,
+          "dailyIndex": 1.43877,
+          "a0": 3.6238580958547586,
+          "a1": 4.0701235381197245,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 8,
+          "label": "Aug",
+          "season": "Winter",
+          "count": 244266,
+          "dailyIndex": 1.23488,
+          "a0": 3.6238580958547586,
+          "a1": 4.0701235381197245,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 8,
+          "label": "Aug",
+          "season": "Winter",
+          "count": 35339,
+          "dailyIndex": 0.85093,
+          "a0": 3.6238580958547586,
+          "a1": 4.0701235381197245,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 8,
+          "label": "Aug",
+          "season": "Winter",
+          "count": 24289,
+          "dailyIndex": 0.61928,
+          "a0": 3.6238580958547586,
+          "a1": 4.0701235381197245,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 8,
+          "label": "Aug",
+          "season": "Winter",
+          "count": 184050,
+          "dailyIndex": 0.88675,
+          "a0": 3.6238580958547586,
+          "a1": 4.0701235381197245,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 8,
+          "label": "Aug",
+          "season": "Winter",
+          "count": 60636,
+          "dailyIndex": 1.01315,
+          "a0": 3.6238580958547586,
+          "a1": 4.0701235381197245,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 9,
+          "label": "Sep",
+          "season": "Spring",
+          "count": 26568,
+          "dailyIndex": 0.94261,
+          "a0": 4.094123538119724,
+          "a1": 4.540388980384691,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 9,
+          "label": "Sep",
+          "season": "Spring",
+          "count": 244114,
+          "dailyIndex": 1.21262,
+          "a0": 4.094123538119724,
+          "a1": 4.540388980384691,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 9,
+          "label": "Sep",
+          "season": "Spring",
+          "count": 46575,
+          "dailyIndex": 1.72083,
+          "a0": 4.094123538119724,
+          "a1": 4.540388980384691,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 9,
+          "label": "Sep",
+          "season": "Spring",
+          "count": 244549,
+          "dailyIndex": 1.27752,
+          "a0": 4.094123538119724,
+          "a1": 4.540388980384691,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 9,
+          "label": "Sep",
+          "season": "Spring",
+          "count": 50944,
+          "dailyIndex": 1.26758,
+          "a0": 4.094123538119724,
+          "a1": 4.540388980384691,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 9,
+          "label": "Sep",
+          "season": "Spring",
+          "count": 41691,
+          "dailyIndex": 1.09839,
+          "a0": 4.094123538119724,
+          "a1": 4.540388980384691,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 9,
+          "label": "Sep",
+          "season": "Spring",
+          "count": 214554,
+          "dailyIndex": 1.06817,
+          "a0": 4.094123538119724,
+          "a1": 4.540388980384691,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 9,
+          "label": "Sep",
+          "season": "Spring",
+          "count": 82392,
+          "dailyIndex": 1.42255,
+          "a0": 4.094123538119724,
+          "a1": 4.540388980384691,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 10,
+          "label": "Oct",
+          "season": "Spring",
+          "count": 40145,
+          "dailyIndex": 1.37837,
+          "a0": 4.56438898038469,
+          "a1": 5.010654422649656,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 10,
+          "label": "Oct",
+          "season": "Spring",
+          "count": 300315,
+          "dailyIndex": 1.44367,
+          "a0": 4.56438898038469,
+          "a1": 5.010654422649656,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 10,
+          "label": "Oct",
+          "season": "Spring",
+          "count": 42847,
+          "dailyIndex": 1.53202,
+          "a0": 4.56438898038469,
+          "a1": 5.010654422649656,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 10,
+          "label": "Oct",
+          "season": "Spring",
+          "count": 301355,
+          "dailyIndex": 1.5235,
+          "a0": 4.56438898038469,
+          "a1": 5.010654422649656,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 10,
+          "label": "Oct",
+          "season": "Spring",
+          "count": 59152,
+          "dailyIndex": 1.42433,
+          "a0": 4.56438898038469,
+          "a1": 5.010654422649656,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 10,
+          "label": "Oct",
+          "season": "Spring",
+          "count": 58919,
+          "dailyIndex": 1.50221,
+          "a0": 4.56438898038469,
+          "a1": 5.010654422649656,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 10,
+          "label": "Oct",
+          "season": "Spring",
+          "count": 298474,
+          "dailyIndex": 1.43804,
+          "a0": 4.56438898038469,
+          "a1": 5.010654422649656,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 10,
+          "label": "Oct",
+          "season": "Spring",
+          "count": 72044,
+          "dailyIndex": 1.20376,
+          "a0": 4.56438898038469,
+          "a1": 5.010654422649656,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 11,
+          "label": "Nov",
+          "season": "Spring",
+          "count": 30708,
+          "dailyIndex": 1.0895,
+          "a0": 5.0346544226496555,
+          "a1": 5.480919864914622,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 11,
+          "label": "Nov",
+          "season": "Spring",
+          "count": 236097,
+          "dailyIndex": 1.1728,
+          "a0": 5.0346544226496555,
+          "a1": 5.480919864914622,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 11,
+          "label": "Nov",
+          "season": "Spring",
+          "count": 19794,
+          "dailyIndex": 0.73134,
+          "a0": 5.0346544226496555,
+          "a1": 5.480919864914622,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 11,
+          "label": "Nov",
+          "season": "Spring",
+          "count": 219630,
+          "dailyIndex": 1.14735,
+          "a0": 5.0346544226496555,
+          "a1": 5.480919864914622,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 11,
+          "label": "Nov",
+          "season": "Spring",
+          "count": 43845,
+          "dailyIndex": 1.09094,
+          "a0": 5.0346544226496555,
+          "a1": 5.480919864914622,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 11,
+          "label": "Nov",
+          "season": "Spring",
+          "count": 60742,
+          "dailyIndex": 1.60031,
+          "a0": 5.0346544226496555,
+          "a1": 5.480919864914622,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 11,
+          "label": "Nov",
+          "season": "Spring",
+          "count": 257158,
+          "dailyIndex": 1.28028,
+          "a0": 5.0346544226496555,
+          "a1": 5.480919864914622,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 11,
+          "label": "Nov",
+          "season": "Spring",
+          "count": 63243,
+          "dailyIndex": 1.09193,
+          "a0": 5.0346544226496555,
+          "a1": 5.480919864914622,
+          "r0": 88,
+          "r1": 110.5
+        },
+        {
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "month": 12,
+          "label": "Dec",
+          "season": "Summer",
+          "count": 29784,
+          "dailyIndex": 1.02263,
+          "a0": 5.504919864914621,
+          "a1": 5.951185307179587,
+          "r0": 161.5,
+          "r1": 184
+        },
+        {
+          "state": "New South Wales",
+          "code": "NSW",
+          "month": 12,
+          "label": "Dec",
+          "season": "Summer",
+          "count": 214208,
+          "dailyIndex": 1.02974,
+          "a0": 5.504919864914621,
+          "a1": 5.951185307179587,
+          "r0": 137,
+          "r1": 159.5
+        },
+        {
+          "state": "Northern Territory",
+          "code": "NT",
+          "month": 12,
+          "label": "Dec",
+          "season": "Summer",
+          "count": 13067,
+          "dailyIndex": 0.46722,
+          "a0": 5.504919864914621,
+          "a1": 5.951185307179587,
+          "r0": 39,
+          "r1": 61.5
+        },
+        {
+          "state": "Queensland",
+          "code": "QLD",
+          "month": 12,
+          "label": "Dec",
+          "season": "Summer",
+          "count": 165467,
+          "dailyIndex": 0.83652,
+          "a0": 5.504919864914621,
+          "a1": 5.951185307179587,
+          "r0": 63.5,
+          "r1": 86
+        },
+        {
+          "state": "South Australia",
+          "code": "SA",
+          "month": 12,
+          "label": "Dec",
+          "season": "Summer",
+          "count": 38163,
+          "dailyIndex": 0.91893,
+          "a0": 5.504919864914621,
+          "a1": 5.951185307179587,
+          "r0": 112.5,
+          "r1": 135
+        },
+        {
+          "state": "Tasmania",
+          "code": "TAS",
+          "month": 12,
+          "label": "Dec",
+          "season": "Summer",
+          "count": 44027,
+          "dailyIndex": 1.12252,
+          "a0": 5.504919864914621,
+          "a1": 5.951185307179587,
+          "r0": 210.5,
+          "r1": 233
+        },
+        {
+          "state": "Victoria",
+          "code": "VIC",
+          "month": 12,
+          "label": "Dec",
+          "season": "Summer",
+          "count": 251704,
+          "dailyIndex": 1.2127,
+          "a0": 5.504919864914621,
+          "a1": 5.951185307179587,
+          "r0": 186,
+          "r1": 208.5
+        },
+        {
+          "state": "Western Australia",
+          "code": "WA",
+          "month": 12,
+          "label": "Dec",
+          "season": "Summer",
+          "count": 60714,
+          "dailyIndex": 1.01445,
+          "a0": 5.504919864914621,
+          "a1": 5.951185307179587,
+          "r0": 88,
+          "r1": 110.5
+        }
+      ]
+    },
+    {
+      "name": "months",
+      "values": [
+        {
+          "label": "Jan",
+          "angle": 0.5551327211324828
+        },
+        {
+          "label": "Feb",
+          "angle": 1.0253981633974483
+        },
+        {
+          "label": "Mar",
+          "angle": 1.495663605662414
+        },
+        {
+          "label": "Apr",
+          "angle": 1.9659290479273794
+        },
+        {
+          "label": "May",
+          "angle": 2.436194490192345
+        },
+        {
+          "label": "Jun",
+          "angle": 2.9064599324573104
+        },
+        {
+          "label": "Jul",
+          "angle": 3.376725374722276
+        },
+        {
+          "label": "Aug",
+          "angle": 3.8469908169872413
+        },
+        {
+          "label": "Sep",
+          "angle": 4.317256259252207
+        },
+        {
+          "label": "Oct",
+          "angle": 4.787521701517173
+        },
+        {
+          "label": "Nov",
+          "angle": 5.257787143782139
+        },
+        {
+          "label": "Dec",
+          "angle": 5.728052586047104
+        }
+      ]
+    },
+    {
+      "name": "rings",
+      "values": [
+        {
+          "code": "NT",
+          "r": 50.25
+        },
+        {
+          "code": "QLD",
+          "r": 74.75
+        },
+        {
+          "code": "WA",
+          "r": 99.25
+        },
+        {
+          "code": "SA",
+          "r": 123.75
+        },
+        {
+          "code": "NSW",
+          "r": 148.25
+        },
+        {
+          "code": "ACT",
+          "r": 172.75
+        },
+        {
+          "code": "VIC",
+          "r": 197.25
+        },
+        {
+          "code": "TAS",
+          "r": 221.75
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "pace",
+      "type": "linear",
+      "domain": [
+        0.5,
+        1,
+        1.6
+      ],
+      "range": [
+        "#c3a26d",
+        "#eee9dc",
+        "#315e4c"
+      ],
+      "clamp": true
+    }
+  ],
+  "marks": [
+    {
+      "type": "arc",
+      "from": {
+        "data": "cells"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 452
+          },
+          "y": {
+            "value": 284
+          },
+          "startAngle": {
+            "field": "a0"
+          },
+          "endAngle": {
+            "field": "a1"
+          },
+          "innerRadius": {
+            "field": "r0"
+          },
+          "outerRadius": {
+            "field": "r1"
+          },
+          "fill": {
+            "scale": "pace",
+            "field": "dailyIndex"
+          },
+          "tooltip": {
+            "signal": "{'State':datum.state,'Month':datum.label,'Records':format(datum.count,','),'Daily pace vs state average':format(datum.dailyIndex,'.2f')+'×'}"
+          }
+        },
+        "update": {
+          "strokeWidth": {
+            "value": 0
+          }
+        },
+        "hover": {
+          "stroke": {
+            "value": "#292e27"
+          },
+          "strokeWidth": {
+            "value": 1.4
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "months"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "452+sin(datum.angle)*258"
+          },
+          "y": {
+            "signal": "284-cos(datum.angle)*258"
+          },
+          "text": {
+            "field": "label"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 12
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "rings"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 452
+          },
+          "y": {
+            "signal": "284-datum.r"
+          },
+          "text": {
+            "field": "code"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#60665c"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 452
+          },
+          "y": {
+            "value": 281
+          },
+          "text": {
+            "value": "2024"
+          },
+          "align": {
+            "value": "center"
+          },
+          "fontSize": {
+            "value": 17
+          },
+          "fontWeight": {
+            "value": 500
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 452
+          },
+          "y": {
+            "value": 298
+          },
+          "text": {
+            "value": "daily pace"
+          },
+          "align": {
+            "value": "center"
+          },
+          "fontSize": {
+            "value": 9
+          },
+          "fill": {
+            "value": "#60665c"
+          }
+        }
+      }
+    }
+  ],
+  "legends": [
+    {
+      "fill": "pace",
+      "type": "gradient",
+      "orient": "bottom",
+      "title": "Compared with each state’s daily average",
+      "values": [
+        0.5,
+        1,
+        1.6
+      ],
+      "format": ".1f",
+      "gradientLength": 200
+    }
+  ]
+}

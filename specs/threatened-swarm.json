@@ -1,0 +1,738 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 850,
+  "height": 300,
+  "padding": {
+    "left": 24,
+    "right": 20,
+    "top": 28,
+    "bottom": 50
+  },
+  "background": "transparent",
+  "autosize": {
+    "type": "pad",
+    "contains": "padding"
+  },
+  "config": {
+    "text": {
+      "font": "Bricolage Grotesque",
+      "fill": "#292e27"
+    },
+    "axis": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e0dccf",
+      "gridOpacity": 0.75,
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "gradientThickness": 9,
+      "gradientLength": 130,
+      "padding": 8
+    }
+  },
+  "description": "Beeswarm showing the record counts of 65 nationally threatened, species-level birds whose scientific names match exactly between ALA and DCCEEW. Every dot is a species. Unmatched names and listed subspecies are excluded, not treated as zero.",
+  "data": [
+    {
+      "name": "birds",
+      "values": [
+        {
+          "scientific": "Calidris acuminata",
+          "name": "Sharp-tailed Sandpiper",
+          "status": "Vulnerable",
+          "count": 9145,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=874",
+          "offset": 0
+        },
+        {
+          "scientific": "Gallinago hardwickii",
+          "name": "Latham's Snipe",
+          "status": "Vulnerable",
+          "count": 5219,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=863",
+          "offset": 0
+        },
+        {
+          "scientific": "Sternula albifrons",
+          "name": "Little Tern",
+          "status": "Vulnerable",
+          "count": 4357,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=82849",
+          "offset": 0
+        },
+        {
+          "scientific": "Hirundapus caudacutus",
+          "name": "White-throated Needletail",
+          "status": "Vulnerable",
+          "count": 4303,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=682",
+          "offset": 20
+        },
+        {
+          "scientific": "Arenaria interpres",
+          "name": "Ruddy Turnstone",
+          "status": "Vulnerable",
+          "count": 4099,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=872",
+          "offset": -10
+        },
+        {
+          "scientific": "Calidris tenuirostris",
+          "name": "Great Knot",
+          "status": "Vulnerable",
+          "count": 3524,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=862",
+          "offset": 0
+        },
+        {
+          "scientific": "Stagonopleura guttata",
+          "name": "Diamond Firetail",
+          "status": "Vulnerable",
+          "count": 3285,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=59398",
+          "offset": 10
+        },
+        {
+          "scientific": "Aphelocephala leucopsis",
+          "name": "Southern Whiteface",
+          "status": "Vulnerable",
+          "count": 3247,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=529",
+          "offset": -10
+        },
+        {
+          "scientific": "Polytelis swainsonii",
+          "name": "Superb Parrot",
+          "status": "Vulnerable",
+          "count": 3106,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=738",
+          "offset": 20
+        },
+        {
+          "scientific": "Neophema chrysostoma",
+          "name": "Blue-winged Parrot",
+          "status": "Vulnerable",
+          "count": 2659,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=726",
+          "offset": 0
+        },
+        {
+          "scientific": "Charadrius leschenaultii",
+          "name": "Greater Sand Plover",
+          "status": "Vulnerable",
+          "count": 2523,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=877",
+          "offset": 10
+        },
+        {
+          "scientific": "Calidris canutus",
+          "name": "Red Knot",
+          "status": "Vulnerable",
+          "count": 2121,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=855",
+          "offset": 0
+        },
+        {
+          "scientific": "Thalassarche melanophris",
+          "name": "Black-browed Albatross",
+          "status": "Vulnerable",
+          "count": 1971,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=66472",
+          "offset": 10
+        },
+        {
+          "scientific": "Xenus cinereus",
+          "name": "Terek Sandpiper",
+          "status": "Vulnerable",
+          "count": 1921,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=59300",
+          "offset": -10
+        },
+        {
+          "scientific": "Pluvialis squatarola",
+          "name": "Grey Plover",
+          "status": "Vulnerable",
+          "count": 1554,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=865",
+          "offset": 0
+        },
+        {
+          "scientific": "Thalassarche carteri",
+          "name": "Indian Yellow-nosed  Albatross",
+          "status": "Vulnerable",
+          "count": 1347,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=64464",
+          "offset": 0
+        },
+        {
+          "scientific": "Diomedea antipodensis",
+          "name": "Antipodean Albatross",
+          "status": "Vulnerable",
+          "count": 1111,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=64458",
+          "offset": 0
+        },
+        {
+          "scientific": "Thalassarche bulleri",
+          "name": "Buller's Albatross",
+          "status": "Vulnerable",
+          "count": 1020,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=64460",
+          "offset": 10
+        },
+        {
+          "scientific": "Ardenna grisea",
+          "name": "Sooty Shearwater",
+          "status": "Vulnerable",
+          "count": 891,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=82651",
+          "offset": 0
+        },
+        {
+          "scientific": "Pycnoptilus floccosus",
+          "name": "Pilotbird",
+          "status": "Vulnerable",
+          "count": 874,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=525",
+          "offset": 20
+        },
+        {
+          "scientific": "Macronectes halli",
+          "name": "Northern Giant Petrel",
+          "status": "Vulnerable",
+          "count": 768,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=1061",
+          "offset": 0
+        },
+        {
+          "scientific": "Thalassarche impavida",
+          "name": "Campbell Albatross",
+          "status": "Vulnerable",
+          "count": 688,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=64459",
+          "offset": 10
+        },
+        {
+          "scientific": "Leipoa ocellata",
+          "name": "Malleefowl",
+          "status": "Vulnerable",
+          "count": 669,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=934",
+          "offset": -10
+        },
+        {
+          "scientific": "Grantiella picta",
+          "name": "Painted Honeyeater",
+          "status": "Vulnerable",
+          "count": 599,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=470",
+          "offset": 0
+        },
+        {
+          "scientific": "Diomedea exulans",
+          "name": "Wandering Albatross",
+          "status": "Vulnerable",
+          "count": 308,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=89223",
+          "offset": 0
+        },
+        {
+          "scientific": "Diomedea epomophora",
+          "name": "Southern Royal Albatross",
+          "status": "Vulnerable",
+          "count": 262,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=89221",
+          "offset": 0
+        },
+        {
+          "scientific": "Falco hypoleucos",
+          "name": "Grey Falcon",
+          "status": "Vulnerable",
+          "count": 259,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=929",
+          "offset": 20
+        },
+        {
+          "scientific": "Limnodromus semipalmatus",
+          "name": "Asian Dowitcher",
+          "status": "Vulnerable",
+          "count": 200,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=843",
+          "offset": 0
+        },
+        {
+          "scientific": "Pterodroma mollis",
+          "name": "Soft-plumaged Petrel",
+          "status": "Vulnerable",
+          "count": 166,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=1036",
+          "offset": 0
+        },
+        {
+          "scientific": "Turnix melanogaster",
+          "name": "Black-breasted Button-quail",
+          "status": "Vulnerable",
+          "count": 159,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=923",
+          "offset": 20
+        },
+        {
+          "scientific": "Pachycephala rufogularis",
+          "name": "Red-lored Whistler",
+          "status": "Vulnerable",
+          "count": 140,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=601",
+          "offset": 0
+        },
+        {
+          "scientific": "Halobaena caerulea",
+          "name": "Blue Petrel",
+          "status": "Vulnerable",
+          "count": 99,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=1059",
+          "offset": 0
+        },
+        {
+          "scientific": "Amytornis modestus",
+          "name": "Thick-billed Grasswren",
+          "status": "Vulnerable",
+          "count": 87,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=84121",
+          "offset": 0
+        },
+        {
+          "scientific": "Phoebetria fusca",
+          "name": "Sooty Albatross",
+          "status": "Vulnerable",
+          "count": 82,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=1075",
+          "offset": 10
+        },
+        {
+          "scientific": "Thalassarche steadi",
+          "name": "White-capped Albatross",
+          "status": "Vulnerable",
+          "count": 52,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=64462",
+          "offset": 0
+        },
+        {
+          "scientific": "Thalassarche salvini",
+          "name": "Salvin's Albatross",
+          "status": "Vulnerable",
+          "count": 43,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=64463",
+          "offset": 0
+        },
+        {
+          "scientific": "Polytelis alexandrae",
+          "name": "Princess Parrot",
+          "status": "Vulnerable",
+          "count": 20,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=758",
+          "offset": 0
+        },
+        {
+          "scientific": "Amytornis woodwardi",
+          "name": "White-throated Grasswren",
+          "status": "Vulnerable",
+          "count": 2,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=564",
+          "offset": 0
+        },
+        {
+          "scientific": "Callocephalon fimbriatum",
+          "name": "Gang-gang Cockatoo",
+          "status": "Endangered",
+          "count": 8201,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=768",
+          "offset": 0
+        },
+        {
+          "scientific": "Tringa nebularia",
+          "name": "Common Greenshank",
+          "status": "Endangered",
+          "count": 5841,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=832",
+          "offset": 0
+        },
+        {
+          "scientific": "Thalassarche cauta",
+          "name": "Shy Albatross",
+          "status": "Endangered",
+          "count": 3434,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=89224",
+          "offset": 0
+        },
+        {
+          "scientific": "Limosa limosa",
+          "name": "Black-tailed Godwit",
+          "status": "Endangered",
+          "count": 1823,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=845",
+          "offset": 0
+        },
+        {
+          "scientific": "Charadrius mongolus",
+          "name": "Lesser Sand Plover",
+          "status": "Endangered",
+          "count": 1790,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=879",
+          "offset": 20
+        },
+        {
+          "scientific": "Pardalotus quadragintus",
+          "name": "Forty-spotted Pardalote",
+          "status": "Endangered",
+          "count": 719,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=418",
+          "offset": 0
+        },
+        {
+          "scientific": "Botaurus poiciloptilus",
+          "name": "Australasian Bittern",
+          "status": "Endangered",
+          "count": 605,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=1001",
+          "offset": 0
+        },
+        {
+          "scientific": "Dasyornis brachypterus",
+          "name": "Eastern Bristlebird",
+          "status": "Endangered",
+          "count": 590,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=533",
+          "offset": 20
+        },
+        {
+          "scientific": "Dasyornis longirostris",
+          "name": "Western Bristlebird",
+          "status": "Endangered",
+          "count": 355,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=515",
+          "offset": 0
+        },
+        {
+          "scientific": "Atrichornis clamosus",
+          "name": "Noisy Scrub-bird",
+          "status": "Endangered",
+          "count": 332,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=654",
+          "offset": 10
+        },
+        {
+          "scientific": "Stipiturus mallee",
+          "name": "Mallee Emu-wren",
+          "status": "Endangered",
+          "count": 292,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=59459",
+          "offset": 0
+        },
+        {
+          "scientific": "Macronectes giganteus",
+          "name": "Southern Giant-Petrel",
+          "status": "Endangered",
+          "count": 280,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=1060",
+          "offset": 20
+        },
+        {
+          "scientific": "Diomedea sanfordi",
+          "name": "Northern Royal Albatross",
+          "status": "Endangered",
+          "count": 246,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=64456",
+          "offset": 0
+        },
+        {
+          "scientific": "Atrichornis rufescens",
+          "name": "Rufous Scrub-bird",
+          "status": "Endangered",
+          "count": 230,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=655",
+          "offset": 10
+        },
+        {
+          "scientific": "Rostratula australis",
+          "name": "Australian Painted Snipe",
+          "status": "Endangered",
+          "count": 194,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=77037",
+          "offset": 0
+        },
+        {
+          "scientific": "Amytornis dorotheae",
+          "name": "Carpentarian Grasswren",
+          "status": "Endangered",
+          "count": 182,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=558",
+          "offset": 10
+        },
+        {
+          "scientific": "Erythrotriorchis radiatus",
+          "name": "Red Goshawk",
+          "status": "Endangered",
+          "count": 92,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=942",
+          "offset": 0
+        },
+        {
+          "scientific": "Thalassarche chrysostoma",
+          "name": "Grey-headed Albatross",
+          "status": "Endangered",
+          "count": 59,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=66491",
+          "offset": 0
+        },
+        {
+          "scientific": "Manorina melanotis",
+          "name": "Black-eared Miner",
+          "status": "Endangered",
+          "count": 54,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=449",
+          "offset": 10
+        },
+        {
+          "scientific": "Thalassarche eremita",
+          "name": "Chatham Albatross",
+          "status": "Endangered",
+          "count": 9,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=64457",
+          "offset": 0
+        },
+        {
+          "scientific": "Numenius madagascariensis",
+          "name": "Eastern Curlew",
+          "status": "Critically Endangered",
+          "count": 9373,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=847",
+          "offset": 0
+        },
+        {
+          "scientific": "Calidris ferruginea",
+          "name": "Curlew Sandpiper",
+          "status": "Critically Endangered",
+          "count": 3738,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=856",
+          "offset": 0
+        },
+        {
+          "scientific": "Lathamus discolor",
+          "name": "Swift Parrot",
+          "status": "Critically Endangered",
+          "count": 2029,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=744",
+          "offset": 0
+        },
+        {
+          "scientific": "Anthochaera phrygia",
+          "name": "Regent Honeyeater",
+          "status": "Critically Endangered",
+          "count": 624,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=82338",
+          "offset": 0
+        },
+        {
+          "scientific": "Pedionomus torquatus",
+          "name": "Plains-wanderer",
+          "status": "Critically Endangered",
+          "count": 31,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=906",
+          "offset": 0
+        },
+        {
+          "scientific": "Neophema chrysogaster",
+          "name": "Orange-bellied Parrot",
+          "status": "Critically Endangered",
+          "count": 29,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=747",
+          "offset": 10
+        },
+        {
+          "scientific": "Pterodroma heraldica",
+          "name": "Herald Petrel",
+          "status": "Critically Endangered",
+          "count": 14,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=66973",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "name": "statuses",
+      "values": [
+        {
+          "status": "Vulnerable",
+          "y": 48
+        },
+        {
+          "status": "Endangered",
+          "y": 148
+        },
+        {
+          "status": "Critically Endangered",
+          "y": 248
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "log",
+      "domain": [
+        1,
+        15000
+      ],
+      "range": "width",
+      "nice": false
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Vulnerable",
+        "Endangered",
+        "Critically Endangered"
+      ],
+      "range": [
+        "#9b812d",
+        "#b36b37",
+        "#a74735"
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "values": [
+        1,
+        10,
+        100,
+        1000,
+        10000
+      ],
+      "format": ",",
+      "title": "2024 records per species · logarithmic scale",
+      "grid": true
+    }
+  ],
+  "marks": [
+    {
+      "type": "rule",
+      "from": {
+        "data": "statuses"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 0
+          },
+          "x2": {
+            "signal": "width"
+          },
+          "y": {
+            "field": "y"
+          },
+          "stroke": {
+            "value": "#d5d0c1"
+          },
+          "strokeWidth": {
+            "value": 0.7
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "statuses"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "signal": "datum.y-36"
+          },
+          "text": {
+            "field": "status"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 500
+          },
+          "fill": {
+            "scale": "color",
+            "field": "status"
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {
+        "data": "birds"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "scale": "x",
+            "field": "count"
+          },
+          "y": {
+            "signal": "48+indexof(['Vulnerable','Endangered','Critically Endangered'],datum.status)*100+datum.offset"
+          },
+          "size": {
+            "value": 73
+          },
+          "fill": {
+            "scale": "color",
+            "field": "status"
+          },
+          "stroke": {
+            "value": "#f8f5ec"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "tooltip": {
+            "signal": "{'Bird':datum.name,'Scientific name':datum.scientific,'Listing in Aug 2026':datum.status,'2024 records':format(datum.count,',')}"
+          }
+        },
+        "update": {
+          "size": {
+            "value": 73
+          }
+        },
+        "hover": {
+          "size": {
+            "value": 145
+          },
+          "stroke": {
+            "value": "#292e27"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 904,
+  "height": 400,
+  "padding": 8,
+  "background": "transparent",
+  "autosize": {
+    "type": "pad",
+    "contains": "padding"
+  },
+  "config": {
+    "text": {
+      "font": "Bricolage Grotesque",
+      "fill": "#292e27"
+    },
+    "axis": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e0dccf",
+      "gridOpacity": 0.75,
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFont": "Bricolage Grotesque",
+      "titleFont": "Bricolage Grotesque",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "labelColor": "#60665c",
+      "titleColor": "#292e27",
+      "gradientThickness": 9,
+      "gradientLength": 130,
+      "padding": 8
+    }
+  },
+  "description": "An alluvial diagram showing how records from three citizen-science datasets are distributed across states. Ribbon thickness is proportional to record count. These are not migration paths.",
+  "data": [
+    {
+      "name": "links",
+      "values": [
+        {
+          "source": "eBird Australia",
+          "state": "New South Wales",
+          "code": "NSW",
+          "count": 2150722,
+          "path": "M150,46.5C455,46.5 455,32 760,32L760,96.68389529488648C455,96.68389529488648 455,111.18389529488648 150,111.18389529488648Z"
+        },
+        {
+          "source": "eBird Australia",
+          "state": "Victoria",
+          "code": "VIC",
+          "count": 2125461,
+          "path": "M150,111.18389529488648C455,111.18389529488648 455,116.86505278551768 760,116.86505278551768L760,180.78921256877405C455,180.78921256877405 455,175.10805507814285 150,175.10805507814285Z"
+        },
+        {
+          "source": "eBird Australia",
+          "state": "Queensland",
+          "code": "QLD",
+          "count": 2122784,
+          "path": "M150,175.10805507814285C455,175.10805507814285 455,201.5649312933 760,201.5649312933L760,265.4085791425619C455,265.4085791425619 455,238.9517029274048 150,238.9517029274048Z"
+        },
+        {
+          "source": "eBird Australia",
+          "state": "Western Australia",
+          "code": "WA",
+          "count": 574228,
+          "path": "M150,238.9517029274048C455,238.9517029274048 455,282.80231543239387 760,282.80231543239387L760,300.07247114168223C455,300.07247114168223 455,256.2218586366931 150,256.2218586366931Z"
+        },
+        {
+          "source": "eBird Australia",
+          "state": "South Australia",
+          "code": "SA",
+          "count": 334082,
+          "path": "M150,256.2218586366931C455,256.2218586366931 455,315.05376672867635 760,315.05376672867635L760,325.1014275178933C455,325.1014275178933 455,266.26951942591006 150,266.26951942591006Z"
+        },
+        {
+          "source": "eBird Australia",
+          "state": "Tasmania",
+          "code": "TAS",
+          "count": 366491,
+          "path": "M150,266.26951942591006C455,266.26951942591006 455,340.80032293496123 760,340.80032293496123L760,351.82269843050096C455,351.82269843050096 455,277.2918949214498 150,277.2918949214498Z"
+        },
+        {
+          "source": "eBird Australia",
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "count": 328479,
+          "path": "M150,277.2918949214498C455,277.2918949214498 455,365.7272935180549 760,365.7272935180549L760,375.6064416564796C455,375.6064416564796 455,287.1710430598745 150,287.1710430598745Z"
+        },
+        {
+          "source": "eBird Australia",
+          "state": "Northern Territory",
+          "code": "NT",
+          "count": 306294,
+          "path": "M150,287.1710430598745C455,287.1710430598745 455,387.0691221169094 760,387.0691221169094L760,396.2810467754436C455,396.2810467754436 455,296.3829677184087 150,296.3829677184087Z"
+        },
+        {
+          "source": "BirdLife Australia, Birdata",
+          "state": "New South Wales",
+          "code": "NSW",
+          "count": 241885,
+          "path": "M150,320.38296771840874C455,320.38296771840874 455,96.68389529488648 760,96.68389529488648L760,103.95869139284969C455,103.95869139284969 455,327.6577638163719 150,327.6577638163719Z"
+        },
+        {
+          "source": "BirdLife Australia, Birdata",
+          "state": "Victoria",
+          "code": "VIC",
+          "count": 237767,
+          "path": "M150,327.6577638163719C455,327.6577638163719 455,180.78921256877405 760,180.78921256877405L760,187.9401580338687C455,187.9401580338687 455,334.8087092814666 150,334.8087092814666Z"
+        },
+        {
+          "source": "BirdLife Australia, Birdata",
+          "state": "Queensland",
+          "code": "QLD",
+          "count": 136599,
+          "path": "M150,334.8087092814666C455,334.8087092814666 455,265.4085791425619 760,265.4085791425619L760,269.5168532074509C455,269.5168532074509 455,338.91698334635555 150,338.91698334635555Z"
+        },
+        {
+          "source": "BirdLife Australia, Birdata",
+          "state": "Western Australia",
+          "code": "WA",
+          "count": 108203,
+          "path": "M150,338.91698334635555C455,338.91698334635555 455,300.07247114168223 760,300.07247114168223L760,303.3267232126577C455,303.3267232126577 455,342.17123541733105 150,342.17123541733105Z"
+        },
+        {
+          "source": "BirdLife Australia, Birdata",
+          "state": "South Australia",
+          "code": "SA",
+          "count": 124813,
+          "path": "M150,342.17123541733105C455,342.17123541733105 455,325.1014275178933 760,325.1014275178933L760,328.8552325300895C455,328.8552325300895 455,345.92504042952726 150,345.92504042952726Z"
+        },
+        {
+          "source": "BirdLife Australia, Birdata",
+          "state": "Tasmania",
+          "code": "TAS",
+          "count": 85255,
+          "path": "M150,345.92504042952726C455,345.92504042952726 455,351.82269843050096 760,351.82269843050096L760,354.38677946624875C455,354.38677946624875 455,348.48912146527505 150,348.48912146527505Z"
+        },
+        {
+          "source": "BirdLife Australia, Birdata",
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "count": 6447,
+          "path": "M150,348.48912146527505C455,348.48912146527505 455,375.6064416564796 760,375.6064416564796L760,375.80033797267765C455,375.80033797267765 455,348.6830177814731 150,348.6830177814731Z"
+        },
+        {
+          "source": "BirdLife Australia, Birdata",
+          "state": "Northern Territory",
+          "code": "NT",
+          "count": 16225,
+          "path": "M150,348.6830177814731C455,348.6830177814731 455,396.2810467754436 760,396.2810467754436L760,396.76902067498037C455,396.76902067498037 455,349.17099168100987 150,349.17099168100987Z"
+        },
+        {
+          "source": "iNaturalist Australia",
+          "state": "New South Wales",
+          "code": "NSW",
+          "count": 63386,
+          "path": "M150,373.1709916810099C455,373.1709916810099 455,103.95869139284969 760,103.95869139284969L760,105.86505278551768C455,105.86505278551768 455,375.0773530736779 150,375.0773530736779Z"
+        },
+        {
+          "source": "iNaturalist Australia",
+          "state": "Victoria",
+          "code": "VIC",
+          "count": 87273,
+          "path": "M150,375.0773530736779C455,375.0773530736779 455,187.9401580338687 760,187.9401580338687L760,190.56493129330002C455,190.56493129330002 455,377.7021263331092 150,377.7021263331092Z"
+        },
+        {
+          "source": "iNaturalist Australia",
+          "state": "Queensland",
+          "code": "QLD",
+          "count": 75991,
+          "path": "M150,377.7021263331092C455,377.7021263331092 455,269.5168532074509 760,269.5168532074509L760,271.8023154323938C455,271.8023154323938 455,379.98758855805215 150,379.98758855805215Z"
+        },
+        {
+          "source": "iNaturalist Australia",
+          "state": "Western Australia",
+          "code": "WA",
+          "count": 24174,
+          "path": "M150,379.98758855805215C455,379.98758855805215 455,303.3267232126577 760,303.3267232126577L760,304.05376672867635C455,304.05376672867635 455,380.7146320740708 150,380.7146320740708Z"
+        },
+        {
+          "source": "iNaturalist Australia",
+          "state": "South Australia",
+          "code": "SA",
+          "count": 31424,
+          "path": "M150,380.7146320740708C455,380.7146320740708 455,328.8552325300895 760,328.8552325300895L760,329.80032293496123C455,329.80032293496123 455,381.6597224789425 150,381.6597224789425Z"
+        },
+        {
+          "source": "iNaturalist Australia",
+          "state": "Tasmania",
+          "code": "TAS",
+          "count": 11322,
+          "path": "M150,381.6597224789425C455,381.6597224789425 455,354.38677946624875 760,354.38677946624875L760,354.7272935180549C455,354.7272935180549 455,382.0002365307487 150,382.0002365307487Z"
+        },
+        {
+          "source": "iNaturalist Australia",
+          "state": "Australian Capital Territory",
+          "code": "ACT",
+          "count": 8937,
+          "path": "M150,382.0002365307487C455,382.0002365307487 455,375.80033797267765 760,375.80033797267765L760,376.0691221169094C455,376.0691221169094 455,382.2690206749804 150,382.2690206749804Z"
+        },
+        {
+          "source": "iNaturalist Australia",
+          "state": "Northern Territory",
+          "code": "NT",
+          "count": 7680,
+          "path": "M150,382.2690206749804C455,382.2690206749804 455,396.76902067498037 760,396.76902067498037L760,396.99999999999994C455,396.99999999999994 455,382.5 150,382.5Z"
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "values": [
+        {
+          "side": "right",
+          "name": "NSW",
+          "label": "New South Wales",
+          "count": 2455993,
+          "y0": 32,
+          "y1": 105.86505278551768
+        },
+        {
+          "side": "right",
+          "name": "VIC",
+          "label": "Victoria",
+          "count": 2450501,
+          "y0": 116.86505278551768,
+          "y1": 190.5649312933
+        },
+        {
+          "side": "right",
+          "name": "QLD",
+          "label": "Queensland",
+          "count": 2335374,
+          "y0": 201.5649312933,
+          "y1": 271.80231543239387
+        },
+        {
+          "side": "right",
+          "name": "WA",
+          "label": "Western Australia",
+          "count": 706605,
+          "y0": 282.80231543239387,
+          "y1": 304.05376672867635
+        },
+        {
+          "side": "right",
+          "name": "SA",
+          "label": "South Australia",
+          "count": 490319,
+          "y0": 315.05376672867635,
+          "y1": 329.80032293496123
+        },
+        {
+          "side": "right",
+          "name": "TAS",
+          "label": "Tasmania",
+          "count": 463068,
+          "y0": 340.80032293496123,
+          "y1": 354.727293518055
+        },
+        {
+          "side": "right",
+          "name": "ACT",
+          "label": "Australian Capital Territory",
+          "count": 343863,
+          "y0": 365.7272935180549,
+          "y1": 376.0691221169094
+        },
+        {
+          "side": "right",
+          "name": "NT",
+          "label": "Northern Territory",
+          "count": 330199,
+          "y0": 387.0691221169094,
+          "y1": 396.99999999999994
+        },
+        {
+          "side": "left",
+          "name": "eBird",
+          "label": "eBird Australia",
+          "count": 8308541,
+          "y0": 46.5,
+          "y1": 296.38296771840874,
+          "source": "eBird Australia"
+        },
+        {
+          "side": "left",
+          "name": "Birdata",
+          "label": "BirdLife Australia, Birdata",
+          "count": 957194,
+          "y0": 320.38296771840874,
+          "y1": 349.1709916810099,
+          "source": "BirdLife Australia, Birdata"
+        },
+        {
+          "side": "left",
+          "name": "iNaturalist",
+          "label": "iNaturalist Australia",
+          "count": 310187,
+          "y0": 373.1709916810099,
+          "y1": 382.5,
+          "source": "iNaturalist Australia"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "source",
+      "type": "ordinal",
+      "domain": [
+        "eBird Australia",
+        "BirdLife Australia, Birdata",
+        "iNaturalist Australia"
+      ],
+      "range": [
+        "#315e4c",
+        "#ad7926",
+        "#627c90"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "path",
+      "from": {
+        "data": "links"
+      },
+      "encode": {
+        "enter": {
+          "path": {
+            "field": "path"
+          },
+          "fill": {
+            "scale": "source",
+            "field": "source"
+          },
+          "fillOpacity": {
+            "value": 0.42
+          },
+          "tooltip": {
+            "signal": "{'Dataset':datum.source,'State':datum.state,'Records':format(datum.count,',')}"
+          }
+        },
+        "update": {
+          "fillOpacity": {
+            "value": 0.42
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 0.85
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "datum.side==='left'?144:760"
+          },
+          "width": {
+            "value": 6
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "signal": "datum.side==='left'?scale('source',datum.source):'#292e27'"
+          },
+          "tooltip": {
+            "signal": "{'Name':datum.label,'Records':format(datum.count,',')}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "datum.side==='left'?136:773"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2-6"
+          },
+          "text": {
+            "field": "name"
+          },
+          "align": {
+            "signal": "datum.side==='left'?'right':'left'"
+          },
+          "fontSize": {
+            "value": 14
+          },
+          "fontWeight": {
+            "value": 500
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "datum.side==='left'?136:773"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2+11"
+          },
+          "text": {
+            "signal": "format(datum.count/9575922,'.1%')"
+          },
+          "align": {
+            "signal": "datum.side==='left'?'right':'left'"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#60665c"
+          }
+        }
+      }
+    }
+  ]
+}
