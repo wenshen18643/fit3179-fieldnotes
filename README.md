@@ -39,6 +39,6 @@ Downloads use a local cache to preserve the snapshot and avoid unnecessary API r
 
 ## GitHub Pages — final stage
 
-The live static site is published at https://wenshen18643.github.io/fit3179-fieldnotes/ and the cinematic preview is at https://wenshen18643.github.io/fit3179-fieldnotes/cinematic.html. The site uses relative URLs and is published from the repository root with `index.html`, `assets/`, `vendor/`, `src/`, `data/`, `specs/`, and `docs/` available.
+The live static site is published at https://wenshen18643.github.io/fit3179-fieldnotes/. The site uses relative URLs and is published from the repository root with `index.html`, `assets/`, `vendor/`, `src/`, `data/`, `specs/`, and `docs/` available.
 
 Source data retain their own licences, including non-commercial conditions. This is an educational visualisation, not a relicensed dataset. See the methodology and archived provider metadata.
