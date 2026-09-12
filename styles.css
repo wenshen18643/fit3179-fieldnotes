@@ -119,7 +119,7 @@ h1 em {color:var(--green)}
 .season-key span,.comparison-key span {display:inline-flex;gap:7px;align-items:center}
 .season-key i {display:inline-block;width:8px;height:8px;border-radius:50%}
 .summer {background:oklch(0.61 0.115 74)}
-.autumn {background:oklch(0.52 0.096 36)}
+.autumn {background:#8c5a86}
 .winter {background:var(--blue)}
 .spring {background:oklch(0.51 0.074 129)}
 .clock-spread {display:grid;grid-template-columns:minmax(0,1.6fr) minmax(220px,.85fr);gap:80px;align-items:center}

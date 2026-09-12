@@ -3,8 +3,11 @@
 export const C = {
   ink: '#292e27', muted: '#60665c', rule: '#d5d0c1', paper: '#f8f5ec',
   green: '#315e4c', lightGreen: '#d6dfcd', ochre: '#ad7926', rust: '#a74735',
-  seasons: ['#b0782c', '#98523e', '#557784', '#58723e'],
-  birds: ['#315e4c', '#b26931', '#456e94', '#8c4b67', '#777129', '#594f88', '#a84436'],
+  // No categorical scale pairs a red with a green: red/green is the pairing
+  // that collapses for the most common forms of colour blindness. Autumn is a
+  // mauve rather than a rust, and the seventh bird is a light blue, not a red.
+  seasons: ['#b0782c', '#8c5a86', '#557784', '#58723e'],
+  birds: ['#315e4c', '#d0892b', '#2f6d9c', '#8c4b67', '#6f6a1c', '#594f88', '#7fb0d4'],
 };
 const FONT = 'Bricolage Grotesque';
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -124,7 +127,9 @@ function treemap(D,w) {
 }
 
 function seasonalClock(D,w) {
-  const width=w-16, radius=Math.min(234,(width-72)/2), H=radius*2+100, cx=width/2,cy=H/2;
+  // The dial grows with the column. Month labels sit at radius+24, so leave
+  // room for them on both sides rather than capping the dial at a fixed size.
+  const width=w-16, radius=Math.max(140,Math.min(320,(width-104)/2)), H=radius*2+86, cx=width/2,cy=H/2;
   const codes=['NT','QLD','WA','SA','NSW','ACT','VIC','TAS'];
   const inner=38,band=(radius-inner)/8, gap=.64,step=(Math.PI*2-gap)/12;
   const vals=D.stateMonth.map(r=>({...r,a0:gap/2+(r.month-1)*step+.012,a1:gap/2+r.month*step-.012,
@@ -142,7 +147,7 @@ function seasonalClock(D,w) {
       {type:'text',from:{data:'rings'},encode:{enter:{x:{value:cx},y:{signal:`${cy}-datum.r`},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},fontSize:{value:w<450?9:11},fill:{value:C.muted}}}},
       {type:'text',encode:{enter:{x:{value:cx},y:{value:cy-3},text:{value:'2024'},align:{value:'center'},fontSize:{value:17},fontWeight:{value:500}}}},
       {type:'text',encode:{enter:{x:{value:cx},y:{value:cy+14},text:{value:'daily pace'},align:{value:'center'},fontSize:{value:9},fill:{value:C.muted}}}},
-    ],legends:[{fill:'pace',type:'gradient',orient:'bottom',title:'Compared with each state’s daily average',values:[.5,1,1.6],format:'.1f',gradientLength:200}]});
+    ],legends:[{fill:'pace',type:'gradient',direction:'horizontal',orient:'none',legendX:cx-110,legendY:H-6,title:'Compared with each state’s daily average',titleLimit:width-40,titleAnchor:'middle',values:[.5,1,1.6],format:'.1f',gradientLength:220,gradientThickness:9}]});
 }
 
 function bump(D,w) {
