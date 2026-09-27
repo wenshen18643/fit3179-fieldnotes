@@ -1,7 +1,15 @@
-scientific,name,count2024,count2025,rate2024,rate2025,difference
-Trichoglossus moluccanus,Rainbow Lorikeet,4629,6856,149.2326,160.3139,11.0813
-Rhipidura leucophrys,Willie Wagtail,3595,4665,115.8978,109.0817,-6.8161
-Eolophus roseicapilla,Galah,3689,5373,118.9283,125.6369,6.7086
-Zosterops lateralis,Silvereye,1820,2242,58.6743,52.4247,-6.2496
-Dacelo novaeguineae,Laughing Kookaburra,6155,8267,198.4287,193.3073,-5.1214
-Hirundo neoxena,Welcome Swallow,2447,3535,78.8879,82.6589,3.771
+scientific,name,count2024,count2025,rate2024,rate2025,difference,pct
+Trichoglossus moluccanus,Rainbow Lorikeet,4629,6856,149.2326,160.3139,11.0813,7.43
+Eolophus roseicapilla,Galah,3689,5373,118.9283,125.6369,6.7086,5.64
+Hirundo neoxena,Welcome Swallow,2447,3535,78.8879,82.6589,3.771,4.78
+Eudynamys orientalis,Eastern Koel,516,745,16.6351,17.4203,0.7852,4.72
+Calidris ruficollis,Red-necked Stint,569,821,18.3438,19.1974,0.8537,4.65
+Manorina melanocephala,Noisy Miner,4077,5778,131.4368,135.107,3.6702,2.79
+Grallina cyanoleuca,Magpie-lark,3706,5215,119.4763,121.9424,2.4661,2.06
+Gymnorhina tibicen,Australian Magpie,7507,10414,242.0153,243.5106,1.4953,0.62
+Malurus cyaneus,Superb Fairy-wren,5588,7557,180.1494,176.7054,-3.444,-1.91
+Cacatua galerita,Sulphur-crested Cockatoo,3814,5130,122.9581,119.9548,-3.0033,-2.44
+Dacelo novaeguineae,Laughing Kookaburra,6155,8267,198.4287,193.3073,-5.1214,-2.58
+Merops ornatus,Rainbow Bee-eater,1281,1717,41.2977,40.1486,-1.149,-2.78
+Rhipidura leucophrys,Willie Wagtail,3595,4665,115.8978,109.0817,-6.8161,-5.88
+Zosterops lateralis,Silvereye,1820,2242,58.6743,52.4247,-6.2496,-10.65

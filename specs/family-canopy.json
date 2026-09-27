@@ -58,6 +58,7 @@
           "id": "Meliphagidae",
           "parent": "root",
           "rank": 0,
+          "other": false,
           "label": "Honeyeaters",
           "longLabel": "Honeyeaters",
           "onDark": true
@@ -69,9 +70,10 @@
           "id": "Artamidae",
           "parent": "root",
           "rank": 1,
+          "other": false,
           "label": "Magpies",
           "longLabel": "Magpies, butcherbirds & woodswallows",
-          "onDark": false
+          "onDark": true
         },
         {
           "family": "Psittacidae",
@@ -80,9 +82,10 @@
           "id": "Psittacidae",
           "parent": "root",
           "rank": 2,
+          "other": false,
           "label": "Parrots",
           "longLabel": "Parrots & lorikeets",
-          "onDark": false
+          "onDark": true
         },
         {
           "family": "Anatidae",
@@ -91,9 +94,10 @@
           "id": "Anatidae",
           "parent": "root",
           "rank": 3,
+          "other": false,
           "label": "Ducks",
           "longLabel": "Ducks, geese & swans",
-          "onDark": false
+          "onDark": true
         },
         {
           "family": "Columbidae",
@@ -102,6 +106,7 @@
           "id": "Columbidae",
           "parent": "root",
           "rank": 4,
+          "other": false,
           "label": "Pigeons",
           "longLabel": "Pigeons & doves",
           "onDark": false
@@ -113,6 +118,7 @@
           "id": "Cacatuidae",
           "parent": "root",
           "rank": 5,
+          "other": false,
           "label": "Cockatoos",
           "longLabel": "Cockatoos",
           "onDark": false
@@ -124,6 +130,7 @@
           "id": "Acanthizidae",
           "parent": "root",
           "rank": 6,
+          "other": false,
           "label": "Thornbills",
           "longLabel": "Thornbills & allies",
           "onDark": false
@@ -135,6 +142,7 @@
           "id": "Rhipiduridae",
           "parent": "root",
           "rank": 7,
+          "other": false,
           "label": "Fantails",
           "longLabel": "Fantails",
           "onDark": false
@@ -146,6 +154,7 @@
           "id": "Rallidae",
           "parent": "root",
           "rank": 8,
+          "other": false,
           "label": "Rails",
           "longLabel": "Rails, crakes & coots",
           "onDark": false
@@ -157,6 +166,7 @@
           "id": "Corvidae",
           "parent": "root",
           "rank": 9,
+          "other": false,
           "label": "Crows",
           "longLabel": "Crows & ravens",
           "onDark": false
@@ -168,6 +178,7 @@
           "id": "Ardeidae",
           "parent": "root",
           "rank": 10,
+          "other": false,
           "label": "Herons",
           "longLabel": "Herons, egrets & bitterns",
           "onDark": false
@@ -179,6 +190,7 @@
           "id": "Phalacrocoracidae",
           "parent": "root",
           "rank": 11,
+          "other": false,
           "label": "Cormorants",
           "longLabel": "Cormorants",
           "onDark": false
@@ -190,6 +202,7 @@
           "id": "Monarchidae",
           "parent": "root",
           "rank": 12,
+          "other": false,
           "label": "Monarchs",
           "longLabel": "Monarch flycatchers",
           "onDark": false
@@ -201,6 +214,7 @@
           "id": "Accipitridae",
           "parent": "root",
           "rank": 13,
+          "other": false,
           "label": "Hawks",
           "longLabel": "Hawks, eagles & kites",
           "onDark": false
@@ -212,6 +226,7 @@
           "id": "Pachycephalidae",
           "parent": "root",
           "rank": 14,
+          "other": false,
           "label": "Whistlers",
           "longLabel": "Whistlers & allies",
           "onDark": false
@@ -223,9 +238,10 @@
           "id": "Other families / unassigned",
           "parent": "root",
           "rank": 15,
-          "label": "Other families / unassigned",
-          "longLabel": "Other families / unassigned",
-          "onDark": true
+          "other": true,
+          "label": "All other families",
+          "longLabel": "All other families and unassigned records",
+          "onDark": false
         }
       ],
       "transform": [
@@ -268,7 +284,7 @@
       "type": "log",
       "domain": [
         228058,
-        3535080
+        1066833
       ],
       "range": [
         "#e2e7d8",
@@ -297,19 +313,29 @@
             "field": "y1"
           },
           "fill": {
-            "scale": "fill",
-            "field": "count"
+            "signal": "datum.other?'#efebe0':scale('fill',datum.count)"
+          },
+          "stroke": {
+            "signal": "datum.other?'#b9b4a4':null"
+          },
+          "strokeDash": {
+            "value": [
+              3,
+              3
+            ]
           },
           "tooltip": {
             "signal": "{'Family':datum.longLabel,'Scientific family':datum.family,'Records':format(datum.count,','),'Share':format(datum.share,'.1%')}"
           }
         },
-        "hover": {
-          "stroke": {
-            "value": "#292e27"
-          },
+        "update": {
           "strokeWidth": {
-            "value": 1.5
+            "value": 1
+          }
+        },
+        "hover": {
+          "strokeWidth": {
+            "value": 2
           }
         }
       }
@@ -385,14 +411,14 @@
       "orient": "none",
       "legendX": 0,
       "legendY": 350,
-      "title": "Records",
+      "title": "Records per family",
       "titleLimit": 904,
       "values": [
         300000,
-        1000000,
-        3000000
+        500000,
+        1000000
       ],
-      "format": ".0s",
+      "format": ".1~s",
       "gradientLength": 240,
       "gradientThickness": 9
     }

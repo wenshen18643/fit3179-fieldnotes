@@ -18,13 +18,13 @@ This is a planning and explanation aid. It does not guarantee a grade, replace t
 
 | Requirement | Evidence / remaining work |
 |---|---|
-| More than ten charts | Thirteen separately numbered figures; no repeated small multiples are counted as extra charts. |
+| More than ten charts | Sixteen separately numbered figures; no repeated small multiples are counted as extra charts. |
 | At least eight advanced idioms | Gridded map, choropleth, proportional-symbol map, treemap, alluvial diagram, circular heatmap, bump chart, ridgeline, species heatmap, beeswarm and UpSet. The coverage calendar is now a categorical status matrix rather than a second continuous heatmap, so it no longer duplicates the species heatmap. The closing chart is a diverging lollipop and is not claimed as advanced. Final classification is the tutor's judgement. |
-| Three distinct map idioms | One-degree gridded count map, state record-density choropleth and seasonal proportional-symbol map. |
-| Vega / Vega-Lite | All thirteen diagrams use these libraries, with public readable JSON files prepared. |
+| At least five distinct map idioms | Six: one-degree square bin map (Fig. 1), state choropleth (Fig. 2), proportional-symbol map (Fig. 7), filled isoline map of a smoothed field (Fig. 9), spike map (Fig. 12) and Dorling cartogram (Fig. 13). Each has a control that answers a question in its headline. |
+| Vega / Vega-Lite | All sixteen diagrams use these libraries, with public readable JSON files prepared. |
 | Two different data sources combined | ALA-hosted community records join DCCEEW national listings by scientific name. Land-area comparison adds Geoscience Australia. ALA and GBIF are not falsely treated as independent duplicate datasets. |
 | Recent reliable data | Latest accessible snapshot retrieved September 2026, August 2026 conservation list, recent platform comparison. The 2024 seasonal baseline is explicitly justified by missing recent eBird coverage. |
-| Public GitHub page | Published and verified loading for a signed-out visitor at the live URL, with all thirteen charts drawing. Re-verify after the next push. |
+| Public GitHub page | Published and verified loading for a signed-out visitor at the live URL, with all charts drawing. Re-verify after the next push. |
 | Storytelling and annotation | Four narrative chapters, interpretive titles, margin findings, chart labels and reading guidance. This is a qualitative marking judgement, not a box that guarantees HD. |
 | Layout, colour, typography | One twelve-column grid at a 24px gutter, three span patterns and five vertical sight lines down the page. Four type steps from 20px to 11px with every prose block capped near 60 characters and no centred multi-line text. Green means record volume on every figure; the only categorical hues left are the four seasons, which avoid red against green. |
 | Interactivity | Season selector, species highlighting, tooltips and accessible data tables. The bump chart opens on the Welcome Swallow, the bird its headline is about, so the claim is visible before any control is touched. |
@@ -36,7 +36,7 @@ This is a planning and explanation aid. It does not guarantee a grade, replace t
 ## Interview topics to understand
 
 1. Why observation count is not bird abundance, and how observer effort creates bias.
-2. Why the three map idioms encode different quantities and use an equal-area projection.
+2. Why the six map idioms (square bin map, choropleth, proportional symbols, filled isolines, spike map, Dorling cartogram) encode different quantities and all use an equal-area projection.
 3. How the seasonal clock handles different month lengths; what a relative value of 1 means.
 4. Why the bee-eater seasonal pattern is not an inferred flight path.
 5. How the exact-name conservation join handles species, subspecies and unmatched taxonomy.

@@ -1,6 +1,6 @@
 # Fieldnotes: Australia, through a birdwatcher's eyes
 
-A static, single-page FIT3179 visual field journal for Malaysian readers. Thirteen original Vega/Vega-Lite charts use real observation and conservation data. No API keys, account login or build server are required to view the site.
+A static, single-page FIT3179 visual field journal for Malaysian readers. Sixteen original Vega/Vega-Lite charts, six of them maps, use real observation, conservation and population data. No API keys, account login or build server are required to view the site.
 
 ## Local preview
 
@@ -13,12 +13,13 @@ Open http://127.0.0.1:4179. The web page cannot be opened directly with `file://
 
 ## Reproduce
 
-The repository includes archived source responses, processed data, a query log and human-readable chart specifications. The browser downloads only `data/story.json` (approximately 335 KB), local fonts, a compressed illustration and vendored chart libraries. Raw archives are not fetched by the page.
+The repository includes archived source responses, processed data, a query log and human-readable chart specifications. The browser downloads only `data/story.json` (approximately 510 KB), local fonts, a compressed illustration and vendored chart libraries. Raw archives are not fetched by the page.
 
 ```sh
 python -m pip install pyshp
 python scripts/fetch_data.py
 python scripts/fetch_context.py
+python scripts/fetch_maps.py
 python scripts/prepare_data.py
 npm run build
 npm run check

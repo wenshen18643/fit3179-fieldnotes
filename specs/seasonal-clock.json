@@ -1301,51 +1301,63 @@
       "values": [
         {
           "label": "Jan",
-          "angle": 0.5551327211324828
+          "angle": 0.5551327211324828,
+          "peak": false
         },
         {
           "label": "Feb",
-          "angle": 1.0253981633974483
+          "angle": 1.0253981633974483,
+          "peak": false
         },
         {
           "label": "Mar",
-          "angle": 1.495663605662414
+          "angle": 1.495663605662414,
+          "peak": false
         },
         {
           "label": "Apr",
-          "angle": 1.9659290479273794
+          "angle": 1.9659290479273794,
+          "peak": false
         },
         {
           "label": "May",
-          "angle": 2.436194490192345
+          "angle": 2.436194490192345,
+          "peak": false
         },
         {
           "label": "Jun",
-          "angle": 2.9064599324573104
+          "angle": 2.9064599324573104,
+          "peak": false
         },
         {
           "label": "Jul",
-          "angle": 3.376725374722276
+          "angle": 3.376725374722276,
+          "peak": false
         },
         {
           "label": "Aug",
-          "angle": 3.8469908169872413
+          "angle": 3.8469908169872413,
+          "peak": false
         },
         {
           "label": "Sep",
-          "angle": 4.317256259252207
+          "angle": 4.317256259252207,
+          "peak": false
         },
         {
           "label": "Oct",
-          "angle": 4.787521701517173
+          "angle": 4.787521701517173,
+          "peak": true
         },
         {
           "label": "Nov",
-          "angle": 5.257787143782139
+          "angle": 5.257787143782139,
+          "peak": false
         },
         {
           "label": "Dec",
-          "angle": 5.728052586047104
+          "angle": 5.728052586047104,
+          "peak": false
         }
       ]
     },
@@ -1461,22 +1473,28 @@
       "encode": {
         "enter": {
           "x": {
-            "signal": "452+sin(datum.angle)*344"
+            "signal": "452+sin(datum.angle)*(datum.peak?332:344)"
           },
           "y": {
             "signal": "363-cos(datum.angle)*344"
           },
           "text": {
-            "field": "label"
+            "signal": "datum.peak?[datum.label,'busiest month']:datum.label"
           },
           "align": {
-            "value": "center"
+            "signal": "datum.peak?(sin(datum.angle)<0?'right':'left'):'center'"
           },
           "baseline": {
             "value": "middle"
           },
           "fontSize": {
-            "value": 12
+            "signal": "datum.peak?13:12"
+          },
+          "fontWeight": {
+            "signal": "datum.peak?700:400"
+          },
+          "fill": {
+            "signal": "datum.peak?'#315e4c':'#292e27'"
           }
         }
       }

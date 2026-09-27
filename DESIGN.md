@@ -18,7 +18,7 @@ Green means one thing across every figure: more records than the comparison. Tha
 
 Literata evokes a carefully typeset field guide. Bricolage Grotesque provides clear labels and navigation. Both are open-source Google Fonts. Display type is large but capped at 96px, and scientific names are italicised; essential notes are never rendered as illegible handwriting.
 
-Four steps carry the hierarchy: 20px figure titles, 16px for anything a reader actually reads, 13px captions, 11px metadata. Nothing on the page sits below 11px. Every block of running prose is capped at 44ch, which lands between 61 and 69 characters depending on the glyphs, against the unit's limit of roughly 60. Where that cap makes a paragraph narrower than its column, the ragged right edge is accepted: the measure wins over the sight line. No multi-line text block is centred.
+Four steps carry the hierarchy: 20px figure titles, 16px for anything a reader actually reads, 13px captions, 11px metadata. Nothing on the page sits below 11px. Every block of running prose is capped at 39ch, which keeps lines at or under the unit's limit of 60 characters. Where that cap makes a paragraph narrower than its column, the ragged right edge is accepted: the measure wins over the sight line. No multi-line text block is centred.
 
 ## Layout
 

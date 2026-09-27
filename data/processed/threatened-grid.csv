@@ -1,0 +1,661 @@
+latitude,longitude,group,threatened,records,per1000,top,topAll
+-20.0,139.0,Land birds,180,3136,57.4,Carpentarian Grasswren,Carpentarian Grasswren
+-20.0,140.0,Land birds,2,348,5.75,Carpentarian Grasswren,Carpentarian Grasswren
+-21.0,139.0,Shorebirds & wetland birds,2,1377,1.45,Latham's Snipe,Carpentarian Grasswren
+-21.0,139.0,Land birds,2,1377,1.45,Carpentarian Grasswren,Carpentarian Grasswren
+-28.0,138.0,Land birds,15,425,35.29,Thick-billed Grasswren,Thick-billed Grasswren
+-28.0,139.0,Shorebirds & wetland birds,7,2399,2.92,Sharp-tailed Sandpiper,Grey Falcon
+-28.0,139.0,Land birds,43,2399,17.92,Grey Falcon,Grey Falcon
+-29.0,135.0,Land birds,16,2217,7.22,Thick-billed Grasswren,Thick-billed Grasswren
+-29.0,140.0,Land birds,6,1122,5.35,Southern Whiteface,Southern Whiteface
+-30.0,135.0,Land birds,19,779,24.39,Southern Whiteface,Southern Whiteface
+-30.0,137.0,Shorebirds & wetland birds,2,521,3.84,Sharp-tailed Sandpiper,Southern Whiteface
+-30.0,137.0,Land birds,7,521,13.44,Southern Whiteface,Southern Whiteface
+-30.0,138.0,Land birds,31,2603,11.91,Thick-billed Grasswren,Thick-billed Grasswren
+-30.0,139.0,Land birds,15,1430,10.49,Southern Whiteface,Southern Whiteface
+-30.0,143.0,Shorebirds & wetland birds,12,597,20.1,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-30.0,143.0,Land birds,2,597,3.35,Thick-billed Grasswren,Sharp-tailed Sandpiper
+-31.0,138.0,Shorebirds & wetland birds,5,2253,2.22,Sharp-tailed Sandpiper,Thick-billed Grasswren
+-31.0,138.0,Land birds,17,2253,7.55,Thick-billed Grasswren,Thick-billed Grasswren
+-13.0,133.0,Shorebirds & wetland birds,11,22972,0.48,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-13.0,133.0,Land birds,5,22972,0.22,White-throated Grasswren,Sharp-tailed Sandpiper
+-27.0,152.0,Shorebirds & wetland birds,51,72525,0.7,Latham's Snipe,Regent Honeyeater
+-27.0,152.0,Land birds,430,72525,5.93,Regent Honeyeater,Regent Honeyeater
+-28.0,152.0,Shorebirds & wetland birds,37,86822,0.43,Latham's Snipe,Swift Parrot
+-28.0,152.0,Land birds,346,86822,3.99,Swift Parrot,Swift Parrot
+-28.0,153.0,Seabirds,6,451631,0.01,Sooty Shearwater,White-throated Needletail
+-28.0,153.0,Shorebirds & wetland birds,519,451631,1.15,Eastern Curlew,White-throated Needletail
+-28.0,153.0,Land birds,490,451631,1.08,White-throated Needletail,White-throated Needletail
+-32.0,150.0,Shorebirds & wetland birds,1,9460,0.11,Latham's Snipe,Diamond Firetail
+-32.0,150.0,Land birds,35,9460,3.7,Diamond Firetail,Diamond Firetail
+-33.0,150.0,Shorebirds & wetland birds,45,69191,0.65,Latham's Snipe,Diamond Firetail
+-33.0,150.0,Land birds,491,69191,7.1,Diamond Firetail,Diamond Firetail
+-33.0,151.0,Seabirds,53,136598,0.39,Black-browed Albatross,White-throated Needletail
+-33.0,151.0,Shorebirds & wetland birds,356,136598,2.61,Latham's Snipe,White-throated Needletail
+-33.0,151.0,Land birds,841,136598,6.16,White-throated Needletail,White-throated Needletail
+-33.0,152.0,Seabirds,414,173829,2.38,Black-browed Albatross,Eastern Curlew
+-33.0,152.0,Shorebirds & wetland birds,2415,173829,13.89,Eastern Curlew,Eastern Curlew
+-33.0,152.0,Land birds,178,173829,1.02,White-throated Needletail,Eastern Curlew
+-34.0,151.0,Seabirds,1049,632371,1.66,Black-browed Albatross,White-throated Needletail
+-34.0,151.0,Shorebirds & wetland birds,948,632371,1.5,Eastern Curlew,White-throated Needletail
+-34.0,151.0,Land birds,898,632371,1.42,White-throated Needletail,White-throated Needletail
+-35.0,148.0,Shorebirds & wetland birds,1,17643,0.06,Latham's Snipe,Superb Parrot
+-35.0,148.0,Land birds,110,17643,6.23,Superb Parrot,Superb Parrot
+-37.0,150.0,Seabirds,842,29700,28.35,Shy Albatross,Shy Albatross
+-37.0,150.0,Shorebirds & wetland birds,108,29700,3.64,Eastern Curlew,Shy Albatross
+-37.0,150.0,Land birds,145,29700,4.88,Gang-gang Cockatoo,Shy Albatross
+-23.0,131.0,Shorebirds & wetland birds,46,5709,8.06,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-23.0,131.0,Land birds,7,5709,1.23,Grey Falcon,Sharp-tailed Sandpiper
+-23.0,132.0,Land birds,6,1011,5.93,Southern Whiteface,Southern Whiteface
+-23.0,134.0,Land birds,1,360,2.78,Southern Whiteface,Southern Whiteface
+-24.0,132.0,Land birds,1,1558,0.64,Southern Whiteface,Southern Whiteface
+-24.0,133.0,Land birds,8,4686,1.71,Southern Whiteface,Southern Whiteface
+-24.0,134.0,Shorebirds & wetland birds,55,19178,2.87,Sharp-tailed Sandpiper,Southern Whiteface
+-24.0,134.0,Land birds,63,19178,3.29,Southern Whiteface,Southern Whiteface
+-25.0,131.0,Shorebirds & wetland birds,1,5869,0.17,Sharp-tailed Sandpiper,Southern Whiteface
+-25.0,131.0,Land birds,3,5869,0.51,Southern Whiteface,Southern Whiteface
+-25.0,132.0,Land birds,9,570,15.79,Southern Whiteface,Southern Whiteface
+-25.0,133.0,Land birds,4,757,5.28,Southern Whiteface,Southern Whiteface
+-26.0,114.0,Shorebirds & wetland birds,87,4974,17.49,Greater Sand Plover,Greater Sand Plover
+-26.0,114.0,Land birds,7,4974,1.41,Southern Whiteface,Greater Sand Plover
+-26.0,144.0,Land birds,1,318,3.14,Southern Whiteface,Southern Whiteface
+-27.0,116.0,Shorebirds & wetland birds,1,503,1.99,Sharp-tailed Sandpiper,Southern Whiteface
+-27.0,116.0,Land birds,14,503,27.83,Southern Whiteface,Southern Whiteface
+-27.0,118.0,Land birds,24,1891,12.69,Southern Whiteface,Southern Whiteface
+-27.0,133.0,Land birds,11,462,23.81,Southern Whiteface,Southern Whiteface
+-27.0,134.0,Land birds,4,338,11.83,Southern Whiteface,Southern Whiteface
+-27.0,139.0,Land birds,2,596,3.36,Southern Whiteface,Southern Whiteface
+-27.0,144.0,Shorebirds & wetland birds,1,3186,0.31,Latham's Snipe,Southern Whiteface
+-27.0,144.0,Land birds,10,3186,3.14,Southern Whiteface,Southern Whiteface
+-28.0,115.0,Land birds,3,988,3.04,Southern Whiteface,Southern Whiteface
+-28.0,116.0,Land birds,3,313,9.58,Southern Whiteface,Southern Whiteface
+-28.0,118.0,Land birds,16,994,16.1,Southern Whiteface,Southern Whiteface
+-28.0,119.0,Land birds,7,447,15.66,Southern Whiteface,Southern Whiteface
+-28.0,124.0,Land birds,3,356,8.43,Southern Whiteface,Southern Whiteface
+-28.0,143.0,Land birds,2,669,2.99,Southern Whiteface,Southern Whiteface
+-28.0,145.0,Land birds,25,4795,5.21,Southern Whiteface,Southern Whiteface
+-28.0,146.0,Shorebirds & wetland birds,1,20608,0.05,Latham's Snipe,Southern Whiteface
+-28.0,146.0,Land birds,93,20608,4.51,Southern Whiteface,Southern Whiteface
+-28.0,147.0,Land birds,3,1361,2.2,Southern Whiteface,Southern Whiteface
+-28.0,151.0,Shorebirds & wetland birds,19,16069,1.18,Latham's Snipe,Diamond Firetail
+-28.0,151.0,Land birds,51,16069,3.17,Diamond Firetail,Diamond Firetail
+-29.0,116.0,Land birds,4,928,4.31,Southern Whiteface,Southern Whiteface
+-29.0,117.0,Land birds,9,761,11.83,Southern Whiteface,Southern Whiteface
+-29.0,118.0,Land birds,50,1339,37.34,Southern Whiteface,Southern Whiteface
+-29.0,121.0,Land birds,1,420,2.38,Southern Whiteface,Southern Whiteface
+-29.0,122.0,Land birds,8,2164,3.7,Southern Whiteface,Southern Whiteface
+-29.0,141.0,Shorebirds & wetland birds,3,4063,0.74,Sharp-tailed Sandpiper,Southern Whiteface
+-29.0,141.0,Land birds,24,4063,5.91,Southern Whiteface,Southern Whiteface
+-29.0,142.0,Land birds,47,6663,7.05,Southern Whiteface,Southern Whiteface
+-29.0,144.0,Land birds,14,2033,6.89,Southern Whiteface,Southern Whiteface
+-29.0,145.0,Land birds,1,1634,0.61,Southern Whiteface,Southern Whiteface
+-29.0,148.0,Shorebirds & wetland birds,1,1763,0.57,Latham's Snipe,Painted Honeyeater
+-29.0,148.0,Land birds,5,1763,2.84,Painted Honeyeater,Painted Honeyeater
+-29.0,149.0,Land birds,4,1433,2.79,Diamond Firetail,Diamond Firetail
+-29.0,151.0,Shorebirds & wetland birds,1,9227,0.11,Latham's Snipe,Diamond Firetail
+-29.0,151.0,Land birds,24,9227,2.6,Diamond Firetail,Diamond Firetail
+-29.0,152.0,Shorebirds & wetland birds,23,39166,0.59,Latham's Snipe,Diamond Firetail
+-29.0,152.0,Land birds,178,39166,4.54,Diamond Firetail,Diamond Firetail
+-30.0,117.0,Land birds,46,2924,15.73,Southern Whiteface,Southern Whiteface
+-30.0,121.0,Land birds,5,794,6.3,Southern Whiteface,Southern Whiteface
+-30.0,142.0,Land birds,4,859,4.66,Southern Whiteface,Southern Whiteface
+-30.0,145.0,Land birds,4,1340,2.99,Southern Whiteface,Southern Whiteface
+-30.0,146.0,Land birds,57,11053,5.16,Southern Whiteface,Southern Whiteface
+-30.0,147.0,Land birds,2,1037,1.93,Southern Whiteface,Southern Whiteface
+-30.0,148.0,Shorebirds & wetland birds,2,1219,1.64,Sharp-tailed Sandpiper,Southern Whiteface
+-30.0,148.0,Land birds,2,1219,1.64,Southern Whiteface,Southern Whiteface
+-30.0,152.0,Shorebirds & wetland birds,14,20437,0.69,Latham's Snipe,White-throated Needletail
+-30.0,152.0,Land birds,69,20437,3.38,White-throated Needletail,White-throated Needletail
+-31.0,118.0,Land birds,3,1805,1.66,Malleefowl,Malleefowl
+-31.0,130.0,Land birds,32,1105,28.96,Southern Whiteface,Southern Whiteface
+-31.0,131.0,Shorebirds & wetland birds,1,942,1.06,Sharp-tailed Sandpiper,Southern Whiteface
+-31.0,131.0,Land birds,26,942,27.6,Southern Whiteface,Southern Whiteface
+-31.0,137.0,Shorebirds & wetland birds,2,527,3.8,Sharp-tailed Sandpiper,Southern Whiteface
+-31.0,137.0,Land birds,5,527,9.49,Southern Whiteface,Southern Whiteface
+-31.0,139.0,Land birds,78,3949,19.75,Southern Whiteface,Southern Whiteface
+-31.0,142.0,Shorebirds & wetland birds,3,2720,1.1,Sharp-tailed Sandpiper,Southern Whiteface
+-31.0,142.0,Land birds,28,2720,10.29,Southern Whiteface,Southern Whiteface
+-31.0,143.0,Land birds,19,1530,12.42,Southern Whiteface,Southern Whiteface
+-31.0,144.0,Land birds,1,583,1.72,Southern Whiteface,Southern Whiteface
+-31.0,145.0,Shorebirds & wetland birds,1,572,1.75,Latham's Snipe,Southern Whiteface
+-31.0,145.0,Land birds,3,572,5.24,Southern Whiteface,Southern Whiteface
+-31.0,146.0,Land birds,130,8425,15.43,Southern Whiteface,Southern Whiteface
+-31.0,147.0,Shorebirds & wetland birds,2,1049,1.91,Sharp-tailed Sandpiper,Southern Whiteface
+-31.0,147.0,Land birds,5,1049,4.77,Southern Whiteface,Southern Whiteface
+-31.0,151.0,Shorebirds & wetland birds,6,13187,0.45,Latham's Snipe,Diamond Firetail
+-31.0,151.0,Land birds,45,13187,3.41,Diamond Firetail,Diamond Firetail
+-32.0,127.0,Land birds,1,484,2.07,Southern Whiteface,Southern Whiteface
+-32.0,129.0,Land birds,12,806,14.89,Southern Whiteface,Southern Whiteface
+-32.0,130.0,Seabirds,1,423,2.36,Shy Albatross,Southern Whiteface
+-32.0,130.0,Land birds,4,423,9.46,Southern Whiteface,Southern Whiteface
+-32.0,135.0,Land birds,7,435,16.09,Southern Whiteface,Southern Whiteface
+-32.0,136.0,Land birds,74,1848,40.04,Southern Whiteface,Southern Whiteface
+-32.0,138.0,Shorebirds & wetland birds,1,7848,0.13,Eastern Curlew,Southern Whiteface
+-32.0,138.0,Land birds,107,7848,13.63,Southern Whiteface,Southern Whiteface
+-32.0,139.0,Shorebirds & wetland birds,1,2930,0.34,Curlew Sandpiper,Southern Whiteface
+-32.0,139.0,Land birds,25,2930,8.53,Southern Whiteface,Southern Whiteface
+-32.0,140.0,Land birds,6,504,11.9,Southern Whiteface,Southern Whiteface
+-32.0,141.0,Land birds,38,4701,8.08,Southern Whiteface,Southern Whiteface
+-32.0,142.0,Shorebirds & wetland birds,1,4240,0.24,Sharp-tailed Sandpiper,Southern Whiteface
+-32.0,142.0,Land birds,9,4240,2.12,Southern Whiteface,Southern Whiteface
+-32.0,143.0,Land birds,6,2272,2.64,Southern Whiteface,Southern Whiteface
+-32.0,145.0,Land birds,4,353,11.33,Southern Whiteface,Southern Whiteface
+-32.0,146.0,Land birds,41,5266,7.79,Southern Whiteface,Southern Whiteface
+-32.0,147.0,Shorebirds & wetland birds,1,3706,0.27,Latham's Snipe,Diamond Firetail
+-32.0,147.0,Land birds,17,3706,4.59,Diamond Firetail,Diamond Firetail
+-32.0,148.0,Land birds,19,7621,2.49,Superb Parrot,Superb Parrot
+-33.0,134.0,Seabirds,1,1079,0.93,Shy Albatross,Ruddy Turnstone
+-33.0,134.0,Shorebirds & wetland birds,27,1079,25.02,Ruddy Turnstone,Ruddy Turnstone
+-33.0,134.0,Land birds,1,1079,0.93,Southern Whiteface,Ruddy Turnstone
+-33.0,135.0,Shorebirds & wetland birds,12,1362,8.81,Common Greenshank,Common Greenshank
+-33.0,135.0,Land birds,5,1362,3.67,Southern Whiteface,Common Greenshank
+-33.0,136.0,Land birds,6,935,6.42,Southern Whiteface,Southern Whiteface
+-33.0,137.0,Shorebirds & wetland birds,1,4911,0.2,Sharp-tailed Sandpiper,Southern Whiteface
+-33.0,137.0,Land birds,35,4911,7.13,Southern Whiteface,Southern Whiteface
+-33.0,138.0,Shorebirds & wetland birds,48,10446,4.6,Sharp-tailed Sandpiper,Southern Whiteface
+-33.0,138.0,Land birds,67,10446,6.41,Southern Whiteface,Southern Whiteface
+-33.0,139.0,Land birds,14,4399,3.18,Southern Whiteface,Southern Whiteface
+-33.0,141.0,Land birds,20,1482,13.5,Malleefowl,Malleefowl
+-33.0,142.0,Land birds,6,891,6.73,Southern Whiteface,Southern Whiteface
+-33.0,143.0,Land birds,1,559,1.79,Southern Whiteface,Southern Whiteface
+-33.0,145.0,Land birds,3,519,5.78,Southern Whiteface,Southern Whiteface
+-33.0,146.0,Shorebirds & wetland birds,66,25711,2.57,Sharp-tailed Sandpiper,Southern Whiteface
+-33.0,146.0,Land birds,145,25711,5.64,Southern Whiteface,Southern Whiteface
+-33.0,147.0,Land birds,28,2913,9.61,Superb Parrot,Superb Parrot
+-33.0,148.0,Land birds,93,17691,5.26,Superb Parrot,Superb Parrot
+-33.0,149.0,Shorebirds & wetland birds,7,22808,0.31,Latham's Snipe,Superb Parrot
+-33.0,149.0,Land birds,146,22808,6.4,Superb Parrot,Superb Parrot
+-34.0,135.0,Shorebirds & wetland birds,11,615,17.89,Ruddy Turnstone,Ruddy Turnstone
+-34.0,135.0,Land birds,2,615,3.25,Southern Whiteface,Ruddy Turnstone
+-34.0,138.0,Shorebirds & wetland birds,892,12829,69.53,Curlew Sandpiper,Curlew Sandpiper
+-34.0,138.0,Land birds,15,12829,1.17,Blue-winged Parrot,Curlew Sandpiper
+-34.0,139.0,Land birds,129,10694,12.06,Southern Whiteface,Southern Whiteface
+-34.0,140.0,Shorebirds & wetland birds,5,25356,0.2,Sharp-tailed Sandpiper,Southern Whiteface
+-34.0,140.0,Land birds,208,25356,8.2,Southern Whiteface,Southern Whiteface
+-34.0,141.0,Shorebirds & wetland birds,1,12429,0.08,Sharp-tailed Sandpiper,Southern Whiteface
+-34.0,141.0,Land birds,62,12429,4.99,Southern Whiteface,Southern Whiteface
+-34.0,142.0,Shorebirds & wetland birds,29,20513,1.41,Sharp-tailed Sandpiper,Southern Whiteface
+-34.0,142.0,Land birds,65,20513,3.17,Southern Whiteface,Southern Whiteface
+-34.0,143.0,Shorebirds & wetland birds,1,2982,0.34,Sharp-tailed Sandpiper,Southern Whiteface
+-34.0,143.0,Land birds,34,2982,11.4,Southern Whiteface,Southern Whiteface
+-34.0,144.0,Shorebirds & wetland birds,2,562,3.56,Sharp-tailed Sandpiper,Southern Whiteface
+-34.0,144.0,Land birds,6,562,10.68,Southern Whiteface,Southern Whiteface
+-34.0,146.0,Shorebirds & wetland birds,15,12040,1.25,Sharp-tailed Sandpiper,Southern Whiteface
+-34.0,146.0,Land birds,54,12040,4.49,Southern Whiteface,Southern Whiteface
+-34.0,147.0,Shorebirds & wetland birds,1,7713,0.13,Australian Painted Snipe,Superb Parrot
+-34.0,147.0,Land birds,64,7713,8.3,Superb Parrot,Superb Parrot
+-34.0,148.0,Shorebirds & wetland birds,1,22805,0.04,Latham's Snipe,Superb Parrot
+-34.0,148.0,Land birds,321,22805,14.08,Superb Parrot,Superb Parrot
+-34.0,149.0,Shorebirds & wetland birds,20,31833,0.63,Sharp-tailed Sandpiper,Superb Parrot
+-34.0,149.0,Land birds,356,31833,11.18,Superb Parrot,Superb Parrot
+-35.0,135.0,Seabirds,2,2804,0.71,Shy Albatross,Diamond Firetail
+-35.0,135.0,Shorebirds & wetland birds,12,2804,4.28,Sharp-tailed Sandpiper,Diamond Firetail
+-35.0,135.0,Land birds,11,2804,3.92,Diamond Firetail,Diamond Firetail
+-35.0,136.0,Seabirds,7,11376,0.62,Northern Giant Petrel,Diamond Firetail
+-35.0,136.0,Shorebirds & wetland birds,87,11376,7.65,Common Greenshank,Diamond Firetail
+-35.0,136.0,Land birds,72,11376,6.33,Diamond Firetail,Diamond Firetail
+-35.0,139.0,Shorebirds & wetland birds,429,193286,2.22,Sharp-tailed Sandpiper,Diamond Firetail
+-35.0,139.0,Land birds,506,193286,2.62,Diamond Firetail,Diamond Firetail
+-35.0,140.0,Land birds,23,2503,9.19,Southern Whiteface,Southern Whiteface
+-35.0,141.0,Land birds,159,3860,41.19,Red-lored Whistler,Red-lored Whistler
+-35.0,142.0,Shorebirds & wetland birds,1,35598,0.03,Sharp-tailed Sandpiper,Malleefowl
+-35.0,142.0,Land birds,759,35598,21.32,Malleefowl,Malleefowl
+-35.0,143.0,Shorebirds & wetland birds,14,14010,1.0,Sharp-tailed Sandpiper,Malleefowl
+-35.0,143.0,Land birds,48,14010,3.43,Malleefowl,Malleefowl
+-35.0,144.0,Shorebirds & wetland birds,13,9109,1.43,Australasian Bittern,Southern Whiteface
+-35.0,144.0,Land birds,23,9109,2.52,Southern Whiteface,Southern Whiteface
+-35.0,145.0,Shorebirds & wetland birds,5,11301,0.44,Common Greenshank,Painted Honeyeater
+-35.0,145.0,Land birds,207,11301,18.32,Painted Honeyeater,Painted Honeyeater
+-35.0,146.0,Shorebirds & wetland birds,76,17546,4.33,Sharp-tailed Sandpiper,Superb Parrot
+-35.0,146.0,Land birds,99,17546,5.64,Superb Parrot,Superb Parrot
+-35.0,147.0,Shorebirds & wetland birds,3,23475,0.13,Australasian Bittern,Superb Parrot
+-35.0,147.0,Land birds,154,23475,6.56,Superb Parrot,Superb Parrot
+-35.0,149.0,Shorebirds & wetland birds,620,380234,1.63,Latham's Snipe,Gang-gang Cockatoo
+-35.0,149.0,Land birds,3729,380234,9.81,Gang-gang Cockatoo,Gang-gang Cockatoo
+-35.0,150.0,Seabirds,4,57607,0.07,Black-browed Albatross,Gang-gang Cockatoo
+-35.0,150.0,Shorebirds & wetland birds,130,57607,2.26,Latham's Snipe,Gang-gang Cockatoo
+-35.0,150.0,Land birds,224,57607,3.89,Gang-gang Cockatoo,Gang-gang Cockatoo
+-36.0,141.0,Shorebirds & wetland birds,2,3342,0.6,Latham's Snipe,Malleefowl
+-36.0,141.0,Land birds,25,3342,7.48,Malleefowl,Malleefowl
+-36.0,142.0,Shorebirds & wetland birds,12,23500,0.51,Sharp-tailed Sandpiper,Diamond Firetail
+-36.0,142.0,Land birds,239,23500,10.17,Diamond Firetail,Diamond Firetail
+-36.0,144.0,Shorebirds & wetland birds,109,55958,1.95,Sharp-tailed Sandpiper,Diamond Firetail
+-36.0,144.0,Land birds,870,55958,15.55,Diamond Firetail,Diamond Firetail
+-36.0,145.0,Shorebirds & wetland birds,52,90778,0.57,Sharp-tailed Sandpiper,Superb Parrot
+-36.0,145.0,Land birds,390,90778,4.3,Superb Parrot,Superb Parrot
+-36.0,146.0,Shorebirds & wetland birds,33,70255,0.47,Latham's Snipe,Diamond Firetail
+-36.0,146.0,Land birds,516,70255,7.34,Diamond Firetail,Diamond Firetail
+-36.0,147.0,Shorebirds & wetland birds,38,76782,0.49,Latham's Snipe,Swift Parrot
+-36.0,147.0,Land birds,664,76782,8.65,Swift Parrot,Swift Parrot
+-36.0,149.0,Shorebirds & wetland birds,18,33879,0.53,Latham's Snipe,Gang-gang Cockatoo
+-36.0,149.0,Land birds,443,33879,13.08,Gang-gang Cockatoo,Gang-gang Cockatoo
+-37.0,141.0,Shorebirds & wetland birds,62,22238,2.79,Australasian Bittern,Blue-winged Parrot
+-37.0,141.0,Land birds,107,22238,4.81,Blue-winged Parrot,Blue-winged Parrot
+-37.0,142.0,Shorebirds & wetland birds,56,71944,0.78,Sharp-tailed Sandpiper,Blue-winged Parrot
+-37.0,142.0,Land birds,403,71944,5.6,Blue-winged Parrot,Blue-winged Parrot
+-37.0,143.0,Shorebirds & wetland birds,31,18747,1.65,Sharp-tailed Sandpiper,Gang-gang Cockatoo
+-37.0,143.0,Land birds,193,18747,10.29,Gang-gang Cockatoo,Gang-gang Cockatoo
+-37.0,144.0,Shorebirds & wetland birds,13,104946,0.12,Latham's Snipe,Swift Parrot
+-37.0,144.0,Land birds,561,104946,5.35,Swift Parrot,Swift Parrot
+-37.0,145.0,Shorebirds & wetland birds,43,79526,0.54,Sharp-tailed Sandpiper,Gang-gang Cockatoo
+-37.0,145.0,Land birds,316,79526,3.97,Gang-gang Cockatoo,Gang-gang Cockatoo
+-37.0,146.0,Shorebirds & wetland birds,1,32204,0.03,Latham's Snipe,Gang-gang Cockatoo
+-37.0,146.0,Land birds,314,32204,9.75,Gang-gang Cockatoo,Gang-gang Cockatoo
+-37.0,149.0,Shorebirds & wetland birds,9,3082,2.92,Sharp-tailed Sandpiper,Gang-gang Cockatoo
+-37.0,149.0,Land birds,35,3082,11.36,Gang-gang Cockatoo,Gang-gang Cockatoo
+-38.0,144.0,Seabirds,302,248066,1.22,Shy Albatross,Blue-winged Parrot
+-38.0,144.0,Shorebirds & wetland birds,937,248066,3.78,Sharp-tailed Sandpiper,Blue-winged Parrot
+-38.0,144.0,Land birds,1270,248066,5.12,Blue-winged Parrot,Blue-winged Parrot
+-38.0,145.0,Seabirds,198,1183484,0.17,Shy Albatross,Sharp-tailed Sandpiper
+-38.0,145.0,Shorebirds & wetland birds,8395,1183484,7.09,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-38.0,145.0,Land birds,2275,1183484,1.92,Gang-gang Cockatoo,Sharp-tailed Sandpiper
+-27.0,154.0,Seabirds,18,4072,4.42,Northern Giant Petrel,Little Tern
+-27.0,154.0,Shorebirds & wetland birds,11,4072,2.7,Little Tern,Little Tern
+-28.0,154.0,Seabirds,27,34075,0.79,Sooty Shearwater,White-throated Needletail
+-28.0,154.0,Shorebirds & wetland birds,107,34075,3.14,Eastern Curlew,White-throated Needletail
+-28.0,154.0,Land birds,60,34075,1.76,White-throated Needletail,White-throated Needletail
+-29.0,153.0,Seabirds,12,53853,0.22,Sooty Shearwater,White-throated Needletail
+-29.0,153.0,Shorebirds & wetland birds,205,53853,3.81,Eastern Curlew,White-throated Needletail
+-29.0,153.0,Land birds,93,53853,1.73,White-throated Needletail,White-throated Needletail
+-29.0,154.0,Seabirds,15,64303,0.23,Sooty Shearwater,Ruddy Turnstone
+-29.0,154.0,Shorebirds & wetland birds,1220,64303,18.97,Ruddy Turnstone,Ruddy Turnstone
+-29.0,154.0,Land birds,147,64303,2.29,White-throated Needletail,Ruddy Turnstone
+-30.0,115.0,Seabirds,6,1909,3.14,Sooty Shearwater,Ruddy Turnstone
+-30.0,115.0,Shorebirds & wetland birds,26,1909,13.62,Ruddy Turnstone,Ruddy Turnstone
+-30.0,115.0,Land birds,1,1909,0.52,Malleefowl,Ruddy Turnstone
+-31.0,153.0,Seabirds,10,88150,0.11,Sooty Shearwater,White-throated Needletail
+-31.0,153.0,Shorebirds & wetland birds,421,88150,4.78,Eastern Curlew,White-throated Needletail
+-31.0,153.0,Land birds,158,88150,1.79,White-throated Needletail,White-throated Needletail
+-32.0,153.0,Seabirds,2,72462,0.03,Sooty Shearwater,Eastern Curlew
+-32.0,153.0,Shorebirds & wetland birds,931,72462,12.85,Eastern Curlew,Eastern Curlew
+-32.0,153.0,Land birds,110,72462,1.52,White-throated Needletail,Eastern Curlew
+-33.0,153.0,Seabirds,251,994,252.52,Shy Albatross,Shy Albatross
+-34.0,115.0,Seabirds,197,21611,9.12,Indian Yellow-nosed  Albatross,Common Greenshank
+-34.0,115.0,Shorebirds & wetland birds,83,21611,3.84,Common Greenshank,Common Greenshank
+-34.0,152.0,Seabirds,366,1105,331.22,Black-browed Albatross,Black-browed Albatross
+-35.0,151.0,Seabirds,279,155472,1.79,Black-browed Albatross,Eastern Curlew
+-35.0,151.0,Shorebirds & wetland birds,1768,155472,11.37,Eastern Curlew,Eastern Curlew
+-35.0,151.0,Land birds,881,155472,5.67,Eastern Bristlebird,Eastern Curlew
+-36.0,137.0,Seabirds,6,7635,0.79,Sooty Shearwater,Sharp-tailed Sandpiper
+-36.0,137.0,Shorebirds & wetland birds,15,7635,1.96,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-36.0,137.0,Land birds,3,7635,0.39,Gang-gang Cockatoo,Sharp-tailed Sandpiper
+-36.0,138.0,Seabirds,8,9857,0.81,Sooty Shearwater,Common Greenshank
+-36.0,138.0,Shorebirds & wetland birds,66,9857,6.7,Common Greenshank,Common Greenshank
+-36.0,138.0,Land birds,2,9857,0.2,Painted Honeyeater,Common Greenshank
+-36.0,150.0,Seabirds,86,40883,2.1,Shy Albatross,Gang-gang Cockatoo
+-36.0,150.0,Shorebirds & wetland birds,164,40883,4.01,Eastern Curlew,Gang-gang Cockatoo
+-36.0,150.0,Land birds,231,40883,5.65,Gang-gang Cockatoo,Gang-gang Cockatoo
+-36.0,151.0,Seabirds,85,520,163.46,Shy Albatross,Shy Albatross
+-38.0,140.0,Seabirds,11,4429,2.48,Shy Albatross,Latham's Snipe
+-38.0,140.0,Shorebirds & wetland birds,93,4429,21.0,Latham's Snipe,Latham's Snipe
+-38.0,140.0,Land birds,17,4429,3.84,Blue-winged Parrot,Latham's Snipe
+-38.0,141.0,Seabirds,771,21688,35.55,Shy Albatross,Shy Albatross
+-38.0,141.0,Shorebirds & wetland birds,239,21688,11.02,Ruddy Turnstone,Shy Albatross
+-38.0,141.0,Land birds,169,21688,7.79,Blue-winged Parrot,Shy Albatross
+-38.0,142.0,Seabirds,107,41280,2.59,Shy Albatross,Ruddy Turnstone
+-38.0,142.0,Shorebirds & wetland birds,515,41280,12.48,Ruddy Turnstone,Ruddy Turnstone
+-38.0,142.0,Land birds,158,41280,3.83,Blue-winged Parrot,Ruddy Turnstone
+-38.0,149.0,Seabirds,30,10312,2.91,Shy Albatross,Gang-gang Cockatoo
+-38.0,149.0,Shorebirds & wetland birds,34,10312,3.3,Little Tern,Gang-gang Cockatoo
+-38.0,149.0,Land birds,93,10312,9.02,Gang-gang Cockatoo,Gang-gang Cockatoo
+-38.0,150.0,Seabirds,300,19384,15.48,Shy Albatross,Shy Albatross
+-38.0,150.0,Shorebirds & wetland birds,179,19384,9.23,Red Knot,Shy Albatross
+-38.0,150.0,Land birds,46,19384,2.37,White-throated Needletail,Shy Albatross
+-39.0,145.0,Seabirds,130,18006,7.22,Shy Albatross,Shy Albatross
+-39.0,145.0,Shorebirds & wetland birds,20,18006,1.11,Ruddy Turnstone,Shy Albatross
+-39.0,145.0,Land birds,1,18006,0.06,Blue-winged Parrot,Shy Albatross
+-40.0,149.0,Seabirds,99,525,188.57,Shy Albatross,Shy Albatross
+-41.0,145.0,Seabirds,15,7501,2.0,Shy Albatross,Latham's Snipe
+-41.0,145.0,Shorebirds & wetland birds,61,7501,8.13,Latham's Snipe,Latham's Snipe
+-41.0,145.0,Land birds,23,7501,3.07,Blue-winged Parrot,Latham's Snipe
+-42.0,145.0,Seabirds,15,4988,3.01,Shy Albatross,Blue-winged Parrot
+-42.0,145.0,Shorebirds & wetland birds,1,4988,0.2,Latham's Snipe,Blue-winged Parrot
+-42.0,145.0,Land birds,23,4988,4.61,Blue-winged Parrot,Blue-winged Parrot
+-42.0,148.0,Seabirds,65,10347,6.28,Shy Albatross,Shy Albatross
+-42.0,148.0,Shorebirds & wetland birds,14,10347,1.35,Latham's Snipe,Shy Albatross
+-42.0,148.0,Land birds,22,10347,2.13,Swift Parrot,Shy Albatross
+-43.0,146.0,Seabirds,5,1830,2.73,Shy Albatross,Orange-bellied Parrot
+-43.0,146.0,Shorebirds & wetland birds,3,1830,1.64,Latham's Snipe,Orange-bellied Parrot
+-43.0,146.0,Land birds,20,1830,10.93,Orange-bellied Parrot,Orange-bellied Parrot
+-43.0,147.0,Seabirds,85,206013,0.41,Shy Albatross,Swift Parrot
+-43.0,147.0,Shorebirds & wetland birds,112,206013,0.54,Latham's Snipe,Swift Parrot
+-43.0,147.0,Land birds,1682,206013,8.16,Swift Parrot,Swift Parrot
+-43.0,148.0,Seabirds,4675,68462,68.29,Shy Albatross,Shy Albatross
+-43.0,148.0,Shorebirds & wetland birds,430,68462,6.28,Common Greenshank,Shy Albatross
+-43.0,148.0,Land birds,295,68462,4.31,Swift Parrot,Shy Albatross
+-44.0,146.0,Seabirds,33,766,43.08,Shy Albatross,Shy Albatross
+-44.0,146.0,Land birds,3,766,3.92,Orange-bellied Parrot,Shy Albatross
+-12.0,131.0,Shorebirds & wetland birds,4600,125808,36.56,Eastern Curlew,Eastern Curlew
+-12.0,131.0,Land birds,3,125808,0.02,Red Goshawk,Eastern Curlew
+-12.0,136.0,Shorebirds & wetland birds,81,1618,50.06,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-13.0,130.0,Shorebirds & wetland birds,218,1423,153.2,Ruddy Turnstone,Ruddy Turnstone
+-13.0,143.0,Shorebirds & wetland birds,227,21133,10.74,Greater Sand Plover,Greater Sand Plover
+-13.0,143.0,Land birds,5,21133,0.24,White-throated Needletail,Greater Sand Plover
+-14.0,124.0,Shorebirds & wetland birds,77,545,141.28,Ruddy Turnstone,Ruddy Turnstone
+-14.0,126.0,Shorebirds & wetland birds,21,800,26.25,Greater Sand Plover,Greater Sand Plover
+-14.0,136.0,Shorebirds & wetland birds,31,1035,29.95,Black-tailed Godwit,Black-tailed Godwit
+-15.0,125.0,Shorebirds & wetland birds,2,699,2.86,Ruddy Turnstone,Ruddy Turnstone
+-15.0,126.0,Shorebirds & wetland birds,33,2954,11.17,Common Greenshank,Common Greenshank
+-15.0,126.0,Land birds,2,2954,0.68,Red Goshawk,Common Greenshank
+-16.0,123.0,Shorebirds & wetland birds,45,2849,15.8,Common Greenshank,Common Greenshank
+-16.0,145.0,Shorebirds & wetland birds,140,38803,3.61,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-16.0,145.0,Land birds,10,38803,0.26,White-throated Needletail,Sharp-tailed Sandpiper
+-17.0,122.0,Shorebirds & wetland birds,145,878,165.15,Ruddy Turnstone,Ruddy Turnstone
+-17.0,123.0,Shorebirds & wetland birds,76,2032,37.4,Common Greenshank,Common Greenshank
+-17.0,146.0,Shorebirds & wetland birds,6295,257984,24.4,Eastern Curlew,Eastern Curlew
+-17.0,146.0,Land birds,86,257984,0.33,White-throated Needletail,Eastern Curlew
+-18.0,122.0,Shorebirds & wetland birds,6206,69629,89.13,Greater Sand Plover,Greater Sand Plover
+-18.0,146.0,Shorebirds & wetland birds,62,19811,3.13,Little Tern,Little Tern
+-18.0,146.0,Land birds,1,19811,0.05,White-throated Needletail,Little Tern
+-19.0,121.0,Shorebirds & wetland birds,29,475,61.05,Ruddy Turnstone,Ruddy Turnstone
+-19.0,122.0,Shorebirds & wetland birds,9,745,12.08,Ruddy Turnstone,Ruddy Turnstone
+-19.0,146.0,Shorebirds & wetland birds,99,23724,4.17,Little Tern,Little Tern
+-19.0,146.0,Land birds,7,23724,0.3,White-throated Needletail,Little Tern
+-19.0,147.0,Shorebirds & wetland birds,589,69972,8.42,Eastern Curlew,Eastern Curlew
+-19.0,147.0,Land birds,3,69972,0.04,White-throated Needletail,Eastern Curlew
+-20.0,119.0,Shorebirds & wetland birds,143,3899,36.68,Greater Sand Plover,Greater Sand Plover
+-20.0,119.0,Land birds,2,3899,0.51,Grey Falcon,Greater Sand Plover
+-20.0,120.0,Shorebirds & wetland birds,47,672,69.94,Ruddy Turnstone,Ruddy Turnstone
+-20.0,120.0,Land birds,1,672,1.49,Grey Falcon,Ruddy Turnstone
+-20.0,121.0,Shorebirds & wetland birds,40,1191,33.59,Great Knot,Great Knot
+-21.0,117.0,Shorebirds & wetland birds,106,2432,43.59,Common Greenshank,Common Greenshank
+-22.0,114.0,Shorebirds & wetland birds,173,5482,31.56,Greater Sand Plover,Greater Sand Plover
+-22.0,115.0,Shorebirds & wetland birds,14,306,45.75,Greater Sand Plover,Greater Sand Plover
+-23.0,114.0,Shorebirds & wetland birds,15,1085,13.82,Eastern Curlew,Eastern Curlew
+-23.0,151.0,Shorebirds & wetland birds,51,13730,3.71,Eastern Curlew,Eastern Curlew
+-23.0,151.0,Land birds,2,13730,0.15,White-throated Needletail,Eastern Curlew
+-23.0,152.0,Seabirds,1,1056,0.95,Southern Giant-Petrel,Ruddy Turnstone
+-23.0,152.0,Shorebirds & wetland birds,57,1056,53.98,Ruddy Turnstone,Ruddy Turnstone
+-24.0,152.0,Shorebirds & wetland birds,79,6502,12.15,Little Tern,Little Tern
+-24.0,152.0,Land birds,8,6502,1.23,White-throated Needletail,Little Tern
+-24.0,153.0,Shorebirds & wetland birds,136,1945,69.92,Ruddy Turnstone,Ruddy Turnstone
+-24.0,153.0,Land birds,1,1945,0.51,White-throated Needletail,Ruddy Turnstone
+-25.0,114.0,Shorebirds & wetland birds,31,2029,15.28,Greater Sand Plover,Greater Sand Plover
+-25.0,140.0,Shorebirds & wetland birds,8,2257,3.54,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-25.0,152.0,Shorebirds & wetland birds,561,52881,10.61,Eastern Curlew,Eastern Curlew
+-25.0,152.0,Land birds,14,52881,0.26,White-throated Needletail,Eastern Curlew
+-25.0,153.0,Seabirds,1,16911,0.06,Southern Giant-Petrel,Eastern Curlew
+-25.0,153.0,Shorebirds & wetland birds,242,16911,14.31,Eastern Curlew,Eastern Curlew
+-25.0,153.0,Land birds,15,16911,0.89,Black-breasted Button-quail,Eastern Curlew
+-26.0,113.0,Shorebirds & wetland birds,38,1405,27.05,Greater Sand Plover,Greater Sand Plover
+-26.0,153.0,Shorebirds & wetland birds,828,75889,10.91,Eastern Curlew,Eastern Curlew
+-26.0,153.0,Land birds,204,75889,2.69,White-throated Needletail,Eastern Curlew
+-27.0,153.0,Seabirds,2,658012,0.0,Shy Albatross,Eastern Curlew
+-27.0,153.0,Shorebirds & wetland birds,5708,658012,8.67,Eastern Curlew,Eastern Curlew
+-27.0,153.0,Land birds,499,658012,0.76,White-throated Needletail,Eastern Curlew
+-28.0,114.0,Shorebirds & wetland birds,28,2724,10.28,Ruddy Turnstone,Ruddy Turnstone
+-29.0,114.0,Seabirds,2,378,5.29,Soft-plumaged Petrel,Ruddy Turnstone
+-29.0,114.0,Shorebirds & wetland birds,22,378,58.2,Ruddy Turnstone,Ruddy Turnstone
+-29.0,115.0,Seabirds,1,2316,0.43,Northern Giant Petrel,Common Greenshank
+-29.0,115.0,Shorebirds & wetland birds,15,2316,6.48,Common Greenshank,Common Greenshank
+-30.0,153.0,Seabirds,2,77605,0.03,Southern Giant-Petrel,White-throated Needletail
+-30.0,153.0,Shorebirds & wetland birds,363,77605,4.68,Eastern Curlew,White-throated Needletail
+-30.0,153.0,Land birds,182,77605,2.35,White-throated Needletail,White-throated Needletail
+-31.0,115.0,Seabirds,1,2279,0.44,Soft-plumaged Petrel,Common Greenshank
+-31.0,115.0,Shorebirds & wetland birds,45,2279,19.75,Common Greenshank,Common Greenshank
+-32.0,115.0,Seabirds,1,949,1.05,Soft-plumaged Petrel,Ruddy Turnstone
+-32.0,115.0,Shorebirds & wetland birds,5,949,5.27,Ruddy Turnstone,Ruddy Turnstone
+-32.0,116.0,Seabirds,12,265993,0.05,Indian Yellow-nosed  Albatross,Common Greenshank
+-32.0,116.0,Shorebirds & wetland birds,1031,265993,3.88,Common Greenshank,Common Greenshank
+-32.0,126.0,Shorebirds & wetland birds,25,3841,6.51,Grey Plover,Grey Plover
+-32.0,126.0,Land birds,1,3841,0.26,Malleefowl,Grey Plover
+-32.0,133.0,Shorebirds & wetland birds,12,737,16.28,Common Greenshank,Common Greenshank
+-32.0,133.0,Land birds,1,737,1.36,Malleefowl,Common Greenshank
+-32.0,134.0,Shorebirds & wetland birds,23,1194,19.26,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-32.0,134.0,Land birds,2,1194,1.68,Malleefowl,Sharp-tailed Sandpiper
+-33.0,116.0,Seabirds,1,34243,0.03,Southern Giant-Petrel,Common Greenshank
+-33.0,116.0,Shorebirds & wetland birds,420,34243,12.27,Common Greenshank,Common Greenshank
+-34.0,118.0,Shorebirds & wetland birds,8,11222,0.71,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-34.0,119.0,Shorebirds & wetland birds,25,6977,3.58,Grey Plover,Malleefowl
+-34.0,119.0,Land birds,39,6977,5.59,Malleefowl,Malleefowl
+-34.0,120.0,Shorebirds & wetland birds,24,2283,10.51,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-34.0,120.0,Land birds,9,2283,3.94,Malleefowl,Sharp-tailed Sandpiper
+-34.0,136.0,Shorebirds & wetland birds,10,2264,4.42,Ruddy Turnstone,Ruddy Turnstone
+-34.0,136.0,Land birds,3,2264,1.33,Diamond Firetail,Ruddy Turnstone
+-34.0,137.0,Shorebirds & wetland birds,42,3759,11.17,Common Greenshank,Common Greenshank
+-34.0,137.0,Land birds,3,3759,0.8,Diamond Firetail,Common Greenshank
+-35.0,116.0,Seabirds,1,1165,0.86,Indian Yellow-nosed  Albatross,Ruddy Turnstone
+-35.0,116.0,Shorebirds & wetland birds,13,1165,11.16,Ruddy Turnstone,Ruddy Turnstone
+-35.0,117.0,Seabirds,4,8351,0.48,Indian Yellow-nosed  Albatross,Common Greenshank
+-35.0,117.0,Shorebirds & wetland birds,33,8351,3.95,Common Greenshank,Common Greenshank
+-35.0,118.0,Seabirds,145,49907,2.91,Indian Yellow-nosed  Albatross,Noisy Scrub-bird
+-35.0,118.0,Shorebirds & wetland birds,349,49907,6.99,Common Greenshank,Noisy Scrub-bird
+-35.0,118.0,Land birds,414,49907,8.3,Noisy Scrub-bird,Noisy Scrub-bird
+-35.0,137.0,Shorebirds & wetland birds,12,2103,5.71,Ruddy Turnstone,Ruddy Turnstone
+-35.0,137.0,Land birds,9,2103,4.28,Malleefowl,Ruddy Turnstone
+-35.0,138.0,Seabirds,1,37035,0.03,Shy Albatross,Sharp-tailed Sandpiper
+-35.0,138.0,Shorebirds & wetland birds,234,37035,6.32,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-35.0,138.0,Land birds,4,37035,0.11,Blue-winged Parrot,Sharp-tailed Sandpiper
+-37.0,140.0,Seabirds,1,8725,0.11,Northern Giant Petrel,Latham's Snipe
+-37.0,140.0,Shorebirds & wetland birds,87,8725,9.97,Latham's Snipe,Latham's Snipe
+-37.0,140.0,Land birds,71,8725,8.14,Blue-winged Parrot,Latham's Snipe
+-38.0,146.0,Shorebirds & wetland birds,343,72644,4.72,Curlew Sandpiper,Gang-gang Cockatoo
+-38.0,146.0,Land birds,929,72644,12.79,Gang-gang Cockatoo,Gang-gang Cockatoo
+-38.0,148.0,Seabirds,4,47979,0.08,Shy Albatross,Gang-gang Cockatoo
+-38.0,148.0,Shorebirds & wetland birds,212,47979,4.42,Latham's Snipe,Gang-gang Cockatoo
+-38.0,148.0,Land birds,270,47979,5.63,Gang-gang Cockatoo,Gang-gang Cockatoo
+-39.0,143.0,Seabirds,27,11636,2.32,Shy Albatross,Latham's Snipe
+-39.0,143.0,Shorebirds & wetland birds,148,11636,12.72,Latham's Snipe,Latham's Snipe
+-39.0,143.0,Land birds,111,11636,9.54,Gang-gang Cockatoo,Latham's Snipe
+-39.0,146.0,Seabirds,37,41810,0.88,Shy Albatross,Gang-gang Cockatoo
+-39.0,146.0,Shorebirds & wetland birds,167,41810,3.99,Eastern Curlew,Gang-gang Cockatoo
+-39.0,146.0,Land birds,240,41810,5.74,Gang-gang Cockatoo,Gang-gang Cockatoo
+-39.0,147.0,Seabirds,3,5043,0.59,Shy Albatross,Eastern Curlew
+-39.0,147.0,Shorebirds & wetland birds,69,5043,13.68,Eastern Curlew,Eastern Curlew
+-39.0,147.0,Land birds,38,5043,7.54,Gang-gang Cockatoo,Eastern Curlew
+-40.0,144.0,Seabirds,12,5473,2.19,Shy Albatross,Ruddy Turnstone
+-40.0,144.0,Shorebirds & wetland birds,82,5473,14.98,Ruddy Turnstone,Ruddy Turnstone
+-40.0,144.0,Land birds,2,5473,0.37,Blue-winged Parrot,Ruddy Turnstone
+-40.0,148.0,Seabirds,15,6613,2.27,Shy Albatross,Forty-spotted Pardalote
+-40.0,148.0,Shorebirds & wetland birds,46,6613,6.96,Little Tern,Forty-spotted Pardalote
+-40.0,148.0,Land birds,18,6613,2.72,Forty-spotted Pardalote,Forty-spotted Pardalote
+-41.0,146.0,Seabirds,135,36234,3.73,Shy Albatross,Shy Albatross
+-41.0,146.0,Shorebirds & wetland birds,46,36234,1.27,Ruddy Turnstone,Shy Albatross
+-41.0,146.0,Land birds,91,36234,2.51,Blue-winged Parrot,Shy Albatross
+-41.0,147.0,Seabirds,53,43935,1.21,Northern Giant Petrel,Latham's Snipe
+-41.0,147.0,Shorebirds & wetland birds,84,43935,1.91,Latham's Snipe,Latham's Snipe
+-41.0,147.0,Land birds,14,43935,0.32,White-throated Needletail,Latham's Snipe
+-41.0,148.0,Seabirds,133,42825,3.11,Shy Albatross,Blue-winged Parrot
+-41.0,148.0,Shorebirds & wetland birds,99,42825,2.31,Ruddy Turnstone,Blue-winged Parrot
+-41.0,148.0,Land birds,186,42825,4.34,Blue-winged Parrot,Blue-winged Parrot
+-35.0,119.0,Seabirds,28,1441,19.43,Indian Yellow-nosed  Albatross,Western Bristlebird
+-35.0,119.0,Shorebirds & wetland birds,10,1441,6.94,Common Greenshank,Western Bristlebird
+-35.0,119.0,Land birds,293,1441,203.33,Western Bristlebird,Western Bristlebird
+-31.0,152.0,Shorebirds & wetland birds,34,32201,1.06,Latham's Snipe,White-throated Needletail
+-31.0,152.0,Land birds,168,32201,5.22,White-throated Needletail,White-throated Needletail
+-32.0,152.0,Shorebirds & wetland birds,11,36440,0.3,Latham's Snipe,White-throated Needletail
+-32.0,152.0,Land birds,122,36440,3.35,White-throated Needletail,White-throated Needletail
+-31.0,148.0,Shorebirds & wetland birds,2,2462,0.81,Australasian Bittern,Painted Honeyeater
+-31.0,148.0,Land birds,6,2462,2.44,Painted Honeyeater,Painted Honeyeater
+-34.0,122.0,Seabirds,2,6550,0.31,Shy Albatross,Common Greenshank
+-34.0,122.0,Shorebirds & wetland birds,31,6550,4.73,Common Greenshank,Common Greenshank
+-34.0,145.0,Shorebirds & wetland birds,1,1024,0.98,Australasian Bittern,Australasian Bittern
+-34.0,145.0,Land birds,1,1024,0.98,Superb Parrot,Australasian Bittern
+-38.0,143.0,Seabirds,3,27535,0.11,Shy Albatross,Sharp-tailed Sandpiper
+-38.0,143.0,Shorebirds & wetland birds,164,27535,5.96,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-38.0,143.0,Land birds,43,27535,1.56,Blue-winged Parrot,Sharp-tailed Sandpiper
+-38.0,147.0,Shorebirds & wetland birds,151,28519,5.29,Latham's Snipe,Gang-gang Cockatoo
+-38.0,147.0,Land birds,176,28519,6.17,Gang-gang Cockatoo,Gang-gang Cockatoo
+-42.0,147.0,Shorebirds & wetland birds,31,19923,1.56,Australasian Bittern,Australasian Bittern
+-42.0,147.0,Land birds,15,19923,0.75,Blue-winged Parrot,Australasian Bittern
+-11.0,132.0,Shorebirds & wetland birds,18,878,20.5,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-11.0,142.0,Shorebirds & wetland birds,41,5168,7.93,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-11.0,142.0,Land birds,4,5168,0.77,White-throated Needletail,Sharp-tailed Sandpiper
+-11.0,143.0,Shorebirds & wetland birds,26,427,60.89,Little Tern,Little Tern
+-12.0,135.0,Shorebirds & wetland birds,11,498,22.09,Eastern Curlew,Eastern Curlew
+-12.0,137.0,Shorebirds & wetland birds,14,3436,4.07,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-13.0,131.0,Shorebirds & wetland birds,29,29540,0.98,Eastern Curlew,Eastern Curlew
+-13.0,132.0,Shorebirds & wetland birds,21,6178,3.4,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-13.0,132.0,Land birds,13,6178,2.1,Red Goshawk,Sharp-tailed Sandpiper
+-13.0,136.0,Shorebirds & wetland birds,8,770,10.39,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-13.0,142.0,Shorebirds & wetland birds,49,2471,19.83,Eastern Curlew,Eastern Curlew
+-13.0,142.0,Land birds,1,2471,0.4,Red Goshawk,Eastern Curlew
+-14.0,131.0,Shorebirds & wetland birds,20,5167,3.87,Common Greenshank,Common Greenshank
+-14.0,131.0,Land birds,2,5167,0.39,Red Goshawk,Common Greenshank
+-14.0,132.0,Shorebirds & wetland birds,41,30275,1.35,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-14.0,132.0,Land birds,4,30275,0.13,Red Goshawk,Sharp-tailed Sandpiper
+-15.0,130.0,Shorebirds & wetland birds,1,440,2.27,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-15.0,130.0,Land birds,1,440,2.27,Red Goshawk,Sharp-tailed Sandpiper
+-15.0,132.0,Shorebirds & wetland birds,117,13127,8.91,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-15.0,132.0,Land birds,1,13127,0.08,Red Goshawk,Sharp-tailed Sandpiper
+-15.0,133.0,Shorebirds & wetland birds,2,6543,0.31,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-15.0,133.0,Land birds,1,6543,0.15,Red Goshawk,Sharp-tailed Sandpiper
+-15.0,142.0,Shorebirds & wetland birds,4,525,7.62,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-15.0,142.0,Land birds,1,525,1.9,White-throated Needletail,Sharp-tailed Sandpiper
+-15.0,145.0,Shorebirds & wetland birds,47,4525,10.39,Greater Sand Plover,Greater Sand Plover
+-16.0,128.0,Shorebirds & wetland birds,29,9482,3.06,Common Greenshank,Common Greenshank
+-16.0,129.0,Shorebirds & wetland birds,7,15495,0.45,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-16.0,131.0,Shorebirds & wetland birds,3,4695,0.64,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-16.0,131.0,Land birds,1,4695,0.21,Grey Falcon,Sharp-tailed Sandpiper
+-16.0,137.0,Shorebirds & wetland birds,52,386,134.72,Eastern Curlew,Eastern Curlew
+-17.0,124.0,Shorebirds & wetland birds,44,2846,15.46,Common Greenshank,Common Greenshank
+-17.0,141.0,Shorebirds & wetland birds,74,3463,21.37,Eastern Curlew,Eastern Curlew
+-17.0,145.0,Shorebirds & wetland birds,351,137994,2.54,Latham's Snipe,Latham's Snipe
+-17.0,145.0,Land birds,11,137994,0.08,White-throated Needletail,Latham's Snipe
+-18.0,123.0,Shorebirds & wetland birds,11,4471,2.46,Common Greenshank,Common Greenshank
+-18.0,128.0,Shorebirds & wetland birds,2,721,2.77,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-18.0,128.0,Land birds,1,721,1.39,Grey Falcon,Sharp-tailed Sandpiper
+-18.0,134.0,Shorebirds & wetland birds,3,1298,2.31,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-18.0,134.0,Land birds,3,1298,2.31,Grey Falcon,Sharp-tailed Sandpiper
+-18.0,141.0,Shorebirds & wetland birds,4,3006,1.33,Common Greenshank,Common Greenshank
+-18.0,143.0,Shorebirds & wetland birds,17,5891,2.89,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-19.0,136.0,Shorebirds & wetland birds,1,727,1.38,Sharp-tailed Sandpiper,Grey Falcon
+-19.0,136.0,Land birds,4,727,5.5,Grey Falcon,Grey Falcon
+-20.0,134.0,Shorebirds & wetland birds,55,4286,12.83,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-20.0,134.0,Land birds,1,4286,0.23,Grey Falcon,Sharp-tailed Sandpiper
+-20.0,138.0,Shorebirds & wetland birds,2,1216,1.64,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-20.0,138.0,Land birds,2,1216,1.64,Grey Falcon,Sharp-tailed Sandpiper
+-20.0,146.0,Shorebirds & wetland birds,2,1815,1.1,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-20.0,148.0,Shorebirds & wetland birds,70,5476,12.78,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-20.0,148.0,Land birds,1,5476,0.18,White-throated Needletail,Sharp-tailed Sandpiper
+-21.0,120.0,Shorebirds & wetland birds,7,1539,4.55,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-21.0,120.0,Land birds,2,1539,1.3,Grey Falcon,Sharp-tailed Sandpiper
+-21.0,140.0,Shorebirds & wetland birds,21,10283,2.04,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-21.0,144.0,Shorebirds & wetland birds,2,1338,1.49,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-21.0,149.0,Shorebirds & wetland birds,135,24393,5.53,Eastern Curlew,Eastern Curlew
+-21.0,149.0,Land birds,19,24393,0.78,White-throated Needletail,Eastern Curlew
+-22.0,143.0,Shorebirds & wetland birds,4,3015,1.33,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-22.0,143.0,Land birds,1,3015,0.33,Grey Falcon,Sharp-tailed Sandpiper
+-23.0,140.0,Shorebirds & wetland birds,2,2848,0.7,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-23.0,140.0,Land birds,2,2848,0.7,Grey Falcon,Sharp-tailed Sandpiper
+-23.0,142.0,Shorebirds & wetland birds,1,2802,0.36,Sharp-tailed Sandpiper,Grey Falcon
+-23.0,142.0,Land birds,17,2802,6.07,Grey Falcon,Grey Falcon
+-23.0,144.0,Shorebirds & wetland birds,11,3600,3.06,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-23.0,144.0,Land birds,3,3600,0.83,Painted Honeyeater,Sharp-tailed Sandpiper
+-24.0,139.0,Shorebirds & wetland birds,3,829,3.62,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-24.0,151.0,Shorebirds & wetland birds,76,14657,5.19,Eastern Curlew,Eastern Curlew
+-24.0,151.0,Land birds,1,14657,0.07,White-throated Needletail,Eastern Curlew
+-25.0,150.0,Shorebirds & wetland birds,2,857,2.33,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-26.0,152.0,Shorebirds & wetland birds,3,7905,0.38,Latham's Snipe,Black-breasted Button-quail
+-26.0,152.0,Land birds,7,7905,0.89,Black-breasted Button-quail,Black-breasted Button-quail
+-27.0,140.0,Shorebirds & wetland birds,4,1012,3.95,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-27.0,140.0,Land birds,4,1012,3.95,Grey Falcon,Sharp-tailed Sandpiper
+-27.0,151.0,Shorebirds & wetland birds,3,9517,0.32,Latham's Snipe,Latham's Snipe
+-27.0,151.0,Land birds,4,9517,0.42,Diamond Firetail,Latham's Snipe
+-28.0,144.0,Shorebirds & wetland birds,8,2224,3.6,Common Greenshank,Common Greenshank
+-28.0,144.0,Land birds,6,2224,2.7,Grey Falcon,Common Greenshank
+-29.0,138.0,Shorebirds & wetland birds,2,1054,1.9,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-29.0,150.0,Shorebirds & wetland birds,3,5372,0.56,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-31.0,150.0,Shorebirds & wetland birds,6,7341,0.82,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-31.0,150.0,Land birds,7,7341,0.95,Diamond Firetail,Sharp-tailed Sandpiper
+-32.0,149.0,Shorebirds & wetland birds,65,27455,2.37,Latham's Snipe,White-throated Needletail
+-32.0,149.0,Land birds,86,27455,3.13,White-throated Needletail,White-throated Needletail
+-34.0,150.0,Shorebirds & wetland birds,34,59547,0.57,Latham's Snipe,Gang-gang Cockatoo
+-34.0,150.0,Land birds,542,59547,9.1,Gang-gang Cockatoo,Gang-gang Cockatoo
+-36.0,139.0,Seabirds,1,33728,0.03,Shy Albatross,Sharp-tailed Sandpiper
+-36.0,139.0,Shorebirds & wetland birds,397,33728,11.77,Sharp-tailed Sandpiper,Sharp-tailed Sandpiper
+-36.0,139.0,Land birds,7,33728,0.21,Blue-winged Parrot,Sharp-tailed Sandpiper
+-36.0,140.0,Shorebirds & wetland birds,31,7266,4.27,Sharp-tailed Sandpiper,Malleefowl
+-36.0,140.0,Land birds,35,7266,4.82,Malleefowl,Malleefowl
+-36.0,143.0,Shorebirds & wetland birds,1,3759,0.27,Sharp-tailed Sandpiper,Blue-winged Parrot
+-36.0,143.0,Land birds,4,3759,1.06,Blue-winged Parrot,Blue-winged Parrot
+-37.0,148.0,Shorebirds & wetland birds,1,4953,0.2,Sharp-tailed Sandpiper,Gang-gang Cockatoo
+-37.0,148.0,Land birds,78,4953,15.75,Gang-gang Cockatoo,Gang-gang Cockatoo
+-22.0,150.0,Shorebirds & wetland birds,15,4436,3.38,Latham's Snipe,Latham's Snipe
+-20.0,149.0,Shorebirds & wetland birds,11,4375,2.51,Eastern Curlew,Eastern Curlew
+-20.0,149.0,Land birds,2,4375,0.46,White-throated Needletail,Eastern Curlew
+-34.0,117.0,Shorebirds & wetland birds,3,6603,0.45,Common Greenshank,Common Greenshank
+-39.0,144.0,Seabirds,48,18722,2.56,Shy Albatross,Gang-gang Cockatoo
+-39.0,144.0,Shorebirds & wetland birds,14,18722,0.75,Latham's Snipe,Gang-gang Cockatoo
+-39.0,144.0,Land birds,222,18722,11.86,Gang-gang Cockatoo,Gang-gang Cockatoo
+-12.0,130.0,Shorebirds & wetland birds,7,465,15.05,Great Knot,Great Knot
+-16.0,124.0,Shorebirds & wetland birds,19,819,23.2,Greater Sand Plover,Greater Sand Plover
+-22.0,149.0,Shorebirds & wetland birds,13,1871,6.95,Eastern Curlew,Eastern Curlew
+-36.0,148.0,Shorebirds & wetland birds,2,7727,0.26,Latham's Snipe,Gang-gang Cockatoo
+-36.0,148.0,Land birds,129,7727,16.69,Gang-gang Cockatoo,Gang-gang Cockatoo
+-37.0,147.0,Shorebirds & wetland birds,20,13114,1.53,Latham's Snipe,Gang-gang Cockatoo
+-37.0,147.0,Land birds,272,13114,20.74,Gang-gang Cockatoo,Gang-gang Cockatoo
+-11.0,130.0,Shorebirds & wetland birds,40,615,65.04,Little Tern,Little Tern
+-12.0,132.0,Shorebirds & wetland birds,3,329,9.12,Greater Sand Plover,Greater Sand Plover
+-31.0,116.0,Shorebirds & wetland birds,1,3669,0.27,Greater Sand Plover,Greater Sand Plover
+-35.0,120.0,Seabirds,1510,4783,315.7,Shy Albatross,Shy Albatross
+-12.0,142.0,Shorebirds & wetland birds,4,435,9.2,Little Tern,Little Tern
+-12.0,142.0,Land birds,1,435,2.3,Red Goshawk,Little Tern
+-15.0,144.0,Shorebirds & wetland birds,8,8566,0.93,Latham's Snipe,Red Goshawk
+-15.0,144.0,Land birds,57,8566,6.65,Red Goshawk,Red Goshawk
+-19.0,135.0,Shorebirds & wetland birds,3,1280,2.34,Common Greenshank,Grey Falcon
+-19.0,135.0,Land birds,4,1280,3.12,Grey Falcon,Grey Falcon
+-20.0,136.0,Land birds,6,854,7.03,Grey Falcon,Grey Falcon
+-20.0,137.0,Land birds,5,582,8.59,Grey Falcon,Grey Falcon
+-21.0,134.0,Land birds,1,524,1.91,Grey Falcon,Grey Falcon
+-21.0,141.0,Land birds,1,474,2.11,Grey Falcon,Grey Falcon
+-21.0,142.0,Land birds,2,516,3.88,Grey Falcon,Grey Falcon
+-22.0,142.0,Land birds,9,659,13.66,Grey Falcon,Grey Falcon
+-23.0,127.0,Land birds,20,965,20.73,Princess Parrot,Princess Parrot
+-23.0,143.0,Land birds,34,3252,10.46,Grey Falcon,Grey Falcon
+-24.0,141.0,Land birds,19,2655,7.16,Grey Falcon,Grey Falcon
+-26.0,139.0,Land birds,2,2550,0.78,Grey Falcon,Grey Falcon
+-27.0,143.0,Land birds,36,1070,33.64,Grey Falcon,Grey Falcon
+-14.0,143.0,Shorebirds & wetland birds,1,810,1.23,Latham's Snipe,Latham's Snipe
+-18.0,145.0,Shorebirds & wetland birds,6,5474,1.1,Latham's Snipe,Latham's Snipe
+-18.0,145.0,Land birds,2,5474,0.37,White-throated Needletail,Latham's Snipe
+-23.0,146.0,Shorebirds & wetland birds,3,647,4.64,Latham's Snipe,Latham's Snipe
+-26.0,146.0,Shorebirds & wetland birds,1,2323,0.43,Latham's Snipe,Latham's Snipe
+-26.0,146.0,Land birds,1,2323,0.43,Painted Honeyeater,Latham's Snipe
+-27.0,149.0,Shorebirds & wetland birds,1,5322,0.19,Latham's Snipe,Latham's Snipe
+-27.0,149.0,Land birds,1,5322,0.19,White-throated Needletail,Latham's Snipe
+-30.0,150.0,Shorebirds & wetland birds,11,10347,1.06,Latham's Snipe,Latham's Snipe
+-30.0,150.0,Land birds,10,10347,0.97,White-throated Needletail,Latham's Snipe
+-30.0,151.0,Shorebirds & wetland birds,27,39021,0.69,Latham's Snipe,Diamond Firetail
+-30.0,151.0,Land birds,159,39021,4.07,Diamond Firetail,Diamond Firetail
+-32.0,151.0,Shorebirds & wetland birds,9,17302,0.52,Latham's Snipe,White-throated Needletail
+-32.0,151.0,Land birds,17,17302,0.98,White-throated Needletail,White-throated Needletail
+-23.0,141.0,Land birds,1,320,3.12,Painted Honeyeater,Painted Honeyeater
+-26.0,150.0,Land birds,3,1643,1.83,White-throated Needletail,White-throated Needletail
+-28.0,149.0,Land birds,3,5653,0.53,Painted Honeyeater,Painted Honeyeater
+-19.0,145.0,Land birds,1,419,2.39,White-throated Needletail,White-throated Needletail
+-21.0,148.0,Land birds,5,3910,1.28,White-throated Needletail,White-throated Needletail
+-23.0,150.0,Land birds,1,9786,0.1,White-throated Needletail,White-throated Needletail
+-24.0,150.0,Land birds,4,1436,2.79,White-throated Needletail,White-throated Needletail
+-25.0,151.0,Land birds,4,2408,1.66,White-throated Needletail,White-throated Needletail
+-26.0,148.0,Land birds,1,837,1.19,White-throated Needletail,White-throated Needletail
+-27.0,150.0,Land birds,2,6152,0.33,White-throated Needletail,White-throated Needletail
+-31.0,149.0,Shorebirds & wetland birds,1,11526,0.09,Australian Painted Snipe,Diamond Firetail
+-31.0,149.0,Land birds,21,11526,1.82,Diamond Firetail,Diamond Firetail
+-42.0,146.0,Land birds,3,6809,0.44,Swift Parrot,Swift Parrot
+-31.0,119.0,Land birds,1,1163,0.86,Malleefowl,Malleefowl
+-31.0,120.0,Land birds,1,389,2.57,Malleefowl,Malleefowl
+-32.0,117.0,Shorebirds & wetland birds,1,19816,0.05,Common Greenshank,Malleefowl
+-32.0,117.0,Land birds,1,19816,0.05,Malleefowl,Malleefowl
+-32.0,118.0,Land birds,5,2898,1.73,Malleefowl,Malleefowl
+-32.0,119.0,Land birds,5,611,8.18,Malleefowl,Malleefowl
+-32.0,121.0,Land birds,1,417,2.4,Malleefowl,Malleefowl
+-33.0,117.0,Land birds,1,19371,0.05,Malleefowl,Malleefowl
+-12.0,143.0,Shorebirds & wetland birds,1,1020,0.98,Black-tailed Godwit,Black-tailed Godwit
+-34.0,121.0,Seabirds,1,495,2.02,Northern Giant Petrel,Northern Giant Petrel
+-12.0,133.0,Shorebirds & wetland birds,1,4672,0.21,Eastern Curlew,Eastern Curlew
+-14.0,127.0,Shorebirds & wetland birds,9,666,13.51,Eastern Curlew,Eastern Curlew
+-15.0,135.0,Shorebirds & wetland birds,4,796,5.03,Eastern Curlew,Eastern Curlew
+-16.0,136.0,Shorebirds & wetland birds,4,992,4.03,Little Tern,Little Tern
+-20.0,147.0,Shorebirds & wetland birds,1,5598,0.18,Eastern Curlew,Eastern Curlew
+-44.0,147.0,Seabirds,5,540,9.26,Shy Albatross,Shy Albatross
+-44.0,147.0,Land birds,1,540,1.85,Forty-spotted Pardalote,Shy Albatross
+-30.0,149.0,Shorebirds & wetland birds,1,1083,0.92,Common Greenshank,Superb Parrot
+-30.0,149.0,Land birds,1,1083,0.92,Superb Parrot,Superb Parrot
+-30.0,154.0,Seabirds,9,330,27.27,Buller's Albatross,Buller's Albatross
+-34.0,123.0,Seabirds,2,994,2.01,Indian Yellow-nosed  Albatross,Indian Yellow-nosed  Albatross
+-11.0,131.0,Shorebirds & wetland birds,4,466,8.58,Common Greenshank,Common Greenshank
+-18.0,126.0,Shorebirds & wetland birds,1,2933,0.34,Common Greenshank,Common Greenshank
+-21.0,118.0,Shorebirds & wetland birds,1,424,2.36,Common Greenshank,Common Greenshank
+-31.0,121.0,Shorebirds & wetland birds,1,3013,0.33,Common Greenshank,Common Greenshank
+-34.0,116.0,Shorebirds & wetland birds,4,14654,0.27,Common Greenshank,Common Greenshank

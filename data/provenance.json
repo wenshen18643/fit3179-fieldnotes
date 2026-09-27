@@ -408,6 +408,573 @@
       "title": "Threatened Species State Lists - 28 August 2026 (CSV)",
       "license": "Creative Commons Attribution 3.0 Australia",
       "retrieved": "2026-09-10T09:18:06.675321+00:00"
+    },
+    {
+      "file": "data/raw/threat-Amytornis-dorotheae.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Amytornis+dorotheae%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:13.631897+00:00",
+      "sha256": "58f5484ebaa4b6ed76bff1d47fd8c133441572c5dc8f011b2bc64a57f6621ba1",
+      "total": 183
+    },
+    {
+      "file": "data/raw/threat-Amytornis-modestus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Amytornis+modestus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:13.631897+00:00",
+      "sha256": "7fde01ca87a0ac07f77f58e4cfb1be299101aef01f8720dacc647055e23c870d",
+      "total": 87
+    },
+    {
+      "file": "data/raw/threat-Amytornis-woodwardi.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Amytornis+woodwardi%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:12.628087+00:00",
+      "sha256": "46afe39a395cf898fb0010a7a5dcaa03cc2f0b22de451a1c18d26899a4dcc790",
+      "total": 2
+    },
+    {
+      "file": "data/raw/threat-Anthochaera-phrygia.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Anthochaera+phrygia%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:13.729432+00:00",
+      "sha256": "1f1bdf06a2236f780cf4c0cd5354351297718d3a55921c5bf19f349ba4d3095a",
+      "total": 624
+    },
+    {
+      "file": "data/raw/threat-Aphelocephala-leucopsis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Aphelocephala+leucopsis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:14.856125+00:00",
+      "sha256": "57732935cad633a11ed0bedc2250f74bbd32980fadfd1d35cfa1ac0bdc89fe19",
+      "total": 3247
+    },
+    {
+      "file": "data/raw/threat-Ardenna-grisea.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Ardenna+grisea%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:14.275602+00:00",
+      "sha256": "2985082d07bd2512e283435a0cc5911f0babfb16e45d989e288be1647f1399b8",
+      "total": 891
+    },
+    {
+      "file": "data/raw/threat-Arenaria-interpres.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Arenaria+interpres%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:14.684589+00:00",
+      "sha256": "ce39d400479fcbdb0527b05345c024c9210457a0c6d35ac6fe2e7ae29a9dfe94",
+      "total": 4100
+    },
+    {
+      "file": "data/raw/threat-Atrichornis-clamosus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Atrichornis+clamosus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:14.823754+00:00",
+      "sha256": "78b4d70758f0fcd9a41065c2d7be995ceb5bdd2c2a3531707c8450f4189d417e",
+      "total": 332
+    },
+    {
+      "file": "data/raw/threat-Atrichornis-rufescens.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Atrichornis+rufescens%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:15.246986+00:00",
+      "sha256": "6cf17afb2ccc6514f166ffb1f4cb9ef8b1901aa6cda6c1bb7fde832ce6f5bcf4",
+      "total": 230
+    },
+    {
+      "file": "data/raw/threat-Botaurus-poiciloptilus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Botaurus+poiciloptilus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:15.406718+00:00",
+      "sha256": "e5abd012833228e5d031008baa51a7888b61799a807da73777a81c0f4e61de3b",
+      "total": 605
+    },
+    {
+      "file": "data/raw/threat-Calidris-acuminata.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Calidris+acuminata%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:15.716812+00:00",
+      "sha256": "7a241704693b421e73b69e13f3f42b0e0429b2bdfc5dec9232c340d26473f696",
+      "total": 9145
+    },
+    {
+      "file": "data/raw/threat-Calidris-canutus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Calidris+canutus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:15.812840+00:00",
+      "sha256": "83cf85a5d431e5b221e6e563928299b14a12d55d5acc08b1fa15b8ed5a028da9",
+      "total": 2121
+    },
+    {
+      "file": "data/raw/threat-Calidris-ferruginea.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Calidris+ferruginea%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:16.148392+00:00",
+      "sha256": "67fa2eca25004d668a9b7f856e0aa59adcdadc55173be4666ac177a5afab2365",
+      "total": 3738
+    },
+    {
+      "file": "data/raw/threat-Calidris-tenuirostris.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Calidris+tenuirostris%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:16.278759+00:00",
+      "sha256": "dc7c5d23d5c47c841ee4997e36e5da6be305352cb7accf7d9c7c93c201ef76d5",
+      "total": 3524
+    },
+    {
+      "file": "data/raw/threat-Callocephalon-fimbriatum.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Callocephalon+fimbriatum%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:16.366407+00:00",
+      "sha256": "1b4ed0bf6bb493a767beecae0e5ac6f7b3029c19542904690fa634ef926e5824",
+      "total": 8201
+    },
+    {
+      "file": "data/raw/threat-Calyptorhynchus-baudinii.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Calyptorhynchus+baudinii%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:17.604804+00:00",
+      "sha256": "d96e6c1ea051c4b3248908aed168ba3acad878c120de03c2df310ef0d79250a7",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Calyptorhynchus-latirostris.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Calyptorhynchus+latirostris%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:17.712875+00:00",
+      "sha256": "381c57b941aa1343f3fe0991b1f57738c5e45f87845daaf2452421a87199bac8",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Charadrius-leschenaultii.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Charadrius+leschenaultii%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:16.937385+00:00",
+      "sha256": "5bbf06fad560d3b6d8487dd7cd8037351424bf512103b7428a960548048627e3",
+      "total": 2523
+    },
+    {
+      "file": "data/raw/threat-Charadrius-mongolus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Charadrius+mongolus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:17.490933+00:00",
+      "sha256": "80f8374a9cb8698ed100554e3b0b82da529f6d272322b9ed40d01f52085574c1",
+      "total": 1791
+    },
+    {
+      "file": "data/raw/threat-Cyanoramphus-cookii.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Cyanoramphus+cookii%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:18.042742+00:00",
+      "sha256": "2dd76b83b6ff48f18ffc829338124d36ae83b4283b6166730eaa430c334bd30a",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Dasyornis-brachypterus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Dasyornis+brachypterus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:18.165084+00:00",
+      "sha256": "8617643633261b935cb825532f3952d2236f9bd54cd40e98fa413d9582c9857e",
+      "total": 590
+    },
+    {
+      "file": "data/raw/threat-Dasyornis-longirostris.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Dasyornis+longirostris%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:18.281627+00:00",
+      "sha256": "ab67544e01edd16e5f6d56214a05438e7c3bd694d6e08cbf20b8aa2355bb5200",
+      "total": 355
+    },
+    {
+      "file": "data/raw/threat-Diomedea-amsterdamensis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Diomedea+amsterdamensis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:18.612504+00:00",
+      "sha256": "a873e401b6b8bda080f44471c9d5e2aecca8e449c6939606f9d69e376374de7a",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Diomedea-antipodensis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Diomedea+antipodensis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:18.760560+00:00",
+      "sha256": "cc7d7c3b5a5b8f160b8f4f9cbcbf81a175f061288b3ecc82a51cb2d45845e908",
+      "total": 1111
+    },
+    {
+      "file": "data/raw/threat-Diomedea-dabbenena.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Diomedea+dabbenena%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:19.581493+00:00",
+      "sha256": "f03e0491bd3ea6eafb595e706fc2261366e684be703d070af85cc7f43671b6ae",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Diomedea-epomophora.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Diomedea+epomophora%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:19.192104+00:00",
+      "sha256": "97c178a2623f8d936e935ef9732c7e0018afccda47682ef5b910d2087de2a20b",
+      "total": 262
+    },
+    {
+      "file": "data/raw/threat-Diomedea-exulans.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Diomedea+exulans%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:19.303332+00:00",
+      "sha256": "d369db2a748b8fb51f4bc133034b530ba8ad53482ba59b01947bff02c854afd9",
+      "total": 308
+    },
+    {
+      "file": "data/raw/threat-Diomedea-sanfordi.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Diomedea+sanfordi%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:19.773745+00:00",
+      "sha256": "ca7bd082b586f3dca28ea0600434a21a1e5813677861fda7571fd3ed546023ce",
+      "total": 246
+    },
+    {
+      "file": "data/raw/threat-Erythrotriorchis-radiatus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Erythrotriorchis+radiatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:19.893736+00:00",
+      "sha256": "08c7d68b90138123c4ef534da3bef2bb80b38eca22544faf5be9e287a93ce130",
+      "total": 92
+    },
+    {
+      "file": "data/raw/threat-Erythrura-gouldiae.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Erythrura+gouldiae%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:20.147756+00:00",
+      "sha256": "cd101cad5e82e80cbe52b1d627452cca94c60a91146db88832630bfc8ca2db0a",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Falco-hypoleucos.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Falco+hypoleucos%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:20.380474+00:00",
+      "sha256": "7da1f0c5b2076edda160ccf7356b098b7e17505f5f4bac6717a23623b0287516",
+      "total": 259
+    },
+    {
+      "file": "data/raw/threat-Fregata-andrewsi.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Fregata+andrewsi%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:20.468868+00:00",
+      "sha256": "abd13d7ce22f3ace9e0747fe953c10e37b56cfdcc64b73613203b842c0e9c12c",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Gallinago-hardwickii.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Gallinago+hardwickii%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:20.933178+00:00",
+      "sha256": "8678256850ce629bf90d9cf63578a20ad56d2a21f6509bb38b1306bc226e64d6",
+      "total": 5219
+    },
+    {
+      "file": "data/raw/threat-Grantiella-picta.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Grantiella+picta%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:20.969521+00:00",
+      "sha256": "c11c0d939b3d225b8447a3852294694658e9ca4fbb1a82d4a3ddd7f82ef4d9f7",
+      "total": 599
+    },
+    {
+      "file": "data/raw/threat-Halobaena-caerulea.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Halobaena+caerulea%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:21.052438+00:00",
+      "sha256": "d0e6299c6ee245f4083bbcf13a0a4d9c5ad2627ebb4cd9bd0ae8b756cc681b7e",
+      "total": 99
+    },
+    {
+      "file": "data/raw/threat-Hirundapus-caudacutus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Hirundapus+caudacutus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:21.681142+00:00",
+      "sha256": "e9754ce70c80eef857f22302f2822eef227375849efa17f55b57cba6c3b6be77",
+      "total": 4303
+    },
+    {
+      "file": "data/raw/threat-Hypotaenidia-sylvestris.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Hypotaenidia+sylvestris%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:21.536168+00:00",
+      "sha256": "51d44c5e003939d63165baf4eac723c9142422ad966040fb17a796449ffdae94",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Lathamus-discolor.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Lathamus+discolor%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:21.642097+00:00",
+      "sha256": "464481407780a782b68d6d675d529dd75a57668d180f1bdb4a4e7f3dfb1c5315",
+      "total": 2029
+    },
+    {
+      "file": "data/raw/threat-Leipoa-ocellata.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Leipoa+ocellata%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:22.108401+00:00",
+      "sha256": "fc563d51a4bc43ef6c3e0a42f7de95c5a2f0e56a4d95046bf86196771bd8996e",
+      "total": 670
+    },
+    {
+      "file": "data/raw/threat-Limnodromus-semipalmatus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Limnodromus+semipalmatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:22.203219+00:00",
+      "sha256": "3f93f2239fa65a5b6194020f4e0c283a2d228eaf7c26c2908360755708f5f249",
+      "total": 200
+    },
+    {
+      "file": "data/raw/threat-Limosa-limosa.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Limosa+limosa%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:22.224227+00:00",
+      "sha256": "a0a371d2581e94c731eca8a9637817dfc4ad83951ff2ffad86ffa49df79f8748",
+      "total": 1823
+    },
+    {
+      "file": "data/raw/threat-Macronectes-giganteus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Macronectes+giganteus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:22.740444+00:00",
+      "sha256": "832fd7cd326aaf888604854909ef927d756d202d313a5e2288366f135b728c17",
+      "total": 280
+    },
+    {
+      "file": "data/raw/threat-Macronectes-halli.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Macronectes+halli%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:22.761457+00:00",
+      "sha256": "034f3d8718e491f5e53046b43c0172d5814352968b4871a51321eec0a56cd8bc",
+      "total": 768
+    },
+    {
+      "file": "data/raw/threat-Manorina-melanotis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Manorina+melanotis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:22.793548+00:00",
+      "sha256": "5b55f95a313f054c75d123cf2bb3dec8b52774e01539fef4b9d0460a6c8a6b9e",
+      "total": 54
+    },
+    {
+      "file": "data/raw/threat-Neophema-chrysogaster.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Neophema+chrysogaster%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:23.310091+00:00",
+      "sha256": "d87577be82f96d68ee83a79c66b3a87229b2c6746fff457a852ccecc1cf4801c",
+      "total": 30
+    },
+    {
+      "file": "data/raw/threat-Neophema-chrysostoma.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Neophema+chrysostoma%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:23.310091+00:00",
+      "sha256": "92c425d76472f335ff72903f80b765e5add42f7689a36b621f87cb42a3e02df0",
+      "total": 2659
+    },
+    {
+      "file": "data/raw/threat-Ninox-natalis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Ninox+natalis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:23.358152+00:00",
+      "sha256": "d186c21c5730855bcd44061d543f057e46c0ce340480317eb5ec067c387583c6",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Numenius-madagascariensis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Numenius+madagascariensis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:24.046849+00:00",
+      "sha256": "03eeeae5b336b1d4e108dc9eea54ee10f7bfdce60d5a3715fd99a41b81348200",
+      "total": 9373
+    },
+    {
+      "file": "data/raw/threat-Pachycephala-rufogularis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pachycephala+rufogularis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:23.876592+00:00",
+      "sha256": "e2bff630e853a82a335f07dad793c27d36db954ffbcdc704bf2ed683a5573e08",
+      "total": 140
+    },
+    {
+      "file": "data/raw/threat-Papasula-abbotti.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Papasula+abbotti%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:24.008850+00:00",
+      "sha256": "8bb63ddf05f68436916bed850edde79d290926e32df29fd9036b6ad599e18edd",
+      "total": 4
+    },
+    {
+      "file": "data/raw/threat-Pardalotus-quadragintus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pardalotus+quadragintus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:24.434045+00:00",
+      "sha256": "ef1884634dded13d662d51e9ad73cd98e28d850b2a5a987053fbf6ae0bba5502",
+      "total": 719
+    },
+    {
+      "file": "data/raw/threat-Pedionomus-torquatus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pedionomus+torquatus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:24.574416+00:00",
+      "sha256": "2b40e0e868b0dc92b20062fd04195bfe2677caaba57c7cfd2bf260e3dba0aa6d",
+      "total": 31
+    },
+    {
+      "file": "data/raw/threat-Petroica-multicolor.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Petroica+multicolor%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:24.602421+00:00",
+      "sha256": "c9ded913e2cc7508e13feaddff05420cb6e0e1082f08a2fcdb18b7d750b912a2",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Pezoporus-flaviventris.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pezoporus+flaviventris%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:25.086588+00:00",
+      "sha256": "9bd9b84ba1b13e0537d89a84ea241f237dc34fecfe3409a76e7648cf56db3243",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Pezoporus-occidentalis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pezoporus+occidentalis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:25.127589+00:00",
+      "sha256": "fc618b5e3888490b006eaecfc48b73caf5b3fdad5ccd924557379cb6dfaa4e7c",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Phoebetria-fusca.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Phoebetria+fusca%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:25.299564+00:00",
+      "sha256": "b3ce8fc266ac0a0cdfc75c7e87a8c2164cc26caf67c7b1c68b32e5df92fe39c0",
+      "total": 82
+    },
+    {
+      "file": "data/raw/threat-Pluvialis-squatarola.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pluvialis+squatarola%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:25.714471+00:00",
+      "sha256": "999d1e24b3d3588cf16006d0e5defe600bca84fe2ceac424d0e913f9fdfbf2c4",
+      "total": 1554
+    },
+    {
+      "file": "data/raw/threat-Polytelis-alexandrae.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Polytelis+alexandrae%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:25.726473+00:00",
+      "sha256": "2cfc010d73022d714f026f26dee325a276fc0f862e0dd31cd65db1905bf3037e",
+      "total": 20
+    },
+    {
+      "file": "data/raw/threat-Polytelis-swainsonii.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Polytelis+swainsonii%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:25.886311+00:00",
+      "sha256": "c3eb75806e039b2f44f624cd49645cf14b9eab8a7b4b73833743819bee570d81",
+      "total": 3106
+    },
+    {
+      "file": "data/raw/threat-Psephotus-chrysopterygius.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Psephotus+chrysopterygius%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:26.265904+00:00",
+      "sha256": "9bec58bd111ab097910997f6e292f5cf04d1796dcf6aa90649b6b083f3f36d0f",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Pterodroma-heraldica.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pterodroma+heraldica%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:26.367610+00:00",
+      "sha256": "dcc1748eaaf98bce5a943bf5264cf3085490d9b14c708931189b216b2274f39a",
+      "total": 14
+    },
+    {
+      "file": "data/raw/threat-Pterodroma-mollis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pterodroma+mollis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:26.444740+00:00",
+      "sha256": "d6e0a7ff087e0fc52b29ef500e46edac84ae8fa9366b92e2c40b515e245d9c24",
+      "total": 166
+    },
+    {
+      "file": "data/raw/threat-Pycnoptilus-floccosus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Pycnoptilus+floccosus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:26.850078+00:00",
+      "sha256": "4d58aa705dd62fa5b18fb669a90e236fb61ec1708cd0a2a008d44827e9d758dd",
+      "total": 874
+    },
+    {
+      "file": "data/raw/threat-Rostratula-australis.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Rostratula+australis%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:26.958712+00:00",
+      "sha256": "74a70b5e0eec587c1908ead6d62339fe19d060f486b982c569e197c043c0e979",
+      "total": 194
+    },
+    {
+      "file": "data/raw/threat-Stagonopleura-guttata.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Stagonopleura+guttata%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:27.008889+00:00",
+      "sha256": "9ae42209cdbd7030a9d60284d509adc1586da9b651efba6913af047b771eea6b",
+      "total": 3285
+    },
+    {
+      "file": "data/raw/threat-Sternula-albifrons.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Sternula+albifrons%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:27.639416+00:00",
+      "sha256": "0547f4fe5f54588ce6fdccfe654a702207aa21fe70328d1b996e6cbb71e2baba",
+      "total": 4357
+    },
+    {
+      "file": "data/raw/threat-Stipiturus-mallee.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Stipiturus+mallee%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:27.503295+00:00",
+      "sha256": "2d866cbacbe43010a00d97997e35a44f3d816575d4450a8009ea34364b8e63cb",
+      "total": 292
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-bulleri.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+bulleri%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:27.639416+00:00",
+      "sha256": "0731c029d9a08fc71c40d3c69ccdd1cc843ca8e2b93de2642d1b789b75c64e78",
+      "total": 1020
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-carteri.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+carteri%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:28.119904+00:00",
+      "sha256": "23c88d4a67dc340a6bcea6338a056f138bd78e5b1695f93d776e59173c12bb8e",
+      "total": 1347
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-cauta.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+cauta%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:28.209337+00:00",
+      "sha256": "fdca042f4e89b8adf8d4f3956e731dec94e2fdb736e0789369ba8d3b3efa15b7",
+      "total": 3434
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-chrysostoma.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+chrysostoma%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:28.197327+00:00",
+      "sha256": "c306f50a6108ef2178675ce6c474909eb71389df1d3afe77166c64c748af4b4c",
+      "total": 59
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-eremita.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+eremita%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:28.659268+00:00",
+      "sha256": "cee5f47fd3fc229729c7ec4b4e01139074a5f7f4068ae6bbea07f9df2c149e18",
+      "total": 9
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-impavida.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+impavida%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:28.750330+00:00",
+      "sha256": "2573127524bb8129f6e8d458306afa8314fde3449c568c397e2a391652e3b7df",
+      "total": 688
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-melanophris.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+melanophris%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:28.762852+00:00",
+      "sha256": "d566643eeeedbf4c43b3ca4df4f11c8defd80e2518be20be7fcdf95f755bbf50",
+      "total": 1971
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-salvini.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+salvini%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:29.278842+00:00",
+      "sha256": "f535a3b04801542aa8343e0157a4d7d367641e57a51544bca91540378ed2fa50",
+      "total": 43
+    },
+    {
+      "file": "data/raw/threat-Thalassarche-steadi.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Thalassarche+steadi%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:29.344456+00:00",
+      "sha256": "fa45f5055e1268ff4986abc1333935d38b9cbdc59a5c927784880374518f8cef",
+      "total": 52
+    },
+    {
+      "file": "data/raw/threat-Tringa-nebularia.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Tringa+nebularia%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:29.514000+00:00",
+      "sha256": "16d78f0f0f91808ad0fb670ba864307f33b6d4dfed5319c5d95a56b2b68def21",
+      "total": 5842
+    },
+    {
+      "file": "data/raw/threat-Turnix-melanogaster.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Turnix+melanogaster%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:29.893458+00:00",
+      "sha256": "c6bdf7aac672229ed7a165671ce0eef8dbfaadcb15b2f57125bfe35b881c58b6",
+      "total": 159
+    },
+    {
+      "file": "data/raw/threat-Turnix-olivii.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Turnix+olivii%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:29.879463+00:00",
+      "sha256": "a480d68121605099dd3a28e9d26b8fc699d4ab0a4e9c9cec2fbde002c3850768",
+      "total": 0
+    },
+    {
+      "file": "data/raw/threat-Xenus-cinereus.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=species%3A%22Xenus+cinereus%22&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=point-1",
+      "retrieved": "2026-09-27T04:27:30.100144+00:00",
+      "sha256": "ac8fcf80f7b941136326b63d0fde9bdb23f442f9b84d0990e1ab2a68bcdb6fe4",
+      "total": 1921
+    },
+    {
+      "file": "data/raw/abs-erp-2024q2.csv",
+      "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_Q,1.0.0/1.3.TOT.1+2+3+4+5+6+7+8.Q?startPeriod=2024-Q2&endPeriod=2024-Q2&format=csvfilewithlabels",
+      "title": "ABS Estimated Resident Population, states and territories, June 2024",
+      "sha256": "ddfc4373641ca5a1f45edcc9cd97705e7eedabe2ceffde2fe381dfa59fa38171",
+      "retrieved": "2026-09-27T04:27:32.076670+00:00"
     }
   ]
 }

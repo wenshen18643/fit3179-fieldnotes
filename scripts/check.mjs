@@ -25,13 +25,14 @@ for(const width of [920,360])for(const [id,builder] of Object.entries(chartBuild
     assert(svg.includes('<svg'),'No SVG output: '+id);
     assert(!/\b(?:NaN|Infinity)\b/.test(svg),'Invalid plotted coordinate: '+id);
     await fs.writeFile(path.join('artifacts/qa',`${id}-${width}.svg`),svg);
-    if(id==='seasonal-footprint'){
-      view.signal('season','Winter');await view.runAsync();
-      const winter=await view.toSVG();assert(winter!==svg,'Season control failed to change the map');
-    }
-    if(id==='monthly-ranks'){
-      view.signal('highlight','Australian Magpie');await view.runAsync();
-      assert(await view.toSVG()!==svg,'Species highlighting did not change output');
+    // Every control must visibly change its chart.
+    const controls={'seasonal-footprint':['season','Winter'],'monthly-ranks':['highlight','Australian Magpie'],
+      'observation-atlas':['cover',.9],'record-density':['measure','people'],'season-field':['who','Bee-eater'],
+      'threat-spikes':['group','Land birds'],'state-circles':['measure','records'],'shared-responsibility':['picked','SA'],
+      'record-rivers':['source','iNaturalist Australia']};
+    if(controls[id]){
+      view.signal(...controls[id]);await view.runAsync();
+      assert(await view.toSVG()!==svg,'Control did not change output: '+id);
     }
     console.log('PASS',id,width);n++;
   }finally{view.finalize();}

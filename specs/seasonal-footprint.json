@@ -44,7 +44,7 @@
       "anchor": "start"
     }
   },
-  "description": "Proportional-symbol map of rainbow bee-eater records aggregated to rounded one-degree locations, selectable by season. Bubble area, not radius, represents count. The size scale stays fixed between seasons.",
+  "description": "Proportional-symbol map of rainbow bee-eater records in one-degree squares for the chosen season, with the opposite season drawn as hollow rings. Circle area represents count, on one fixed scale.",
   "params": [
     {
       "name": "season",
@@ -15673,14 +15673,14 @@
       },
       "transform": [
         {
-          "filter": "datum.season===season"
+          "filter": "datum.season==={'Summer':'Winter','Winter':'Summer','Autumn':'Spring','Spring':'Autumn'}[season]"
         }
       ],
       "mark": {
         "type": "circle",
-        "opacity": 0.68,
-        "stroke": "#f8f5ec",
-        "strokeWidth": 0.6
+        "filled": false,
+        "strokeWidth": 1.1,
+        "opacity": 0.75
       },
       "encoding": {
         "longitude": {
@@ -15701,18 +15701,22 @@
             ],
             "range": [
               0,
-              700
+              760
             ]
           },
           "legend": {
             "title": "Bee-eater records",
             "orient": "bottom",
+            "direction": "horizontal",
             "values": [
               100,
               500,
               1000
             ],
-            "symbolFillColor": "#ad7926"
+            "symbolFillColor": "#d9bd90",
+            "symbolStrokeColor": "#9b6a26",
+            "symbolStrokeWidth": 1,
+            "symbolOpacity": 1
           }
         },
         "color": {
@@ -15746,11 +15750,6824 @@
           },
           {
             "field": "latitude",
-            "title": "Rounded latitude"
+            "title": "Latitude"
           },
           {
             "field": "longitude",
-            "title": "Rounded longitude"
+            "title": "Longitude"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "season": "Summer",
+            "latitude": -12,
+            "longitude": 131,
+            "count": 428
+          },
+          {
+            "season": "Summer",
+            "latitude": -12,
+            "longitude": 137,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -13,
+            "longitude": 131,
+            "count": 45
+          },
+          {
+            "season": "Summer",
+            "latitude": -13,
+            "longitude": 133,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -13,
+            "longitude": 136,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -13,
+            "longitude": 143,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -14,
+            "longitude": 132,
+            "count": 67
+          },
+          {
+            "season": "Summer",
+            "latitude": -15,
+            "longitude": 128,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -15,
+            "longitude": 131,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -15,
+            "longitude": 132,
+            "count": 28
+          },
+          {
+            "season": "Summer",
+            "latitude": -15,
+            "longitude": 133,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -16,
+            "longitude": 126,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -16,
+            "longitude": 128,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -16,
+            "longitude": 129,
+            "count": 18
+          },
+          {
+            "season": "Summer",
+            "latitude": -16,
+            "longitude": 131,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -16,
+            "longitude": 145,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -17,
+            "longitude": 128,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -17,
+            "longitude": 141,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -17,
+            "longitude": 145,
+            "count": 45
+          },
+          {
+            "season": "Summer",
+            "latitude": -17,
+            "longitude": 146,
+            "count": 188
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 122,
+            "count": 119
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 123,
+            "count": 12
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 124,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 125,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 126,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 128,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 141,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 146,
+            "count": 21
+          },
+          {
+            "season": "Summer",
+            "latitude": -19,
+            "longitude": 146,
+            "count": 23
+          },
+          {
+            "season": "Summer",
+            "latitude": -19,
+            "longitude": 147,
+            "count": 213
+          },
+          {
+            "season": "Summer",
+            "latitude": -20,
+            "longitude": 119,
+            "count": 31
+          },
+          {
+            "season": "Summer",
+            "latitude": -20,
+            "longitude": 121,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -20,
+            "longitude": 134,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -20,
+            "longitude": 147,
+            "count": 22
+          },
+          {
+            "season": "Summer",
+            "latitude": -20,
+            "longitude": 148,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -21,
+            "longitude": 117,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -21,
+            "longitude": 120,
+            "count": 12
+          },
+          {
+            "season": "Summer",
+            "latitude": -21,
+            "longitude": 149,
+            "count": 19
+          },
+          {
+            "season": "Summer",
+            "latitude": -22,
+            "longitude": 114,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -22,
+            "longitude": 119,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 120,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 131,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 150,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 151,
+            "count": 12
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 152,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 116,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 133,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 134,
+            "count": 24
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 145,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 150,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 151,
+            "count": 17
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 152,
+            "count": 10
+          },
+          {
+            "season": "Summer",
+            "latitude": -25,
+            "longitude": 131,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -25,
+            "longitude": 146,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -25,
+            "longitude": 152,
+            "count": 106
+          },
+          {
+            "season": "Summer",
+            "latitude": -25,
+            "longitude": 153,
+            "count": 20
+          },
+          {
+            "season": "Summer",
+            "latitude": -26,
+            "longitude": 146,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -26,
+            "longitude": 153,
+            "count": 129
+          },
+          {
+            "season": "Summer",
+            "latitude": -27,
+            "longitude": 149,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -27,
+            "longitude": 150,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -27,
+            "longitude": 151,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -27,
+            "longitude": 152,
+            "count": 21
+          },
+          {
+            "season": "Summer",
+            "latitude": -27,
+            "longitude": 153,
+            "count": 863
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 114,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 115,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 140,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 145,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 149,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 151,
+            "count": 11
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 152,
+            "count": 50
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 153,
+            "count": 485
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 154,
+            "count": 113
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 115,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 117,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 141,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 148,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 149,
+            "count": 8
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 150,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 151,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 152,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 153,
+            "count": 44
+          },
+          {
+            "season": "Summer",
+            "latitude": -29,
+            "longitude": 154,
+            "count": 103
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 116,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 117,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 150,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 151,
+            "count": 11
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 153,
+            "count": 106
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 115,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 116,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 121,
+            "count": 13
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 147,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 148,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 149,
+            "count": 11
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 150,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 151,
+            "count": 11
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 152,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 153,
+            "count": 113
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 115,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 116,
+            "count": 746
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 117,
+            "count": 35
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 118,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 122,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 126,
+            "count": 19
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 133,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 138,
+            "count": 20
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 141,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 142,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 146,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 149,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 150,
+            "count": 17
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 151,
+            "count": 29
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 152,
+            "count": 35
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 153,
+            "count": 66
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 116,
+            "count": 29
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 117,
+            "count": 89
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 123,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 137,
+            "count": 19
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 138,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 139,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 146,
+            "count": 90
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 148,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 149,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 150,
+            "count": 27
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 151,
+            "count": 43
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 152,
+            "count": 33
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 115,
+            "count": 15
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 116,
+            "count": 14
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 117,
+            "count": 7
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 118,
+            "count": 9
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 119,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 138,
+            "count": 10
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 139,
+            "count": 30
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 140,
+            "count": 86
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 141,
+            "count": 40
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 142,
+            "count": 28
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 144,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 146,
+            "count": 10
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 148,
+            "count": 15
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 149,
+            "count": 35
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 151,
+            "count": 106
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 139,
+            "count": 189
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 140,
+            "count": 13
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 141,
+            "count": 12
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 142,
+            "count": 131
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 143,
+            "count": 59
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 144,
+            "count": 10
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 145,
+            "count": 24
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 146,
+            "count": 11
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 147,
+            "count": 22
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 148,
+            "count": 13
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 149,
+            "count": 69
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 141,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 142,
+            "count": 50
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 143,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 144,
+            "count": 114
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 145,
+            "count": 88
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 146,
+            "count": 112
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 147,
+            "count": 51
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 148,
+            "count": 10
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 149,
+            "count": 47
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 141,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 142,
+            "count": 17
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 143,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 144,
+            "count": 97
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 145,
+            "count": 40
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 146,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 147,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 148,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -38,
+            "longitude": 144,
+            "count": 50
+          },
+          {
+            "season": "Summer",
+            "latitude": -38,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -38,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -11,
+            "longitude": 142,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -12,
+            "longitude": 135,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -12,
+            "longitude": 136,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -13,
+            "longitude": 130,
+            "count": 19
+          },
+          {
+            "season": "Summer",
+            "latitude": -14,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -16,
+            "longitude": 133,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -17,
+            "longitude": 124,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -19,
+            "longitude": 122,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -21,
+            "longitude": 148,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -22,
+            "longitude": 120,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 144,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -26,
+            "longitude": 114,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -26,
+            "longitude": 130,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -26,
+            "longitude": 149,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -27,
+            "longitude": 144,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 115,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 121,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 146,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 117,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 139,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 142,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 146,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 123,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 127,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 129,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 139,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 143,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 144,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 142,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 147,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 150,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 138,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -12,
+            "longitude": 131,
+            "count": 685
+          },
+          {
+            "season": "Autumn",
+            "latitude": -12,
+            "longitude": 132,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -12,
+            "longitude": 136,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -13,
+            "longitude": 131,
+            "count": 106
+          },
+          {
+            "season": "Autumn",
+            "latitude": -13,
+            "longitude": 132,
+            "count": 11
+          },
+          {
+            "season": "Autumn",
+            "latitude": -13,
+            "longitude": 133,
+            "count": 20
+          },
+          {
+            "season": "Autumn",
+            "latitude": -13,
+            "longitude": 142,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -14,
+            "longitude": 131,
+            "count": 11
+          },
+          {
+            "season": "Autumn",
+            "latitude": -14,
+            "longitude": 132,
+            "count": 94
+          },
+          {
+            "season": "Autumn",
+            "latitude": -14,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 128,
+            "count": 20
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 132,
+            "count": 38
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 133,
+            "count": 15
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 128,
+            "count": 42
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 129,
+            "count": 110
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 133,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 145,
+            "count": 72
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 122,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 126,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 141,
+            "count": 6
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 145,
+            "count": 333
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 146,
+            "count": 453
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 122,
+            "count": 412
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 123,
+            "count": 32
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 126,
+            "count": 30
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 141,
+            "count": 10
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 143,
+            "count": 17
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 145,
+            "count": 10
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 146,
+            "count": 35
+          },
+          {
+            "season": "Autumn",
+            "latitude": -19,
+            "longitude": 122,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -19,
+            "longitude": 134,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -19,
+            "longitude": 143,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -19,
+            "longitude": 146,
+            "count": 73
+          },
+          {
+            "season": "Autumn",
+            "latitude": -19,
+            "longitude": 147,
+            "count": 391
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 119,
+            "count": 45
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 134,
+            "count": 21
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 146,
+            "count": 6
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 147,
+            "count": 29
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 117,
+            "count": 17
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 119,
+            "count": 10
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 120,
+            "count": 10
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 139,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 140,
+            "count": 30
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 141,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 144,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 146,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 147,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 149,
+            "count": 37
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 114,
+            "count": 22
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 116,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 117,
+            "count": 9
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 143,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 119,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 120,
+            "count": 12
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 131,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 143,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 144,
+            "count": 9
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 145,
+            "count": 18
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 148,
+            "count": 6
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 149,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 150,
+            "count": 15
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 151,
+            "count": 16
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 134,
+            "count": 13
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 144,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 145,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 148,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 151,
+            "count": 27
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 152,
+            "count": 16
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 131,
+            "count": 12
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 152,
+            "count": 103
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 153,
+            "count": 32
+          },
+          {
+            "season": "Autumn",
+            "latitude": -26,
+            "longitude": 114,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -26,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -26,
+            "longitude": 152,
+            "count": 14
+          },
+          {
+            "season": "Autumn",
+            "latitude": -26,
+            "longitude": 153,
+            "count": 121
+          },
+          {
+            "season": "Autumn",
+            "latitude": -27,
+            "longitude": 134,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -27,
+            "longitude": 149,
+            "count": 12
+          },
+          {
+            "season": "Autumn",
+            "latitude": -27,
+            "longitude": 150,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -27,
+            "longitude": 151,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -27,
+            "longitude": 152,
+            "count": 47
+          },
+          {
+            "season": "Autumn",
+            "latitude": -27,
+            "longitude": 153,
+            "count": 1103
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 114,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 145,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 146,
+            "count": 11
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 147,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 149,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 151,
+            "count": 9
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 152,
+            "count": 47
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 153,
+            "count": 799
+          },
+          {
+            "season": "Autumn",
+            "latitude": -28,
+            "longitude": 154,
+            "count": 49
+          },
+          {
+            "season": "Autumn",
+            "latitude": -29,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -29,
+            "longitude": 151,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -29,
+            "longitude": 152,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -29,
+            "longitude": 153,
+            "count": 45
+          },
+          {
+            "season": "Autumn",
+            "latitude": -29,
+            "longitude": 154,
+            "count": 109
+          },
+          {
+            "season": "Autumn",
+            "latitude": -30,
+            "longitude": 142,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -30,
+            "longitude": 146,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -30,
+            "longitude": 150,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -30,
+            "longitude": 151,
+            "count": 18
+          },
+          {
+            "season": "Autumn",
+            "latitude": -30,
+            "longitude": 153,
+            "count": 24
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 116,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 117,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 118,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 121,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 138,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 139,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 142,
+            "count": 18
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 144,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 146,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 149,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 151,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 152,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -31,
+            "longitude": 153,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 116,
+            "count": 52
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 117,
+            "count": 6
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 118,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 126,
+            "count": 9
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 127,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 129,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 138,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 142,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 146,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 149,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 150,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 152,
+            "count": 18
+          },
+          {
+            "season": "Autumn",
+            "latitude": -32,
+            "longitude": 153,
+            "count": 20
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 116,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 117,
+            "count": 7
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 121,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 137,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 138,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 139,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 140,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 146,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 149,
+            "count": 9
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 150,
+            "count": 12
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 151,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -33,
+            "longitude": 152,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 115,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 116,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 119,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 122,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 138,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 139,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 140,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 141,
+            "count": 10
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 142,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 147,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 148,
+            "count": 23
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 149,
+            "count": 21
+          },
+          {
+            "season": "Autumn",
+            "latitude": -34,
+            "longitude": 151,
+            "count": 16
+          },
+          {
+            "season": "Autumn",
+            "latitude": -35,
+            "longitude": 138,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -35,
+            "longitude": 139,
+            "count": 36
+          },
+          {
+            "season": "Autumn",
+            "latitude": -35,
+            "longitude": 142,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -35,
+            "longitude": 144,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -35,
+            "longitude": 145,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -35,
+            "longitude": 146,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -35,
+            "longitude": 147,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -35,
+            "longitude": 149,
+            "count": 25
+          },
+          {
+            "season": "Autumn",
+            "latitude": -36,
+            "longitude": 141,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -36,
+            "longitude": 142,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -36,
+            "longitude": 143,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -36,
+            "longitude": 144,
+            "count": 23
+          },
+          {
+            "season": "Autumn",
+            "latitude": -36,
+            "longitude": 145,
+            "count": 6
+          },
+          {
+            "season": "Autumn",
+            "latitude": -36,
+            "longitude": 146,
+            "count": 26
+          },
+          {
+            "season": "Autumn",
+            "latitude": -36,
+            "longitude": 147,
+            "count": 36
+          },
+          {
+            "season": "Autumn",
+            "latitude": -36,
+            "longitude": 149,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -37,
+            "longitude": 141,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -37,
+            "longitude": 142,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -37,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -37,
+            "longitude": 144,
+            "count": 28
+          },
+          {
+            "season": "Autumn",
+            "latitude": -37,
+            "longitude": 145,
+            "count": 12
+          },
+          {
+            "season": "Autumn",
+            "latitude": -37,
+            "longitude": 146,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -37,
+            "longitude": 148,
+            "count": 7
+          },
+          {
+            "season": "Autumn",
+            "latitude": -38,
+            "longitude": 144,
+            "count": 12
+          },
+          {
+            "season": "Autumn",
+            "latitude": -38,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -11,
+            "longitude": 131,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -11,
+            "longitude": 142,
+            "count": 36
+          },
+          {
+            "season": "Autumn",
+            "latitude": -12,
+            "longitude": 135,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -12,
+            "longitude": 137,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -13,
+            "longitude": 136,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 135,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 144,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 145,
+            "count": 12
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 123,
+            "count": 13
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 130,
+            "count": 15
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 132,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 123,
+            "count": 16
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 124,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 125,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 128,
+            "count": 10
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 133,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -17,
+            "longitude": 139,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 124,
+            "count": 6
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 134,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 144,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -19,
+            "longitude": 123,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 121,
+            "count": 7
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 139,
+            "count": 14
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 148,
+            "count": 25
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 149,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 118,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 134,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 142,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -21,
+            "longitude": 148,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 120,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 121,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 140,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 142,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 149,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 150,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 117,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 118,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 142,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 133,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 149,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 133,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 151,
+            "count": 5
+          },
+          {
+            "season": "Autumn",
+            "latitude": -26,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -27,
+            "longitude": 144,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -11,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -12,
+            "longitude": 133,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -12,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -13,
+            "longitude": 130,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -13,
+            "longitude": 143,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -14,
+            "longitude": 133,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -14,
+            "longitude": 134,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -14,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 126,
+            "count": 10
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 129,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -15,
+            "longitude": 130,
+            "count": 8
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 126,
+            "count": 10
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 127,
+            "count": 2
+          },
+          {
+            "season": "Autumn",
+            "latitude": -16,
+            "longitude": 131,
+            "count": 11
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 125,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -18,
+            "longitude": 139,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -19,
+            "longitude": 127,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 120,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -20,
+            "longitude": 140,
+            "count": 3
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 115,
+            "count": 6
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 122,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 132,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -22,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 114,
+            "count": 4
+          },
+          {
+            "season": "Autumn",
+            "latitude": -23,
+            "longitude": 127,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 117,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -24,
+            "longitude": 119,
+            "count": 1
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 114,
+            "count": 7
+          },
+          {
+            "season": "Autumn",
+            "latitude": -25,
+            "longitude": 116,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -11,
+            "longitude": 142,
+            "count": 37
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 131,
+            "count": 1093
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 132,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 133,
+            "count": 105
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 136,
+            "count": 11
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 137,
+            "count": 61
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 142,
+            "count": 11
+          },
+          {
+            "season": "Winter",
+            "latitude": -13,
+            "longitude": 130,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -13,
+            "longitude": 131,
+            "count": 232
+          },
+          {
+            "season": "Winter",
+            "latitude": -13,
+            "longitude": 132,
+            "count": 62
+          },
+          {
+            "season": "Winter",
+            "latitude": -13,
+            "longitude": 133,
+            "count": 248
+          },
+          {
+            "season": "Winter",
+            "latitude": -13,
+            "longitude": 136,
+            "count": 4
+          },
+          {
+            "season": "Winter",
+            "latitude": -13,
+            "longitude": 142,
+            "count": 38
+          },
+          {
+            "season": "Winter",
+            "latitude": -13,
+            "longitude": 143,
+            "count": 141
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 126,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 127,
+            "count": 10
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 131,
+            "count": 22
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 132,
+            "count": 318
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 134,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 126,
+            "count": 49
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 127,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 128,
+            "count": 11
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 130,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 132,
+            "count": 78
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 133,
+            "count": 71
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 144,
+            "count": 76
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 145,
+            "count": 65
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 123,
+            "count": 13
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 124,
+            "count": 4
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 126,
+            "count": 36
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 127,
+            "count": 25
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 128,
+            "count": 175
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 129,
+            "count": 292
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 130,
+            "count": 36
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 131,
+            "count": 37
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 132,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 135,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 145,
+            "count": 257
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 123,
+            "count": 24
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 124,
+            "count": 31
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 125,
+            "count": 102
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 126,
+            "count": 43
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 128,
+            "count": 32
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 129,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 133,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 137,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 138,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 141,
+            "count": 21
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 145,
+            "count": 438
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 146,
+            "count": 730
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 122,
+            "count": 529
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 123,
+            "count": 30
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 124,
+            "count": 9
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 125,
+            "count": 12
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 126,
+            "count": 24
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 128,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 131,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 134,
+            "count": 6
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 141,
+            "count": 31
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 143,
+            "count": 30
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 144,
+            "count": 18
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 145,
+            "count": 13
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 146,
+            "count": 112
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 122,
+            "count": 10
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 123,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 127,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 128,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 139,
+            "count": 10
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 143,
+            "count": 15
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 144,
+            "count": 7
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 145,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 146,
+            "count": 121
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 147,
+            "count": 429
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 119,
+            "count": 84
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 120,
+            "count": 12
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 121,
+            "count": 20
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 122,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 128,
+            "count": 10
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 139,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 140,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 142,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 144,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 146,
+            "count": 10
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 147,
+            "count": 24
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 148,
+            "count": 27
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 149,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 117,
+            "count": 20
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 119,
+            "count": 10
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 120,
+            "count": 24
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 139,
+            "count": 10
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 140,
+            "count": 122
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 143,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 144,
+            "count": 4
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 148,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 149,
+            "count": 112
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 114,
+            "count": 23
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 115,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 116,
+            "count": 9
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 117,
+            "count": 9
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 114,
+            "count": 15
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 117,
+            "count": 6
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 118,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 119,
+            "count": 6
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 120,
+            "count": 18
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 123,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 127,
+            "count": 23
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 131,
+            "count": 7
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 150,
+            "count": 15
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 151,
+            "count": 46
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 120,
+            "count": 9
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 151,
+            "count": 31
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 152,
+            "count": 58
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 114,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 152,
+            "count": 148
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 153,
+            "count": 48
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 119,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 139,
+            "count": 7
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 152,
+            "count": 14
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 153,
+            "count": 189
+          },
+          {
+            "season": "Winter",
+            "latitude": -27,
+            "longitude": 152,
+            "count": 67
+          },
+          {
+            "season": "Winter",
+            "latitude": -27,
+            "longitude": 153,
+            "count": 1387
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 115,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 152,
+            "count": 36
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 153,
+            "count": 720
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 154,
+            "count": 86
+          },
+          {
+            "season": "Winter",
+            "latitude": -29,
+            "longitude": 153,
+            "count": 54
+          },
+          {
+            "season": "Winter",
+            "latitude": -29,
+            "longitude": 154,
+            "count": 139
+          },
+          {
+            "season": "Winter",
+            "latitude": -30,
+            "longitude": 153,
+            "count": 32
+          },
+          {
+            "season": "Winter",
+            "latitude": -32,
+            "longitude": 116,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -34,
+            "longitude": 144,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -11,
+            "longitude": 132,
+            "count": 12
+          },
+          {
+            "season": "Winter",
+            "latitude": -11,
+            "longitude": 133,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 134,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 135,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -12,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 128,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 136,
+            "count": 7
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 143,
+            "count": 6
+          },
+          {
+            "season": "Winter",
+            "latitude": -14,
+            "longitude": 144,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 136,
+            "count": 12
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 137,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 144,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 136,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 144,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 136,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 138,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 139,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 140,
+            "count": 9
+          },
+          {
+            "season": "Winter",
+            "latitude": -18,
+            "longitude": 142,
+            "count": 6
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 134,
+            "count": 7
+          },
+          {
+            "season": "Winter",
+            "latitude": -19,
+            "longitude": 135,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 138,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 121,
+            "count": 4
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 141,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 142,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 119,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 121,
+            "count": 6
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -22,
+            "longitude": 149,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 116,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 124,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 133,
+            "count": 9
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 134,
+            "count": 39
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 139,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 149,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 114,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -27,
+            "longitude": 154,
+            "count": 7
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 149,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -30,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -31,
+            "longitude": 130,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -32,
+            "longitude": 126,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -36,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -37,
+            "longitude": 144,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -38,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -11,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 129,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 131,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -15,
+            "longitude": 135,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -16,
+            "longitude": 125,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -17,
+            "longitude": 140,
+            "count": 4
+          },
+          {
+            "season": "Winter",
+            "latitude": -20,
+            "longitude": 136,
+            "count": 4
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 115,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 116,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 118,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 145,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -21,
+            "longitude": 146,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 115,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 129,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 132,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 140,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 141,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 143,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 144,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -23,
+            "longitude": 148,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 116,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 132,
+            "count": 7
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 138,
+            "count": 8
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 141,
+            "count": 18
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 142,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -24,
+            "longitude": 149,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 117,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 131,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 132,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 133,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 134,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 140,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -25,
+            "longitude": 151,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 134,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 135,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -26,
+            "longitude": 151,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -27,
+            "longitude": 135,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -27,
+            "longitude": 139,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -27,
+            "longitude": 149,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -27,
+            "longitude": 150,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -27,
+            "longitude": 151,
+            "count": 5
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 136,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -28,
+            "longitude": 151,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -29,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -29,
+            "longitude": 150,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -29,
+            "longitude": 152,
+            "count": 10
+          },
+          {
+            "season": "Winter",
+            "latitude": -30,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Winter",
+            "latitude": -30,
+            "longitude": 152,
+            "count": 4
+          },
+          {
+            "season": "Winter",
+            "latitude": -31,
+            "longitude": 153,
+            "count": 24
+          },
+          {
+            "season": "Winter",
+            "latitude": -32,
+            "longitude": 150,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -32,
+            "longitude": 151,
+            "count": 1
+          },
+          {
+            "season": "Winter",
+            "latitude": -32,
+            "longitude": 152,
+            "count": 3
+          },
+          {
+            "season": "Winter",
+            "latitude": -32,
+            "longitude": 153,
+            "count": 26
+          },
+          {
+            "season": "Winter",
+            "latitude": -33,
+            "longitude": 151,
+            "count": 9
+          },
+          {
+            "season": "Spring",
+            "latitude": -11,
+            "longitude": 130,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -11,
+            "longitude": 131,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -11,
+            "longitude": 132,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -11,
+            "longitude": 142,
+            "count": 34
+          },
+          {
+            "season": "Spring",
+            "latitude": -11,
+            "longitude": 143,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -12,
+            "longitude": 131,
+            "count": 716
+          },
+          {
+            "season": "Spring",
+            "latitude": -12,
+            "longitude": 132,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -12,
+            "longitude": 133,
+            "count": 95
+          },
+          {
+            "season": "Spring",
+            "latitude": -12,
+            "longitude": 136,
+            "count": 24
+          },
+          {
+            "season": "Spring",
+            "latitude": -12,
+            "longitude": 137,
+            "count": 22
+          },
+          {
+            "season": "Spring",
+            "latitude": -12,
+            "longitude": 142,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -12,
+            "longitude": 143,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -13,
+            "longitude": 130,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -13,
+            "longitude": 131,
+            "count": 170
+          },
+          {
+            "season": "Spring",
+            "latitude": -13,
+            "longitude": 132,
+            "count": 13
+          },
+          {
+            "season": "Spring",
+            "latitude": -13,
+            "longitude": 133,
+            "count": 109
+          },
+          {
+            "season": "Spring",
+            "latitude": -13,
+            "longitude": 136,
+            "count": 10
+          },
+          {
+            "season": "Spring",
+            "latitude": -13,
+            "longitude": 142,
+            "count": 26
+          },
+          {
+            "season": "Spring",
+            "latitude": -13,
+            "longitude": 143,
+            "count": 73
+          },
+          {
+            "season": "Spring",
+            "latitude": -14,
+            "longitude": 122,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -14,
+            "longitude": 124,
+            "count": 13
+          },
+          {
+            "season": "Spring",
+            "latitude": -14,
+            "longitude": 126,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -14,
+            "longitude": 131,
+            "count": 64
+          },
+          {
+            "season": "Spring",
+            "latitude": -14,
+            "longitude": 132,
+            "count": 227
+          },
+          {
+            "season": "Spring",
+            "latitude": -14,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -14,
+            "longitude": 143,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 126,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 128,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 130,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 132,
+            "count": 63
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 133,
+            "count": 51
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 135,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 144,
+            "count": 54
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 145,
+            "count": 7
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 123,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 126,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 127,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 128,
+            "count": 22
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 129,
+            "count": 46
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 130,
+            "count": 29
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 131,
+            "count": 35
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 136,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 144,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 145,
+            "count": 32
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 123,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 124,
+            "count": 10
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 125,
+            "count": 32
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 126,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 128,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 131,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 141,
+            "count": 24
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 145,
+            "count": 386
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 146,
+            "count": 606
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 122,
+            "count": 423
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 123,
+            "count": 34
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 128,
+            "count": 7
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 141,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 142,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 143,
+            "count": 58
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 144,
+            "count": 35
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 145,
+            "count": 17
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 146,
+            "count": 213
+          },
+          {
+            "season": "Spring",
+            "latitude": -19,
+            "longitude": 127,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -19,
+            "longitude": 134,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -19,
+            "longitude": 143,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -19,
+            "longitude": 144,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -19,
+            "longitude": 146,
+            "count": 98
+          },
+          {
+            "season": "Spring",
+            "latitude": -19,
+            "longitude": 147,
+            "count": 294
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 119,
+            "count": 38
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 120,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 121,
+            "count": 32
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 134,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 139,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 146,
+            "count": 9
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 147,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 148,
+            "count": 23
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 117,
+            "count": 22
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 121,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 139,
+            "count": 7
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 140,
+            "count": 33
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 144,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 145,
+            "count": 7
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 146,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 149,
+            "count": 50
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 114,
+            "count": 7
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 116,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 120,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 121,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 122,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 133,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 141,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 143,
+            "count": 12
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 147,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 148,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 149,
+            "count": 11
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 150,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 114,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 119,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 127,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 131,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 132,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 140,
+            "count": 19
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 142,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 143,
+            "count": 27
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 144,
+            "count": 14
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 145,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 150,
+            "count": 13
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 151,
+            "count": 62
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 132,
+            "count": 22
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 133,
+            "count": 26
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 134,
+            "count": 117
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 139,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 145,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 148,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 149,
+            "count": 9
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 151,
+            "count": 29
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 152,
+            "count": 100
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 129,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 131,
+            "count": 19
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 133,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 140,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 143,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 149,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 150,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 151,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 152,
+            "count": 161
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 153,
+            "count": 118
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 114,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 137,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 138,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 139,
+            "count": 10
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 140,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 146,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 147,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 148,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 150,
+            "count": 9
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 152,
+            "count": 26
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 153,
+            "count": 280
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 146,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 149,
+            "count": 9
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 150,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 151,
+            "count": 16
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 152,
+            "count": 69
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 153,
+            "count": 1209
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 115,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 135,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 136,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 146,
+            "count": 66
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 147,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 149,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 151,
+            "count": 17
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 152,
+            "count": 106
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 153,
+            "count": 464
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 154,
+            "count": 142
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 138,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 140,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 141,
+            "count": 13
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 142,
+            "count": 36
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 144,
+            "count": 19
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 145,
+            "count": 17
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 152,
+            "count": 51
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 153,
+            "count": 56
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 154,
+            "count": 150
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 117,
+            "count": 23
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 121,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 138,
+            "count": 14
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 139,
+            "count": 12
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 146,
+            "count": 82
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 150,
+            "count": 17
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 151,
+            "count": 10
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 152,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 153,
+            "count": 121
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 116,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 131,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 138,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 142,
+            "count": 20
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 145,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 146,
+            "count": 101
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 149,
+            "count": 32
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 151,
+            "count": 26
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 153,
+            "count": 182
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 116,
+            "count": 517
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 117,
+            "count": 45
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 143,
+            "count": 15
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 146,
+            "count": 12
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 149,
+            "count": 52
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 151,
+            "count": 40
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 152,
+            "count": 59
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 153,
+            "count": 100
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 117,
+            "count": 170
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 142,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 148,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 149,
+            "count": 12
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 150,
+            "count": 94
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 151,
+            "count": 48
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 152,
+            "count": 59
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 139,
+            "count": 36
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 140,
+            "count": 156
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 141,
+            "count": 25
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 147,
+            "count": 10
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 148,
+            "count": 36
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 151,
+            "count": 84
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 139,
+            "count": 104
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 142,
+            "count": 340
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 143,
+            "count": 99
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 144,
+            "count": 36
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 146,
+            "count": 13
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 148,
+            "count": 19
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 149,
+            "count": 55
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 145,
+            "count": 122
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 146,
+            "count": 151
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 147,
+            "count": 42
+          },
+          {
+            "season": "Spring",
+            "latitude": -37,
+            "longitude": 145,
+            "count": 20
+          },
+          {
+            "season": "Spring",
+            "latitude": -37,
+            "longitude": 146,
+            "count": 24
+          },
+          {
+            "season": "Spring",
+            "latitude": -15,
+            "longitude": 142,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -16,
+            "longitude": 140,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 133,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -17,
+            "longitude": 144,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 124,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 126,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -18,
+            "longitude": 140,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -19,
+            "longitude": 129,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 135,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 118,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 134,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 141,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 148,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -22,
+            "longitude": 146,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 146,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 149,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 140,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 150,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 114,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 146,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -25,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 113,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 130,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 151,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 140,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 141,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 144,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 114,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 139,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 141,
+            "count": 10
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 144,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 145,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -28,
+            "longitude": 150,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 115,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 117,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 122,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 150,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 151,
+            "count": 17
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 115,
+            "count": 7
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 116,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 142,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 143,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 144,
+            "count": 18
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 145,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 147,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -30,
+            "longitude": 148,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 115,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 117,
+            "count": 10
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 119,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 120,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 121,
+            "count": 9
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 122,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 137,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 139,
+            "count": 12
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 143,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 144,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 147,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 150,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 115,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 119,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 121,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 122,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 123,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 126,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 127,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 129,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 133,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 134,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 138,
+            "count": 20
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 139,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 141,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 142,
+            "count": 15
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 148,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 150,
+            "count": 24
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 116,
+            "count": 13
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 120,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 121,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 135,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 136,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 137,
+            "count": 12
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 138,
+            "count": 14
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 139,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 141,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 143,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 145,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 146,
+            "count": 133
+          },
+          {
+            "season": "Spring",
+            "latitude": -33,
+            "longitude": 147,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 115,
+            "count": 11
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 116,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 117,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 118,
+            "count": 20
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 119,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 138,
+            "count": 9
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 142,
+            "count": 23
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 143,
+            "count": 25
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 144,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 146,
+            "count": 58
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 149,
+            "count": 52
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 150,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 140,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 141,
+            "count": 19
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 145,
+            "count": 48
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 147,
+            "count": 14
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 142,
+            "count": 187
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 143,
+            "count": 10
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 144,
+            "count": 121
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 148,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 149,
+            "count": 19
+          },
+          {
+            "season": "Spring",
+            "latitude": -37,
+            "longitude": 141,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -37,
+            "longitude": 142,
+            "count": 34
+          },
+          {
+            "season": "Spring",
+            "latitude": -37,
+            "longitude": 143,
+            "count": 7
+          },
+          {
+            "season": "Spring",
+            "latitude": -37,
+            "longitude": 144,
+            "count": 97
+          },
+          {
+            "season": "Spring",
+            "latitude": -37,
+            "longitude": 147,
+            "count": 6
+          },
+          {
+            "season": "Spring",
+            "latitude": -38,
+            "longitude": 144,
+            "count": 35
+          },
+          {
+            "season": "Spring",
+            "latitude": -38,
+            "longitude": 145,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -12,
+            "longitude": 135,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -19,
+            "longitude": 122,
+            "count": 9
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 143,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -20,
+            "longitude": 149,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -21,
+            "longitude": 120,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -23,
+            "longitude": 120,
+            "count": 8
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 119,
+            "count": 4
+          },
+          {
+            "season": "Spring",
+            "latitude": -24,
+            "longitude": 120,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -26,
+            "longitude": 149,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -27,
+            "longitude": 154,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 143,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -29,
+            "longitude": 146,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 118,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -31,
+            "longitude": 152,
+            "count": 3
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 135,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -32,
+            "longitude": 140,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 136,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -34,
+            "longitude": 137,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -35,
+            "longitude": 138,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 141,
+            "count": 5
+          },
+          {
+            "season": "Spring",
+            "latitude": -36,
+            "longitude": 150,
+            "count": 1
+          },
+          {
+            "season": "Spring",
+            "latitude": -37,
+            "longitude": 148,
+            "count": 2
+          },
+          {
+            "season": "Spring",
+            "latitude": -43,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -14,
+            "longitude": 131,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -15,
+            "longitude": 142,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -15,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -16,
+            "longitude": 130,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -17,
+            "longitude": 125,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -17,
+            "longitude": 126,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -18,
+            "longitude": 143,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -19,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -20,
+            "longitude": 120,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -20,
+            "longitude": 149,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -21,
+            "longitude": 118,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -21,
+            "longitude": 139,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -21,
+            "longitude": 140,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -22,
+            "longitude": 116,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -22,
+            "longitude": 143,
+            "count": 8
+          },
+          {
+            "season": "Summer",
+            "latitude": -22,
+            "longitude": 149,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 140,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 142,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -23,
+            "longitude": 143,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 139,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 146,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -24,
+            "longitude": 148,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -25,
+            "longitude": 114,
+            "count": 8
+          },
+          {
+            "season": "Summer",
+            "latitude": -26,
+            "longitude": 152,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 144,
+            "count": 5
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 146,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -28,
+            "longitude": 147,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -30,
+            "longitude": 145,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -31,
+            "longitude": 120,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 120,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 135,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -32,
+            "longitude": 136,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 118,
+            "count": 3
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 121,
+            "count": 4
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 122,
+            "count": 6
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 135,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -33,
+            "longitude": 141,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -34,
+            "longitude": 122,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -35,
+            "longitude": 151,
+            "count": 2
+          },
+          {
+            "season": "Summer",
+            "latitude": -36,
+            "longitude": 138,
+            "count": 1
+          },
+          {
+            "season": "Summer",
+            "latitude": -37,
+            "longitude": 150,
+            "count": 2
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.season===season"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.78,
+        "stroke": "#f8f5ec",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "count",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1387
+            ],
+            "range": [
+              0,
+              760
+            ]
+          },
+          "legend": {
+            "title": "Bee-eater records",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "values": [
+              100,
+              500,
+              1000
+            ],
+            "symbolFillColor": "#d9bd90",
+            "symbolStrokeColor": "#9b6a26",
+            "symbolStrokeWidth": 1,
+            "symbolOpacity": 1
+          }
+        },
+        "color": {
+          "field": "season",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Summer",
+              "Autumn",
+              "Winter",
+              "Spring"
+            ],
+            "range": [
+              "#b0782c",
+              "#8c5a86",
+              "#557784",
+              "#58723e"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "season",
+            "title": "Season"
+          },
+          {
+            "field": "count",
+            "title": "Bee-eater records",
+            "format": ","
+          },
+          {
+            "field": "latitude",
+            "title": "Latitude"
+          },
+          {
+            "field": "longitude",
+            "title": "Longitude"
           }
         ]
       }
@@ -15774,7 +22591,7 @@
           4,
           5
         ],
-        "color": "#60665c",
+        "color": "#292e27",
         "strokeWidth": 1
       },
       "encoding": {
@@ -15792,31 +22609,275 @@
       "data": {
         "values": [
           {
-            "longitude": 115,
-            "latitude": -30,
-            "name": "30°S"
+            "month": 1,
+            "label": "Jan",
+            "season": "Summer",
+            "count": 2655,
+            "medianLatitude": -30,
+            "southOf30": 1343,
+            "southShare": 0.5058380414312618
+          },
+          {
+            "month": 2,
+            "label": "Feb",
+            "season": "Summer",
+            "count": 2045,
+            "medianLatitude": -28,
+            "southOf30": 943,
+            "southShare": 0.46112469437652814
+          },
+          {
+            "month": 3,
+            "label": "Mar",
+            "season": "Autumn",
+            "count": 2367,
+            "medianLatitude": -27,
+            "southOf30": 607,
+            "southShare": 0.25644275454161386
+          },
+          {
+            "month": 4,
+            "label": "Apr",
+            "season": "Autumn",
+            "count": 2196,
+            "medianLatitude": -19,
+            "southOf30": 29,
+            "southShare": 0.013205828779599272
+          },
+          {
+            "month": 5,
+            "label": "May",
+            "season": "Autumn",
+            "count": 2469,
+            "medianLatitude": -18,
+            "southOf30": 6,
+            "southShare": 0.002430133657351154
+          },
+          {
+            "month": 6,
+            "label": "Jun",
+            "season": "Winter",
+            "count": 3254,
+            "medianLatitude": -18,
+            "southOf30": 5,
+            "southShare": 0.0015365703749231714
+          },
+          {
+            "month": 7,
+            "label": "Jul",
+            "season": "Winter",
+            "count": 3653,
+            "medianLatitude": -17,
+            "southOf30": 9,
+            "southShare": 0.0024637284423761293
+          },
+          {
+            "month": 8,
+            "label": "Aug",
+            "season": "Winter",
+            "count": 3757,
+            "medianLatitude": -18,
+            "southOf30": 96,
+            "southShare": 0.025552302368911366
+          },
+          {
+            "month": 9,
+            "label": "Sep",
+            "season": "Spring",
+            "count": 3724,
+            "medianLatitude": -19,
+            "southOf30": 444,
+            "southShare": 0.11922663802363051
+          },
+          {
+            "month": 10,
+            "label": "Oct",
+            "season": "Spring",
+            "count": 5620,
+            "medianLatitude": -28,
+            "southOf30": 2307,
+            "southShare": 0.4104982206405694
+          },
+          {
+            "month": 11,
+            "label": "Nov",
+            "season": "Spring",
+            "count": 3567,
+            "medianLatitude": -30,
+            "southOf30": 1784,
+            "southShare": 0.5001401738155312
+          },
+          {
+            "month": 12,
+            "label": "Dec",
+            "season": "Summer",
+            "count": 2392,
+            "medianLatitude": -29,
+            "southOf30": 1139,
+            "southShare": 0.4761705685618729
           }
         ]
       },
-      "mark": {
-        "type": "text",
-        "dy": -10,
-        "color": "#60665c",
-        "fontSize": 11
-      },
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
+      "transform": [
+        {
+          "filter": "datum.season===season"
         },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "southOf30",
+              "as": "south"
+            },
+            {
+              "op": "sum",
+              "field": "count",
+              "as": "n"
+            }
+          ]
         },
-        "text": {
-          "field": "name"
+        {
+          "calculate": "format(datum.south/datum.n,'.0%')",
+          "as": "share"
+        },
+        {
+          "calculate": "'of '+lower(season)+' records'",
+          "as": "what"
+        },
+        {
+          "calculate": "112.3",
+          "as": "longitude"
+        },
+        {
+          "calculate": "-30",
+          "as": "latitude"
         }
-      }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": 9,
+            "fontSize": 30,
+            "fontWeight": 500,
+            "font": "Literata",
+            "color": "#292e27",
+            "stroke": "#f8f5ec",
+            "strokeWidth": 4
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "share"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": 9,
+            "fontSize": 30,
+            "fontWeight": 500,
+            "font": "Literata",
+            "color": "#292e27"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "share"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": 45,
+            "fontSize": 12,
+            "color": "#292e27",
+            "stroke": "#f8f5ec",
+            "strokeWidth": 4
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "what"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": 45,
+            "fontSize": 12,
+            "color": "#292e27"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "what"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": 60,
+            "fontSize": 12,
+            "color": "#60665c"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "value": "lie south of 30°S ↓"
+            }
+          }
+        }
+      ]
     }
   ]
 }

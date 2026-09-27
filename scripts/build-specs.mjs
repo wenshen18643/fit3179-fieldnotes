@@ -7,7 +7,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const tables={australia:'australia',states:'states',grid:'grid',flows:'flows',families:'families',
   monthly:'monthly',stateMonth:'state-month',speciesMonth:'species-month',rankings:'rankings',
   beeMap:'bee-map',beeRidges:'bee-ridges',beeMonth:'bee-month',threatenedRecords:'threatened-records',
-  threatenedListings:'threatened-listings',upset:'upset',coverage:'coverage',recent:'recent',insights:'insights'};
+  threatenedListings:'threatened-listings',upset:'upset',seasonField:'season-field',threatenedGrid:'threatened-grid',coverage:'coverage',recent:'recent',insights:'insights'};
 const entries=await Promise.all(Object.entries(tables).map(async([key,file])=>[key,JSON.parse(await fs.readFile(path.join(root,'data/processed',file+'.json'),'utf8'))]));
 const data=Object.fromEntries(entries);
 await fs.writeFile(path.join(root,'data/story.json'),JSON.stringify(data));

@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
-  "height": 300,
+  "height": 350,
   "padding": 8,
   "config": {
     "background": "transparent",
@@ -44,7 +44,7 @@
       "anchor": "start"
     }
   },
-  "description": "Percentage change in each featured bird’s share of all iNaturalist Australian bird records between 2024 and 2025, around a zero midpoint. Relative change removes the base-rate advantage of the most-recorded birds. Platform-specific record share is not population change.",
+  "description": "Percentage change in each featured bird’s share of all iNaturalist Australian bird records between 2024 and 2025. Every featured bird with at least 500 records in 2024 is shown. Platform-specific record share is not population change.",
   "data": {
     "values": [
       {
@@ -55,17 +55,7 @@
         "rate2024": 149.2326,
         "rate2025": 160.3139,
         "difference": 11.0813,
-        "pct": 7.425522305448005
-      },
-      {
-        "scientific": "Rhipidura leucophrys",
-        "name": "Willie Wagtail",
-        "count2024": 3595,
-        "count2025": 4665,
-        "rate2024": 115.8978,
-        "rate2025": 109.0817,
-        "difference": -6.8161,
-        "pct": -5.8811297539729015
+        "pct": 7.43
       },
       {
         "scientific": "Eolophus roseicapilla",
@@ -75,27 +65,7 @@
         "rate2024": 118.9283,
         "rate2025": 125.6369,
         "difference": 6.7086,
-        "pct": 5.640877738940188
-      },
-      {
-        "scientific": "Zosterops lateralis",
-        "name": "Silvereye",
-        "count2024": 1820,
-        "count2025": 2242,
-        "rate2024": 58.6743,
-        "rate2025": 52.4247,
-        "difference": -6.2496,
-        "pct": -10.651341387967134
-      },
-      {
-        "scientific": "Dacelo novaeguineae",
-        "name": "Laughing Kookaburra",
-        "count2024": 6155,
-        "count2025": 8267,
-        "rate2024": 198.4287,
-        "rate2025": 193.3073,
-        "difference": -5.1214,
-        "pct": -2.5809774493306636
+        "pct": 5.64
       },
       {
         "scientific": "Hirundo neoxena",
@@ -105,11 +75,168 @@
         "rate2024": 78.8879,
         "rate2025": 82.6589,
         "difference": 3.771,
-        "pct": 4.780200765896925
+        "pct": 4.78
+      },
+      {
+        "scientific": "Eudynamys orientalis",
+        "name": "Eastern Koel",
+        "count2024": 516,
+        "count2025": 745,
+        "rate2024": 16.6351,
+        "rate2025": 17.4203,
+        "difference": 0.7852,
+        "pct": 4.72
+      },
+      {
+        "scientific": "Calidris ruficollis",
+        "name": "Red-necked Stint",
+        "count2024": 569,
+        "count2025": 821,
+        "rate2024": 18.3438,
+        "rate2025": 19.1974,
+        "difference": 0.8537,
+        "pct": 4.65
+      },
+      {
+        "scientific": "Manorina melanocephala",
+        "name": "Noisy Miner",
+        "count2024": 4077,
+        "count2025": 5778,
+        "rate2024": 131.4368,
+        "rate2025": 135.107,
+        "difference": 3.6702,
+        "pct": 2.79
+      },
+      {
+        "scientific": "Grallina cyanoleuca",
+        "name": "Magpie-lark",
+        "count2024": 3706,
+        "count2025": 5215,
+        "rate2024": 119.4763,
+        "rate2025": 121.9424,
+        "difference": 2.4661,
+        "pct": 2.06
+      },
+      {
+        "scientific": "Gymnorhina tibicen",
+        "name": "Australian Magpie",
+        "count2024": 7507,
+        "count2025": 10414,
+        "rate2024": 242.0153,
+        "rate2025": 243.5106,
+        "difference": 1.4953,
+        "pct": 0.62
+      },
+      {
+        "scientific": "Malurus cyaneus",
+        "name": "Superb Fairy-wren",
+        "count2024": 5588,
+        "count2025": 7557,
+        "rate2024": 180.1494,
+        "rate2025": 176.7054,
+        "difference": -3.444,
+        "pct": -1.91
+      },
+      {
+        "scientific": "Cacatua galerita",
+        "name": "Sulphur-crested Cockatoo",
+        "count2024": 3814,
+        "count2025": 5130,
+        "rate2024": 122.9581,
+        "rate2025": 119.9548,
+        "difference": -3.0033,
+        "pct": -2.44
+      },
+      {
+        "scientific": "Dacelo novaeguineae",
+        "name": "Laughing Kookaburra",
+        "count2024": 6155,
+        "count2025": 8267,
+        "rate2024": 198.4287,
+        "rate2025": 193.3073,
+        "difference": -5.1214,
+        "pct": -2.58
+      },
+      {
+        "scientific": "Merops ornatus",
+        "name": "Rainbow Bee-eater",
+        "count2024": 1281,
+        "count2025": 1717,
+        "rate2024": 41.2977,
+        "rate2025": 40.1486,
+        "difference": -1.149,
+        "pct": -2.78
+      },
+      {
+        "scientific": "Rhipidura leucophrys",
+        "name": "Willie Wagtail",
+        "count2024": 3595,
+        "count2025": 4665,
+        "rate2024": 115.8978,
+        "rate2025": 109.0817,
+        "difference": -6.8161,
+        "pct": -5.88
+      },
+      {
+        "scientific": "Zosterops lateralis",
+        "name": "Silvereye",
+        "count2024": 1820,
+        "count2025": 2242,
+        "rate2024": 58.6743,
+        "rate2025": 52.4247,
+        "difference": -6.2496,
+        "pct": -10.65
       }
     ]
   },
   "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "a": -5,
+            "b": 5
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "color": "#ece7da"
+      },
+      "encoding": {
+        "x": {
+          "field": "a",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "b"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "a": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "text": "within ±5%",
+        "baseline": "bottom",
+        "dy": -4,
+        "fontSize": 11,
+        "color": "#60665c",
+        "y": 0
+      },
+      "encoding": {
+        "x": {
+          "field": "a",
+          "type": "quantitative"
+        }
+      }
+    },
     {
       "mark": {
         "type": "rule",

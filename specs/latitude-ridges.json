@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 856,
-  "height": 450,
+  "height": 470,
   "padding": {
     "left": 46,
     "right": 10,
@@ -4014,7 +4014,7 @@
             "value": 0
           },
           "y2": {
-            "value": 430
+            "value": 450
           },
           "stroke": {
             "value": "#60665c"
@@ -4094,7 +4094,7 @@
                 "field": "latitude"
               },
               "y": {
-                "signal": "32-datum.share*99.2"
+                "signal": "32-datum.share*166.4"
               },
               "y2": {
                 "value": 32
@@ -4131,7 +4131,7 @@
                 "field": "latitude"
               },
               "y": {
-                "signal": "32-datum.share*99.2"
+                "signal": "32-datum.share*166.4"
               },
               "size": {
                 "value": 90
@@ -4146,6 +4146,82 @@
           }
         }
       ]
+    },
+    {
+      "type": "symbol",
+      "from": {
+        "data": "months"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "scale": "x",
+            "field": "medianLatitude"
+          },
+          "y": {
+            "signal": "datum.month*32+22+1"
+          },
+          "shape": {
+            "value": "triangle-up"
+          },
+          "size": {
+            "value": 46
+          },
+          "fill": {
+            "value": "#292e27"
+          },
+          "tooltip": {
+            "signal": "{'Month':datum.label,'Half of records lie south of':abs(datum.medianLatitude)+'°S'}"
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 4
+          },
+          "y": {
+            "value": 466
+          },
+          "shape": {
+            "value": "triangle-up"
+          },
+          "size": {
+            "value": 46
+          },
+          "fill": {
+            "value": "#292e27"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 13
+          },
+          "y": {
+            "value": 466
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "value": "Middle of the month’s records: half lie south of the tick"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#60665c"
+          }
+        }
+      }
     },
     {
       "type": "text",

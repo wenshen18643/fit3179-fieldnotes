@@ -102,6 +102,11 @@ def main():
         lat,lon=map(float,cell.split(','))
         grid.append({'latitude':lat,'longitude':lon,'count':count,'cell':cell})
     assert sum(r['count'] for r in grid)==total
+    # Rank cells from busiest down and keep the running share before each one, so the
+    # atlas can light the fewest squares that together hold a given share of records.
+    running=0
+    for i,r in enumerate(sorted(grid,key=lambda r:-r['count'])):
+        r['rank']=i+1; r['cumBefore']=round(running/total,6); running+=r['count']
     save('grid',grid)
 
     monthly=[]
@@ -216,14 +221,15 @@ def main():
     i25=facet(raw('inat-species-2025'),'species')
     t24=raw('inat-species-2024')['totalRecords']; t25=raw('inat-species-2025')['totalRecords']
     recent=[]
-    for s in selected:
-        if s in i24 and s in i25:
+    for s in common:
+        # Every featured bird with at least 500 iNaturalist records in 2024. No further
+        # selection, so the chart cannot favour the birds that happened to move most.
+        if i24.get(s,0)>=500 and s in i25:
             a=i24[s]/t24*10000;b=i25[s]/t25*10000
             recent.append({'scientific':s,'name':common[s],'count2024':i24[s],'count2025':i25[s],
-                           'rate2024':round(a,4),'rate2025':round(b,4),'difference':round(b-a,4)})
-    # Curated comparison set: six greatest absolute record-share changes among our featured birds.
-    recent=sorted(recent,key=lambda r:-abs(r['difference']))[:6]
-    save('recent',recent)
+                           'rate2024':round(a,4),'rate2025':round(b,4),'difference':round(b-a,4),
+                           'pct':round(100*(b-a)/a,2)})
+    save('recent',sorted(recent,key=lambda r:-r['pct']))
 
     def season_stats(season):
         a=[r for r in bee_month if r['season']==season]
@@ -238,10 +244,131 @@ def main():
               'beeTotal':sum(r['count'] for r in bee_month),'listedTaxa':len(listings),'matchedThreatenedSpecies':len(swarm),
               'unmatchedThreatenedSpecies':unmatched,'upsetShown':sum(r['count'] for r in upset),
               'upsetCombinations':len(combinations),'inat2024':t24,'inat2025':t25,'retrieved':'10 September 2026'}
-    save('insights',insights)
     maps()
+    insights.update(map_extras(state_rows,listings,swarm,grid,total))
+    save('insights',insights)
     print(json.dumps(insights,indent=2))
     print('All aggregation checks passed. Downloaded facet totals reconcile.')
+
+def ring_area(ring):
+    return sum(ring[i][0]*ring[i+1][1]-ring[i+1][0]*ring[i][1] for i in range(len(ring)-1))/2
+
+def inside(point, features):
+    """Even-odd ray cast against every ring of the state boundaries."""
+    x,y=point; hit=False
+    for f in features:
+        g=f['geometry']
+        for poly in (g['coordinates'] if g['type']=='MultiPolygon' else [g['coordinates']]):
+            for ring in poly:
+                for (x1,y1),(x2,y2) in zip(ring,ring[1:]):
+                    if (y1>y)!=(y2>y) and x<(x2-x1)*(y-y1)/(y2-y1)+x1:
+                        hit=not hit
+    return hit
+
+def season_field(summer, winter, land, floor):
+    """Smoothed winter-versus-summer lean on a 0.25-degree lattice, contoured into bands.
+
+    Each season's 1-degree counts are spread with a Gaussian kernel (sigma 1 degree), then
+    turned into shares of that season's national total. The value is log2(winter share /
+    summer share): +1 means a place holds twice as large a share of winter records as of
+    summer records. Cells with too little smoothed evidence, or off the mainland and
+    Tasmania, are left empty rather than guessed.
+    """
+    import numpy as np
+    import contourpy
+    lons=np.arange(112,154.001,.25); lats=np.arange(-44,-9.999,.25)
+    X,Y=np.meshgrid(lons,lats)
+    def smooth(counts):
+        z=np.zeros_like(X)
+        for cell,n in counts.items():
+            la,lo=map(float,cell.split(','))
+            z+=n*np.exp(-((X-lo)**2+(Y-la)**2)/2)
+        return z
+    s,w=smooth(summer),smooth(winter)
+    ts,tw=sum(summer.values()),sum(winter.values())
+    evidence=(s+w)
+    with np.errstate(divide='ignore',invalid='ignore'):
+        z=np.log2((w/tw)/(s/ts))
+    z=np.clip(z,-3,3)
+    z[(evidence<floor)|~land]=np.nan
+    levels=[-3.01,-1,-.4,.4,1,3.01]
+    names=['Much busier in summer','Busier in summer','About even','Busier in winter','Much busier in winter']
+    gen=contourpy.contour_generator(X,Y,np.ma.masked_invalid(z),fill_type='OuterOffset')
+    features=[]
+    for i in range(5):
+        points,offsets=gen.filled(levels[i],levels[i+1])
+        polys=[]
+        for pts,off in zip(points,offsets):
+            rings=[[[round(float(a),3),round(float(b),3)] for a,b in pts[off[k]:off[k+1]]] for k in range(len(off)-1)]
+            # d3-geo reads a clockwise exterior (negative area with latitude up) as the
+            # polygon itself; the other winding would fill the rest of the globe.
+            rings=[r if (ring_area(r)<0)==(k==0) else r[::-1] for k,r in enumerate(rings)]
+            polys.append(rings)
+        if polys:
+            features.append({'type':'Feature','properties':{'band':i,'label':names[i]},
+                             'geometry':{'type':'MultiPolygon','coordinates':polys}})
+    return features
+
+def map_extras(state_rows, listings, swarm, grid, total):
+    import numpy as np
+    out={}
+    # ABS population is a second denominator for the choropleth: land area asks where
+    # the notebook is dense, residents ask how many records each local person implies.
+    pop={r['Region']:int(r['OBS_VALUE']) for r in csv.DictReader((RAW/'abs-erp-2024q2.csv').read_text(encoding='utf-8-sig').splitlines())}
+    listed=Counter(c for r in listings for c in r['states'])
+    for s in state_rows:
+        s['population']=pop[s['state']]
+        s['perResident']=round(s['count']/pop[s['state']]*1000,3)
+        s['listed']=listed[s['code']]
+    save('states',state_rows)
+    out['ntPerResident']=next(s['perResident'] for s in state_rows if s['code']=='NT')
+    out['actPerResident']=next(s['perResident'] for s in state_rows if s['code']=='ACT')
+
+    # Threatened-bird records per 1,000 records, per one-degree cell.
+    rows=list(csv.DictReader((RAW/'threatened-species.csv').read_text(encoding='utf-8-sig').splitlines()))
+    family={r['Scientific Name']:r['Family'] for r in rows if r['Infraspecies']=='-'}
+    sea={'Diomedeidae','Procellariidae'}; shore={'Scolopacidae','Charadriidae','Rostratulidae','Laridae','Ardeidae'}
+    group=lambda s:'Seabirds' if family.get(s) in sea else 'Shorebirds & wetland birds' if family.get(s) in shore else 'Land birds'
+    all_cells={r['cell']:r['count'] for r in grid}
+    cells=defaultdict(lambda:{'Seabirds':0,'Shorebirds & wetland birds':0,'Land birds':0,'top':Counter(),'topBy':defaultdict(Counter)})
+    for r in swarm:
+        for cell,n in facet(raw('threat-'+r['scientific'].replace(' ','-')),'point-1').items():
+            g=group(r['scientific'])
+            cells[cell][g]+=n; cells[cell]['top'][r['name']]+=n; cells[cell]['topBy'][g][r['name']]+=n
+    spikes=[]
+    for cell,c in cells.items():
+        n=all_cells.get(cell,0)
+        if n<300:
+            continue  # a rate from a few hundred records or fewer is too unstable to plot
+        lat,lon=map(float,cell.split(','))
+        for g in ['Seabirds','Shorebirds & wetland birds','Land birds']:
+            if c[g]:
+                spikes.append({'latitude':lat,'longitude':lon,'group':g,'threatened':c[g],'records':n,
+                               'per1000':round(1000*c[g]/n,2),
+                               # The most recorded threatened bird within this kind, and overall.
+                               'top':c['topBy'][g].most_common(1)[0][0],'topAll':c['top'].most_common(1)[0][0]})
+    save('threatened-grid',spikes)
+    threat_total=sum(r['count'] for r in swarm)
+    for key,g in [('seaShare','Seabirds'),('shoreShare','Shorebirds & wetland birds'),('landShare','Land birds')]:
+        out[key]=sum(c[g] for c in cells.values())/threat_total
+
+    # Winter-versus-summer lean, for all records and for the bee-eater.
+    summer,winter,bsummer,bwinter=Counter(),Counter(),Counter(),Counter()
+    for m in [12,1,2,6,7,8]:
+        a,b=(summer,bsummer) if m in (12,1,2) else (winter,bwinter)
+        a.update(facet(raw(f'month-2024-{m:02}'),'point-1'))
+        b.update(facet(raw(f'bee-eater-2024-{m:02}'),'point-1'))
+    aus=json.loads((OUT/'australia.json').read_text(encoding='utf-8'))['features']
+    lons=np.arange(112,154.001,.25); lats=np.arange(-44,-9.999,.25)
+    land=np.array([[inside((lo,la),aus) for lo in lons] for la in lats])
+    field=[]
+    for who,(s,w,floor) in {'Everyone':(summer,winter,400),'Bee-eater':(bsummer,bwinter,12)}.items():
+        for f in season_field(s,w,land,floor):
+            f['properties']['who']=who; field.append(f)
+    save('season-field',{'type':'FeatureCollection','features':field})
+    south=lambda C:sum(n for c,n in C.items() if float(c.split(',')[0])<=-30)/sum(C.values())
+    out.update({'allSummerSouth':south(summer),'allWinterSouth':south(winter)})
+    return out
 
 if __name__=='__main__':
     main()

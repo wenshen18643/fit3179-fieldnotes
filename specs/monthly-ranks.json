@@ -1195,6 +1195,63 @@
       "data": {
         "values": [
           {
+            "month": 6,
+            "rank": 8,
+            "text": "8th in June, 2nd by September"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "highlight==='Welcome Swallow'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": 14,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#ad7926"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": {
+            "title": null,
+            "labelAngle": 0,
+            "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1,
+              9
+            ],
+            "reverse": true,
+            "zero": false
+          },
+          "axis": {
+            "title": "Most recorded → lower rank",
+            "tickCount": 9,
+            "format": "d"
+          }
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
             "scientific": "Gymnorhina tibicen",
             "name": "Australian Magpie",
             "month": 12,

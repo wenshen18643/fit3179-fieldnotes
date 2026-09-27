@@ -27,9 +27,9 @@
   --t-body: 16px;
   --t-caption: 13px;
   --t-meta: 11px;
-  /* ~60 characters of this typeface. Set on every block of running prose, so the
-     measure holds whatever column the block happens to sit in. */
-  --measure: 44ch;
+  /* At most 60 characters of this typeface (44ch measured 61–69). Set on every
+     block of running prose, so the measure holds whatever column it sits in. */
+  --measure: 39ch;
   --z-nav: 20;
   --z-tooltip: 40;
   --z-skip: 50;
@@ -129,10 +129,30 @@ h1 em {color:var(--green)}
 .data-table-wrap th {position:sticky;top:0;background:var(--paper);font-weight:600;z-index:1}
 .data-table-wrap caption {text-align:left;font-size:var(--t-meta);color:var(--muted);padding:8px 0}
 
+/* ---- chart controls ---- */
+/* Segmented buttons: every option visible, the current one filled, so the state of
+   the chart can be read without opening anything. */
+.segmented {display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px}
+.segmented-label {font-size:var(--t-meta);font-weight:500;color:var(--muted);margin-right:6px}
+.segmented button,.play {font-size:var(--t-caption);font-weight:500;color:var(--ink);background:var(--page);border:1px solid var(--rule);border-radius:999px;padding:6px 14px;min-height:34px;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.segmented button:hover,.play:hover {border-color:var(--ink)}
+.segmented button[aria-pressed="true"] {background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.conservation-chapter .segmented button[aria-pressed="true"] {background:var(--rust);border-color:var(--rust)}
+.segmented button:focus-visible,.play:focus-visible {outline:3px solid var(--ochre-text);outline-offset:3px}
+.control-row {display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px}
+.control-row .inline-control {margin-top:0}
+.play[aria-pressed="true"] {background:var(--ochre-text);border-color:var(--ochre-text);color:var(--paper)}
+.readout {font-size:var(--t-caption);color:var(--rust);font-weight:500;margin-top:10px;min-height:1.7em}
+.shift {display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:14px 0 18px;font-family:var(--book-font);align-items:baseline}
+.shift dt {font-family:var(--body-font);font-size:var(--t-caption);color:var(--muted)}
+.shift dd {margin:0;font-size:24px;color:var(--ink);letter-spacing:-.01em}
+.shift dd span:last-child {color:#476a77;font-weight:600}
+
 /* ---- spread patterns: 8 + 4, 4 + 8, 6 + 6 ---- */
 .atlas-spread,.paired-spread,.inset-spread,.clock-spread,.migration-intro,
 .conservation-spread,.recent-spread {display:grid;grid-template-columns:var(--grid);gap:var(--gutter);align-items:center}
 .atlas-spread>.figure,.clock-spread>.figure,.conservation-spread>.figure {grid-column:1/9}
+.field-spread,.spike-spread {border-top:1px solid var(--rule);padding-top:38px;margin-top:40px}
 .atlas-spread>.margin-note,.clock-spread>.season-note,.conservation-spread>.margin-note {grid-column:9/13}
 .paired-spread>*:first-child {grid-column:1/7}
 .paired-spread>*:last-child {grid-column:7/13}
@@ -195,6 +215,7 @@ select {background:var(--page);border:1px solid var(--rule);border-radius:2px;co
 .conservation-chapter h2 em {color:var(--rust)}
 .risk-note h3 {font-family:var(--book-font);font-weight:500;font-size:22px;line-height:1.45;color:var(--rust);margin-bottom:20px}
 .risk-note .note-label {color:var(--rust)}
+.risk-note .finding strong {color:var(--rust)}
 
 /* ---- new entries chapter ---- */
 .new-chapter .full-figure {margin-top:0;border-top:0;padding-top:0}

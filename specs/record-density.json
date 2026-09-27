@@ -44,7 +44,13 @@
       "anchor": "start"
     }
   },
-  "description": "State-level observation-record density, using Geoscience Australia land areas. Not bird density.",
+  "description": "State and territory choropleth of 2024 records, per 1,000 km² of land or per 1,000 residents. Darker means more records for the chosen denominator.",
+  "params": [
+    {
+      "name": "measure",
+      "value": "area"
+    }
+  ],
   "projection": {
     "type": "conicEqualArea",
     "parallels": [
@@ -1855,7 +1861,12 @@
             "density": 279.621,
             "species": 496,
             "longitude": 122,
-            "latitude": -26
+            "latitude": -26,
+            "population": 2978147,
+            "perResident": 237.263,
+            "listed": 64,
+            "areaT": 0.05062145656588328,
+            "peopleT": 0.08780048968053719
           },
           {
             "type": "Feature",
@@ -3355,7 +3366,12 @@
             "density": 244.993,
             "species": 385,
             "longitude": 133.3,
-            "latitude": -19.5
+            "latitude": -19.5,
+            "population": 260884,
+            "perResident": 1265.693,
+            "listed": 38,
+            "areaT": 0.03065106167704997,
+            "peopleT": 0.9481720991045429
           },
           {
             "type": "Feature",
@@ -4163,7 +4179,12 @@
             "density": 498.129,
             "species": 413,
             "longitude": 135,
-            "latitude": -30.5
+            "latitude": -30.5,
+            "population": 1882164,
+            "perResident": 260.508,
+            "listed": 85,
+            "areaT": 0.1378446558834048,
+            "peopleT": 0.13583165927517268
           },
           {
             "type": "Feature",
@@ -5967,7 +5988,12 @@
             "density": 1350.129,
             "species": 595,
             "longitude": 145,
-            "latitude": -23
+            "latitude": -23,
+            "population": 5571890,
+            "perResident": 419.135,
+            "listed": 72,
+            "areaT": 0.2884617732008,
+            "peopleT": 0.3802208943426594
           },
           {
             "type": "Feature",
@@ -7079,7 +7105,12 @@
             "density": 6769.901,
             "species": 258,
             "longitude": 146.5,
-            "latitude": -42
+            "latitude": -42,
+            "population": 574765,
+            "perResident": 805.665,
+            "listed": 57,
+            "areaT": 0.5320068624677611,
+            "peopleT": 0.7160405928719006
           },
           {
             "type": "Feature",
@@ -7891,7 +7922,12 @@
             "density": 10774.085,
             "species": 422,
             "longitude": 144,
-            "latitude": -37
+            "latitude": -37,
+            "population": 6950961,
+            "perResident": 352.541,
+            "listed": 71,
+            "areaT": 0.6021960032242618,
+            "peopleT": 0.2913030497695341
           },
           {
             "type": "Feature",
@@ -8005,7 +8041,12 @@
             "density": 145828.244,
             "species": 271,
             "longitude": 149.05,
-            "latitude": -35.45
+            "latitude": -35.45,
+            "population": 478430,
+            "perResident": 718.732,
+            "listed": 20,
+            "areaT": 0.9957393558981272,
+            "peopleT": 0.6573639499196161
           },
           {
             "type": "Feature",
@@ -8993,10 +9034,25 @@
             "density": 3065.584,
             "species": 516,
             "longitude": 147,
-            "latitude": -32.2
+            "latitude": -32.2,
+            "population": 8492050,
+            "perResident": 289.211,
+            "listed": 81,
+            "areaT": 0.41233320491313014,
+            "peopleT": 0.1895458323980468
           }
         ]
       },
+      "transform": [
+        {
+          "calculate": "measure==='area'?datum.areaT:datum.peopleT",
+          "as": "t"
+        },
+        {
+          "calculate": "measure==='area'?datum.density:datum.perResident",
+          "as": "value"
+        }
+      ],
       "mark": {
         "type": "geoshape",
         "stroke": "#f8f5ec",
@@ -9004,13 +9060,12 @@
       },
       "encoding": {
         "color": {
-          "field": "density",
+          "field": "t",
           "type": "quantitative",
           "scale": {
-            "type": "log",
             "domain": [
-              200,
-              150000
+              0,
+              1
             ],
             "range": [
               "#e9e4d6",
@@ -9020,18 +9075,7 @@
               "#204c3b"
             ]
           },
-          "legend": {
-            "title": "Records / 1,000 km²",
-            "orient": "bottom",
-            "values": [
-              300,
-              3000,
-              30000,
-              150000
-            ],
-            "format": ".0s",
-            "gradientLength": 210
-          }
+          "legend": null
         },
         "tooltip": [
           {
@@ -9045,15 +9089,75 @@
           },
           {
             "field": "density",
-            "title": "Records / 1,000 km²",
+            "title": "Per 1,000 km²",
             "format": ",.0f"
           },
           {
-            "field": "area",
-            "title": "Land area (km²)",
+            "field": "perResident",
+            "title": "Per 1,000 residents",
+            "format": ",.0f"
+          },
+          {
+            "field": "population",
+            "title": "Residents (ABS, June 2024)",
             "format": ","
           }
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 149.05,
+            "latitude": -35.45
+          },
+          {
+            "longitude": 153.1,
+            "latitude": -35.45
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "color": "#292e27",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 149.05,
+            "latitude": -35.45
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "size": 110,
+        "color": "#292e27",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        }
       }
     },
     {
@@ -9067,7 +9171,12 @@
             "density": 279.621,
             "species": 496,
             "longitude": 122,
-            "latitude": -26
+            "latitude": -26,
+            "population": 2978147,
+            "perResident": 237.263,
+            "listed": 64,
+            "areaT": 0.05062145656588328,
+            "peopleT": 0.08780048968053719
           },
           {
             "state": "Northern Territory",
@@ -9077,7 +9186,12 @@
             "density": 244.993,
             "species": 385,
             "longitude": 133.3,
-            "latitude": -19.5
+            "latitude": -19.5,
+            "population": 260884,
+            "perResident": 1265.693,
+            "listed": 38,
+            "areaT": 0.03065106167704997,
+            "peopleT": 0.9481720991045429
           },
           {
             "state": "South Australia",
@@ -9087,7 +9201,12 @@
             "density": 498.129,
             "species": 413,
             "longitude": 135,
-            "latitude": -30.5
+            "latitude": -30.5,
+            "population": 1882164,
+            "perResident": 260.508,
+            "listed": 85,
+            "areaT": 0.1378446558834048,
+            "peopleT": 0.13583165927517268
           },
           {
             "state": "Queensland",
@@ -9097,7 +9216,12 @@
             "density": 1350.129,
             "species": 595,
             "longitude": 145,
-            "latitude": -23
+            "latitude": -23,
+            "population": 5571890,
+            "perResident": 419.135,
+            "listed": 72,
+            "areaT": 0.2884617732008,
+            "peopleT": 0.3802208943426594
           },
           {
             "state": "New South Wales",
@@ -9107,7 +9231,12 @@
             "density": 3065.584,
             "species": 516,
             "longitude": 147,
-            "latitude": -32.2
+            "latitude": -32.2,
+            "population": 8492050,
+            "perResident": 289.211,
+            "listed": 81,
+            "areaT": 0.41233320491313014,
+            "peopleT": 0.1895458323980468
           },
           {
             "state": "Victoria",
@@ -9117,7 +9246,12 @@
             "density": 10774.085,
             "species": 422,
             "longitude": 144,
-            "latitude": -37
+            "latitude": -37,
+            "population": 6950961,
+            "perResident": 352.541,
+            "listed": 71,
+            "areaT": 0.6021960032242618,
+            "peopleT": 0.2913030497695341
           },
           {
             "state": "Tasmania",
@@ -9127,14 +9261,53 @@
             "density": 6769.901,
             "species": 258,
             "longitude": 146.5,
-            "latitude": -42
+            "latitude": -42,
+            "population": 574765,
+            "perResident": 805.665,
+            "listed": 57,
+            "areaT": 0.5320068624677611,
+            "peopleT": 0.7160405928719006
+          },
+          {
+            "state": "Australian Capital Territory",
+            "code": "ACT",
+            "count": 343863,
+            "area": 2358,
+            "density": 145828.244,
+            "species": 271,
+            "longitude": 153.4,
+            "latitude": -35.2,
+            "population": 478430,
+            "perResident": 718.732,
+            "listed": 20,
+            "areaT": 0.9957393558981272,
+            "peopleT": 0.6573639499196161
           }
         ]
       },
+      "transform": [
+        {
+          "calculate": "measure==='area'?datum.density:datum.perResident",
+          "as": "value"
+        },
+        {
+          "calculate": "datum.code+'|'+format(datum.value,',.0f')",
+          "as": "label"
+        }
+      ],
       "mark": {
         "type": "text",
         "fontSize": 12,
-        "fontWeight": 600
+        "fontWeight": 600,
+        "lineBreak": "|",
+        "lineHeight": 15,
+        "align": {
+          "expr": "datum.code==='ACT'?'left':'center'"
+        },
+        "color": "#292e27",
+        "stroke": "#f8f5ec",
+        "strokeWidth": 3.5,
+        "strokeJoin": "round"
       },
       "encoding": {
         "longitude": {
@@ -9146,14 +9319,167 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "code"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.density > 5000",
-            "value": "#f8f5ec"
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state": "Western Australia",
+            "code": "WA",
+            "count": 706605,
+            "area": 2527013,
+            "density": 279.621,
+            "species": 496,
+            "longitude": 122,
+            "latitude": -26,
+            "population": 2978147,
+            "perResident": 237.263,
+            "listed": 64,
+            "areaT": 0.05062145656588328,
+            "peopleT": 0.08780048968053719
           },
-          "value": "#292e27"
+          {
+            "state": "Northern Territory",
+            "code": "NT",
+            "count": 330199,
+            "area": 1347791,
+            "density": 244.993,
+            "species": 385,
+            "longitude": 133.3,
+            "latitude": -19.5,
+            "population": 260884,
+            "perResident": 1265.693,
+            "listed": 38,
+            "areaT": 0.03065106167704997,
+            "peopleT": 0.9481720991045429
+          },
+          {
+            "state": "South Australia",
+            "code": "SA",
+            "count": 490319,
+            "area": 984321,
+            "density": 498.129,
+            "species": 413,
+            "longitude": 135,
+            "latitude": -30.5,
+            "population": 1882164,
+            "perResident": 260.508,
+            "listed": 85,
+            "areaT": 0.1378446558834048,
+            "peopleT": 0.13583165927517268
+          },
+          {
+            "state": "Queensland",
+            "code": "QLD",
+            "count": 2335374,
+            "area": 1729742,
+            "density": 1350.129,
+            "species": 595,
+            "longitude": 145,
+            "latitude": -23,
+            "population": 5571890,
+            "perResident": 419.135,
+            "listed": 72,
+            "areaT": 0.2884617732008,
+            "peopleT": 0.3802208943426594
+          },
+          {
+            "state": "New South Wales",
+            "code": "NSW",
+            "count": 2455993,
+            "area": 801150,
+            "density": 3065.584,
+            "species": 516,
+            "longitude": 147,
+            "latitude": -32.2,
+            "population": 8492050,
+            "perResident": 289.211,
+            "listed": 81,
+            "areaT": 0.41233320491313014,
+            "peopleT": 0.1895458323980468
+          },
+          {
+            "state": "Victoria",
+            "code": "VIC",
+            "count": 2450501,
+            "area": 227444,
+            "density": 10774.085,
+            "species": 422,
+            "longitude": 144,
+            "latitude": -37,
+            "population": 6950961,
+            "perResident": 352.541,
+            "listed": 71,
+            "areaT": 0.6021960032242618,
+            "peopleT": 0.2913030497695341
+          },
+          {
+            "state": "Tasmania",
+            "code": "TAS",
+            "count": 463068,
+            "area": 68401,
+            "density": 6769.901,
+            "species": 258,
+            "longitude": 146.5,
+            "latitude": -42,
+            "population": 574765,
+            "perResident": 805.665,
+            "listed": 57,
+            "areaT": 0.5320068624677611,
+            "peopleT": 0.7160405928719006
+          },
+          {
+            "state": "Australian Capital Territory",
+            "code": "ACT",
+            "count": 343863,
+            "area": 2358,
+            "density": 145828.244,
+            "species": 271,
+            "longitude": 153.4,
+            "latitude": -35.2,
+            "population": 478430,
+            "perResident": 718.732,
+            "listed": 20,
+            "areaT": 0.9957393558981272,
+            "peopleT": 0.6573639499196161
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "measure==='area'?datum.density:datum.perResident",
+          "as": "value"
+        },
+        {
+          "calculate": "datum.code+'|'+format(datum.value,',.0f')",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "lineBreak": "|",
+        "lineHeight": 15,
+        "align": {
+          "expr": "datum.code==='ACT'?'left':'center'"
+        },
+        "color": "#292e27"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
         }
       }
     }
