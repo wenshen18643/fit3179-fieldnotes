@@ -421,7 +421,7 @@
             "test": "datum.pct>=0",
             "value": "#315e4c"
           },
-          "value": "#ad7926"
+          "value": "#8f6420"
         }
       }
     },
@@ -476,7 +476,7 @@
             "test": "datum.pct>=0",
             "value": "#315e4c"
           },
-          "value": "#ad7926"
+          "value": "#8f6420"
         }
       }
     }

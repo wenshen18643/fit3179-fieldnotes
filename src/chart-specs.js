@@ -271,11 +271,11 @@ function bump(D,w) {
         encoding:{tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('rank','Rank'),tooltip('count','Records',',')]}},
       // The default view's finding, written on the line it describes.
       {data:{values:[{month:6,rank:8,text:'8th in June, 2nd by September'}]},transform:[{filter:"highlight==='Welcome Swallow'"}],
-        mark:{type:'text',align:'left',dx:10,dy:14,fontSize:12,fontWeight:600,color:C.ochre},encoding:{x:base.x,y:base.y,text:{field:'text'}}},
+        mark:{type:'text',align:'left',dx:10,dy:14,fontSize:12,fontWeight:600,color:C.ochreText},encoding:{x:base.x,y:base.y,text:{field:'text'}}},
       {data:{values:end},transform:[{filter:'!('+picked+')'}],
         mark:{type:'text',align:'left',dx:13,fontSize:compact?10:11,color:C.muted},encoding:{...base,text:{field:'name'}}},
       {data:{values:end},transform:[{filter:picked}],
-        mark:{type:'text',align:'left',dx:13,fontSize:compact?10:11,fontWeight:700,color:C.ochre},encoding:{...base,text:{field:'name'}}},
+        mark:{type:'text',align:'left',dx:13,fontSize:compact?10:11,fontWeight:700,color:C.ochreText},encoding:{...base,text:{field:'name'}}},
     ]});
 }
 
@@ -578,7 +578,7 @@ function recent(D,w) {
     tooltip('rate2025','2025 per 10,000','.1f'),tooltip('count2024','2024 records',','),tooltip('count2025','2025 records',',')];
   const value=(test,dx,align)=>({transform:[{filter:test}],
     mark:{type:'text',dx,align,fontSize:compact?10:11,fontWeight:500},
-    encoding:{y,x,text:{field:'pct',type:'quantitative',format:'+.1f'},color:hue}});
+    encoding:{y,x,text:{field:'pct',type:'quantitative',format:'+.1f'},color:{condition:{test:'datum.pct>=0',value:C.green},value:C.ochreText}}});
   return VL(w-(compact?157:220),rows.length*25,{description:'Percentage change in each featured bird’s share of all iNaturalist Australian bird records between 2024 and 2025. Every featured bird with at least 500 records in 2024 is shown. Platform-specific record share is not population change.',
     data:{values:rows},
     layer:[{data:{values:[{a:-5,b:5}]},mark:{type:'rect',color:'#ece7da'},encoding:{x:{field:'a',type:'quantitative'},x2:{field:'b'}}},
