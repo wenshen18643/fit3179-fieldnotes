@@ -152,7 +152,8 @@ h1 em {color:var(--green)}
 /* ---- spread patterns: 8 + 4, 4 + 8, 6 + 6 ---- */
 .atlas-spread,.paired-spread,.inset-spread,.clock-spread,.migration-intro,
 .conservation-spread,.recent-spread {display:grid;grid-template-columns:var(--grid);gap:var(--gutter);align-items:start}
-.atlas-spread>aside,.clock-spread>aside,.conservation-spread>aside,.inset-spread>.inset-copy,.recent-spread>.inset-copy {position:sticky;top:110px;margin-top:88px}
+/* Notes start level with the chart, below the figure's title block. */
+.atlas-spread>aside,.clock-spread>aside,.conservation-spread>aside,.inset-spread>.inset-copy,.recent-spread>.inset-copy {margin-top:var(--s9)}
 .atlas-spread>.figure,.clock-spread>.figure,.conservation-spread>.figure {grid-column:1/9}
 .field-spread,.spike-spread {border-top:1px solid var(--rule);padding-top:var(--s7);margin-top:var(--s8)}
 .atlas-spread>.margin-note,.clock-spread>.season-note,.conservation-spread>.margin-note {grid-column:9/13}
