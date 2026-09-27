@@ -99,7 +99,7 @@ function addFigureTools(){
     const ext=tableKeys[id]?'csv':'json';
     const data=document.createElement('a');data.href=`data/processed/${chartFiles[id]}.${ext}`;data.download='';data.textContent=ext.toUpperCase()+' ↓';data.setAttribute('aria-label','Download data for '+figure.querySelector('h3').textContent);bar.append(data);
     const spec=document.createElement('a');spec.href=`specs/${id}.json`;spec.target='_blank';spec.rel='noopener';spec.textContent='Chart specification ↗';bar.append(spec);
-    figure.append(bar);
+    // Tools row removed from the page; data and specs stay in the repository.
   }
 }
 
