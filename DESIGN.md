@@ -10,7 +10,7 @@ The user explicitly chose warm paper, bird illustrations and specimen-style anno
 
 ## Palette
 
-CSS colours use OKLCH. Ochre hue 75 anchors the brand seed; green denotes record volume, rust denotes conservation context, and distinct seasonal colours accompany explicit labels. Pale warm paper is the requested material. Chart colours are computed sRGB equivalents for compatibility with Vega's colour scales.
+CSS colours use OKLCH. Ochre hue 75 anchors the brand seed; green denotes record volume, rust denotes conservation context, and distinct seasonal colours accompany explicit labels. Pale warm paper is the requested material. Chart ramps are ColorBrewer schemes, as the unit's colour notes direct: Greens for record volume, BrBG for above or below a midpoint (the seasonal clock, species heatmap and seasonal contours), OrRd for rising extinction risk.
 
 Green means one thing across every figure: more records than the comparison. That covers raw counts, density, above-average recording pace, a larger-than-usual monthly share and a growing share between years. Ochre is the other end of the same idea. No chart uses hue to name a category except the four seasons, which is why the species palette was removed: the bump chart mutes every line and colours only the one the reader selects, and the treemap carries record count on lightness within a single green. The four seasonal hues avoid any red-against-green pair, the combination that collapses under the commonest colour blindness. Brand ochre reaches only 3.67:1 on paper, so text and small marks use a darker step of the same hue at 4.89:1.
 

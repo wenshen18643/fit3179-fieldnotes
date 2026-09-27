@@ -95,6 +95,11 @@ h1 em {color:var(--green)}
 .orientation strong {color:var(--ink);font-weight:550}
 .orientation-mark {position:absolute;left:-36px;top:26px;text-align:center;color:var(--ochre-text);line-height:1.5;font-size:17px;font-family:var(--book-font)}
 
+/* ---- state key ---- */
+.state-key {margin:18px var(--pad) 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px var(--gutter);font-size:var(--t-meta);color:var(--muted);max-width:none}
+@media(max-width:600px){.state-key{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.state-key b {color:var(--ink);font-weight:600;margin-right:4px}
+
 /* ---- chapters ---- */
 .chapter {padding:90px var(--pad) 10px;display:grid;grid-template-columns:var(--grid);gap:0 var(--gutter);position:relative}
 .chapter>* {grid-column:1/13}
@@ -146,7 +151,7 @@ h1 em {color:var(--green)}
 .shift {display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:14px 0 18px;font-family:var(--book-font);align-items:baseline}
 .shift dt {font-family:var(--body-font);font-size:var(--t-caption);color:var(--muted)}
 .shift dd {margin:0;font-size:24px;color:var(--ink);letter-spacing:-.01em}
-.shift dd span:last-child {color:#476a77;font-weight:600}
+.shift dd span:last-child {color:#01665e;font-weight:600}
 
 /* ---- spread patterns: 8 + 4, 4 + 8, 6 + 6 ---- */
 .atlas-spread,.paired-spread,.inset-spread,.clock-spread,.migration-intro,

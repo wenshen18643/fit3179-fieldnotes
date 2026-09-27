@@ -73,7 +73,7 @@
           "other": false,
           "label": "Magpies",
           "longLabel": "Magpies, butcherbirds & woodswallows",
-          "onDark": true
+          "onDark": false
         },
         {
           "family": "Psittacidae",
@@ -85,7 +85,7 @@
           "other": false,
           "label": "Parrots",
           "longLabel": "Parrots & lorikeets",
-          "onDark": true
+          "onDark": false
         },
         {
           "family": "Anatidae",
@@ -97,7 +97,7 @@
           "other": false,
           "label": "Ducks",
           "longLabel": "Ducks, geese & swans",
-          "onDark": true
+          "onDark": false
         },
         {
           "family": "Columbidae",
@@ -172,72 +172,12 @@
           "onDark": false
         },
         {
-          "family": "Ardeidae",
-          "count": 257181,
-          "share": 0.026857048334353602,
-          "id": "Ardeidae",
-          "parent": "root",
-          "rank": 10,
-          "other": false,
-          "label": "Herons",
-          "longLabel": "Herons, egrets & bitterns",
-          "onDark": false
-        },
-        {
-          "family": "Phalacrocoracidae",
-          "count": 255215,
-          "share": 0.026651741733067582,
-          "id": "Phalacrocoracidae",
-          "parent": "root",
-          "rank": 11,
-          "other": false,
-          "label": "Cormorants",
-          "longLabel": "Cormorants",
-          "onDark": false
-        },
-        {
-          "family": "Monarchidae",
-          "count": 243154,
-          "share": 0.02539222854989838,
-          "id": "Monarchidae",
-          "parent": "root",
-          "rank": 12,
-          "other": false,
-          "label": "Monarchs",
-          "longLabel": "Monarch flycatchers",
-          "onDark": false
-        },
-        {
-          "family": "Accipitridae",
-          "count": 235806,
-          "share": 0.024624887295447897,
-          "id": "Accipitridae",
-          "parent": "root",
-          "rank": 13,
-          "other": false,
-          "label": "Hawks",
-          "longLabel": "Hawks, eagles & kites",
-          "onDark": false
-        },
-        {
-          "family": "Pachycephalidae",
-          "count": 228058,
-          "share": 0.02381577460635122,
-          "id": "Pachycephalidae",
-          "parent": "root",
-          "rank": 14,
-          "other": false,
-          "label": "Whistlers",
-          "longLabel": "Whistlers & allies",
-          "onDark": false
-        },
-        {
           "family": "Other families / unassigned",
-          "count": 3535080,
-          "share": 0.3691634079726213,
+          "count": 4754494,
+          "share": 0.49650508849174,
           "id": "Other families / unassigned",
           "parent": "root",
-          "rank": 15,
+          "rank": 10,
           "other": true,
           "label": "All other families",
           "longLabel": "All other families and unassigned records",
@@ -283,12 +223,12 @@
       "name": "fill",
       "type": "log",
       "domain": [
-        228058,
+        261354,
         1066833
       ],
       "range": [
-        "#e2e7d8",
-        "#315e4c"
+        "#edf8e9",
+        "#006d2c"
       ]
     }
   ],
@@ -397,7 +337,7 @@
             "value": 11
           },
           "opacity": {
-            "signal": "datum.x1-datum.x0>58 && datum.y1-datum.y0>48?1:0"
+            "signal": "datum.x1-datum.x0 > length(datum.label)*6.959999999999999+22 && datum.y1-datum.y0>48?1:0"
           }
         }
       }

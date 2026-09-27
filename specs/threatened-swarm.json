@@ -611,9 +611,9 @@
         "Critically Endangered"
       ],
       "range": [
-        "#9b812d",
-        "#b36b37",
-        "#a74735"
+        "#ef6548",
+        "#d7301f",
+        "#990000"
       ]
     }
   ],
@@ -679,11 +679,10 @@
             "value": 12
           },
           "fontWeight": {
-            "value": 500
+            "value": 600
           },
           "fill": {
-            "scale": "color",
-            "field": "status"
+            "value": "#292e27"
           }
         }
       }

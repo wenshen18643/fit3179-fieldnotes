@@ -15,7 +15,12 @@ const FONT = 'Bricolage Grotesque';
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const SEASONS = ['Summer','Autumn','Winter','Spring'];
 const projection = {type:'conicEqualArea', parallels:[-18,-36], rotate:[-134,0,0], center:[0,-28]};
-const lightRamp = ['#e9e4d6','#bacdb5','#7caa8d','#477c62','#204c3b'];
+// Quantitative colour comes from ColorBrewer (colorbrewer2.org), as the unit's colour
+// notes direct: Greens for one-directional volume, BrBG for above/below a midpoint,
+// OrRd for rising extinction risk.
+const CB={greens:['#edf8e9','#bae4b3','#74c476','#31a354','#006d2c'],
+  brbg:['#a6611a','#dfc27d','#f5f5f5','#80cdc1','#018571'],orrd:['#ef6548','#d7301f','#990000']};
+const lightRamp = CB.greens;
 const config = {
   background:'transparent', font:FONT,
   view:{stroke:null},
@@ -187,16 +192,18 @@ function treemap(D,w) {
   // The remainder block is context, not a family: it stays neutral and outside the
   // ramp, or the biggest, darkest block on the chart would be the least meaningful.
   const isOther=r=>r.family.startsWith('Other');
-  const counts=D.families.filter(r=>!isOther(r)).map(r=>r.count), lo=Math.min(...counts), hi=Math.max(...counts);
+  const named=D.families.filter(r=>!isOther(r)).slice(0,10), rest=D.families.filter(r=>!named.includes(r));
+  const families=[...named,{family:'Other families / unassigned',count:rest.reduce((n,r)=>n+r.count,0),share:rest.reduce((n,r)=>n+r.share,0)}];
+  const counts=named.map(r=>r.count), lo=Math.min(...counts), hi=Math.max(...counts);
   const plot=H-44, labelSize=w<500?11:12;
-  const vals=[{id:'root',parent:null,count:0},...D.families.map((r,i)=>({...r,id:r.family,parent:'root',rank:i,
+  const vals=[{id:'root',parent:null,count:0},...families.map((r,i)=>({...r,id:r.family,parent:'root',rank:i,
     other:isOther(r),label:isOther(r)?'All other families':(friendly[r.family]||[r.family])[0],longLabel:isOther(r)?'All other families and unassigned records':(friendly[r.family]||[r.family,r.family])[1],
-    onDark:!isOther(r)&&Math.log(r.count/lo)/Math.log(hi/lo)>.52}))];
+    onDark:!isOther(r)&&Math.log(r.count/lo)/Math.log(hi/lo)>.72}))];
   return V(width,H,{description:'Treemap of the fifteen most-recorded bird families and the remainder. Rectangle area and colour lightness both encode records, not species richness.',
     data:[{name:'tree',values:vals,transform:[{type:'stratify',key:'id',parentKey:'parent'},
       {type:'treemap',field:'count',sort:{field:'value',order:'descending'},method:'squarify',ratio:1.35,size:[width,plot],paddingInner:4}]},
       {name:'leaves',source:'tree',transform:[{type:'filter',expr:'datum.depth===1'}]}],
-    scales:[{name:'fill',type:'log',domain:[lo,hi],range:['#e2e7d8',C.green]}],
+    scales:[{name:'fill',type:'log',domain:[lo,hi],range:[CB.greens[0],CB.greens[4]]}],
     marks:[{type:'rect',from:{data:'leaves'},encode:{enter:{x:{field:'x0'},x2:{field:'x1'},y:{field:'y0'},y2:{field:'y1'},
       fill:{signal:"datum.other?'#efebe0':scale('fill',datum.count)"},stroke:{signal:"datum.other?'#b9b4a4':null"},strokeDash:{value:[3,3]},
       tooltip:{signal:"{'Family':datum.longLabel,'Scientific family':datum.family,'Records':format(datum.count,','),'Share':format(datum.share,'.1%')}"}},
@@ -207,7 +214,7 @@ function treemap(D,w) {
         // name either way, so hide the label unless the block is wide enough for it.
         opacity:{signal:`datum.x1-datum.x0 > length(datum.label)*${labelSize*0.58}+22 && datum.y1-datum.y0>42?1:0`}}}},
       {type:'text',from:{data:'leaves'},encode:{enter:{x:{signal:'datum.x0+12'},y:{signal:'datum.y0+42'},text:{signal:"format(datum.share,'.1%')"},
-        fill:{signal:"datum.onDark?'#fffdf5':'#292e27'"},fontSize:{value:11},opacity:{signal:'datum.x1-datum.x0>58 && datum.y1-datum.y0>48?1:0'}}}},
+        fill:{signal:"datum.onDark?'#fffdf5':'#292e27'"},fontSize:{value:11},opacity:{signal:`datum.x1-datum.x0 > length(datum.label)*${labelSize*0.58}+22 && datum.y1-datum.y0>48?1:0`}}}},
     ],
     // Legend values must sit inside the scale domain or Vega drops them, and the
     // smallest family here still holds about 230,000 records.
@@ -228,7 +235,7 @@ function seasonalClock(D,w) {
   return V(width,H,{description:'Circular heatmap of monthly records per day relative to each state’s annual daily average. Rings show states from north to south; sectors follow the calendar.',
     data:[{name:'cells',values:vals},{name:'months',values:labels},
       {name:'rings',values:codes.map((code,i)=>({code,r:inner+(i+.5)*band}))}],
-    scales:[{name:'pace',type:'linear',domain:[.5,1,1.6],range:['#c3a26d','#eee9dc',C.green],clamp:true}],
+    scales:[{name:'pace',type:'linear',domain:[.5,1,1.6],range:[CB.brbg[0],CB.brbg[2],CB.brbg[4]],clamp:true}],
     marks:[{type:'arc',from:{data:'cells'},encode:{enter:{x:{value:cx},y:{value:cy},startAngle:{field:'a0'},endAngle:{field:'a1'},innerRadius:{field:'r0'},outerRadius:{field:'r1'},
       fill:{scale:'pace',field:'dailyIndex'},tooltip:{signal:"{'State':datum.state,'Month':datum.label,'Records':format(datum.count,','),'Daily pace vs state average':format(datum.dailyIndex,'.2f')+'×'}"}},
       update:{strokeWidth:{value:0}},hover:{stroke:{value:C.ink},strokeWidth:{value:1.4}}}},
@@ -307,7 +314,7 @@ function seasonField(D,w) {
   return VL(w-16,mapH(w),{description:'Filled contour map of a smoothed field: for each place, its share of all winter (June–August) records divided by its share of all summer (December–February) records, 2024. Toggle between all bird records and rainbow bee-eater records. Blank land has too few records to estimate.',
     params:[{name:'who',value:'Everyone'}],projection,layer:[{data:{values:D.australia.features},mark:{type:'geoshape',fill:'#d6d2c6',stroke:'#c7c6b8',strokeWidth:.7}},
       {data:{values:D.seasonField.features},transform:[{filter:'datum.properties.who===who'}],mark:{type:'geoshape',strokeWidth:0},
-        encoding:{color:{field:'properties.label',type:'ordinal',scale:{domain:bands,range:['#9b6a26','#d8bd8f','#f0ebdf','#9db3bb','#476a77']},
+        encoding:{color:{field:'properties.label',type:'ordinal',scale:{domain:bands,range:CB.brbg},
           legend:{title:null,orient:'bottom',direction:'horizontal',columns:small?2:5,symbolType:'square',symbolSize:160,labelLimit:200,columnPadding:14}},
           tooltip:[tooltip('properties.label','Seasonal lean')]}},
       outline(D),
@@ -368,7 +375,7 @@ function seasonMatrix(D,w) {
       mark:{type:'rect',stroke:C.paper,strokeWidth:2,cornerRadius:1},
       encoding:{x:{field:'label',type:'ordinal',sort:MONTHS,axis:{title:null,labelAngle:0}},
         y:{field:'name',type:'ordinal',sort:order.flatMap(g=>groups[g]),axis:{title:null,labelLimit:compact?130:210,labelFontSize:compact?10:12}},
-        color:{field:'relative',type:'quantitative',scale:{type:'log',domain:[.25,1,4],range:['#b18a55','#efeadd',C.green],clamp:true},
+        color:{field:'relative',type:'quantitative',scale:{type:'log',domain:[.25,1,4],range:[CB.brbg[0],CB.brbg[2],CB.brbg[4]],clamp:true},
           legend:{title:'Share relative to annual share',titleLimit:280,orient:'bottom',values:[.25,1,4],format:'.2~f',gradientLength:180}},
         tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('count','Records',','),tooltip('per10k','Per 10,000 bird records','.1f'),tooltip('relative','Relative to annual share','.2f')]}}};
 }
@@ -391,10 +398,10 @@ function swarm(D,w) {
     padding:{left:24,right:20,top:28,bottom:50},
     data:[{name:'birds',values:rows},{name:'statuses',values:statuses.map((status,i)=>({status,y:48+i*100}))}],
     scales:[{name:'x',type:'log',domain:[1,15000],range:'width',nice:false},
-      {name:'color',type:'ordinal',domain:statuses,range:['#9b812d','#b36b37',C.rust]}],
+      {name:'color',type:'ordinal',domain:statuses,range:CB.orrd}],
     axes:[{scale:'x',orient:'bottom',values:[1,10,100,1000,10000],format:',',title:'2024 records per species · logarithmic scale',grid:true}],
     marks:[{type:'rule',from:{data:'statuses'},encode:{enter:{x:{value:0},x2:{signal:'width'},y:{field:'y'},stroke:{value:C.rule},strokeWidth:{value:.7}}}},
-      {type:'text',from:{data:'statuses'},encode:{enter:{x:{value:0},y:{signal:'datum.y-36'},text:{field:'status'},fontSize:{value:12},fontWeight:{value:500},fill:{scale:'color',field:'status'}}}},
+      {type:'text',from:{data:'statuses'},encode:{enter:{x:{value:0},y:{signal:'datum.y-36'},text:{field:'status'},fontSize:{value:12},fontWeight:{value:600},fill:{value:C.ink}}}},
       {type:'symbol',from:{data:'birds'},encode:{enter:{x:{scale:'x',field:'count'},y:{signal:"48+indexof(['Vulnerable','Endangered','Critically Endangered'],datum.status)*100+datum.offset"},
         size:{value:73},fill:{scale:'color',field:'status'},stroke:{value:C.paper},strokeWidth:{value:1},
         tooltip:{signal:"{'Bird':datum.name,'Scientific name':datum.scientific,'Listing in Aug 2026':datum.status,'2024 records':format(datum.count,',')}"}},
