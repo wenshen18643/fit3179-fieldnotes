@@ -348,9 +348,11 @@ function ridgeline(D,w) {
 function seasonMatrix(D,w) {
   // The flat rows are the control, not filler: grouping them against the birds
   // that swing makes the contrast the chart's actual claim.
+  // The bee-eater sits with the steady birds: nationally its share hardly moves,
+  // because it relocates within Australia rather than leaving (Figs 7–9).
   const groups={
-    'Birds that arrive and leave':['White-throated Needletail','Eastern Koel','Red-necked Stint','Rainbow Bee-eater'],
-    'Birds recorded every month':['Silvereye','Welcome Swallow','Superb Fairy-wren','Australian Magpie'],
+    'Share swings with the seasons':['White-throated Needletail','Eastern Koel','Red-necked Stint'],
+    'Share steady all year':['Rainbow Bee-eater','Silvereye','Welcome Swallow','Superb Fairy-wren','Australian Magpie'],
   };
   const order=Object.keys(groups);
   const group=new Map(order.flatMap(g=>groups[g].map(name=>[name,g])));
@@ -362,7 +364,7 @@ function seasonMatrix(D,w) {
     facet:{row:{field:'group',type:'nominal',sort:order,title:null,
       header:{labelAngle:0,labelAlign:'left',labelAnchor:'start',labelOrient:'top',labelPadding:6,
         labelFontSize:compact?11:13,labelFontWeight:600,labelColor:C.ink,labelFont:FONT}}},
-    spec:{width:Math.max(180,Math.round(width)),height:4*(compact?26:32),
+    spec:{width:Math.max(180,Math.round(width)),height:{step:compact?26:32},
       mark:{type:'rect',stroke:C.paper,strokeWidth:2,cornerRadius:1},
       encoding:{x:{field:'label',type:'ordinal',sort:MONTHS,axis:{title:null,labelAngle:0}},
         y:{field:'name',type:'ordinal',sort:order.flatMap(g=>groups[g]),axis:{title:null,labelLimit:compact?130:210,labelFontSize:compact?10:12}},
@@ -460,20 +462,26 @@ function stateCircles(D,w) {
       {name:'nodes',values:D.states.map(s=>({code:s.code,state:s.state,count:s.count,listed:s.listed,longitude:s.longitude,latitude:s.latitude})),
         transform:[{type:'formula',expr:`measure==='listed'?datum.listed/${maxListed}:datum.count/${maxRecords}`,as:'t'},
           {type:'formula',expr:`max(9,sqrt(datum.t)*${R})`,as:'r'},
+          // The other measure, drawn as a ring on the same centre, so both halves of
+          // the headline are visible before the toggle is touched.
+          {type:'formula',expr:`max(4,sqrt(measure==='listed'?datum.count/${maxRecords}:datum.listed/${maxListed})*${R})`,as:'r2'},
           {type:'formula',expr:"scale('projection',[datum.longitude,datum.latitude])[0]",as:'tx'},
           {type:'formula',expr:"scale('projection',[datum.longitude,datum.latitude])[1]",as:'ty'},
           {type:'formula',expr:'datum.tx',as:'x'},{type:'formula',expr:'datum.ty',as:'y'},
           // alpha differs per measure only so that switching measure changes a force
           // parameter, which is what makes Vega restart the simulation.
-          {type:'force',static:false,iterations:300,alphaMin:.005,alpha:{signal:"measure==='listed'?1:.999"},forces:[{force:'collide',radius:{expr:'datum.r+3'},strength:1,iterations:6},
+          {type:'force',static:false,iterations:300,alphaMin:.005,alpha:{signal:"measure==='listed'?1:.999"},forces:[{force:'collide',radius:{expr:'max(datum.r,datum.r2)+3'},strength:1,iterations:6},
             {force:'x',x:'tx',strength:.05},{force:'y',y:'ty',strength:.05}]},
           // Keep every circle inside the frame once the layout settles.
-          {type:'formula',expr:'clamp(datum.x,datum.r+2,width-datum.r-2)',as:'x'},{type:'formula',expr:'clamp(datum.y,datum.r+16,height-datum.r-2)',as:'y'}]}],
+          {type:'formula',expr:'clamp(datum.x,max(datum.r,datum.r2)+2,width-max(datum.r,datum.r2)-2)',as:'x'},{type:'formula',expr:'clamp(datum.y,max(datum.r,datum.r2)+16,height-max(datum.r,datum.r2)-2)',as:'y'}]}],
     marks:[{type:'shape',from:{data:'states'},encode:{enter:{fill:{value:'#ebe7dc'},stroke:{value:'#d5d0c1'},strokeWidth:{value:.7}}},transform:[{type:'geoshape',projection:'projection'}]},
       {type:'symbol',from:{data:'nodes'},encode:{update:{x:{field:'x'},y:{field:'y'},size:{signal:'PI*datum.r*datum.r'},cursor:{value:'pointer'},
         fill:{signal:`measure==='listed'?'${C.rust}':'${C.green}'`},fillOpacity:{signal:"picked===''||picked===datum.code?.88:.3"},
         stroke:{signal:`picked===datum.code?'${C.ink}':'${C.paper}'`},strokeWidth:{signal:'picked===datum.code?2.5:1.5'},
         tooltip:{signal:"{'Jurisdiction':datum.state,'2024 bird records':format(datum.count,','),'Listed threatened bird taxa':datum.listed}"}}}},
+      {type:'symbol',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{field:'y'},size:{signal:'PI*datum.r2*datum.r2'},fill:{value:'transparent'},
+        stroke:{signal:`measure==='listed'?'${C.green}':'${C.rust}'`},strokeWidth:{value:2},strokeDash:{value:[4,3]},
+        strokeOpacity:{signal:"picked===''||picked===datum.code?1:.3"}}}},
       {type:'text',from:{data:'nodes'},encode:{update:{x:{field:'x'},y:{signal:'datum.r>24?datum.y-4:datum.y-datum.r-14'},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},
         fontSize:{value:12},fontWeight:{value:700},fill:{signal:`datum.r>24?'${C.paper}':'${C.ink}'`},interactive:{value:false}}}},
       {type:'text',from:{data:'nodes'},encode:{update:{x:{field:'x'},y:{signal:'datum.r>24?datum.y+11:datum.y-datum.r-2'},align:{value:'center'},baseline:{value:'middle'},

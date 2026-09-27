@@ -9040,6 +9040,11 @@
         },
         {
           "type": "formula",
+          "expr": "max(4,sqrt(measure==='listed'?datum.count/2455993:datum.listed/85)*70.5)",
+          "as": "r2"
+        },
+        {
+          "type": "formula",
           "expr": "scale('projection',[datum.longitude,datum.latitude])[0]",
           "as": "tx"
         },
@@ -9070,7 +9075,7 @@
             {
               "force": "collide",
               "radius": {
-                "expr": "datum.r+3"
+                "expr": "max(datum.r,datum.r2)+3"
               },
               "strength": 1,
               "iterations": 6
@@ -9089,12 +9094,12 @@
         },
         {
           "type": "formula",
-          "expr": "clamp(datum.x,datum.r+2,width-datum.r-2)",
+          "expr": "clamp(datum.x,max(datum.r,datum.r2)+2,width-max(datum.r,datum.r2)-2)",
           "as": "x"
         },
         {
           "type": "formula",
-          "expr": "clamp(datum.y,datum.r+16,height-datum.r-2)",
+          "expr": "clamp(datum.y,max(datum.r,datum.r2)+16,height-max(datum.r,datum.r2)-2)",
           "as": "y"
         }
       ]
@@ -9159,6 +9164,44 @@
           },
           "tooltip": {
             "signal": "{'Jurisdiction':datum.state,'2024 bird records':format(datum.count,','),'Listed threatened bird taxa':datum.listed}"
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {
+        "data": "nodes"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "field": "y"
+          },
+          "size": {
+            "signal": "PI*datum.r2*datum.r2"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "stroke": {
+            "signal": "measure==='listed'?'#315e4c':'#a74735'"
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "strokeDash": {
+            "value": [
+              4,
+              3
+            ]
+          },
+          "strokeOpacity": {
+            "signal": "picked===''||picked===datum.code?1:.3"
           }
         }
       }
