@@ -9211,6 +9211,7 @@
       "from": {
         "data": "nodes"
       },
+      "interactive": false,
       "encode": {
         "update": {
           "x": {
@@ -9235,10 +9236,16 @@
             "value": 700
           },
           "fill": {
-            "signal": "datum.r>24?'#f8f5ec':'#292e27'"
+            "value": "#292e27"
           },
-          "interactive": {
-            "value": false
+          "stroke": {
+            "value": "#f8f5ec"
+          },
+          "strokeWidth": {
+            "value": 3.5
+          },
+          "strokeJoin": {
+            "value": "round"
           }
         }
       }
@@ -9248,6 +9255,7 @@
       "from": {
         "data": "nodes"
       },
+      "interactive": false,
       "encode": {
         "update": {
           "x": {
@@ -9269,10 +9277,83 @@
             "value": 11
           },
           "fill": {
-            "signal": "datum.r>24?'#f8f5ec':'#60665c'"
+            "value": "#292e27"
           },
-          "interactive": {
-            "value": false
+          "stroke": {
+            "value": "#f8f5ec"
+          },
+          "strokeWidth": {
+            "value": 3.5
+          },
+          "strokeJoin": {
+            "value": "round"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "nodes"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "signal": "datum.r>24?datum.y-4:datum.y-datum.r-14"
+          },
+          "text": {
+            "field": "code"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 700
+          },
+          "fill": {
+            "value": "#292e27"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "nodes"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "signal": "datum.r>24?datum.y+11:datum.y-datum.r-2"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "signal": "measure==='listed'?datum.listed+'':format(datum.count/1e6,'.1f')+'M'"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#292e27"
           }
         }
       }

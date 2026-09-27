@@ -578,7 +578,7 @@
             "signal": "datum.side==='left'?format(datum.count/9575922,'.1%')+' of all':format(datum.shares[source],'.0%')+' '+{\"eBird Australia\":\"eBird\",\"BirdLife Australia, Birdata\":\"Birdata\",\"iNaturalist Australia\":\"iNaturalist\"}[source]"
           },
           "fill": {
-            "signal": "datum.side==='right'?'#8f6420':'#60665c'"
+            "signal": "datum.side==='right'?'#875c1b':'#60665c'"
           },
           "fontWeight": {
             "signal": "datum.side==='right'?600:400"

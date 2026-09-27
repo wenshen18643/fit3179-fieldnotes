@@ -5,7 +5,7 @@ export const C = {
   // Green means record volume everywhere in the journal, ochre means below the
   // usual volume, and rust is reserved for conservation. Nothing else encodes a
   // hue, which is why there is no categorical species palette here any more.
-  green: '#315e4c', ochre: '#ad7926', ochreText: '#8f6420', rust: '#a74735',
+  green: '#315e4c', ochre: '#ad7926', ochreText: '#875c1b', rust: '#a74735',
   // The four seasons are the one categorical scale left. No pair is red against
   // green: that is the pairing that collapses for the commonest colour blindness,
   // so autumn is a mauve rather than a rust.
@@ -489,11 +489,12 @@ function stateCircles(D,w) {
       {type:'symbol',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{field:'y'},size:{signal:'PI*datum.r2*datum.r2'},fill:{value:'transparent'},
         stroke:{signal:`measure==='listed'?'${C.green}':'${C.rust}'`},strokeWidth:{value:2},strokeDash:{value:[4,3]},
         strokeOpacity:{signal:"picked===''||picked===datum.code?1:.3"}}}},
-      {type:'text',from:{data:'nodes'},encode:{update:{x:{field:'x'},y:{signal:'datum.r>24?datum.y-4:datum.y-datum.r-14'},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},
-        fontSize:{value:12},fontWeight:{value:700},fill:{signal:`datum.r>24?'${C.paper}':'${C.ink}'`},interactive:{value:false}}}},
-      {type:'text',from:{data:'nodes'},encode:{update:{x:{field:'x'},y:{signal:'datum.r>24?datum.y+11:datum.y-datum.r-2'},align:{value:'center'},baseline:{value:'middle'},
-        text:{signal:"measure==='listed'?datum.listed+'':format(datum.count/1e6,'.1f')+'M'"},
-        fontSize:{value:11},fill:{signal:`datum.r>24?'${C.paper}':'${C.muted}'`},interactive:{value:false}}}},
+      // Ink on a paper halo stays readable on any circle, faded or not.
+      ...['halo','ink'].flatMap(k=>{const halo=k==='halo'?{stroke:{value:C.paper},strokeWidth:{value:3.5},strokeJoin:{value:'round'}}:{};return [
+        {type:'text',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{signal:'datum.r>24?datum.y-4:datum.y-datum.r-14'},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},
+          fontSize:{value:12},fontWeight:{value:700},fill:{value:C.ink},...halo}}},
+        {type:'text',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{signal:'datum.r>24?datum.y+11:datum.y-datum.r-2'},align:{value:'center'},baseline:{value:'middle'},
+          text:{signal:"measure==='listed'?datum.listed+'':format(datum.count/1e6,'.1f')+'M'"},fontSize:{value:11},fill:{value:C.ink},...halo}}}];}),
     ]});
 }
 
