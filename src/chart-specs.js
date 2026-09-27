@@ -38,7 +38,7 @@ const V = (width,height,body) => ({$schema:'https://vega.github.io/schema/vega/v
 const tooltip = (field,title,format) => ({field,title,...(format?{format}:{})});
 const stateData = D => D.australia.features.map(f=>({...f,...D.states.find(s=>s.code===f.properties.code)}));
 const baseMap = D => ({data:{values:D.australia.features},mark:{type:'geoshape',fill:'#e8e4d9',stroke:'#c7c6b8',strokeWidth:.7}});
-const mapH = w => Math.min(520, Math.max(270,w*.7));
+const mapH = w => Math.min(620, Math.max(270,w*.78));
 
 // Text with a paper halo, so labels stay legible over any fill. Vega-Lite has no
 // halo property, so the same text is drawn twice: a thick paper stroke, then ink.
@@ -64,7 +64,7 @@ function gridMap(D,w) {
     params:[{name:'cover',value:.5}],projection,layer:[baseMap(D),{
       data:{values:cells},mark:{type:'geoshape',stroke:C.paper,strokeWidth:.45},
       encoding:{color:{field:'properties.count',type:'quantitative',scale:{type:'log',domain:[1,1200000],range:lightRamp},
-        legend:{title:'Records in each 1° square',orient:'bottom-left',values:[1,100,10000,1000000],format:'.0s',gradientLength:small?150:200}},
+        legend:{title:'Records in each 1° square',orient:small?'bottom':'bottom-left',values:[1,100,10000,1000000],format:'.0s',gradientLength:small?150:200}},
         opacity:{condition:{test:lit,value:1},value:.38},
         tooltip:[tooltip('properties.count','2024 records',','),tooltip('properties.rank','Busiest-square rank'),tooltip('properties.latitude','Latitude'),tooltip('properties.longitude','Longitude')]},
     },{data:{values:cells},transform:[{filter:lit}],mark:{type:'geoshape',fill:null,stroke:C.ink,strokeWidth:1.1}},
@@ -192,8 +192,10 @@ function treemap(D,w) {
   // The remainder block is context, not a family: it stays neutral and outside the
   // ramp, or the biggest, darkest block on the chart would be the least meaningful.
   const isOther=r=>r.family.startsWith('Other');
-  const named=D.families.filter(r=>!isOther(r)).slice(0,10), rest=D.families.filter(r=>!named.includes(r));
-  const families=[...named,{family:'Other families / unassigned',count:rest.reduce((n,r)=>n+r.count,0),share:rest.reduce((n,r)=>n+r.share,0)}];
+  const named=D.families.filter(r=>!isOther(r)).slice(0,10);
+  // Only the ten busiest families are drawn. A remainder block would be the biggest
+  // shape on the chart while saying nothing; the caption states its share instead.
+  const families=named;
   const counts=named.map(r=>r.count), lo=Math.min(...counts), hi=Math.max(...counts);
   const plot=H-44, labelSize=w<500?11:12;
   const vals=[{id:'root',parent:null,count:0},...families.map((r,i)=>({...r,id:r.family,parent:'root',rank:i,
@@ -556,7 +558,7 @@ function coverage(D,w) {
       tooltip:[tooltip('source','Source'),tooltip('year','Year'),tooltip('label','Month'),tooltip('availability','Coverage'),tooltip('count','Records',',')]},
     layer:[{mark:{type:'rect',stroke:C.paper,strokeWidth:3,cornerRadius:1},
       encoding:{color:{field:'coverage',type:'nominal',sort:states.map(s=>labels[s]),
-        scale:{domain:states.map(s=>labels[s]),range:[C.green,'#ddd7c6','#f2eee4']},
+        scale:{domain:states.map(s=>labels[s]),range:['#6f9a7e','#ddd7c6','#f2eee4']},
         legend:{title:null,orient:'bottom',direction:'horizontal',columns:compact?1:3,symbolType:'square',symbolSize:170,labelLimit:300,offset:14}}}},
       {data:{values:notes},mark:{type:'text',fontSize:compact?10:12,fontWeight:600,color:C.ink,dx:{expr:'datum.dx'}},
         encoding:{x:{field:'label',type:'ordinal',sort:MONTHS},y:{field:'row',type:'ordinal',sort:order},text:{field:'text'},tooltip:null}}],

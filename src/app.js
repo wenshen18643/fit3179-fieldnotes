@@ -27,6 +27,7 @@ function fillStats(){
     topGridShare:percent(i.topGridShare),shoreShare:Math.round(100*i.shoreShare)+'%',
     allSummerSouth:Math.round(100*i.allSummerSouth)+'%',allWinterSouth:Math.round(100*i.allWinterSouth)+'%',
     saListed:String(D.states.find(s=>s.code==='SA').listed),
+    topTenShare:Math.round(100*D.families.filter(r=>!r.family.startsWith('Other')).slice(0,10).reduce((n,r)=>n+r.share,0))+'%',
     sharedTaxa:String(D.threatenedListings.filter(r=>r.states.length>1).length),
     ntMultiple:(D.states.find(s=>s.code==='NT').perResident/(i.total/D.states.reduce((n,s)=>n+s.population,0)*1000)).toFixed(1)};
   for(const el of document.querySelectorAll('[data-stat]')) if(values[el.dataset.stat]!==undefined)el.textContent=values[el.dataset.stat];
@@ -86,7 +87,11 @@ function addFigureTools(){
   for(const figure of document.querySelectorAll('figure[data-chart]')){
     const id=figure.dataset.chart;index++;
     const bar=document.createElement('div');bar.className='figure-tools';
-    const n=document.createElement('span');n.className='figure-number';n.textContent='Fig. '+String(index).padStart(2,'0');bar.append(n);
+    // The figure number leads the metadata line above the title, not the tools row.
+    const heading=figure.querySelector('.figure-heading');
+    let period=heading.querySelector('.figure-period');
+    if(!period){period=document.createElement('span');period.className='figure-period';heading.append(period);}
+    period.textContent='Fig. '+String(index).padStart(2,'0')+(period.textContent?' · '+period.textContent:'');
     if(tableKeys[id]){
       const b=document.createElement('button');b.type='button';b.textContent='View data table';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls',`table-${id}`);
       b.addEventListener('click',()=>showTable(id,b,figure).catch(error=>{b.textContent='Could not load table — retry';errors.push(error.message);}));bar.append(b);

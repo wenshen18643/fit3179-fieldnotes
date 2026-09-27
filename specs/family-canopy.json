@@ -170,18 +170,6 @@
           "label": "Crows",
           "longLabel": "Crows & ravens",
           "onDark": false
-        },
-        {
-          "family": "Other families / unassigned",
-          "count": 4754494,
-          "share": 0.49650508849174,
-          "id": "Other families / unassigned",
-          "parent": "root",
-          "rank": 10,
-          "other": true,
-          "label": "All other families",
-          "longLabel": "All other families and unassigned records",
-          "onDark": false
         }
       ],
       "transform": [
