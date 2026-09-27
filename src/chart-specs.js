@@ -522,7 +522,7 @@ function upset(D,w) {
       {type:'rect',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id'},width:{scale:'x',band:1},y:{scale:'y',field:'count'},y2:{value:140},
       tooltip:{signal:"{'Exactly these states':datum.combination,'Listed bird taxa':datum.count}"}},update:{fill:{signal:`${on}?'${C.rust}':'#e6d8d2'`}}}},
       {type:'text',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{scale:'y',field:'count',offset:-7},text:{field:'count'},align:{value:'center'},fontSize:{value:12},fontWeight:{value:600}},
-        update:{fill:{signal:`${on}?'${C.ink}':'#b9b4a4'`}}}},
+        update:{fill:{signal:`${on}?'${C.ink}':'${C.muted}'`}}}},
       // Two worked examples, so the matrix can be decoded from the chart itself.
       {type:'text',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id',band:0},y:{scale:'y',field:'count',offset:-24},align:{value:'left'},fontSize:{value:11},fontStyle:{value:'italic'},fill:{value:C.muted},
         text:{signal:"datum.states.length===1&&datum.id===0?'only '+datum.states[0]:datum.id===1?'shared by '+datum.states.length:''"}}}},

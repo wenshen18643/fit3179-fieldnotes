@@ -1714,7 +1714,7 @@
         },
         "update": {
           "fill": {
-            "signal": "picked==='' || indexof(datum.states,picked)>=0?'#292e27':'#b9b4a4'"
+            "signal": "picked==='' || indexof(datum.states,picked)>=0?'#292e27':'#60665c'"
           }
         }
       }
