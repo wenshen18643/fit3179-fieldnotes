@@ -5,18 +5,18 @@
   "padding": 8,
   "config": {
     "background": "transparent",
-    "font": "Bricolage Grotesque",
+    "font": "'Source Sans 3', sans-serif",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "domain": false,
       "ticks": false,
       "gridColor": "#e0dccf",
@@ -25,20 +25,20 @@
       "titlePadding": 14
     },
     "legend": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 11,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "gradientThickness": 9,
       "gradientLength": 130,
       "padding": 8
     },
     "title": {
-      "font": "Bricolage Grotesque",
-      "color": "#292e27",
+      "font": "'Source Sans 3', sans-serif",
+      "color": "#24281f",
       "fontSize": 15,
       "fontWeight": 500,
       "anchor": "start"
@@ -9055,7 +9055,7 @@
       ],
       "mark": {
         "type": "geoshape",
-        "stroke": "#f8f5ec",
+        "stroke": "#f7f2e8",
         "strokeWidth": 1.3
       },
       "encoding": {
@@ -9120,7 +9120,7 @@
       },
       "mark": {
         "type": "line",
-        "color": "#292e27",
+        "color": "#24281f",
         "strokeWidth": 0.8
       },
       "encoding": {
@@ -9146,7 +9146,7 @@
       "mark": {
         "type": "point",
         "size": 110,
-        "color": "#292e27",
+        "color": "#24281f",
         "strokeWidth": 1.2
       },
       "encoding": {
@@ -9304,8 +9304,8 @@
         "align": {
           "expr": "datum.code==='ACT'?'left':'center'"
         },
-        "color": "#292e27",
-        "stroke": "#f8f5ec",
+        "color": "#24281f",
+        "stroke": "#f7f2e8",
         "strokeWidth": 3.5,
         "strokeJoin": "round"
       },
@@ -9467,7 +9467,7 @@
         "align": {
           "expr": "datum.code==='ACT'?'left':'center'"
         },
-        "color": "#292e27"
+        "color": "#24281f"
       },
       "encoding": {
         "longitude": {

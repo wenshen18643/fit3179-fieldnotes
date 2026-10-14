@@ -1,4 +1,8 @@
-import {chartBuilders,chartFiles} from './chart-specs.js';
+import {chartBuilders,chartFiles,applyTheme} from './chart-specs.js';
+
+// Design pages set window.fieldTheme to restyle chart type and paper.
+const theme=window.fieldTheme||{};
+applyTheme(theme);
 
 if(document.readyState==='loading') await new Promise(resolve=>document.addEventListener('DOMContentLoaded',resolve,{once:true}));
 
@@ -24,10 +28,11 @@ function fillStats(){
   const values={...Object.fromEntries(Object.entries(i).filter(([,v])=>typeof v==='number').map(([k,v])=>[k,format.format(Math.round(v))])),
     eastShare:percent(i.eastShare),ebirdShare:percent(i.ebirdShare),beeSummerSouth:percent(i.beeSummerSouth),beeWinterSouth:percent(i.beeWinterSouth),
     actDensity:format.format(Math.round(D.states.find(s=>s.code==='ACT').density)),
-    topGridShare:percent(i.topGridShare),shoreShare:Math.round(100*i.shoreShare)+'%',
+    topGridShare:percent(i.topGridShare),
     allSummerSouth:Math.round(100*i.allSummerSouth)+'%',allWinterSouth:Math.round(100*i.allWinterSouth)+'%',
+    // Same precision as the all-birds row it sits beside.
+    beeSummerSouthRound:Math.round(100*i.beeSummerSouth)+'%',beeWinterSouthRound:Math.round(100*i.beeWinterSouth)+'%',
     saListed:String(D.states.find(s=>s.code==='SA').listed),
-    topTenShare:Math.round(100*D.families.filter(r=>!r.family.startsWith('Other')).slice(0,10).reduce((n,r)=>n+r.share,0))+'%',
     sharedTaxa:String(D.threatenedListings.filter(r=>r.states.length>1).length),
     ntMultiple:(D.states.find(s=>s.code==='NT').perResident/(i.total/D.states.reduce((n,s)=>n+s.population,0)*1000)).toFixed(1)};
   for(const el of document.querySelectorAll('[data-stat]')) if(values[el.dataset.stat]!==undefined)el.textContent=values[el.dataset.stat];
@@ -44,20 +49,15 @@ function fillStats(){
 const tableKeys={
   'observation-atlas':['latitude','longitude','count'],
   'record-density':['state','count','area','density','species'],
-  'record-rivers':['source','state','count'],
-  'family-canopy':['family','count','share'],
   'seasonal-clock':['state','label','count','dailyIndex'],
   'monthly-ranks':['name','label','rank','count'],
   'seasonal-footprint':['season','latitude','longitude','count'],
   'season-field':null,
-  'threat-spikes':['latitude','longitude','group','threatened','records','per1000','top'],
   'state-circles':['state','count','listed','population','perResident'],
   'latitude-ridges':['label','latitude','count','share'],
   'seasonal-signatures':['name','label','count','per10k','relative'],
   'threatened-swarm':['name','scientific','status','count'],
   'shared-responsibility':['combination','count'],
-  'coverage-calendar':['source','year','label','count','availability'],
-  'recent-shares':['name','count2024','count2025','rate2024','rate2025','pct'],
 };
 const names={latitude:'Latitude',longitude:'Longitude',count:'Records',state:'State',area:'Land area (km²)',density:'Records / 1,000 km²',species:'Named species',
   source:'Source',family:'Family',share:'Share',label:'Month',dailyIndex:'Daily pace / yearly average',name:'Bird',rank:'Rank',season:'Season',
@@ -89,9 +89,13 @@ function addFigureTools(){
     const bar=document.createElement('div');bar.className='figure-tools';
     // The figure number leads the metadata line above the title, not the tools row.
     const heading=figure.querySelector('.figure-heading');
+    // A page may drop figure numbers (figureLabel returns ''); the period line then shows
+    // only when the figure has a date of its own, and disappears when it has none.
+    const label=theme.figureLabel||(n=>'Fig. '+String(n).padStart(2,'0'));
     let period=heading.querySelector('.figure-period');
-    if(!period){period=document.createElement('span');period.className='figure-period';heading.append(period);}
-    period.textContent='Fig. '+String(index).padStart(2,'0')+(period.textContent?' · '+period.textContent:'');
+    const text=[label(index),period?.textContent].filter(Boolean).join(' · ');
+    if(text){if(!period){period=document.createElement('span');period.className='figure-period';heading.append(period);}period.textContent=text;}
+    else period?.remove();
     if(tableKeys[id]){
       const b=document.createElement('button');b.type='button';b.textContent='View data table';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls',`table-${id}`);
       b.addEventListener('click',()=>showTable(id,b,figure).catch(error=>{b.textContent='Could not load table — retry';errors.push(error.message);}));bar.append(b);
@@ -198,9 +202,10 @@ function setupControls(){
 
 let scrollTick=false;
 function updateProgress(){
-  const scrollMax=document.documentElement.scrollHeight-window.innerHeight;
-  document.querySelector('.reading-progress span').style.transform=`scaleX(${scrollMax>0?window.scrollY/scrollMax:0})`;
   scrollTick=false;
+  const bar=document.querySelector('.reading-progress span');if(!bar)return;
+  const scrollMax=document.documentElement.scrollHeight-window.innerHeight;
+  bar.style.transform=`scaleX(${scrollMax>0?window.scrollY/scrollMax:0})`;
 }
 window.addEventListener('scroll',()=>{if(!scrollTick){scrollTick=true;requestAnimationFrame(updateProgress);}},{passive:true});
 
@@ -213,5 +218,5 @@ try{
   document.documentElement.dataset.ready='true';
 }catch(error){
   errors.push(error.message);console.error(error);
-  const notice=document.createElement('p');notice.className='chart-error';notice.textContent='The chart data could not be loaded. Open this page through its website address or the included local web server, then reload.';document.querySelector('.orientation').after(notice);
+  const notice=document.createElement('p');notice.className='chart-error';notice.textContent='The chart data could not be loaded. Open this page through its website address or the included local web server, then reload.';(document.querySelector('main')||document.body).prepend(notice);
 }

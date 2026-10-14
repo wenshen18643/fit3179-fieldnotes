@@ -3,18 +3,18 @@
   "padding": 8,
   "config": {
     "background": "transparent",
-    "font": "Bricolage Grotesque",
+    "font": "'Source Sans 3', sans-serif",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "domain": false,
       "ticks": false,
       "gridColor": "#e0dccf",
@@ -23,20 +23,20 @@
       "titlePadding": 14
     },
     "legend": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 11,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "gradientThickness": 9,
       "gradientLength": 130,
       "padding": 8
     },
     "title": {
-      "font": "Bricolage Grotesque",
-      "color": "#292e27",
+      "font": "'Source Sans 3', sans-serif",
+      "color": "#24281f",
       "fontSize": 15,
       "fontWeight": 500,
       "anchor": "start"
@@ -1318,8 +1318,8 @@
         "labelPadding": 6,
         "labelFontSize": 13,
         "labelFontWeight": 600,
-        "labelColor": "#292e27",
-        "labelFont": "Bricolage Grotesque"
+        "labelColor": "#24281f",
+        "labelFont": "'Source Sans 3', sans-serif"
       }
     }
   },
@@ -1330,7 +1330,7 @@
     },
     "mark": {
       "type": "rect",
-      "stroke": "#f8f5ec",
+      "stroke": "#f7f2e8",
       "strokeWidth": 2,
       "cornerRadius": 1
     },

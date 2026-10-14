@@ -2,7 +2,7 @@
 
 The rainbow bee-eater is an original decorative interpretation generated using the built-in OpenAI image-generation tool. It is not a scientific identification reference and is not evidence for any plotted observation.
 
-Saved assets: `assets/rainbow-bee-eater.png` (original generated raster) and `assets/rainbow-bee-eater.webp` (same image encoded for website delivery). The website uses the 143 KB WebP version. No reference photos or third-party bird illustrations were incorporated.
+Saved assets: `assets/rainbow-bee-eater.png` (original generated raster) and `assets/rainbow-bee-eater.webp` (same image encoded for website delivery). The website uses the 143 KB WebP version. No reference photos or third-party bird illustrations were incorporated. As the assignment requires for AI-generated images, the page acknowledges it twice: in the credit line under the cover image and in the Authorship & AI acknowledgement block.
 
 ## Generation prompt
 

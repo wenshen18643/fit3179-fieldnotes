@@ -34,4 +34,4 @@ Implementation defaults: readable contrast, visible keyboard focus, semantic hea
 
 ## Confirmed scope
 
-The user has not submitted a sketch and says their lecturer permits drawing it after the website. The user asked for both a complete 2024 seasonal baseline and a newer 2025–2026 view. The latter must visibly distinguish data coverage and ingestion delays.
+The user has not submitted a sketch and says their lecturer permits drawing it after the website. The user first asked for both a complete 2024 seasonal baseline and a newer 2025–2026 view. In October 2026 they chose to drop the recent-coverage chart: every chart uses 2024, and Methods states why (eBird, 86.8% of 2024 records, has no records after August 2025 in the snapshot). The user chose eleven charts they are confident in over a twelfth weaker one, accepting no spare chart above the rubric's more-than-ten.

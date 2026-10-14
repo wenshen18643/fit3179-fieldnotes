@@ -5,18 +5,18 @@
   "padding": 8,
   "config": {
     "background": "transparent",
-    "font": "Bricolage Grotesque",
+    "font": "'Source Sans 3', sans-serif",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "domain": false,
       "ticks": false,
       "gridColor": "#e0dccf",
@@ -25,20 +25,20 @@
       "titlePadding": 14
     },
     "legend": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 11,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "gradientThickness": 9,
       "gradientLength": 130,
       "padding": 8
     },
     "title": {
-      "font": "Bricolage Grotesque",
-      "color": "#292e27",
+      "font": "'Source Sans 3', sans-serif",
+      "color": "#24281f",
       "fontSize": 15,
       "fontWeight": 500,
       "anchor": "start"
@@ -1086,7 +1086,8 @@
         "zero": false
       },
       "axis": {
-        "title": "Most recorded → lower rank",
+        "title": "Rank among all birds that month (1 = most records)",
+        "titleLimit": 400,
         "tickCount": 9,
         "format": "d"
       }
@@ -1112,7 +1113,7 @@
         "filled": true,
         "size": 34,
         "color": "#9aa093",
-        "stroke": "#f8f5ec",
+        "stroke": "#f7f2e8",
         "strokeWidth": 1
       },
       "encoding": {
@@ -1166,7 +1167,7 @@
         "filled": true,
         "size": 72,
         "color": "#ad7926",
-        "stroke": "#f8f5ec",
+        "stroke": "#f7f2e8",
         "strokeWidth": 1.4
       },
       "encoding": {
@@ -1197,7 +1198,10 @@
           {
             "month": 6,
             "rank": 8,
-            "text": "8th in June, 2nd by September"
+            "text": "8th in June",
+            "align": "center",
+            "dx": 0,
+            "dy": 17
           }
         ]
       },
@@ -1208,9 +1212,75 @@
       ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 10,
-        "dy": 14,
+        "align": "center",
+        "dx": 0,
+        "dy": 17,
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#875c1b",
+        "stroke": "#f7f2e8",
+        "strokeWidth": 3.5,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": {
+            "title": null,
+            "labelAngle": 0,
+            "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1,
+              9
+            ],
+            "reverse": true,
+            "zero": false
+          },
+          "axis": {
+            "title": "Rank among all birds that month (1 = most records)",
+            "titleLimit": 400,
+            "tickCount": 9,
+            "format": "d"
+          }
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "month": 6,
+            "rank": 8,
+            "text": "8th in June",
+            "align": "center",
+            "dx": 0,
+            "dy": 17
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "highlight==='Welcome Swallow'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 17,
+        "baseline": "middle",
         "fontSize": 12,
         "fontWeight": 600,
         "color": "#875c1b"
@@ -1238,7 +1308,135 @@
             "zero": false
           },
           "axis": {
-            "title": "Most recorded → lower rank",
+            "title": "Rank among all birds that month (1 = most records)",
+            "titleLimit": 400,
+            "tickCount": 9,
+            "format": "d"
+          }
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "month": 11,
+            "rank": 2,
+            "text": "2nd from September",
+            "align": "center",
+            "dx": 0,
+            "dy": -15
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "highlight==='Welcome Swallow'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": -15,
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#875c1b",
+        "stroke": "#f7f2e8",
+        "strokeWidth": 3.5,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": {
+            "title": null,
+            "labelAngle": 0,
+            "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1,
+              9
+            ],
+            "reverse": true,
+            "zero": false
+          },
+          "axis": {
+            "title": "Rank among all birds that month (1 = most records)",
+            "titleLimit": 400,
+            "tickCount": 9,
+            "format": "d"
+          }
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "month": 11,
+            "rank": 2,
+            "text": "2nd from September",
+            "align": "center",
+            "dx": 0,
+            "dy": -15
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "highlight==='Welcome Swallow'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": -15,
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#875c1b"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": {
+            "title": null,
+            "labelAngle": 0,
+            "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1,
+              9
+            ],
+            "reverse": true,
+            "zero": false
+          },
+          "axis": {
+            "title": "Rank among all birds that month (1 = most records)",
+            "titleLimit": 400,
             "tickCount": 9,
             "format": "d"
           }
@@ -1347,7 +1545,7 @@
         "align": "left",
         "dx": 13,
         "fontSize": 11,
-        "color": "#60665c"
+        "color": "#5d6356"
       },
       "encoding": {
         "x": {
@@ -1372,7 +1570,8 @@
             "zero": false
           },
           "axis": {
-            "title": "Most recorded → lower rank",
+            "title": "Rank among all birds that month (1 = most records)",
+            "titleLimit": 400,
             "tickCount": 9,
             "format": "d"
           }
@@ -1507,7 +1706,8 @@
             "zero": false
           },
           "axis": {
-            "title": "Most recorded → lower rank",
+            "title": "Rank among all birds that month (1 = most records)",
+            "titleLimit": 400,
             "tickCount": 9,
             "format": "d"
           }

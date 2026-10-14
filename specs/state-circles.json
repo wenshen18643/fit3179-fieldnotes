@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 904,
-  "height": 470,
+  "height": 520,
   "padding": 8,
   "background": "transparent",
   "autosize": {
@@ -10,17 +10,17 @@
   },
   "config": {
     "text": {
-      "font": "Bricolage Grotesque",
-      "fill": "#292e27"
+      "font": "'Source Sans 3', sans-serif",
+      "fill": "#24281f"
     },
     "axis": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "domain": false,
       "ticks": false,
       "gridColor": "#e0dccf",
@@ -29,24 +29,20 @@
       "titlePadding": 14
     },
     "legend": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 11,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "gradientThickness": 9,
       "gradientLength": 130,
       "padding": 8
     }
   },
-  "description": "Dorling cartogram of the eight states and territories. Circle area is proportional to either 2024 bird records or the number of nationally listed threatened bird taxa associated with the jurisdiction. Select a circle to highlight its combinations in the overlap chart.",
+  "description": "Dorling cartogram of the eight states and territories. Circle area is proportional to the number of nationally listed threatened bird taxa associated with the jurisdiction; colour lightness shows its 2024 bird records. Select a circle to highlight its combinations in the overlap chart.",
   "signals": [
-    {
-      "name": "measure",
-      "value": "listed"
-    },
     {
       "name": "picked",
       "value": "",
@@ -60,6 +56,10 @@
           "update": "''"
         }
       ]
+    },
+    {
+      "name": "circleBottom",
+      "update": "extent(pluck(data('nodes'),'bottom'))[1]"
     }
   ],
   "projections": [
@@ -82,9 +82,25 @@
       "fit": {
         "signal": "data('states')"
       },
-      "size": {
-        "signal": "[width,height]"
-      }
+      "size": [
+        904,
+        462
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "records",
+      "type": "linear",
+      "domain": [
+        300000,
+        2500000
+      ],
+      "range": [
+        "#bae4b3",
+        "#006d2c"
+      ],
+      "clamp": true
     }
   ],
   "data": [
@@ -8968,7 +8984,8 @@
           "count": 706605,
           "listed": 64,
           "longitude": 122,
-          "latitude": -26
+          "latitude": -26,
+          "r": 60.13312290733148
         },
         {
           "code": "NT",
@@ -8976,7 +8993,8 @@
           "count": 330199,
           "listed": 38,
           "longitude": 133.3,
-          "latitude": -19.5
+          "latitude": -19.5,
+          "r": 46.335683111526095
         },
         {
           "code": "SA",
@@ -8984,7 +9002,8 @@
           "count": 490319,
           "listed": 85,
           "longitude": 135,
-          "latitude": -30.5
+          "latitude": -30.5,
+          "r": 69.3
         },
         {
           "code": "QLD",
@@ -8992,7 +9011,8 @@
           "count": 2335374,
           "listed": 72,
           "longitude": 145,
-          "latitude": -23
+          "latitude": -23,
+          "r": 63.78080847254732
         },
         {
           "code": "NSW",
@@ -9000,7 +9020,8 @@
           "count": 2455993,
           "listed": 81,
           "longitude": 147,
-          "latitude": -32.2
+          "latitude": -32.2,
+          "r": 67.64976327074793
         },
         {
           "code": "VIC",
@@ -9008,7 +9029,8 @@
           "count": 2450501,
           "listed": 71,
           "longitude": 144,
-          "latitude": -37
+          "latitude": -37,
+          "r": 63.336337493249665
         },
         {
           "code": "TAS",
@@ -9016,7 +9038,8 @@
           "count": 463068,
           "listed": 57,
           "longitude": 146.5,
-          "latitude": -42
+          "latitude": -42,
+          "r": 56.74939025326745
         },
         {
           "code": "ACT",
@@ -9024,25 +9047,11 @@
           "count": 343863,
           "listed": 20,
           "longitude": 149.05,
-          "latitude": -35.45
+          "latitude": -35.45,
+          "r": 33.61543763003575
         }
       ],
       "transform": [
-        {
-          "type": "formula",
-          "expr": "measure==='listed'?datum.listed/85:datum.count/2455993",
-          "as": "t"
-        },
-        {
-          "type": "formula",
-          "expr": "max(9,sqrt(datum.t)*70.5)",
-          "as": "r"
-        },
-        {
-          "type": "formula",
-          "expr": "max(4,sqrt(measure==='listed'?datum.count/2455993:datum.listed/85)*70.5)",
-          "as": "r2"
-        },
         {
           "type": "formula",
           "expr": "scale('projection',[datum.longitude,datum.latitude])[0]",
@@ -9065,17 +9074,13 @@
         },
         {
           "type": "force",
-          "static": false,
+          "static": true,
           "iterations": 300,
-          "alphaMin": 0.005,
-          "alpha": {
-            "signal": "measure==='listed'?1:.999"
-          },
           "forces": [
             {
               "force": "collide",
               "radius": {
-                "expr": "max(datum.r,datum.r2)+3"
+                "expr": "datum.r+3"
               },
               "strength": 1,
               "iterations": 6
@@ -9094,13 +9099,13 @@
         },
         {
           "type": "formula",
-          "expr": "clamp(datum.x,max(datum.r,datum.r2)+2,width-max(datum.r,datum.r2)-2)",
+          "expr": "clamp(datum.x,datum.r+2,width-datum.r-2)",
           "as": "x"
         },
         {
           "type": "formula",
-          "expr": "clamp(datum.y,max(datum.r,datum.r2)+16,height-max(datum.r,datum.r2)-2)",
-          "as": "y"
+          "expr": "datum.y+datum.r",
+          "as": "bottom"
         }
       ]
     }
@@ -9151,57 +9156,20 @@
             "value": "pointer"
           },
           "fill": {
-            "signal": "measure==='listed'?'#a74735':'#315e4c'"
+            "scale": "records",
+            "field": "count"
           },
           "fillOpacity": {
-            "signal": "picked===''||picked===datum.code?.88:.3"
+            "signal": "picked===''||picked===datum.code?1:.35"
           },
           "stroke": {
-            "signal": "picked===datum.code?'#292e27':'#f8f5ec'"
+            "signal": "picked===datum.code?'#24281f':'#f7f2e8'"
           },
           "strokeWidth": {
             "signal": "picked===datum.code?2.5:1.5"
           },
           "tooltip": {
-            "signal": "{'Jurisdiction':datum.state,'2024 bird records':format(datum.count,','),'Listed threatened bird taxa':datum.listed}"
-          }
-        }
-      }
-    },
-    {
-      "type": "symbol",
-      "from": {
-        "data": "nodes"
-      },
-      "interactive": false,
-      "encode": {
-        "update": {
-          "x": {
-            "field": "x"
-          },
-          "y": {
-            "field": "y"
-          },
-          "size": {
-            "signal": "PI*datum.r2*datum.r2"
-          },
-          "fill": {
-            "value": "transparent"
-          },
-          "stroke": {
-            "signal": "measure==='listed'?'#315e4c':'#a74735'"
-          },
-          "strokeWidth": {
-            "value": 2
-          },
-          "strokeDash": {
-            "value": [
-              4,
-              3
-            ]
-          },
-          "strokeOpacity": {
-            "signal": "picked===''||picked===datum.code?1:.3"
+            "signal": "{'Jurisdiction':datum.state,'Listed threatened bird taxa':datum.listed,'2024 bird records':format(datum.count,',')}"
           }
         }
       }
@@ -9218,7 +9186,7 @@
             "field": "x"
           },
           "y": {
-            "signal": "datum.r>24?datum.y-4:datum.y-datum.r-14"
+            "signal": "datum.r>26?datum.y-6:datum.y-datum.r-16"
           },
           "text": {
             "field": "code"
@@ -9236,10 +9204,10 @@
             "value": 700
           },
           "fill": {
-            "value": "#292e27"
+            "value": "#24281f"
           },
           "stroke": {
-            "value": "#f8f5ec"
+            "value": "#f7f2e8"
           },
           "strokeWidth": {
             "value": 3.5
@@ -9262,7 +9230,7 @@
             "field": "x"
           },
           "y": {
-            "signal": "datum.r>24?datum.y+11:datum.y-datum.r-2"
+            "signal": "datum.r>26?datum.y+9:datum.y-datum.r-4"
           },
           "align": {
             "value": "center"
@@ -9271,16 +9239,16 @@
             "value": "middle"
           },
           "text": {
-            "signal": "measure==='listed'?datum.listed+'':format(datum.count/1e6,'.1f')+'M'"
+            "signal": "datum.listed+' listed'"
           },
           "fontSize": {
             "value": 11
           },
           "fill": {
-            "value": "#292e27"
+            "value": "#24281f"
           },
           "stroke": {
-            "value": "#f8f5ec"
+            "value": "#f7f2e8"
           },
           "strokeWidth": {
             "value": 3.5
@@ -9303,7 +9271,7 @@
             "field": "x"
           },
           "y": {
-            "signal": "datum.r>24?datum.y-4:datum.y-datum.r-14"
+            "signal": "datum.r>26?datum.y-6:datum.y-datum.r-16"
           },
           "text": {
             "field": "code"
@@ -9321,7 +9289,7 @@
             "value": 700
           },
           "fill": {
-            "value": "#292e27"
+            "value": "#24281f"
           }
         }
       }
@@ -9338,7 +9306,7 @@
             "field": "x"
           },
           "y": {
-            "signal": "datum.r>24?datum.y+11:datum.y-datum.r-2"
+            "signal": "datum.r>26?datum.y+9:datum.y-datum.r-4"
           },
           "align": {
             "value": "center"
@@ -9347,16 +9315,39 @@
             "value": "middle"
           },
           "text": {
-            "signal": "measure==='listed'?datum.listed+'':format(datum.count/1e6,'.1f')+'M'"
+            "signal": "datum.listed+' listed'"
           },
           "fontSize": {
             "value": 11
           },
           "fill": {
-            "value": "#292e27"
+            "value": "#24281f"
           }
         }
       }
+    }
+  ],
+  "legends": [
+    {
+      "fill": "records",
+      "type": "gradient",
+      "direction": "horizontal",
+      "orient": "none",
+      "legendX": 0,
+      "legendY": {
+        "signal": "max(circleBottom,462)+16"
+      },
+      "title": "2024 bird records in the state",
+      "values": [
+        500000,
+        1000000,
+        1500000,
+        2000000,
+        2500000
+      ],
+      "format": ".2~s",
+      "gradientLength": 240,
+      "gradientThickness": 9
     }
   ]
 }

@@ -15,17 +15,17 @@
   },
   "config": {
     "text": {
-      "font": "Bricolage Grotesque",
-      "fill": "#292e27"
+      "font": "'Source Sans 3', sans-serif",
+      "fill": "#24281f"
     },
     "axis": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "domain": false,
       "ticks": false,
       "gridColor": "#e0dccf",
@@ -34,13 +34,13 @@
       "titlePadding": 14
     },
     "legend": {
-      "labelFont": "Bricolage Grotesque",
-      "titleFont": "Bricolage Grotesque",
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 11,
       "titleFontWeight": 500,
-      "labelColor": "#60665c",
-      "titleColor": "#292e27",
+      "labelColor": "#5d6356",
+      "titleColor": "#24281f",
       "gradientThickness": 9,
       "gradientLength": 130,
       "padding": 8
@@ -1714,7 +1714,7 @@
         },
         "update": {
           "fill": {
-            "signal": "picked==='' || indexof(datum.states,picked)>=0?'#292e27':'#60665c'"
+            "signal": "picked==='' || indexof(datum.states,picked)>=0?'#24281f':'#5d6356'"
           }
         }
       }
@@ -1746,7 +1746,7 @@
             "value": "italic"
           },
           "fill": {
-            "value": "#60665c"
+            "value": "#5d6356"
           },
           "text": {
             "signal": "datum.states.length===1&&datum.id===0?'only '+datum.states[0]:datum.id===1?'shared by '+datum.states.length:''"
@@ -1768,7 +1768,7 @@
             "value": 157
           },
           "stroke": {
-            "value": "#d5d0c1"
+            "value": "#d9d1bf"
           }
         }
       }
@@ -1797,7 +1797,7 @@
         },
         "update": {
           "stroke": {
-            "signal": "picked==='' || indexof(datum.states,picked)>=0?'#292e27':'#cfcabc'"
+            "signal": "picked==='' || indexof(datum.states,picked)>=0?'#24281f':'#cfcabc'"
           }
         }
       }
@@ -1826,7 +1826,7 @@
         },
         "update": {
           "fill": {
-            "signal": "!datum.active?'#dedace':picked==='' || indexof(datum.states,picked)>=0?'#292e27':'#cfcabc'"
+            "signal": "!datum.active?'#dedace':picked==='' || indexof(datum.states,picked)>=0?'#24281f':'#cfcabc'"
           }
         }
       }
@@ -1866,7 +1866,7 @@
             "signal": "picked===datum.code?700:400"
           },
           "fill": {
-            "signal": "picked===datum.code?'#a74735':'#292e27'"
+            "signal": "picked===datum.code?'#a74735':'#24281f'"
           }
         }
       }

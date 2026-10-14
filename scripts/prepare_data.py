@@ -291,11 +291,14 @@ def season_field(summer, winter, land, floor):
         z=np.log2((w/tw)/(s/ts))
     z=np.clip(z,-3,3)
     z[(evidence<floor)|~land]=np.nan
-    levels=[-3.01,-1,-.4,.4,1,3.01]
-    names=['Much busier in summer','Busier in summer','About even','Busier in winter','Much busier in winter']
+    # A constant contour interval, as the Week 9 notes require: one log2 unit, so every
+    # line is a doubling of the ratio and the zero line marks equal shares.
+    levels=[-3.01,-2,-1,0,1,2,3.01]
+    names=['Summer share 4× or more','Summer share 2–4×','Summer share up to 2×',
+           'Winter share up to 2×','Winter share 2–4×','Winter share 4× or more']
     gen=contourpy.contour_generator(X,Y,np.ma.masked_invalid(z),fill_type='OuterOffset')
     features=[]
-    for i in range(5):
+    for i in range(len(names)):
         points,offsets=gen.filled(levels[i],levels[i+1])
         polys=[]
         for pts,off in zip(points,offsets):
@@ -307,6 +310,10 @@ def season_field(summer, winter, land, floor):
         if polys:
             features.append({'type':'Feature','properties':{'band':i,'label':names[i]},
                              'geometry':{'type':'MultiPolygon','coordinates':polys}})
+    # The zero isoline (equal winter and summer shares) is the index contour.
+    lines=[[[round(float(a),3),round(float(b),3)] for a,b in line] for line in gen.lines(0.0) if len(line)>1]
+    if lines:
+        features.append({'type':'Feature','properties':{'line':0},'geometry':{'type':'MultiLineString','coordinates':lines}})
     return features
 
 def map_extras(state_rows, listings, swarm, grid, total):

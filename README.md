@@ -1,6 +1,6 @@
 # Fieldnotes: Australia, through a birdwatcher's eyes
 
-A static, single-page FIT3179 visual field journal for Malaysian readers. Sixteen original Vega/Vega-Lite charts, six of them maps, use real observation, conservation and population data. No API keys, account login or build server are required to view the site.
+A static, single-page FIT3179 visual field journal for Malaysian readers. Eleven original Vega/Vega-Lite charts, five of them maps, use real observation, conservation and population data. No API keys, account login or build server are required to view the site.
 
 ## Local preview
 
@@ -13,7 +13,7 @@ Open http://127.0.0.1:4179. The web page cannot be opened directly with `file://
 
 ## Reproduce
 
-The repository includes archived source responses, processed data, a query log and human-readable chart specifications. The browser downloads only `data/story.json` (approximately 510 KB), local fonts, a compressed illustration and vendored chart libraries. Raw archives are not fetched by the page.
+The repository includes archived source responses, processed data, a query log and human-readable chart specifications. The browser downloads only `data/story.json` (approximately 420 KB), two Google Fonts families (Fraunces and Source Sans 3), a compressed illustration and vendored chart libraries. Raw archives are not fetched by the page.
 
 ```sh
 python -m pip install pyshp
@@ -25,7 +25,7 @@ npm run build
 npm run check
 ```
 
-Downloads use a local cache to preserve the snapshot and avoid unnecessary API requests. Refresh intentionally by moving the archived files to a dated directory first; a newer snapshot may change the findings and must be reviewed. `scripts/fetch_fonts.py` reconstructs the self-hosted font assets.
+Downloads use a local cache to preserve the snapshot and avoid unnecessary API requests. Refresh intentionally by moving the archived files to a dated directory first; a newer snapshot may change the findings and must be reviewed. `scripts/fetch_fonts.py` downloads Fraunces and Source Sans 3 into `assets/fonts/` with their licences and writes `assets/fonts.css`, if you want to self-host them instead of linking Google Fonts.
 
 ## Files
 

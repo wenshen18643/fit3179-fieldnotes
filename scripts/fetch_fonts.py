@@ -5,9 +5,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 DEST=ROOT/'assets'/'fonts'
 DEST.mkdir(parents=True,exist_ok=True)
-families=[('Literata','Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700','literata'),
-          ('Bricolage Grotesque','Bricolage+Grotesque:opsz,wght@12..96,400..700','bricolagegrotesque'),
-          ('Kalam','Kalam:wght@400','kalam')]
+families=[('Fraunces','Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700','fraunces'),
+          ('Source Sans 3','Source+Sans+3:ital,wght@0,400..700;1,400..700','sourcesans3')]
 output=[]
 for name,query,folder in families:
     url='https://fonts.googleapis.com/css2?family='+query+'&display=swap'
