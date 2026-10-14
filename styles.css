@@ -1,5 +1,4 @@
-/* Shared by every design page. Designs set the tokens and the layout; this file holds
-   the behaviour the charts and controls need, so all four pages work identically. */
+/* Base: type scale, figures, controls and tooltip. The field-guide layout follows below. */
 :root {
   --t-body: 16px;          /* 12 pt on screen, the top of the unit's 11–12 pt band */
   --t-small: 14px;
@@ -23,7 +22,7 @@ button, select {font: inherit}
 /* Margins, not padding, so a rule drawn on a .wrap lines up with the text inside it. */
 .wrap {width: min(100% - 2 * var(--pad), var(--max) - 2 * var(--pad)); margin-inline: auto}
 .grid {display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter)}
-.prose, .deck, .byline, .figure-deck, .note p, .note-lead, .intro, .sources p {max-width: var(--measure)}
+.prose, .deck, .byline, .figure-deck, .intro, .sources p {max-width: var(--measure)}
 
 /* ---- figures and charts ---- */
 .figure {min-width: 0; position: relative}
@@ -50,17 +49,6 @@ button, select {font: inherit}
 select {font-size: var(--t-small); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius-select, 2px); padding: 6px 28px 6px 10px; min-height: 34px; cursor: pointer}
 .readout {font-family: var(--ui-font); font-size: var(--t-small); color: var(--accent-text, var(--ink)); margin-top: 10px; min-height: 1.6em}
 
-/* ---- notes ---- */
-.note-label {display: block; font-family: var(--ui-font); font-size: var(--t-meta); letter-spacing: .04em; color: var(--accent-text, var(--muted)); margin-bottom: 10px}
-.note-stat {display: block; font-family: var(--display-font); font-size: 44px; line-height: 1.05; color: var(--green-text, #315e4c)}
-.note-lead {font-family: var(--display-font); font-size: 22px; line-height: 1.35; color: var(--ink); margin: 6px 0 12px}
-.note p {color: var(--muted)}
-.note p + p {margin-top: 10px}
-.shift {display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 4px 0 14px; align-items: baseline}
-.shift dt {font-family: var(--ui-font); font-size: var(--t-small); color: var(--muted)}
-.shift dd {font-family: var(--display-font); font-size: 26px; line-height: 1.2}
-.shift dd span:last-child {color: #01665e; font-weight: 600}
-
 /* ---- season key (matches the chart hues) ---- */
 .season-key {display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--ui-font); font-size: var(--t-meta); color: var(--muted)}
 .season-key span {display: inline-flex; align-items: center; gap: 7px}
@@ -72,14 +60,16 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .source-downloads {display: flex; flex-wrap: wrap; gap: 10px 24px; font-family: var(--ui-font); font-size: var(--t-small)}
 
 /* ---- tooltip ---- */
-#vg-tooltip-element {font-family: var(--ui-font) !important; font-size: 13px !important; background: var(--paper) !important; color: var(--ink) !important; border: 1px solid var(--rule) !important; border-radius: 3px !important; box-shadow: 0 6px 20px rgb(0 0 0 / .08) !important; padding: 10px 12px !important; max-width: 320px}
-#vg-tooltip-element td.key {color: var(--muted) !important}
+#vg-tooltip-element {font-family: var(--ui-font) !important; font-size: 13px !important; background: var(--paper) !important; color: var(--ink) !important; border: 1px solid var(--rule) !important; border-radius: 3px !important; box-shadow: 0 6px 20px rgb(0 0 0 / .08) !important; padding: 10px 14px !important; max-width: 460px}
+#vg-tooltip-element td {white-space: nowrap}
+@media (max-width: 480px) {#vg-tooltip-element {max-width: calc(100vw - 16px)} #vg-tooltip-element td.value {white-space: normal}}
+#vg-tooltip-element td.key {color: var(--muted) !important; padding-right: 10px !important; max-width: none !important}
 
 @media (prefers-reduced-motion: reduce) {html {scroll-behavior: auto} *, *::before, *::after {animation: none !important; transition: none !important}}
 
-/* Design 1 · Field guide. Fraunces for display, Source Sans 3 for reading. A sticky
-   chapter rail (3 of 12 columns) keeps the chapter's question in view while its
-   figures fill the other 9, so the wide screen carries charts, not margins. */
+/* Field guide. Fraunces for display, Source Sans 3 for reading and charts. Every row is
+   either two figures side by side, sharing one header band so their charts start level,
+   or one figure across the full width: no chart sits beside empty space. */
 :root {
   --paper: #f7f2e8; --ink: #24281f; --muted: #5d6356; --rule: #d9d1bf;
   --accent-text: #875c1b; --green-text: #315e4c; --focus: #875c1b;
@@ -114,37 +104,26 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .state-key {display: grid; grid-template-columns: repeat(8, auto); justify-content: space-between; gap: 6px 20px; padding: 14px 0; border-block: 1px solid var(--rule); font-size: 13px; color: var(--muted)}
 .state-key b {color: var(--ink)}
 
-/* ---- chapters: 3-column sticky rail + 9-column flow ---- */
-.chapter {padding-top: 104px; align-items: start}
-.rail {grid-column: 1 / 4; position: sticky; top: 96px}
-.ch-num {display: flex; flex-direction: column; gap: 2px; font-size: var(--t-meta); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text)}
-.ch-num span {font-size: var(--t-small); letter-spacing: 0; text-transform: none; color: var(--ink)}
-.rail h2 {font-family: var(--display-font); font-weight: 400; font-size: clamp(34px, 2.8vw, 48px); line-height: 1.08; letter-spacing: -.02em; margin: 18px 0 18px}
-.rail h2 em {color: var(--green-text)}
-.rail .intro {color: var(--muted); padding-top: 18px; border-top: 1px solid var(--rule)}
-.flow {grid-column: 4 / 13; display: grid; grid-template-columns: subgrid; row-gap: 88px}
-.row {grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: start}
-.row-note > .figure {grid-column: 1 / 7}
-.row-note > .note {grid-column: 7 / 10; padding-top: 18px; border-top: 1px solid var(--ink)}
-.row-note.flip > .figure {grid-column: 4 / 10; grid-row: 1}
-.row-note.flip > .note {grid-column: 1 / 4; grid-row: 1}
-.row-full > .figure {grid-column: 1 / 10}
-/* Pairs split the 9-track flow into two equal halves rather than an uneven 5 + 4. */
-.row-pair {grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gutter)}
-.row-pair > .figure {grid-column: auto}
-.row-study {padding: 40px 0 0; border-top: 1px solid var(--rule)}
-.row-study > * {grid-column: 1 / 7}
-.row-study h3 {font-family: var(--display-font); font-weight: 400; font-size: 40px; line-height: 1.12; letter-spacing: -.015em; margin: 6px 0 14px}
-.row-study h3 em {color: var(--green-text)}
-.row-study .prose {font-size: 19px; margin-bottom: 18px}
-.row-study strong {color: var(--green-text)}
-.figure h3 {font-size: 22px; font-weight: 650; line-height: 1.28; letter-spacing: -.01em; max-width: 34em}
+/* ---- chapters ---- */
+.chapter {padding-top: 112px}
+.ch-head {display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: end; padding-top: 22px; border-top: 1px solid var(--ink); margin-bottom: 56px}
+.ch-head h2 {grid-column: 1 / 7; font-family: var(--display-font); font-weight: 400; font-size: clamp(40px, 3.6vw, 64px); line-height: 1.04; letter-spacing: -.02em}
+.ch-head h2 em {color: var(--green-text)}
+.ch-head .intro {grid-column: 7 / 13; color: var(--muted); padding-bottom: 8px}
+.row + .row {margin-top: 96px}
+/* A pair is 6 + 6 on the page grid. Each figure is a two-row subgrid (text, chart), so the
+   taller header sets one band for both and the two charts start on the same line. */
+.row-pair {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: var(--gutter)}
+.row-pair > .figure {display: grid; grid-template-rows: subgrid; grid-row: span 2}
+.figure-text > * + * {margin-top: 10px}
+.figure-text .figure-heading + .figure-deck {margin-top: 8px}
+.figure h3 {font-size: 22px; font-weight: 650; line-height: 1.28; letter-spacing: -.01em; max-width: 30em}
 .figure-period {font-weight: 600; color: var(--accent-text)}
-.note-lead {font-family: var(--display-font)}
+.season-key {margin-top: 14px}
 
 /* ---- sources ---- */
 .sources {padding-top: 120px; padding-bottom: 56px}
-.sources h2 {font-family: var(--display-font); font-weight: 400; font-size: 40px; letter-spacing: -.02em; padding-top: 24px; border-top: 1px solid var(--ink)}
+.sources h2 {font-family: var(--display-font); font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: -.02em; padding-top: 24px; border-top: 1px solid var(--ink)}
 .source-columns {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); margin: 28px 0}
 .source-columns h3 {font-size: var(--t-body); margin-bottom: 8px}
 .source-columns p, .method-body p, .credit p {font-size: var(--t-body); color: var(--muted); line-height: 1.65}
@@ -152,24 +131,22 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .method-body {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px var(--gutter); padding-top: 14px}
 .source-downloads {padding: 18px 0}
 .credit {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter)}
-.site-footer {display: flex; justify-content: space-between; gap: 24px; padding-block: 22px 32px; border-top: 1px solid var(--rule); font-size: var(--t-meta); color: var(--muted)}
+.site-footer {display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding-block: 22px 32px; border-top: 1px solid var(--rule); font-size: var(--t-meta); color: var(--muted)}
 .site-footer .mark {font-size: 18px; color: var(--ink)}
+.site-footer a {white-space: nowrap}
 
-@media (max-width: 1180px) {
-  .rail {grid-column: 1 / -1; position: static; margin-bottom: 40px; display: grid; grid-template-columns: subgrid}
-  .rail-inner {grid-column: 1 / 9}
-  .flow {grid-column: 1 / -1}
-  .row-note > .figure {grid-column: 1 / 9} .row-note > .note {grid-column: 9 / 13}
-  .row-note.flip > .figure {grid-column: 5 / 13} .row-note.flip > .note {grid-column: 1 / 5}
-  .row-full > .figure, .row-study > * {grid-column: 1 / -1}
+@media (max-width: 1000px) {
+  .row-pair {grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: 72px}
+  .row-pair > .figure {display: block; grid-row: auto}
+  .ch-head h2, .ch-head .intro {grid-column: 1 / -1}
+  .ch-head .intro {margin-top: 16px; padding-bottom: 0}
   .state-key {grid-template-columns: repeat(4, auto)}
 }
 @media (max-width: 760px) {
   .top nav {display: none}
   .cover-text, .cover-art {grid-column: 1 / -1} .cover {min-height: 0}
   .stats {grid-template-columns: repeat(2, minmax(0, 1fr))}
-  .rail-inner, .row > *, .row-note.flip > * {grid-column: 1 / -1 !important; grid-row: auto !important}
-  .flow {row-gap: 56px} .row {row-gap: 24px}
+  .chapter {padding-top: 72px} .row + .row {margin-top: 64px}
   .state-key {grid-template-columns: repeat(2, auto); justify-content: start}
   .source-columns, .method-body, .credit {grid-template-columns: 1fr}
 }

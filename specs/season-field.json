@@ -29795,7 +29795,7 @@
             ]
           },
           "legend": {
-            "title": "Which season holds the bigger share of a place’s records, and by how much",
+            "title": "Season with the bigger share of a place’s records",
             "titleLimit": 920,
             "orient": "bottom",
             "direction": "horizontal",
@@ -59517,35 +59517,6 @@
         ],
         "color": "#24281f",
         "strokeWidth": 1
-      },
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "longitude": 112.2,
-            "latitude": -30
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "bottom",
-        "dy": -4,
-        "fontSize": 11,
-        "color": "#5d6356",
-        "text": "30°S"
       },
       "encoding": {
         "longitude": {

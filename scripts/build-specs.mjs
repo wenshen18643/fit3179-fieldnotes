@@ -5,7 +5,7 @@ import { chartBuilders } from '../src/chart-specs.js';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 // Only the tables the eleven charts and the page read; the rest stay in data/processed.
-const tables={australia:'australia',states:'states',grid:'grid',stateMonth:'state-month',speciesMonth:'species-month',rankings:'rankings',
+const tables={australia:'australia',states:'states',grid:'grid',gridShapes:'grid-shapes',stateMonth:'state-month',speciesMonth:'species-month',rankings:'rankings',
   beeMap:'bee-map',beeRidges:'bee-ridges',beeMonth:'bee-month',threatenedRecords:'threatened-records',
   threatenedListings:'threatened-listings',upset:'upset',seasonField:'season-field',insights:'insights'};
 const entries=await Promise.all(Object.entries(tables).map(async([key,file])=>[key,JSON.parse(await fs.readFile(path.join(root,'data/processed',file+'.json'),'utf8'))]));

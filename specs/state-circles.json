@@ -9186,7 +9186,7 @@
             "field": "x"
           },
           "y": {
-            "signal": "datum.r>26?datum.y-6:datum.y-datum.r-16"
+            "signal": "datum.y-6"
           },
           "text": {
             "field": "code"
@@ -9198,7 +9198,7 @@
             "value": "middle"
           },
           "fontSize": {
-            "value": 12
+            "signal": "datum.r>26?12:11"
           },
           "fontWeight": {
             "value": 700
@@ -9230,7 +9230,7 @@
             "field": "x"
           },
           "y": {
-            "signal": "datum.r>26?datum.y+9:datum.y-datum.r-4"
+            "signal": "datum.y+8"
           },
           "align": {
             "value": "center"
@@ -9239,10 +9239,10 @@
             "value": "middle"
           },
           "text": {
-            "signal": "datum.listed+' listed'"
+            "signal": "datum.r>26?datum.listed+' listed':datum.listed"
           },
           "fontSize": {
-            "value": 11
+            "signal": "datum.r>26?11:10"
           },
           "fill": {
             "value": "#24281f"
@@ -9271,7 +9271,7 @@
             "field": "x"
           },
           "y": {
-            "signal": "datum.r>26?datum.y-6:datum.y-datum.r-16"
+            "signal": "datum.y-6"
           },
           "text": {
             "field": "code"
@@ -9283,7 +9283,7 @@
             "value": "middle"
           },
           "fontSize": {
-            "value": 12
+            "signal": "datum.r>26?12:11"
           },
           "fontWeight": {
             "value": 700
@@ -9306,7 +9306,7 @@
             "field": "x"
           },
           "y": {
-            "signal": "datum.r>26?datum.y+9:datum.y-datum.r-4"
+            "signal": "datum.y+8"
           },
           "align": {
             "value": "center"
@@ -9315,10 +9315,10 @@
             "value": "middle"
           },
           "text": {
-            "signal": "datum.listed+' listed'"
+            "signal": "datum.r>26?datum.listed+' listed':datum.listed"
           },
           "fontSize": {
-            "value": 11
+            "signal": "datum.r>26?11:10"
           },
           "fill": {
             "value": "#24281f"

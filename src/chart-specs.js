@@ -53,6 +53,10 @@ const tooltip = (field,title,format) => ({field,title,...(format?{format}:{})});
 const stateData = D => D.australia.features.map(f=>({...f,...D.states.find(s=>s.code===f.properties.code)}));
 const baseMap = D => ({data:{values:D.australia.features},mark:{type:'geoshape',fill:'#e8e4d9',stroke:'#c7c6b8',strokeWidth:.7}});
 const mapH = w => Math.min(620, Math.max(270,w*.78));
+// Paired charts share a height: the heatmap's rows and the UpSet's rows follow the clock
+// and the cartogram beside them, so neither column ends in a gap.
+const clockRadius = w => Math.max(140,Math.min(245,(w-120)/2));
+const dorlingH = w => Math.min(520,Math.max(380,(w-16)*.9));
 
 // Text with a paper halo, so labels stay legible over any fill. Vega-Lite has no
 // halo property, so the same text is drawn twice: a thick paper stroke, then ink.
@@ -64,38 +68,41 @@ const haloText=(values,mark,encoding={})=>[
 const outline=D=>({data:{values:D.australia.features},mark:{type:'geoshape',fill:null,stroke:'#9b9d8d',strokeWidth:.6}});
 
 function gridMap(D,w) {
-  const cells=D.grid.map(r=>({type:'Feature',properties:r,geometry:{type:'Polygon',coordinates:[[
-    [r.longitude-.5,r.latitude-.5],[r.longitude-.5,r.latitude+.5],
-    [r.longitude+.5,r.latitude+.5],[r.longitude+.5,r.latitude-.5],[r.longitude-.5,r.latitude-.5],
-  ]]}}));
+  // Squares are clipped to the coastline in scripts/prepare_data.py, so no square paints
+  // sea; the 94 squares with no land (0.16% of records, mostly boat trips) are not drawn.
+  const byCell=Object.fromEntries(D.grid.map(r=>[r.cell,r]));
+  const cells=D.gridShapes.features.map(f=>({...f,properties:byCell[f.properties.cell]}));
   // A cell is lit when the busier cells before it hold less than the chosen share,
-  // so the lit set is always the fewest squares that reach that share.
-  const lit='datum.properties.cumBefore < cover';
+  // so the lit set is always the fewest squares that reach that share. Lit squares are
+  // outlined as regions (precomputed per share), not square by square.
+  const regions=D.gridShapes.outlines;
+  const shown='abs(datum.properties.cover-cover)<0.001';
   const cities=[{text:'Perth',longitude:115.86,latitude:-31.95},{text:'Melbourne',longitude:144.96,latitude:-37.81},
     {text:'Sydney',longitude:151.21,latitude:-33.87},{text:'Brisbane',longitude:153.03,latitude:-27.47},{text:'Adelaide',longitude:138.6,latitude:-34.93}];
-  const small=w<560;
+  // Phones get a band above the map for the headline; wider maps carry it in the open sea
+  // west of the Kimberley, sized with the map so it never reaches the coast.
+  const small=w<440, f=Math.round(Math.max(18,Math.min(26,w/30)));
   // The lit squares are marked with an outline only. Fading the rest would change
   // their lightness, which is the channel carrying record count, so a faded busy
   // square would read as a quiet one (Munzner ch. 11: outline to keep the coding).
-  return VL(w-16,mapH(w)+(small?34:52),{description:'2024 observation records in one-degree squares. The control outlines the fewest squares that together hold a chosen share of all records.',
+  return VL(w-16,mapH(w)+(small?34:0),{description:'2024 observation records in one-degree squares. The control outlines the fewest squares that together hold a chosen share of all records.',
     params:[{name:'cover',value:.5}],projection,layer:[baseMap(D),{
       data:{values:cells},mark:{type:'geoshape',stroke:C.paper,strokeWidth:.45},
       encoding:{color:{field:'properties.count',type:'quantitative',scale:{type:'log',domain:[1,1200000],range:lightRamp},
         legend:{title:'Records in each 1° square',orient:small?'bottom':'bottom-left',values:[1,100,10000,1000000],format:'.0s',gradientLength:small?150:200}},
         tooltip:[tooltip('properties.count','2024 records',','),tooltip('properties.rank','Busiest-square rank'),tooltip('properties.latitude','Latitude'),tooltip('properties.longitude','Longitude')]},
-    },{data:{values:cells},transform:[{filter:lit}],mark:{type:'geoshape',fill:null,stroke:C.paper,strokeWidth:4.2}},
-    {data:{values:cells},transform:[{filter:lit}],mark:{type:'geoshape',fill:null,stroke:C.ink,strokeWidth:1.8}},
+    },{data:{values:regions},transform:[{filter:shown}],mark:{type:'geoshape',fill:null,stroke:C.paper,strokeWidth:4.2,strokeCap:'square'}},
+    {data:{values:regions},transform:[{filter:shown}],mark:{type:'geoshape',fill:null,stroke:C.ink,strokeWidth:1.8,strokeCap:'square'}},
     outline(D),
     ...haloText(cities,{fontSize:11,fontWeight:600,dy:15}),
-    // An invisible point north of Cape York widens the projection's fit, so the headline
-    // below has open sea under it instead of the Kimberley's squares.
-    {data:{values:[{longitude:126,latitude:small?-6.5:-5}]},mark:{type:'point',opacity:0},encoding:{longitude:LON,latitude:LAT}},
+    // Phones: an invisible point north of Cape York widens the fit, opening sea for the headline.
+    ...(small?[{data:{values:[{longitude:126,latitude:-6.5}]},mark:{type:'point',opacity:0},encoding:{longitude:LON,latitude:LAT}}]:[]),
     // The running headline on the map itself: how many squares the chosen share needs.
     {data:{values:D.grid},transform:[{filter:'datum.cumBefore < cover'},{aggregate:[{op:'count',as:'n'}]},
-      {calculate:"datum.n+' of '+"+D.grid.length+"+' squares'",as:'line1'},
-      {calculate:"cover>=1?'hold every record':'hold '+format(cover,'.0%')+' of all records'",as:'line2'}],
-      layer:[{mark:{type:'text',align:'left',baseline:'top',fontSize:small?20:28,fontWeight:600,font:C.display,color:C.green,x:0,y:0},encoding:{text:{field:'line1'}}},
-        {mark:{type:'text',align:'left',baseline:'top',fontSize:small?12:14,color:C.ink,x:1,y:small?26:36},encoding:{text:{field:'line2'}}}]},
+      {calculate:"datum.n+' of '+"+cells.length+"+' squares'",as:'line1'},
+      {calculate:"'hold '+format(cover,'.0%')+' of all records'",as:'line2'}],
+      layer:[{mark:{type:'text',align:'left',baseline:'top',fontSize:small?20:f,fontWeight:600,font:C.display,color:C.green,x:0,y:0},encoding:{text:{field:'line1'}}},
+        {mark:{type:'text',align:'left',baseline:'top',fontSize:small||f<22?12:14,color:C.ink,x:1,y:small?26:f+8},encoding:{text:{field:'line2'}}}]},
     ]});
 }
 
@@ -128,7 +135,7 @@ function densityMap(D,w) {
 function seasonalClock(D,w) {
   // The dial grows with the column. Month labels sit at radius+24, so leave
   // room for them on both sides rather than capping the dial at a fixed size.
-  const width=w-16, radius=Math.max(140,Math.min(320,(width-104)/2)), H=radius*2+86, cx=width/2,cy=H/2;
+  const width=w-16, radius=clockRadius(w), H=radius*2+86, cx=width/2,cy=H/2;
   const codes=['NT','QLD','WA','SA','NSW','ACT','VIC','TAS'];
   const inner=38,band=(radius-inner)/8, gap=.64,step=(Math.PI*2-gap)/12;
   const vals=D.stateMonth.map(r=>({...r,a0:gap/2+(r.month-1)*step+.012,a1:gap/2+r.month*step-.012,
@@ -141,7 +148,7 @@ function seasonalClock(D,w) {
     // half the usual pace sits as far from the midpoint as double it does.
     scales:[{name:'pace',type:'log',domain:[.5,1,2],range:[CB.brbg[0],CB.brbg[2],CB.brbg[4]],clamp:true}],
     marks:[{type:'arc',from:{data:'cells'},encode:{enter:{x:{value:cx},y:{value:cy},startAngle:{field:'a0'},endAngle:{field:'a1'},innerRadius:{field:'r0'},outerRadius:{field:'r1'},
-      fill:{scale:'pace',field:'dailyIndex'},tooltip:{signal:"{'State':datum.state,'Month':datum.label,'Records':format(datum.count,','),'Daily pace vs state average':format(datum.dailyIndex,'.2f')+'×'}"}},
+      fill:{scale:'pace',field:'dailyIndex'},tooltip:{signal:"{'State':datum.state,'Month':datum.label,'Records':format(datum.count,','),'Pace vs state’s usual day':format(datum.dailyIndex,'.2f')+'×'}"}},
       update:{strokeWidth:{value:0}},hover:{stroke:{value:C.ink},strokeWidth:{value:1.4}}}},
       {type:'text',from:{data:'months'},encode:{enter:{x:{signal:`${cx}+sin(datum.angle)*(datum.peak?${radius+12}:${radius+24})`},y:{signal:`${cy}-cos(datum.angle)*${radius+24}`},
         text:{signal:"datum.peak?[datum.label,'busiest month']:datum.label"},align:{signal:"datum.peak?(sin(datum.angle)<0?'right':'left'):'center'"},baseline:{value:'middle'},
@@ -242,7 +249,7 @@ function seasonField(D,w) {
   const none='Too few records to estimate';
   const small=w<560;
   const colour={field:'properties.label',type:'ordinal',scale:{domain:[...bands,none],range:['#8c510a','#d8b365','#f6e8c3','#c7eae5','#5ab4ac','#01665e','#d6d2c6']},
-    legend:{title:'Which season holds the bigger share of a place’s records, and by how much',titleLimit:w,orient:'bottom',direction:'horizontal',columns:small?2:3,symbolType:'square',symbolSize:160,symbolStrokeColor:'#b9b4a4',symbolStrokeWidth:.6,labelLimit:220,columnPadding:18,rowPadding:6}};
+    legend:{title:'Season with the bigger share of a place’s records',titleLimit:w,orient:'bottom',direction:'horizontal',columns:small?2:3,symbolType:'square',symbolSize:160,symbolStrokeColor:'#b9b4a4',symbolStrokeWidth:.6,labelLimit:220,columnPadding:18,rowPadding:6}};
   return VL(w-16,mapH(w),{description:'Filled contour map of a smoothed field: for each place, its share of all winter (June–August) records divided by its share of all summer (December–February) records, 2024. Contours fall on a constant interval of one doubling. Toggle between all bird records and rainbow bee-eater records. Grey land has too few records to estimate.',
     params:[{name:'who',value:'Everyone'}],projection,layer:[{data:{values:D.australia.features},mark:{type:'geoshape',stroke:'#c7c6b8',strokeWidth:.7},
         encoding:{color:{datum:none,type:'ordinal',scale:colour.scale},tooltip:{value:none}}},
@@ -252,7 +259,6 @@ function seasonField(D,w) {
       {data:{values:D.seasonField.features},transform:[{filter:'datum.properties.who===who && datum.properties.line===0'}],mark:{type:'geoshape',fill:null,filled:false,stroke:C.ink,strokeWidth:1.1,strokeOpacity:.7}},
       outline(D),
       {data:{values:[{longitude:112,latitude:-30},{longitude:154,latitude:-30}]},mark:{type:'line',strokeDash:[4,5],color:C.ink,strokeWidth:1},encoding:{longitude:LON,latitude:LAT}},
-      {data:{values:[{longitude:112.2,latitude:-30}]},mark:{type:'text',align:'left',baseline:'bottom',dy:-4,fontSize:11,color:C.muted,text:'30°S'},encoding:{longitude:LON,latitude:LAT}},
       ...haloText([{text:'30°S',longitude:113.2,latitude:-30}],{fontSize:11,dy:-9,align:'left',color:C.muted}),
       ...haloText([{text:'Tropical north',longitude:133.5,latitude:-17.5},{text:'Temperate south',longitude:141.6,latitude:-35.2}],{fontSize:small?11:13,fontWeight:600,fontStyle:'italic'}),
     ]});
@@ -293,7 +299,7 @@ function seasonMatrix(D,w) {
   // The flat rows are the control, not filler: grouping them against the birds
   // that swing makes the contrast the chart's actual claim.
   // The bee-eater sits with the steady birds: nationally its share hardly moves,
-  // because it relocates within Australia rather than leaving (Figs 7–9).
+  // because it relocates within Australia rather than leaving (see the bee-eater maps).
   const groups={
     'Share swings with the seasons':['White-throated Needletail','Eastern Koel','Red-necked Stint'],
     'Share steady all year':['Rainbow Bee-eater','Silvereye','Welcome Swallow','Superb Fairy-wren','Australian Magpie'],
@@ -301,14 +307,16 @@ function seasonMatrix(D,w) {
   const order=Object.keys(groups);
   const group=new Map(order.flatMap(g=>groups[g].map(name=>[name,g])));
   const rows=D.speciesMonth.filter(r=>group.has(r.name)).map(r=>({...r,group:group.get(r.name)}));
-  const compact=w<500, width=w-(compact?146:225);
+  // Row height follows the seasonal clock beside it (its SVG is about 2r + 150 px; this
+  // chart's is 8 rows + 209 px), capped so cells are never more than 1.5 times as tall as wide.
+  const compact=w<500, width=w-(compact?146:190), step=Math.round(Math.max(26,Math.min(56,width/12*1.5,(2*clockRadius(w)-59)/8)));
   return {$schema:'https://vega.github.io/schema/vega-lite/v5.json',padding:8,config,
     description:'Monthly share of all records for eight featured species, divided by each species’ annual share. One means the species occupies its typical share. Rows are grouped into birds whose share swings through the year and birds recorded steadily all year. This adjusts for total monthly record volume, not survey effort.',
     data:{values:rows},spacing:30,resolve:{scale:{y:'independent'}},
     facet:{row:{field:'group',type:'nominal',sort:order,title:null,
       header:{labelAngle:0,labelAlign:'left',labelAnchor:'start',labelOrient:'top',labelPadding:6,
         labelFontSize:compact?11:13,labelFontWeight:600,labelColor:C.ink,labelFont:FONT}}},
-    spec:{width:Math.max(180,Math.round(width)),height:{step:compact?26:32},
+    spec:{width:Math.max(180,Math.round(width)),height:{step},
       mark:{type:'rect',stroke:C.paper,strokeWidth:2,cornerRadius:1},
       encoding:{x:{field:'label',type:'ordinal',sort:MONTHS,axis:{title:null,labelAngle:0,...(w<520?{labelExpr:'substring(datum.value,0,1)'}:{})}},
         y:{field:'name',type:'ordinal',sort:order.flatMap(g=>groups[g]),axis:{title:null,labelLimit:compact?130:210,labelFontSize:compact?10:12}},
@@ -354,7 +362,7 @@ function stateCircles(D,w) {
   // attribute (threatened bird taxa listed in the jurisdiction) and colour adds a
   // second (2024 records), so both halves of the headline show with no control.
   // Records use the journal's green volume ramp, light low and dark high.
-  const width=w-16,H=Math.min(520,Math.max(380,width*.9)),band=58,mapH=H-band,R=Math.min(width,mapH)*.15;
+  const width=w-16,H=dorlingH(w),band=58,mapH=H-band,R=Math.min(width,mapH)*.15;
   const maxListed=Math.max(...D.states.map(s=>s.listed));
   return V(width,H,{description:'Dorling cartogram of the eight states and territories. Circle area is proportional to the number of nationally listed threatened bird taxa associated with the jurisdiction; colour lightness shows its 2024 bird records. Select a circle to highlight its combinations in the overlap chart.',
     signals:[{name:'picked',value:'',on:[{events:'symbol:click',update:"picked===datum.code?'':datum.code"},{events:'dblclick',update:"''"}]},
@@ -381,17 +389,17 @@ function stateCircles(D,w) {
         tooltip:{signal:"{'Jurisdiction':datum.state,'Listed threatened bird taxa':datum.listed,'2024 bird records':format(datum.count,',')}"}}}},
       // Ink on a paper halo stays readable on every shade of green.
       ...['halo','ink'].flatMap(k=>{const halo=k==='halo'?{stroke:{value:C.paper},strokeWidth:{value:3.5},strokeJoin:{value:'round'}}:{};return [
-        {type:'text',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{signal:'datum.r>26?datum.y-6:datum.y-datum.r-16'},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},
-          fontSize:{value:12},fontWeight:{value:700},fill:{value:C.ink},...halo}}},
-        {type:'text',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{signal:'datum.r>26?datum.y+9:datum.y-datum.r-4'},align:{value:'center'},baseline:{value:'middle'},
-          text:{signal:"datum.listed+' listed'"},fontSize:{value:11},fill:{value:C.ink},...halo}}}];}),
+        {type:'text',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{signal:'datum.y-6'},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},
+          fontSize:{signal:'datum.r>26?12:11'},fontWeight:{value:700},fill:{value:C.ink},...halo}}},
+        {type:'text',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{signal:'datum.y+8'},align:{value:'center'},baseline:{value:'middle'},
+          text:{signal:"datum.r>26?datum.listed+' listed':datum.listed"},fontSize:{signal:'datum.r>26?11:10'},fill:{value:C.ink},...halo}}}];}),
     ],
     legends:[{fill:'records',type:'gradient',direction:'horizontal',orient:'none',legendX:0,legendY:{signal:'max(circleBottom,'+mapH+')+16'},title:'2024 bird records in the state',
       values:[500000,1000000,1500000,2000000,2500000],format:'.2~s',gradientLength:Math.min(240,width-20),gradientThickness:9}]});
 }
 
 function upset(D,w) {
-  const width=w-66,H=390,codes=['WA','NT','SA','QLD','NSW','VIC','TAS','ACT'];
+  const width=w-66,H=Math.round(dorlingH(w)+72),step=Math.min(38,Math.round(H/16)),base=H-61-7*step,top=base+38,codes=['WA','NT','SA','QLD','NSW','VIC','TAS','ACT'];
   // Vega stamps every datum it ingests with a tuple id kept on a symbol key, and
   // object spread copies symbol keys. Spreading one combination into eight row
   // objects would therefore hand all eight the same id on any redraw after the
@@ -409,22 +417,22 @@ function upset(D,w) {
     signals:[{name:'picked',value:'',on:[{events:'@rowlabel:click',update:"picked===datum.code?'':datum.code"}]}],
     data:[{name:'bars',values:bars},{name:'matrix',values:matrix},{name:'links',values:rules},{name:'codes',values:codes.map((code,row)=>({code,row}))}],
     scales:[{name:'x',type:'band',domain:{data:'bars',field:'id'},range:'width',padding:.28},
-      {name:'y',type:'linear',domain:[0,Math.max(...bars.map(r=>r.count))*1.45],range:[140,0],zero:true}],
-    marks:[{type:'rect',from:{data:'codes'},encode:{update:{x:{value:-40},x2:{signal:'width'},y:{signal:'178+datum.row*27-12'},height:{value:24},fill:{value:'#efe3dc'},opacity:{signal:'picked===datum.code?1:0'}}}},
-      {type:'rect',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id'},width:{scale:'x',band:1},y:{scale:'y',field:'count'},y2:{value:140},
+      {name:'y',type:'linear',domain:[0,Math.max(...bars.map(r=>r.count))*1.22],range:[base,0],zero:true}],
+    marks:[{type:'rect',from:{data:'codes'},encode:{update:{x:{value:-40},x2:{signal:'width'},y:{signal:top+'+datum.row*'+step+'-'+step*.45},height:{value:step*.9},fill:{value:'#efe3dc'},opacity:{signal:'picked===datum.code?1:0'}}}},
+      {type:'rect',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id'},width:{scale:'x',band:1},y:{scale:'y',field:'count'},y2:{value:base},
       tooltip:{signal:"{'Exactly these states':datum.combination,'Listed bird taxa':datum.count}"}},update:{fill:{signal:`${on}?'${C.rust}':'#e6d8d2'`}}}},
       {type:'text',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{scale:'y',field:'count',offset:-7},text:{field:'count'},align:{value:'center'},fontSize:{value:12},fontWeight:{value:600}},
         update:{fill:{signal:`${on}?'${C.ink}':'${C.muted}'`}}}},
       // Two worked examples, so the matrix can be decoded from the chart itself.
       {type:'text',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id',band:0},y:{scale:'y',field:'count',offset:-24},align:{value:'left'},fontSize:{value:11},fontStyle:{value:'italic'},fill:{value:C.muted},
         text:{signal:"datum.states.length===1&&datum.id===0?'only '+datum.states[0]:datum.id===1?'shared by '+datum.states.length:''"}}}},
-      {type:'rule',encode:{enter:{x:{value:0},x2:{signal:'width'},y:{value:157},stroke:{value:C.rule}}}},
-      {type:'rule',from:{data:'links'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{signal:'178+datum.min*27'},y2:{signal:'178+datum.max*27'},strokeWidth:{value:1.5}},
+      {type:'rule',encode:{enter:{x:{value:0},x2:{signal:'width'},y:{value:base+17},stroke:{value:C.rule}}}},
+      {type:'rule',from:{data:'links'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{signal:top+'+datum.min*'+step},y2:{signal:top+'+datum.max*'+step},strokeWidth:{value:1.5}},
         update:{stroke:{signal:`${on}?'${C.ink}':'#cfcabc'`}}}},
-      {type:'symbol',from:{data:'matrix'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{signal:'178+datum.row*27'},size:{value:w<500?28:54},
+      {type:'symbol',from:{data:'matrix'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{signal:top+'+datum.row*'+step},size:{value:w<500?28:54},
         tooltip:{signal:"{'Exactly these states':datum.combination,'Listed bird taxa':datum.count,'State':datum.code,'Included':datum.active?'Yes':'No'}"}},
         update:{fill:{signal:`!datum.active?'#dedace':${on}?'${C.ink}':'#cfcabc'`}}}},
-      {type:'text',name:'rowlabel',from:{data:'codes'},encode:{enter:{x:{value:-12},y:{signal:'178+datum.row*27'},text:{field:'code'},align:{value:'right'},baseline:{value:'middle'},cursor:{value:'pointer'}},
+      {type:'text',name:'rowlabel',from:{data:'codes'},encode:{enter:{x:{value:-12},y:{signal:top+'+datum.row*'+step},text:{field:'code'},align:{value:'right'},baseline:{value:'middle'},cursor:{value:'pointer'}},
         update:{fontSize:{signal:'picked===datum.code?13:11'},fontWeight:{signal:"picked===datum.code?700:400"},fill:{signal:`picked===datum.code?'${C.rust}':'${C.ink}'`}}}},
     ]});
 }

@@ -32,73 +32,82 @@
       <figure class="cover-art"><img src="assets/rainbow-bee-eater.webp" width="1024" height="1536" alt="Natural-history illustration of a rainbow bee-eater perched on a eucalyptus branch, with a golden throat, green feathers and long tail streamers." fetchpriority="high"><figcaption>AI-generated illustration</figcaption></figure>
     </section>
     <div class="wrap"><p class="state-key" aria-label="State and territory abbreviations"><span><b>WA</b> Western Australia</span><span><b>NT</b> Northern Territory</span><span><b>SA</b> South Australia</span><span><b>QLD</b> Queensland</span><span><b>NSW</b> New South Wales</span><span><b>VIC</b> Victoria</span><span><b>TAS</b> Tasmania</span><span><b>ACT</b> Australian Capital Territory</span></p></div>
-    <section id="atlas" class="chapter wrap grid" aria-labelledby="atlas-title">
-      <header class="rail"><div class="rail-inner"><h2 id="atlas-title">First, look at <em>where we look.</em></h2><p class="intro">Records pile up where people live. Before reading any pattern in the birds, see where the observers are.</p></div></header>
-      <div class="flow">
-      <div class="row row-note"><figure class="figure " id="fig-observation-atlas" data-chart="observation-atlas">
-        <div class="figure-heading"><h3>Half of all records come from 12 of 814 squares</h3></div>
-        <p class="figure-deck">Darker squares hold more records. Pick a share to outline the fewest squares that hold it.</p><div class="segmented" role="group" aria-label="Outline the squares holding this share of records" data-chart="observation-atlas" data-signal="cover"><span class="segmented-label">Squares holding</span><button type="button" data-value="0.25" aria-pressed="false">25%</button><button type="button" data-value="0.5" aria-pressed="true">50%</button><button type="button" data-value="0.75" aria-pressed="false">75%</button><button type="button" data-value="0.9" aria-pressed="false">90%</button><button type="button" data-value="1.01" aria-pressed="false">All</button></div>
+    <section id="atlas" class="chapter wrap" aria-labelledby="atlas-title">
+      <header class="ch-head"><h2 id="atlas-title">First, look at <em>where we look.</em></h2><p class="intro">Records pile up where people live. Before reading any pattern in the birds, see where the observers are.</p></header>
+      <div class="row row-pair">
+      <figure class="figure" id="fig-observation-atlas" data-chart="observation-atlas">
+        <div class="figure-text"><div class="figure-heading"><h3>Half of all records come from 12 of 720 squares</h3></div>
+        <p class="figure-deck">Darker squares hold more records. Pick a share to outline the fewest squares that hold it.</p><div class="segmented" role="group" aria-label="Outline the squares holding this share of records" data-chart="observation-atlas" data-signal="cover"><span class="segmented-label">Squares holding</span><button type="button" data-value="0.25" aria-pressed="false">25%</button><button type="button" data-value="0.5" aria-pressed="true">50%</button><button type="button" data-value="0.75" aria-pressed="false">75%</button><button type="button" data-value="0.9" aria-pressed="false">90%</button></div></div>
         <div class="chart" id="observation-atlas" role="img" aria-label="Map of Australia in one-degree squares shaded by 2024 bird records, with the busiest squares outlined"></div>
-      </figure><aside class="note"><span class="note-stat"><span data-stat="eastShare">75.6%</span></span><p class="note-lead">of records come from Victoria, New South Wales and Queensland.</p><p>A map of sightings is also a map of people.</p></aside></div>
-      <div class="row row-note flip"><figure class="figure " id="fig-record-density" data-chart="record-density">
-        <div class="figure-heading"><h3>Per square kilometre, Canberra leads. Per resident, the Northern Territory does.</h3></div>
-        <p class="figure-deck">Darker states log more records for the chosen measure. Each state is labelled with its value.</p><div class="segmented" role="group" aria-label="Records per" data-chart="record-density" data-signal="measure"><span class="segmented-label">Records per</span><button type="button" data-value="area" aria-pressed="true">1,000 km² of land</button><button type="button" data-value="people" aria-pressed="false">1,000 residents</button></div>
+      </figure>
+      <figure class="figure" id="fig-record-density" data-chart="record-density">
+        <div class="figure-text"><div class="figure-heading"><h3>Per square kilometre, Canberra leads. Per resident, the Northern Territory does.</h3></div>
+        <p class="figure-deck">Darker states log more records for the chosen measure. Each state is labelled with its value.</p><div class="segmented" role="group" aria-label="Records per" data-chart="record-density" data-signal="measure"><span class="segmented-label">Records per</span><button type="button" data-value="area" aria-pressed="true">1,000 km² of land</button><button type="button" data-value="people" aria-pressed="false">1,000 residents</button></div></div>
         <div class="chart" id="record-density" role="img" aria-label="Choropleth of Australian states shaded by records per 1,000 square kilometres or per 1,000 residents"></div>
-      </figure><aside class="note"><p class="note-lead">Canberra is small and city-bound. The Territory has few residents.</p><p>So each Territorian logs <strong data-stat="ntMultiple">3.6</strong> times the national rate.</p></aside></div>
+      </figure>
       </div>
     </section>
-    <section id="seasons" class="chapter wrap grid" aria-labelledby="seasons-title">
-      <header class="rail"><div class="rail-inner"><h2 id="seasons-title">Turn the calendar. <em>The cast changes.</em></h2><p class="intro">Australia is in the southern hemisphere, so its seasons run opposite to the northern calendar: summer is December to February, winter is June to August.</p></div></header>
-      <div class="flow">
-      <div class="row row-note"><figure class="figure " id="fig-seasonal-clock" data-chart="seasonal-clock">
-        <div class="figure-heading"><h3>Every state keeps its own busy season</h3></div>
-        <p class="figure-deck">Each ring is a state, north inside to south outside; each slice is a month. Teal: busier than the state’s average day. Brown: quieter.</p>
+    <section id="seasons" class="chapter wrap" aria-labelledby="seasons-title">
+      <header class="ch-head"><h2 id="seasons-title">Turn the calendar. <em>The cast changes.</em></h2><p class="intro">Australia is in the southern hemisphere, so its seasons run opposite to the northern calendar: summer is December to February, winter is June to August.</p></header>
+      <div class="row row-pair">
+      <figure class="figure" id="fig-seasonal-clock" data-chart="seasonal-clock">
+        <div class="figure-text"><div class="figure-heading"><h3>Every state keeps its own busy season</h3></div>
+        <p class="figure-deck">Each ring is a state, north inside to south outside; each slice is a month. Teal: busier than the state’s average day. Brown: quieter.</p></div>
         <div class="chart" id="seasonal-clock" role="img" aria-label="Circular heatmap of each state’s recording pace by month"></div>
-      </figure><aside class="note"><p class="note-lead">October is the busiest month.</p><p>The tropical Northern Territory keeps its own clock, busiest in the dry season, June to October.</p></aside></div>
-      <div class="row row-full"><figure class="figure " id="fig-monthly-ranks" data-chart="monthly-ranks">
-        <div class="figure-heading"><h3>The Welcome Swallow climbs the rankings as spring arrives</h3><span class="figure-period">The seven most-recorded birds</span></div>
-        <p class="figure-deck">Each line is one bird’s rank among all species, month by month. Rank 1 has the most records.</p><label class="control">Follow a bird<select id="bird-highlight" data-chart="monthly-ranks" data-signal="highlight"><option>All birds</option></select></label>
-        <div class="chart" id="monthly-ranks" role="img" aria-label="Bump chart of monthly ranks for the seven most-recorded species"></div>
-      </figure></div>
-      <div class="row row-study"><h3>The Rainbow Bee-eater: <em>a summer south, a winter north.</em></h3><p class="prose">In summer, <strong data-stat="beeSummerSouth">48.3%</strong> of bee-eater records lie south of 30°S. In winter, just <strong data-stat="beeWinterSouth">1.0%</strong> do.</p><div class="season-key" aria-label="Season colours"><span><i class="summer"></i>Summer · Dec–Feb</span><span><i class="autumn"></i>Autumn · Mar–May</span><span><i class="winter"></i>Winter · Jun–Aug</span><span><i class="spring"></i>Spring · Sep–Nov</span></div></div>
-      <div class="row row-pair"><figure class="figure " id="fig-seasonal-footprint" data-chart="seasonal-footprint">
-        <div class="figure-heading"><h3>Watch the bee-eater’s range slide north</h3></div>
-        <p class="figure-deck">Circle area: bee-eater records in each 2° square. Filled: the chosen season. Rings: the opposite one.</p><div class="control-row"><label class="inline-control">Season<select id="season-select" data-chart="seasonal-footprint" data-signal="season"><option>Summer</option><option>Autumn</option><option>Winter</option><option>Spring</option></select></label><button type="button" class="play" id="season-play" aria-pressed="false">▶ Play the year</button></div>
-        <div class="chart" id="seasonal-footprint" role="img" aria-label="Proportional-symbol map of rainbow bee-eater records by season"></div>
-      </figure><figure class="figure " id="fig-latitude-ridges" data-chart="latitude-ridges">
-        <div class="figure-heading"><h3>It heads north in April and returns in October</h3></div>
-        <p class="figure-deck">Each ridge is one month of bee-eater records, south on the left. The tick marks the middle record.</p>
-        <div class="chart" id="latitude-ridges" role="img" aria-label="Monthly ridgeline distributions of rainbow bee-eater record latitude"></div>
-      </figure></div>
-      <div class="row row-note flip"><figure class="figure " id="fig-season-field" data-chart="season-field">
-        <div class="figure-heading"><h3>All winter records lean north too, but nothing like the bee-eater’s</h3></div>
-        <p class="figure-deck">Teal places hold a bigger share of winter records than of summer ones; brown, the reverse. Each band is a doubling.</p><div class="segmented" role="group" aria-label="Whose records" data-chart="season-field" data-signal="who"><span class="segmented-label">Records of</span><button type="button" data-value="Everyone" aria-pressed="true">All birds</button><button type="button" data-value="Bee-eater" aria-pressed="false">Rainbow Bee-eater</button></div>
-        <div class="chart" id="season-field" role="img" aria-label="Contour map of where winter records outweigh summer records, for all birds or for the rainbow bee-eater"></div>
-      </figure><aside class="note"><p class="note-lead">Share of records south of 30°S, summer to winter</p><dl class="shift"><dt>All birds</dt><dd><span data-stat="allSummerSouth">75%</span> → <span data-stat="allWinterSouth">58%</span></dd><dt>Bee-eater</dt><dd><span data-stat="beeSummerSouthRound">48%</span> → <span data-stat="beeWinterSouthRound">1%</span></dd></dl><p>All records lean north in winter, so part of any shift is the birdwatchers. The bee-eater’s shift is far larger.</p></aside></div>
-      <div class="row row-full"><figure class="figure " id="fig-seasonal-signatures" data-chart="seasonal-signatures">
-        <div class="figure-heading"><h3>Some birds come and go. Others stay all year.</h3><span class="figure-period">Eight featured birds</span></div>
-        <p class="figure-deck">Each cell compares a bird’s share of that month’s records with its share across the year. Teal: more than usual. Brown: less.</p>
+      </figure>
+      <figure class="figure" id="fig-seasonal-signatures" data-chart="seasonal-signatures">
+        <div class="figure-text"><div class="figure-heading"><h3>Some birds come and go. Others stay all year.</h3></div>
+        <p class="figure-deck">Each cell compares a bird’s share of that month’s records with its share across the year. Teal: more than usual. Brown: less.</p></div>
         <div class="chart" id="seasonal-signatures" role="img" aria-label="Heatmap of monthly record shares for eight bird species relative to their annual shares"></div>
-      </figure></div>
+      </figure>
+      </div>
+      <div class="row row-full">
+      <figure class="figure" id="fig-monthly-ranks" data-chart="monthly-ranks">
+        <div class="figure-text"><div class="figure-heading"><h3>The Welcome Swallow climbs the rankings as spring arrives</h3><span class="figure-period">The seven most-recorded birds</span></div>
+        <p class="figure-deck">Each line is one bird’s rank among all species, month by month. Rank 1 has the most records.</p><label class="control">Follow a bird<select id="bird-highlight" data-chart="monthly-ranks" data-signal="highlight"><option>All birds</option></select></label></div>
+        <div class="chart" id="monthly-ranks" role="img" aria-label="Bump chart of monthly ranks for the seven most-recorded species"></div>
+      </figure>
+      </div>
+      <div class="row row-full">
+      <figure class="figure" id="fig-latitude-ridges" data-chart="latitude-ridges">
+        <div class="figure-text"><div class="figure-heading"><h3>The Rainbow Bee-eater heads north in April and returns in October</h3></div>
+        <p class="figure-deck">Each ridge is one month of bee-eater records, south on the left. The tick marks the middle record.</p><div class="season-key" aria-label="Season colours"><span><i class="summer"></i>Summer · Dec–Feb</span><span><i class="autumn"></i>Autumn · Mar–May</span><span><i class="winter"></i>Winter · Jun–Aug</span><span><i class="spring"></i>Spring · Sep–Nov</span></div></div>
+        <div class="chart" id="latitude-ridges" role="img" aria-label="Monthly ridgeline distributions of rainbow bee-eater record latitude"></div>
+      </figure>
+      </div>
+      <div class="row row-pair">
+      <figure class="figure" id="fig-seasonal-footprint" data-chart="seasonal-footprint">
+        <div class="figure-text"><div class="figure-heading"><h3>Watch the bee-eater’s range slide north</h3></div>
+        <p class="figure-deck">Circle area: bee-eater records in each 2° square. Filled: the chosen season. Rings: the opposite one.</p><div class="control-row"><label class="inline-control">Season<select id="season-select" data-chart="seasonal-footprint" data-signal="season"><option>Summer</option><option>Autumn</option><option>Winter</option><option>Spring</option></select></label><button type="button" class="play" id="season-play" aria-pressed="false">▶ Play the year</button></div><div class="season-key" aria-label="Season colours"><span><i class="summer"></i>Summer · Dec–Feb</span><span><i class="autumn"></i>Autumn · Mar–May</span><span><i class="winter"></i>Winter · Jun–Aug</span><span><i class="spring"></i>Spring · Sep–Nov</span></div></div>
+        <div class="chart" id="seasonal-footprint" role="img" aria-label="Proportional-symbol map of rainbow bee-eater records by season"></div>
+      </figure>
+      <figure class="figure" id="fig-season-field" data-chart="season-field">
+        <div class="figure-text"><div class="figure-heading"><h3>All winter records lean north too, but nothing like the bee-eater’s</h3></div>
+        <p class="figure-deck">Teal places hold a bigger share of winter records than of summer ones; brown, the reverse. Each band is a doubling.</p><div class="segmented" role="group" aria-label="Whose records" data-chart="season-field" data-signal="who"><span class="segmented-label">Records of</span><button type="button" data-value="Everyone" aria-pressed="true">All birds</button><button type="button" data-value="Bee-eater" aria-pressed="false">Rainbow Bee-eater</button></div></div>
+        <div class="chart" id="season-field" role="img" aria-label="Contour map of where winter records outweigh summer records, for all birds or for the rainbow bee-eater"></div>
+      </figure>
       </div>
     </section>
-    <section id="conservation" class="chapter wrap grid" aria-labelledby="conservation-title">
-      <header class="rail"><div class="rail-inner"><h2 id="conservation-title">Often recorded doesn’t mean <em>safe.</em></h2><p class="intro">The Australian Government lists threatened species by their risk of extinction: Vulnerable, Endangered and Critically Endangered.</p></div></header>
-      <div class="flow">
-      <div class="row row-note"><figure class="figure " id="fig-threatened-swarm" data-chart="threatened-swarm">
-        <div class="figure-heading"><h3>Some threatened birds are logged thousands of times, others a handful</h3></div>
-        <p class="figure-deck">Each dot is one of <span data-stat="matchedThreatenedSpecies">65</span> threatened species found in the records. Each step along the axis is ten times the last.</p>
+    <section id="conservation" class="chapter wrap" aria-labelledby="conservation-title">
+      <header class="ch-head"><h2 id="conservation-title">Often recorded doesn’t mean <em>safe.</em></h2><p class="intro">The Australian Government lists threatened species by their risk of extinction: Vulnerable, Endangered and Critically Endangered.</p></header>
+      <div class="row row-full">
+      <figure class="figure" id="fig-threatened-swarm" data-chart="threatened-swarm">
+        <div class="figure-text"><div class="figure-heading"><h3>Some threatened birds are logged thousands of times, others a handful</h3></div>
+        <p class="figure-deck">Each dot is one of <span data-stat="matchedThreatenedSpecies">65</span> threatened species found in the records. Each step along the axis is ten times the last.</p></div>
         <div class="chart" id="threatened-swarm" role="img" aria-label="Beeswarm of 2024 record counts for threatened bird species by conservation category"></div>
-      </figure><aside class="note"><p class="note-lead">A record shows a bird was seen, not that it is recovering.</p><p>The Critically Endangered Eastern Curlew is the most logged, at 9,373 records.</p></aside></div>
-      <div class="row row-pair"><figure class="figure " id="fig-state-circles" data-chart="state-circles">
-        <div class="figure-heading"><h3>South Australia lists the most threatened birds, yet logs a fifth of New South Wales’s records</h3><span class="figure-period">Aug 2026 list · 2024 records</span></div>
-        <p class="figure-deck">Circle area: threatened birds listed in the state. Darker green: more 2024 records. A bird listed in several states counts in each.</p>
+      </figure>
+      </div>
+      <div class="row row-pair">
+      <figure class="figure" id="fig-state-circles" data-chart="state-circles">
+        <div class="figure-text"><div class="figure-heading"><h3>South Australia lists the most threatened birds, yet logs a fifth of New South Wales’s records</h3><span class="figure-period">Aug 2026 list · 2024 records</span></div>
+        <p class="figure-deck">Circle area: threatened birds listed in the state. Darker green: more 2024 records. A bird listed in several states counts in each.</p></div>
         <div class="chart" id="state-circles" role="img" aria-label="Dorling cartogram of states, sized by listed threatened bird taxa and shaded by 2024 records"></div>
-      </figure><figure class="figure " id="fig-shared-responsibility" data-chart="shared-responsibility">
-        <div class="figure-heading"><h3><span data-stat="sharedTaxa">91</span> of <span data-stat="listedTaxa">150</span> listed birds are shared between states</h3><span class="figure-period">List of 28 August 2026</span></div>
-        <p class="figure-deck">Each column is one exact group of states, shown by its joined dots. The bar counts the listed birds in that group.</p><p class="readout" id="picked-state" aria-live="polite">Select a circle or a state code to light up the combinations that include it.</p>
+      </figure>
+      <figure class="figure" id="fig-shared-responsibility" data-chart="shared-responsibility">
+        <div class="figure-text"><div class="figure-heading"><h3><span data-stat="sharedTaxa">91</span> of <span data-stat="listedTaxa">150</span> listed birds are shared between states</h3><span class="figure-period">List of 28 August 2026</span></div>
+        <p class="figure-deck">Each column is one exact group of states, shown by its joined dots. The bar counts the listed birds in that group.</p><p class="readout" id="picked-state" aria-live="polite">Select a circle or a state code to light up the combinations that include it.</p></div>
         <div class="chart" id="shared-responsibility" role="img" aria-label="UpSet chart showing overlap of threatened bird taxa across states"></div>
-      </figure></div>
+      </figure>
       </div>
     </section>
     <section id="sources" class="sources wrap" aria-labelledby="sources-title">

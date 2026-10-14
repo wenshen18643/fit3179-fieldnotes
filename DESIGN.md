@@ -18,11 +18,11 @@ Green means one thing across every figure: more records than the comparison. Tha
 
 Fraunces, a soft old-style display serif, evokes a field guide's plates and carries headings, notes and large numbers. Source Sans 3 carries reading text, labels and every chart. Both are open-source Google Fonts. The cover title is capped at 112px; display type is used only for headings and short leads.
 
-The hierarchy: 22px figure titles, 16px for everything a reader reads (body, figure decks, notes, sources), 14px byline, 12px metadata; chart labels are 10–12px. Running prose is capped at 23em, measured in the browser at 60 characters or fewer per line in every column. No multi-line text is centred.
+The hierarchy: 22px figure titles, 16px for everything a reader reads (body, figure decks, chapter intros, sources), 14px byline, 12px metadata; chart labels are 10–12px. Running prose is capped at 23em, measured in the browser at 60 characters or fewer per line in every column. No multi-line text is centred.
 
 ## Layout
 
-One twelve-column grid runs the whole page at a 24px gutter, up to 1720px wide. The cover is 7 + 5: title, deck and four key numbers beside the illustration. Each chapter has a sticky rail in the first three columns holding its question, so the chapter stays named while its figures scroll in the other nine. Inside those nine, a figure with its note is 6 + 3 (3 + 6 when the note leads), two figures are equal halves, and a single figure runs the full nine. The story has three chapters and a sources appendix on one page. Below 1180px the rail sits above its chapter and figures take the full width; below 760px everything is one column.
+One twelve-column grid runs the whole page at a 24px gutter, up to 1720px wide. The cover is 7 + 5: title, deck and four key numbers beside the illustration. Each chapter opens with a band under a rule: its title in columns 1–6 and a one-paragraph intro in 7–12. Below it every row is either two figures as equal 6 + 6 halves or one figure across all twelve columns; there are no margin notes, so no chart sits beside empty space. In a pair each figure is a two-row subgrid (text, then chart), so both charts start on the same line, and paired charts are sized to the same height: the heatmap's rows follow the seasonal clock, the UpSet's rows and bars follow the cartogram, and the bin map carries its running headline in the sea so it matches the choropleth. The story has three chapters and a sources appendix on one page. Below 1000px pairs stack; below 760px everything is one column.
 
 ## Interactions
 

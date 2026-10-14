@@ -108,6 +108,8 @@ def main():
     for i,r in enumerate(sorted(grid,key=lambda r:-r['count'])):
         r['rank']=i+1; r['cumBefore']=round(running/total,6); running+=r['count']
     save('grid',grid)
+    shapes=grid_shapes(grid)
+    save('grid-shapes',shapes)
 
     monthly=[]
     state_month=[]
@@ -239,7 +241,7 @@ def main():
     insights={'total':total,'species':len(species),'speciesUnassigned':facet(d,'species',True).get('Not supplied',0),
               'eastShare':east,'topGridShare':max(r['count'] for r in grid)/total,
               'ebirdShare':raw('coverage-2024-dr2009')['totalRecords']/total,
-              'peakMonth':peak['label'],'peakDaily':peak['daily'],'gridCells':len(grid),
+              'peakMonth':peak['label'],'peakDaily':peak['daily'],'gridCells':len(grid),'gridLandCells':len(shapes['features']),
               'beeSummerSouth':season_stats('Summer'),'beeWinterSouth':season_stats('Winter'),
               'beeTotal':sum(r['count'] for r in bee_month),'listedTaxa':len(listings),'matchedThreatenedSpecies':len(swarm),
               'unmatchedThreatenedSpecies':unmatched,'upsetShown':sum(r['count'] for r in upset),
@@ -315,6 +317,33 @@ def season_field(summer, winter, land, floor):
     if lines:
         features.append({'type':'Feature','properties':{'line':0},'geometry':{'type':'MultiLineString','coordinates':lines}})
     return features
+
+def grid_shapes(grid):
+    # Each 1° square clipped to the coastline, so the atlas never paints sea. Squares with
+    # no land at all (boat trips and small islands, 0.16% of 2024 records) keep their
+    # records in every total but are not drawn. The outline around the busiest squares is
+    # precomputed for each share the control offers: one boundary per region, coast included.
+    from shapely.geometry import box, mapping, shape
+    from shapely.ops import unary_union
+    land=unary_union([shape(f['geometry']) for f in json.loads((OUT/'australia.json').read_text(encoding='utf-8'))['features']])
+    def polygons(g):
+        parts=[p for p in getattr(g,'geoms',[g]) if p.geom_type in ('Polygon','MultiPolygon')]
+        return unary_union(parts) if parts else None
+    def rounded(c):
+        return [rounded(x) for x in c] if isinstance(c[0],(list,tuple)) else [round(c[0],4),round(c[1],4)]
+    def geo(g):
+        m=mapping(g); return {'type':m['type'],'coordinates':rounded(m['coordinates'])}
+    clipped={}
+    for r in grid:
+        g=polygons(box(r['longitude']-.5,r['latitude']-.5,r['longitude']+.5,r['latitude']+.5).intersection(land))
+        if g is not None and not g.is_empty: clipped[r['cell']]=g
+    outlines=[]
+    for share in (.25,.5,.75,.9):
+        lit=[r['cell'] for r in grid if r['cumBefore']<share]
+        assert all(c in clipped for c in lit), 'A lit square has no land'
+        outlines.append({'type':'Feature','properties':{'cover':share},'geometry':geo(unary_union([clipped[c] for c in lit]).boundary)})
+    cells=[{'type':'Feature','properties':{'cell':c},'geometry':geo(g)} for c,g in clipped.items()]
+    return {'type':'FeatureCollection','features':cells,'outlines':outlines}
 
 def map_extras(state_rows, listings, swarm, grid, total):
     import numpy as np

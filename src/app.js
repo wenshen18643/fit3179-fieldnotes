@@ -22,6 +22,24 @@ const forced=new Set();
 const waiting=new Map();
 let draining=false;
 
+// vega-tooltip tries the four corners around the pointer and, if none fits, uses the
+// top-left one, which on a phone can push a wide tooltip off screen. Keep it inside.
+function keepTooltipOnScreen(tip){
+  const clamp=()=>{
+    const r=tip.getBoundingClientRect();
+    const x=Math.max(8,Math.min(r.left,innerWidth-r.width-8)),y=Math.max(8,Math.min(r.top,innerHeight-r.height-8));
+    if(Math.abs(x-r.left)>.5)tip.style.left=x+'px';
+    if(Math.abs(y-r.top)>.5)tip.style.top=y+'px';
+  };
+  // The first position is set in the same task that creates the element, before this runs.
+  clamp();
+  new MutationObserver(clamp).observe(tip,{attributes:true,attributeFilter:['style']});
+}
+new MutationObserver((_,observer)=>{
+  const tip=document.getElementById('vg-tooltip-element');
+  if(tip){observer.disconnect();keepTooltipOnScreen(tip);}
+}).observe(document.body,{childList:true});
+
 function fillStats(){
   const i=D.insights;
   const percent=n=>(100*n).toFixed(1)+'%';

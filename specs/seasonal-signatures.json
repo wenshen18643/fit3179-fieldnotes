@@ -1324,9 +1324,9 @@
     }
   },
   "spec": {
-    "width": 695,
+    "width": 730,
     "height": {
-      "step": 32
+      "step": 54
     },
     "mark": {
       "type": "rect",
