@@ -326,31 +326,63 @@ function seasonMatrix(D,w) {
 }
 
 function swarm(D,w) {
-  const width=w-70,H=300,statuses=['Vulnerable','Endangered','Critically Endangered'];
-  const max=Math.max(...D.threatenedRecords.map(r=>r.count));
-  const rows=[];
-  // Deterministic collision-aware packing. Recomputed for the actual available width.
+  // Rows are packed as tight as their swarms allow, so the dots read as clusters, not a
+  // sparse strip. The two extremes the headline names are labelled on the chart.
+  const small=w<560, width=w-(small?40:70), statuses=['Vulnerable','Endangered','Critically Endangered'];
+  const r=Math.max(4.5,Math.min(10.5,width/150)), d=2*r+1.5;
   const x=n=>(Math.log10(n)/Math.log10(15000))*width;
-  for(const status of statuses){const placed=[];
-    for(const r of D.threatenedRecords.filter(r=>r.status===status).sort((a,b)=>b.count-a.count)){
-      const px=x(r.count);let py=0;
-      const candidates=[0,...Array.from({length:10},(_,i)=>[(i+1)*10,-(i+1)*10]).flat()];
-      for(const candidate of candidates){if(placed.every(p=>Math.hypot(px-p.x,candidate-p.y)>=11)){py=candidate;break;}}
-      placed.push({x:px,y:py});rows.push({...r,offset:py});
+  const all=[...D.threatenedRecords].sort((a,b)=>b.count-a.count);
+  const top=all[0], bottom=all[all.length-1];
+  const rows=[], bands=[];
+  let cursor=0;
+  for(const status of statuses){
+    const placed=[];
+    for(const b of all.filter(b=>b.status===status)){
+      const px=x(b.count);let py=0;
+      const candidates=[0,...Array.from({length:12},(_,k)=>[(k+1)*d*.88,-(k+1)*d*.88]).flat()];
+      for(const c of candidates){if(placed.every(p=>Math.hypot(px-p.x,c-p.y)>=d)){py=c;break;}}
+      placed.push({x:px,y:py,b});
     }
+    const lo=Math.min(...placed.map(p=>p.y))-r, hi=Math.max(...placed.map(p=>p.y))+r;
+    const hasTop=placed.some(p=>p.b===top), hasBottom=placed.some(p=>p.b===bottom);
+    // The least-recorded bird is labelled on its own line when the gap to the next dot
+    // allows (wide screens), otherwise beneath the swarm. The most-recorded is labelled above.
+    const next=hasBottom?Math.min(...placed.filter(p=>p.b!==bottom).map(p=>p.x)):0;
+    const inline=hasBottom&&next-x(bottom.count)>r*2+8+bottom.name.length*6.4+80;
+    const centre=cursor+22-lo+(hasTop?26:0);
+    for(const p of placed)rows.push({...p.b,cy:centre+p.y,centre,lo,hi,inline});
+    bands.push({status,n:placed.length,labelY:cursor+8,y:centre});
+    cursor=centre+Math.max(hi,hasBottom&&!inline?hi+22:0)+(small?18:24);
   }
+  const H=Math.round(cursor);
+  const fmt=n=>n.toLocaleString('en-AU');
+  const rowOf=b=>rows.find(row=>row.scientific===b.scientific);
+  const notes=[
+    {...rowOf(top),text:[top.name,fmt(top.count)+' records'],align:'right',baseline:'bottom',dx:r},
+    {...rowOf(bottom),text:bottom.name+' · '+fmt(bottom.count)+' records',align:'left',baseline:'middle'}];
+  // Most-recorded: two lines above its swarm, ending at its dot, with a leader down to it.
+  // Least-recorded: beside its dot when the gap allows, otherwise beneath the swarm with a leader.
+  // Vega stacks a multi-line label downward from its anchor, so the anchor is the first line.
+  Object.assign(notes[0],{ny:notes[0].centre+notes[0].lo-6-15,y1:notes[0].centre+notes[0].lo-3,y2:notes[0].cy-r-2});
+  Object.assign(notes[1],notes[1].inline?{dx:r+8,ny:notes[1].cy,y1:0,y2:0}
+    :{dx:-r,ny:notes[1].centre+notes[1].hi+16,y1:notes[1].cy+r+2,y2:notes[1].centre+notes[1].hi+7});
   return V(width,H,{description:'Beeswarm showing the record counts of 65 nationally threatened, species-level birds whose scientific names match exactly between ALA and DCCEEW. Every dot is a species. Unmatched names and listed subspecies are excluded, not treated as zero.',
-    padding:{left:24,right:20,top:28,bottom:50},
-    data:[{name:'birds',values:rows},{name:'statuses',values:statuses.map((status,i)=>({status,y:48+i*100}))}],
+    padding:{left:small?14:24,right:small?14:20,top:6,bottom:50},
+    data:[{name:'birds',values:rows},{name:'bands',values:bands},{name:'notes',values:notes}],
     scales:[{name:'x',type:'log',domain:[1,15000],range:'width',nice:false},
       {name:'color',type:'ordinal',domain:statuses,range:CB.orrd}],
-    axes:[{scale:'x',orient:'bottom',values:[1,10,100,1000,10000],format:',',title:'2024 records per species · logarithmic scale',grid:true}],
-    marks:[{type:'rule',from:{data:'statuses'},encode:{enter:{x:{value:0},x2:{signal:'width'},y:{field:'y'},stroke:{value:C.rule},strokeWidth:{value:.7}}}},
-      {type:'text',from:{data:'statuses'},encode:{enter:{x:{value:0},y:{signal:'datum.y-36'},text:{field:'status'},fontSize:{value:12},fontWeight:{value:600},fill:{value:C.ink}}}},
-      {type:'symbol',from:{data:'birds'},encode:{enter:{x:{scale:'x',field:'count'},y:{signal:"48+indexof(['Vulnerable','Endangered','Critically Endangered'],datum.status)*100+datum.offset"},
-        size:{value:73},fill:{scale:'color',field:'status'},stroke:{value:C.paper},strokeWidth:{value:1},
+    axes:[{scale:'x',orient:'bottom',values:[1,10,100,1000,10000],format:',',title:'2024 records per species · logarithmic scale',grid:true,gridColor:'#ebe5d8'}],
+    marks:[{type:'rule',from:{data:'bands'},encode:{enter:{x:{value:0},x2:{signal:'width'},y:{field:'y'},stroke:{value:C.rule},strokeWidth:{value:.7}}}},
+      {type:'text',from:{data:'bands'},encode:{enter:{x:{value:0},y:{field:'labelY'},baseline:{value:'middle'},fontSize:{value:12},fill:{value:C.muted},
+        text:{signal:"datum.status+' · '+datum.n"}}}},
+      {type:'symbol',from:{data:'birds'},encode:{enter:{x:{scale:'x',field:'count'},y:{field:'cy'},
+        fill:{scale:'color',field:'status'},stroke:{value:C.paper},strokeWidth:{value:1},
         tooltip:{signal:"{'Bird':datum.name,'Scientific name':datum.scientific,'Listing in Aug 2026':datum.status,'2024 records':format(datum.count,',')}"}},
-        update:{size:{value:73}},hover:{size:{value:145},stroke:{value:C.ink}}}},
+        update:{size:{value:Math.round(Math.PI*r*r)},stroke:{value:C.paper}},hover:{size:{value:Math.round(Math.PI*r*r*2)},stroke:{value:C.ink}}}},
+      {type:'rule',from:{data:'notes'},interactive:false,encode:{enter:{x:{scale:'x',field:'count'},y:{field:'y1'},y2:{field:'y2'},
+        stroke:{value:C.ink},strokeWidth:{value:1},opacity:{signal:'datum.y2>datum.y1+2?1:0'}}}},
+      {type:'text',from:{data:'notes'},interactive:false,encode:{enter:{x:{scale:'x',field:'count',offset:{field:'dx'}},y:{field:'ny'},
+        align:{field:'align'},baseline:{field:'baseline'},lineHeight:{value:15},text:{field:'text'},fontSize:{value:12},fontWeight:{value:600},fill:{value:C.ink}}}},
     ]});
 }
 

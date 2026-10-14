@@ -116,6 +116,12 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .row-pair {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: var(--gutter)}
 .row-pair > .figure {display: grid; grid-template-rows: subgrid; grid-row: span 2}
 .figure-text > * + * {margin-top: 10px}
+/* A full-width figure sets its title in the left half and its description and controls
+   in the right, so the heading band is filled rather than leaving half the row empty. */
+.row-full .figure-text {display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start}
+.row-full .figure-text > * {grid-column: 7 / 13; justify-self: start}
+.row-full .figure-text > .figure-heading {grid-column: 1 / 7; grid-row: 1 / span 3}
+.row-full .figure-text > .figure-heading + * {margin-top: 0}
 .figure-text .figure-heading + .figure-deck {margin-top: 8px}
 .figure h3 {font-size: 22px; font-weight: 650; line-height: 1.28; letter-spacing: -.01em; max-width: 30em}
 .figure-period {font-weight: 600; color: var(--accent-text)}
@@ -138,6 +144,8 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 @media (max-width: 1000px) {
   .row-pair {grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: 72px}
   .row-pair > .figure {display: block; grid-row: auto}
+  .row-full .figure-text {display: block}
+  .row-full .figure-text > .figure-heading + .figure-deck {margin-top: 8px}
   .ch-head h2, .ch-head .intro {grid-column: 1 / -1}
   .ch-head .intro {margin-top: 16px; padding-bottom: 0}
   .state-key {grid-template-columns: repeat(4, auto)}
