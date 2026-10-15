@@ -9045,10 +9045,6 @@
       },
       "transform": [
         {
-          "calculate": "measure==='area'?datum.areaT:datum.peopleT",
-          "as": "t"
-        },
-        {
           "calculate": "measure==='area'?datum.density:datum.perResident",
           "as": "value"
         }
@@ -9060,22 +9056,34 @@
       },
       "encoding": {
         "color": {
-          "field": "t",
+          "field": "value",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              1
-            ],
+            "type": "log",
+            "domain": {
+              "expr": "measure==='area'?[200,150000]:[200,1400]"
+            },
             "range": [
               "#edf8e9",
               "#bae4b3",
               "#74c476",
               "#31a354",
               "#006d2c"
-            ]
+            ],
+            "clamp": true
           },
-          "legend": null
+          "legend": {
+            "title": {
+              "signal": "measure==='area'?'2024 records per 1,000 km² of land':'2024 records per 1,000 residents'"
+            },
+            "values": {
+              "signal": "measure==='area'?[200,1000,10000,100000]:[200,500,1000]"
+            },
+            "orient": "bottom-left",
+            "format": ",~s",
+            "gradientLength": 200,
+            "titleLimit": 320
+          }
         },
         "tooltip": [
           {

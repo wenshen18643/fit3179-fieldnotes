@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 854,
-  "height": 592,
+  "height": 704,
   "padding": {
     "left": 45,
     "right": 10,
@@ -1614,7 +1614,7 @@
         23.18
       ],
       "range": [
-        272,
+        377,
         0
       ],
       "zero": true
@@ -1635,10 +1635,10 @@
             "signal": "width"
           },
           "y": {
-            "signal": "310+datum.row*37-16.650000000000002"
+            "signal": "415+datum.row*38-17.1"
           },
           "height": {
-            "value": 33.300000000000004
+            "value": 34.2
           },
           "fill": {
             "value": "#efe3dc"
@@ -1669,7 +1669,7 @@
             "field": "count"
           },
           "y2": {
-            "value": 272
+            "value": 377
           },
           "tooltip": {
             "signal": "{'Exactly these states':datum.combination,'Listed bird taxa':datum.count}"
@@ -1765,7 +1765,7 @@
             "signal": "width"
           },
           "y": {
-            "value": 289
+            "value": 394
           },
           "stroke": {
             "value": "#d9d1bf"
@@ -1786,10 +1786,10 @@
             "band": 0.5
           },
           "y": {
-            "signal": "310+datum.min*37"
+            "signal": "415+datum.min*38"
           },
           "y2": {
-            "signal": "310+datum.max*37"
+            "signal": "415+datum.max*38"
           },
           "strokeWidth": {
             "value": 1.5
@@ -1797,7 +1797,7 @@
         },
         "update": {
           "stroke": {
-            "signal": "picked==='' || indexof(datum.states,picked)>=0?'#24281f':'#cfcabc'"
+            "signal": "picked==='' || indexof(datum.states,picked)>=0?'#24281f':'#aaa699'"
           }
         }
       }
@@ -1815,7 +1815,7 @@
             "band": 0.5
           },
           "y": {
-            "signal": "310+datum.row*37"
+            "signal": "415+datum.row*38"
           },
           "size": {
             "value": 54
@@ -1826,7 +1826,7 @@
         },
         "update": {
           "fill": {
-            "signal": "!datum.active?'#dedace':picked==='' || indexof(datum.states,picked)>=0?'#24281f':'#cfcabc'"
+            "signal": "!datum.active?'#ebe7dc':picked==='' || indexof(datum.states,picked)>=0?'#24281f':'#aaa699'"
           }
         }
       }
@@ -1843,7 +1843,7 @@
             "value": -12
           },
           "y": {
-            "signal": "310+datum.row*37"
+            "signal": "415+datum.row*38"
           },
           "text": {
             "field": "code"

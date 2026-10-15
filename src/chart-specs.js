@@ -107,9 +107,8 @@ function gridMap(D,w) {
 }
 
 function densityMap(D,w) {
-  // Two denominators, one map. Colour is each state's position between the lowest and
-  // highest value of the chosen measure, on a log scale; the printed number on every
-  // state carries the actual value, so no legend lookup is needed.
+  // Two denominators, one map. Colour is a log scale over the chosen measure's range, and
+  // its legend redraws in that unit; every state also prints its own value.
   const small=w<560;
   const t=r=>({areaT:Math.log(r.density/200)/Math.log(150000/200),peopleT:Math.log(r.perResident/200)/Math.log(1400/200)});
   const rows=stateData(D).map(r=>({...r,...t(r)}));
@@ -117,9 +116,12 @@ function densityMap(D,w) {
   const value="measure==='area'?datum.density:datum.perResident";
   return VL(w-16,mapH(w),{description:'State and territory choropleth of 2024 records, per 1,000 km² of land or per 1,000 residents. Darker means more records for the chosen denominator.',
     params:[{name:'measure',value:'area'}],projection,
-    layer:[{data:{values:rows},transform:[{calculate:"measure==='area'?datum.areaT:datum.peopleT",as:'t'},{calculate:value,as:'value'}],
+    layer:[{data:{values:rows},transform:[{calculate:value,as:'value'}],
       mark:{type:'geoshape',stroke:C.paper,strokeWidth:1.3},encoding:{
-      color:{field:'t',type:'quantitative',scale:{domain:[0,1],range:lightRamp},legend:null},
+      color:{field:'value',type:'quantitative',scale:{type:'log',domain:{expr:"measure==='area'?[200,150000]:[200,1400]"},range:lightRamp,clamp:true},
+        // Vega-Lite passes a {signal} title through, so the legend names the chosen unit.
+        legend:{title:{signal:"measure==='area'?'2024 records per 1,000 km² of land':'2024 records per 1,000 residents'"},values:{signal:"measure==='area'?[200,1000,10000,100000]:[200,500,1000]"},
+          orient:small?'bottom':'bottom-left',format:',~s',gradientLength:small?150:200,titleLimit:320}},
       tooltip:[tooltip('state','State / territory'),tooltip('count','2024 records',','),tooltip('density','Per 1,000 km²',',.0f'),tooltip('perResident','Per 1,000 residents',',.0f'),tooltip('population','Residents (ABS, June 2024)',',')],
     }},
     // ACT is a speck at this scale: ring it and lead its label out to sea.
@@ -161,12 +163,20 @@ function seasonalClock(D,w) {
 }
 
 function bump(D,w) {
-  // Colour carries the reader's choice, not species identity. Seven arbitrary hues
-  // would push the page past a handful and would make green mean a bird as well as
-  // a record count, so the context lines are one muted grey and the dropdown
-  // promotes a single line to ochre.
+  // One ColorBrewer Dark2 hue per bird (seven of its eight; the yellow is dropped, it
+  // fails contrast on paper), and each name is printed at its line's end in a darker
+  // shade of the same hue, so the labels are the legend. Following a bird thickens its
+  // line and fades the others; "All birds" shows every line at full strength.
   const compact=w<680;
   const end=D.rankings.filter(r=>r.month===12),max=Math.max(...D.rankings.map(r=>r.rank));
+  const birds=[...end].sort((a,b)=>a.rank-b.rank).map(r=>r.name);
+  const order=['Welcome Swallow',...birds.filter(b=>b!=='Welcome Swallow')];
+  // Dark2's green is swapped for Set1's blue: green means record volume on every other chart.
+  const line=['#d95f02','#1b9e77','#7570b3','#e7298a','#377eb8','#a6761d','#666666'];
+  const ink=['#a84a02','#137a5c','#585494','#b81f6c','#2a6491','#7f5a16','#4d4d4d'];
+  const hue={field:'name',type:'nominal',scale:{domain:order,range:line},legend:null};
+  const hueText={field:'name',type:'nominal',scale:{domain:order,range:ink},legend:null};
+  const faded="highlight!=='All birds'&&datum.name!==highlight";
   const width=w-(compact?118:190);
   const picked="datum.name===highlight";
   // Below about 520px twelve three-letter months overprint each other, so they drop
@@ -174,26 +184,26 @@ function bump(D,w) {
   const monthLabel=w<520?"['J','F','M','A','M','J','J','A','S','O','N','D'][datum.value-1]":"['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]";
   const base={x:{field:'month',type:'ordinal',sort:'ascending',axis:{title:null,labelAngle:0,labelExpr:monthLabel}},
     y:{field:'rank',type:'quantitative',scale:{domain:[1,max],reverse:true,zero:false},axis:{title:'Rank among all birds that month (1 = most records)',titleLimit:400,tickCount:Math.min(max,10),format:'d'}}};
-  return VL(width,350,{description:'Monthly ranks for the seven species with the most annual records. Rank is among all named species recorded in that month. The selected bird is drawn in ochre over muted context lines.',
+  return VL(width,350,{description:'Monthly ranks for the seven species with the most annual records. Rank is among all named species recorded in that month. Each bird has its own colour; the selected bird is drawn thicker and the others fade.',
     params:[{name:'highlight',value:'Welcome Swallow'}],
     data:{values:D.rankings},encoding:base,
     layer:[
-      {mark:{type:'line',strokeWidth:1.7,interpolate:'monotone',color:'#9aa093'},encoding:{detail:{field:'name'}}},
-      {mark:{type:'point',filled:true,size:34,color:'#9aa093',stroke:C.paper,strokeWidth:1},
-        encoding:{tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('rank','Rank'),tooltip('count','Records',',')]}},
-      {transform:[{filter:picked}],mark:{type:'line',strokeWidth:3,interpolate:'monotone',color:C.ochre},encoding:{detail:{field:'name'}}},
-      {transform:[{filter:picked}],mark:{type:'point',filled:true,size:72,color:C.ochre,stroke:C.paper,strokeWidth:1.4},
-        encoding:{tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('rank','Rank'),tooltip('count','Records',',')]}},
+      {transform:[{filter:'!('+picked+')'}],mark:{type:'line',strokeWidth:2,interpolate:'monotone'},
+        encoding:{color:hue,opacity:{condition:{test:faded,value:.28},value:1},detail:{field:'name'}}},
+      {transform:[{filter:'!('+picked+')'}],mark:{type:'point',filled:true,size:34,stroke:C.paper,strokeWidth:1},
+        encoding:{color:hue,opacity:{condition:{test:faded,value:.28},value:1},tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('rank','Rank'),tooltip('count','Records',',')]}},
+      {transform:[{filter:picked}],mark:{type:'line',strokeWidth:3.2,interpolate:'monotone'},encoding:{color:hue,detail:{field:'name'}}},
+      {transform:[{filter:picked}],mark:{type:'point',filled:true,size:72,stroke:C.paper,strokeWidth:1.4},
+        encoding:{color:hue,tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('rank','Rank'),tooltip('count','Records',',')]}},
       // The default view's finding, written where it happens: under the June low, and in the
       // clear band above the flat September–December run, so no grey line passes behind it.
       ...[{month:6,rank:8,text:'8th in June',align:'center',dx:0,dy:17},{month:11,rank:2,text:'2nd from September',align:'center',dx:0,dy:-15}].flatMap(a=>
         [{stroke:C.paper,strokeWidth:3.5,strokeJoin:'round'},{}].map(halo=>({data:{values:[a]},transform:[{filter:"highlight==='Welcome Swallow'"}],
-          mark:{type:'text',align:a.align,dx:a.dx,dy:a.dy,baseline:'middle',fontSize:12,fontWeight:600,color:C.ochreText,...halo},
+          mark:{type:'text',align:a.align,dx:a.dx,dy:a.dy,baseline:'middle',fontSize:12,fontWeight:600,color:ink[0],...halo},
           encoding:{x:base.x,y:base.y,text:{field:'text'}}}))),
-      {data:{values:end},transform:[{filter:'!('+picked+')'}],
-        mark:{type:'text',align:'left',dx:13,fontSize:compact?10:11,color:C.muted},encoding:{...base,text:{field:'name'}}},
-      {data:{values:end},transform:[{filter:picked}],
-        mark:{type:'text',align:'left',dx:13,fontSize:compact?10:11,fontWeight:700,color:C.ochreText},encoding:{...base,text:{field:'name'}}},
+      {data:{values:end},mark:{type:'text',align:'left',dx:13,fontSize:compact?10:11,fontWeight:600},
+        encoding:{...base,text:{field:'name'},color:hueText,opacity:{condition:{test:faded,value:.45},value:1},
+          fontWeight:{condition:{test:picked,value:700},value:600}}},
     ]});
 }
 
@@ -223,18 +233,20 @@ function beeMap(D,w) {
       {data:{values:cells},transform:[{filter:`datum.season===${opposite}`}],mark:{type:'circle',filled:false,strokeWidth:1.1,opacity:.75},encoding:{longitude:LON,latitude:LAT,size,color:colour,tooltip:tip}},
       {data:{values:cells},transform:[{filter:'datum.season===season'}],mark:{type:'circle',opacity:.78,stroke:C.paper,strokeWidth:.6},encoding:{longitude:LON,latitude:LAT,size,color:colour,tooltip:tip}},
       {data:{values:[{longitude:112,latitude:-30},{longitude:154,latitude:-30}]},mark:{type:'line',strokeDash:[4,5],color:C.ink,strokeWidth:1},encoding:{longitude:LON,latitude:LAT}},
-      {data:{values:[{longitude:112.2,latitude:-30}]},mark:{type:'text',align:'left',baseline:'bottom',dy:-4,fontSize:11,color:C.muted,text:'30°S'},encoding:{longitude:LON,latitude:LAT}},
+      // Phones have no open sea at the line's west end (a coastal circle sits there), so the
+      // annotation names the line instead.
+      ...(small?[]:[{data:{values:[{longitude:112.2,latitude:-30}]},mark:{type:'text',align:'left',baseline:'bottom',dy:-4,fontSize:11,color:C.muted,text:'30°S'},encoding:{longitude:LON,latitude:LAT}}]),
       // The finding, recomputed for whichever season is showing, printed beside the line.
       {data:{values:D.beeMonth},transform:[{filter:'datum.season===season'},
         {aggregate:[{op:'sum',field:'southOf30',as:'south'},{op:'sum',field:'count',as:'n'}]},
         {calculate:"format(datum.south/datum.n,'.0%')",as:'share'},{calculate:"'of '+lower(season)+' records'",as:'what'},
         // In the Great Australian Bight; on a phone the Bight is too narrow, so open sea south-west of WA.
-        {calculate:small?'113.6':'125.6',as:'longitude'},{calculate:small?'-35.2':'-33.1',as:'latitude'}],
+        {calculate:small?'113.4':'125.6',as:'longitude'},{calculate:small?'-36.7':'-33.1',as:'latitude'}],
         layer:[{mark:{type:'text',align:'left',baseline:'top',dy:9,fontSize:small?22:30,fontWeight:500,font:C.display,color:C.ink,stroke:C.paper,strokeWidth:4},encoding:{longitude:LON,latitude:LAT,text:{field:'share'}}},
           {mark:{type:'text',align:'left',baseline:'top',dy:9,fontSize:small?22:30,fontWeight:500,font:C.display,color:C.ink},encoding:{longitude:LON,latitude:LAT,text:{field:'share'}}},
           {mark:{type:'text',align:'left',baseline:'top',dy:small?35:45,fontSize:12,color:C.ink,stroke:C.paper,strokeWidth:4},encoding:{longitude:LON,latitude:LAT,text:{field:'what'}}},
           {mark:{type:'text',align:'left',baseline:'top',dy:small?35:45,fontSize:12,color:C.ink},encoding:{longitude:LON,latitude:LAT,text:{field:'what'}}},
-          {mark:{type:'text',align:'left',baseline:'top',dy:small?50:60,fontSize:12,color:C.muted},encoding:{longitude:LON,latitude:LAT,text:{value:'lie south of 30°S'}}}]},
+          {mark:{type:'text',align:'left',baseline:'top',dy:small?50:60,fontSize:12,color:C.muted},encoding:{longitude:LON,latitude:LAT,text:{value:small?'lie south of the 30°S line':'lie south of 30°S'}}}]},
     ]});
 }
 
@@ -373,7 +385,7 @@ function swarm(D,w) {
       {name:'color',type:'ordinal',domain:statuses,range:CB.orrd}],
     axes:[{scale:'x',orient:'bottom',values:[1,10,100,1000,10000],format:',',title:'2024 records per species · logarithmic scale',grid:true,gridColor:'#ebe5d8'}],
     marks:[{type:'rule',from:{data:'bands'},encode:{enter:{x:{value:0},x2:{signal:'width'},y:{field:'y'},stroke:{value:C.rule},strokeWidth:{value:.7}}}},
-      {type:'text',from:{data:'bands'},encode:{enter:{x:{value:0},y:{field:'labelY'},baseline:{value:'middle'},fontSize:{value:12},fill:{value:C.muted},
+      {type:'text',from:{data:'bands'},encode:{enter:{x:{value:8},y:{field:'labelY'},baseline:{value:'middle'},fontSize:{value:12},fill:{value:C.muted},
         text:{signal:"datum.status+' · '+datum.n"}}}},
       {type:'symbol',from:{data:'birds'},encode:{enter:{x:{scale:'x',field:'count'},y:{field:'cy'},
         fill:{scale:'color',field:'status'},stroke:{value:C.paper},strokeWidth:{value:1},
@@ -401,8 +413,9 @@ function stateCircles(D,w) {
       // Lowest circle edge once the layout settles: the legend sits beneath it.
       {name:'circleBottom',update:"extent(pluck(data('nodes'),'bottom'))[1]"}],
     projections:[{...vegaProjection,size:[width,mapH]}],
-    scales:[{name:'records',type:'linear',domain:[300000,2500000],range:[CB.greens[1],CB.greens[4]],clamp:true}],
-    data:[{name:'states',values:D.australia.features},
+    scales:[{name:'records',type:'linear',domain:[300000,2500000],range:[CB.greens[1],CB.greens[4]],clamp:true},
+],
+    data:[{name:'states',values:D.australia.features},{name:'sizeKey',values:[85,50,20].map(v=>({v,r:Math.sqrt(v/maxListed)*R}))},
       {name:'nodes',values:D.states.map(s=>({code:s.code,state:s.state,count:s.count,listed:s.listed,longitude:s.longitude,latitude:s.latitude,
           r:Math.max(9,Math.sqrt(s.listed/maxListed)*R)})),
         transform:[
@@ -415,6 +428,14 @@ function stateCircles(D,w) {
           // back up would re-create the overlaps the collide force removed, so only the sides are held.
           {type:'formula',expr:'clamp(datum.x,datum.r+2,width-datum.r-2)',as:'x'},{type:'formula',expr:'datum.y+datum.r',as:'bottom'}]}],
     marks:[{type:'shape',from:{data:'states'},encode:{enter:{fill:{value:'#ebe7dc'},stroke:{value:'#d5d0c1'},strokeWidth:{value:.7}}},transform:[{type:'geoshape',projection:'projection'}]},
+      // Size key: nested circles on the map's own area scale, bottom-aligned, each value led
+      // out to the right. It sits beside the colour legend, or under it on phones.
+      ...(()=>{const lx=width<520?0:Math.min(240,width-20)+60, top=`max(circleBottom,${mapH})+16+${width<520?58:0}`;
+        const base=`${top}+20+${2*R}`;
+        return [{type:'text',interactive:false,encode:{update:{x:{value:lx},y:{signal:top},baseline:{value:'top'},text:{value:'Threatened birds listed'},fontSize:{value:11},fontWeight:{value:500},fill:{value:C.ink}}}},
+          {type:'symbol',interactive:false,from:{data:'sizeKey'},encode:{update:{x:{value:lx+R},y:{signal:base+'-datum.r'},size:{signal:'PI*datum.r*datum.r'},fill:{value:'transparent'},stroke:{value:'#8a8f80'},strokeWidth:{value:1}}}},
+          {type:'rule',interactive:false,from:{data:'sizeKey'},encode:{update:{x:{value:lx+R},x2:{value:lx+2*R+8},y:{signal:base+'-2*datum.r'},stroke:{value:'#b5b2a5'},strokeDash:{value:[2,2]}}}},
+          {type:'text',interactive:false,from:{data:'sizeKey'},encode:{update:{x:{value:lx+2*R+12},y:{signal:base+'-2*datum.r'},baseline:{value:'middle'},text:{field:'v'},fontSize:{value:11},fill:{value:C.muted}}}}];})(),
       {type:'symbol',from:{data:'nodes'},encode:{update:{x:{field:'x'},y:{field:'y'},size:{signal:'PI*datum.r*datum.r'},cursor:{value:'pointer'},
         fill:{scale:'records',field:'count'},fillOpacity:{signal:"picked===''||picked===datum.code?1:.35"},
         stroke:{signal:`picked===datum.code?'${C.ink}':'${C.paper}'`},strokeWidth:{signal:'picked===datum.code?2.5:1.5'},
@@ -431,7 +452,9 @@ function stateCircles(D,w) {
 }
 
 function upset(D,w) {
-  const width=w-66,H=Math.round(dorlingH(w)+72),step=Math.min(38,Math.round(H/16)),base=H-61-7*step,top=base+38,codes=['WA','NT','SA','QLD','NSW','VIC','TAS','ACT'];
+  // The cartogram is its height H plus two legends, the size key 2R + 45 px tall.
+  const Rd=Math.min(w-16,dorlingH(w)-58)*.15;
+  const width=w-66,H=Math.round(dorlingH(w)+2*Rd+45),step=Math.min(38,Math.round(H/16)),base=H-61-7*step,top=base+38,codes=['WA','NT','SA','QLD','NSW','VIC','TAS','ACT'];
   // Vega stamps every datum it ingests with a tuple id kept on a symbol key, and
   // object spread copies symbol keys. Spreading one combination into eight row
   // objects would therefore hand all eight the same id on any redraw after the
@@ -460,10 +483,10 @@ function upset(D,w) {
         text:{signal:"datum.states.length===1&&datum.id===0?'only '+datum.states[0]:datum.id===1?'shared by '+datum.states.length:''"}}}},
       {type:'rule',encode:{enter:{x:{value:0},x2:{signal:'width'},y:{value:base+17},stroke:{value:C.rule}}}},
       {type:'rule',from:{data:'links'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{signal:top+'+datum.min*'+step},y2:{signal:top+'+datum.max*'+step},strokeWidth:{value:1.5}},
-        update:{stroke:{signal:`${on}?'${C.ink}':'#cfcabc'`}}}},
+        update:{stroke:{signal:`${on}?'${C.ink}':'#aaa699'`}}}},
       {type:'symbol',from:{data:'matrix'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{signal:top+'+datum.row*'+step},size:{value:w<500?28:54},
         tooltip:{signal:"{'Exactly these states':datum.combination,'Listed bird taxa':datum.count,'State':datum.code,'Included':datum.active?'Yes':'No'}"}},
-        update:{fill:{signal:`!datum.active?'#dedace':${on}?'${C.ink}':'#cfcabc'`}}}},
+        update:{fill:{signal:`!datum.active?'#ebe7dc':${on}?'${C.ink}':'#aaa699'`}}}},
       {type:'text',name:'rowlabel',from:{data:'codes'},encode:{enter:{x:{value:-12},y:{signal:top+'+datum.row*'+step},text:{field:'code'},align:{value:'right'},baseline:{value:'middle'},cursor:{value:'pointer'}},
         update:{fontSize:{signal:'picked===datum.code?13:11'},fontWeight:{signal:"picked===datum.code?700:400"},fill:{signal:`picked===datum.code?'${C.rust}':'${C.ink}'`}}}},
     ]});

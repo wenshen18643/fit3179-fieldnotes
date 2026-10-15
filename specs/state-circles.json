@@ -8976,6 +8976,23 @@
       ]
     },
     {
+      "name": "sizeKey",
+      "values": [
+        {
+          "v": 85,
+          "r": 69.3
+        },
+        {
+          "v": 50,
+          "r": 53.150673727122765
+        },
+        {
+          "v": 20,
+          "r": 33.61543763003575
+        }
+      ]
+    },
+    {
       "name": "nodes",
       "values": [
         {
@@ -9135,6 +9152,122 @@
           "projection": "projection"
         }
       ]
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "value": 300
+          },
+          "y": {
+            "signal": "max(circleBottom,462)+16+0"
+          },
+          "baseline": {
+            "value": "top"
+          },
+          "text": {
+            "value": "Threatened birds listed"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fontWeight": {
+            "value": 500
+          },
+          "fill": {
+            "value": "#24281f"
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "interactive": false,
+      "from": {
+        "data": "sizeKey"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "value": 369.3
+          },
+          "y": {
+            "signal": "max(circleBottom,462)+16+0+20+138.6-datum.r"
+          },
+          "size": {
+            "signal": "PI*datum.r*datum.r"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "stroke": {
+            "value": "#8a8f80"
+          },
+          "strokeWidth": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "interactive": false,
+      "from": {
+        "data": "sizeKey"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "value": 369.3
+          },
+          "x2": {
+            "value": 446.6
+          },
+          "y": {
+            "signal": "max(circleBottom,462)+16+0+20+138.6-2*datum.r"
+          },
+          "stroke": {
+            "value": "#b5b2a5"
+          },
+          "strokeDash": {
+            "value": [
+              2,
+              2
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "from": {
+        "data": "sizeKey"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "value": 450.6
+          },
+          "y": {
+            "signal": "max(circleBottom,462)+16+0+20+138.6-2*datum.r"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "field": "v"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#5d6356"
+          }
+        }
+      }
     },
     {
       "type": "symbol",

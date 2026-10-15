@@ -980,7 +980,7 @@
       "encode": {
         "enter": {
           "x": {
-            "value": 0
+            "value": 8
           },
           "y": {
             "field": "labelY"

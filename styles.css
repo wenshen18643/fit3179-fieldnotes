@@ -97,9 +97,11 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .stats div {display: flex; flex-direction: column-reverse; gap: 4px}
 .stats dt {font-size: var(--t-small); color: var(--muted); line-height: 1.35}
 .stats dd {font-family: var(--display-font); font-size: clamp(30px, 2.6vw, 44px); line-height: 1.05}
-.cover-art {grid-column: 8 / 13; display: flex; flex-direction: column; align-items: center}
-.cover-art img {display: block; width: 100%; height: auto; max-height: min(760px, 78svh); object-fit: contain; mix-blend-mode: multiply}
-.cover-art figcaption {align-self: flex-end; font-size: var(--t-meta); color: var(--muted); margin-top: 8px}
+.cover-art {grid-column: 8 / 13; display: grid; justify-content: center; justify-items: end; align-content: center}
+/* darken keeps the page colour wherever the illustration's paper is lighter than it, so the
+   picture has no visible box; the bird, darker than the page, keeps its own colours. */
+.cover-art img {display: block; width: auto; height: auto; max-width: 100%; max-height: min(760px, 78svh); mix-blend-mode: darken}
+.cover-art figcaption {font-size: var(--t-meta); color: var(--muted); margin-top: 8px}
 
 .state-key {display: grid; grid-template-columns: repeat(8, auto); justify-content: space-between; gap: 6px 20px; padding: 14px 0; border-block: 1px solid var(--rule); font-size: 13px; color: var(--muted)}
 .state-key b {color: var(--ink)}
@@ -126,6 +128,8 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .figure h3 {font-size: 22px; font-weight: 650; line-height: 1.28; letter-spacing: -.01em; max-width: 30em}
 .figure-period {font-weight: 600; color: var(--accent-text)}
 .season-key {margin-top: 14px}
+.figure > .season-key {margin-top: 28px}
+.figure > .season-key + .chart {margin-top: 8px}
 
 /* ---- sources ---- */
 .sources {padding-top: 120px; padding-bottom: 56px}
