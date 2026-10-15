@@ -9077,7 +9077,7 @@
               "signal": "measure==='area'?'2024 records per 1,000 km² of land':'2024 records per 1,000 residents'"
             },
             "values": {
-              "signal": "measure==='area'?[200,1000,10000,100000]:[200,500,1000]"
+              "signal": "measure==='area'?[200,1000,10000,150000]:[200,500,1000,1400]"
             },
             "orient": "bottom-left",
             "format": ",~s",

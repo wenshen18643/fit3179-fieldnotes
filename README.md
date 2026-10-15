@@ -13,7 +13,7 @@ Open http://127.0.0.1:4179. The web page cannot be opened directly with `file://
 
 ## Reproduce
 
-The repository includes archived source responses, processed data, a query log and human-readable chart specifications. The browser downloads only `data/story.json` (approximately 600 KB), two Google Fonts families (Fraunces and Source Sans 3), a compressed illustration and vendored chart libraries. Raw archives are not fetched by the page.
+The repository includes archived source responses, processed data, a query log and human-readable chart specifications. The browser downloads only `data/story.json` (approximately 600 KB), two Google Fonts families (Fraunces and Source Sans 3) and vendored chart libraries. Raw archives are not fetched by the page.
 
 ```sh
 python -m pip install pyshp
@@ -36,7 +36,6 @@ Downloads use a local cache to preserve the snapshot and avoid unnecessary API r
 - `data/processed/`: chart tables in JSON and CSV.
 - `docs/methodology.md`: definitions, attribution and limitations.
 - `docs/assessment-guide.md`: rationale, rubric mapping and remaining submission work.
-- `docs/artwork.md`: image-generation acknowledgement and prompt.
 
 ## GitHub Pages — final stage
 

@@ -17,10 +17,12 @@ const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 const SEASONS = ['Summer','Autumn','Winter','Spring'];
 const projection = {type:'conicEqualArea', parallels:[-18,-36], rotate:[-134,0,0], center:[0,-28]};
 // Quantitative colour comes from ColorBrewer (colorbrewer2.org), as the unit's colour
-// notes direct: Greens for one-directional volume, BrBG for above/below a midpoint,
-// OrRd for rising extinction risk.
+// notes direct: Greens for one-directional volume, OrRd for rising extinction risk, and two
+// diverging schemes kept apart by meaning: BrBG only for summer (brown) against winter (teal),
+// PiYG for quieter (pink) against busier (green) than usual, so no hue means two things.
 const CB={greens:['#edf8e9','#bae4b3','#74c476','#31a354','#006d2c'],
-  brbg:['#a6611a','#dfc27d','#f5f5f5','#80cdc1','#018571'],orrd:['#ef6548','#d7301f','#990000']};
+  brbg:['#a6611a','#dfc27d','#f5f5f5','#80cdc1','#018571'],orrd:['#ef6548','#d7301f','#990000'],
+  piyg:['#d01c8b','#f1b6da','#f7f7f7','#b8e186','#4dac26']};
 const lightRamp = CB.greens;
 const config = {
   background:'transparent', font:FONT,
@@ -120,7 +122,8 @@ function densityMap(D,w) {
       mark:{type:'geoshape',stroke:C.paper,strokeWidth:1.3},encoding:{
       color:{field:'value',type:'quantitative',scale:{type:'log',domain:{expr:"measure==='area'?[200,150000]:[200,1400]"},range:lightRamp,clamp:true},
         // Vega-Lite passes a {signal} title through, so the legend names the chosen unit.
-        legend:{title:{signal:"measure==='area'?'2024 records per 1,000 km² of land':'2024 records per 1,000 residents'"},values:{signal:"measure==='area'?[200,1000,10000,100000]:[200,500,1000]"},
+        legend:{title:{signal:"measure==='area'?'2024 records per 1,000 km² of land':'2024 records per 1,000 residents'"},// The last tick is the scale's end, so the ACT (145,828) and NT (1,266) sit inside it.
+          values:{signal:"measure==='area'?[200,1000,10000,150000]:[200,500,1000,1400]"},
           orient:small?'bottom':'bottom-left',format:',~s',gradientLength:small?150:200,titleLimit:320}},
       tooltip:[tooltip('state','State / territory'),tooltip('count','2024 records',','),tooltip('density','Per 1,000 km²',',.0f'),tooltip('perResident','Per 1,000 residents',',.0f'),tooltip('population','Residents (ABS, June 2024)',',')],
     }},
@@ -148,16 +151,16 @@ function seasonalClock(D,w) {
       {name:'rings',values:codes.map((code,i)=>({code,r:inner+(i+.5)*band}))}],
     // Pace is a ratio, so the diverging scale is logarithmic and symmetric about 1:
     // half the usual pace sits as far from the midpoint as double it does.
-    scales:[{name:'pace',type:'log',domain:[.5,1,2],range:[CB.brbg[0],CB.brbg[2],CB.brbg[4]],clamp:true}],
+    scales:[{name:'pace',type:'log',domain:[.5,1,2],range:[CB.piyg[0],CB.piyg[2],CB.piyg[4]],clamp:true}],
     marks:[{type:'arc',from:{data:'cells'},encode:{enter:{x:{value:cx},y:{value:cy},startAngle:{field:'a0'},endAngle:{field:'a1'},innerRadius:{field:'r0'},outerRadius:{field:'r1'},
       fill:{scale:'pace',field:'dailyIndex'},tooltip:{signal:"{'State':datum.state,'Month':datum.label,'Records':format(datum.count,','),'Pace vs state’s usual day':format(datum.dailyIndex,'.2f')+'×'}"}},
       update:{strokeWidth:{value:0}},hover:{stroke:{value:C.ink},strokeWidth:{value:1.4}}}},
       {type:'text',from:{data:'months'},encode:{enter:{x:{signal:`${cx}+sin(datum.angle)*(datum.peak?${radius+12}:${radius+24})`},y:{signal:`${cy}-cos(datum.angle)*${radius+24}`},
         text:{signal:"datum.peak?[datum.label,'busiest month']:datum.label"},align:{signal:"datum.peak?(sin(datum.angle)<0?'right':'left'):'center'"},baseline:{value:'middle'},
         fontSize:{signal:'datum.peak?13:12'},fontWeight:{signal:'datum.peak?700:400'},fill:{signal:`datum.peak?'${C.green}':'${C.ink}'`}}}},
-      {type:'text',from:{data:'rings'},encode:{enter:{x:{value:cx},y:{signal:`${cy}-datum.r`},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},fontSize:{value:w<450?9:11},fill:{value:C.muted}}}},
+      {type:'text',from:{data:'rings'},encode:{enter:{x:{value:cx},y:{signal:`${cy}-datum.r`},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},fontSize:{value:w<450?10:11},fill:{value:C.muted}}}},
       {type:'text',encode:{enter:{x:{value:cx},y:{value:cy-3},text:{value:'2024'},align:{value:'center'},fontSize:{value:17},fontWeight:{value:500}}}},
-      {type:'text',encode:{enter:{x:{value:cx},y:{value:cy+14},text:{value:'daily pace'},align:{value:'center'},fontSize:{value:9},fill:{value:C.muted}}}},
+      {type:'text',encode:{enter:{x:{value:cx},y:{value:cy+14},text:{value:'daily pace'},align:{value:'center'},fontSize:{value:10},fill:{value:C.muted}}}},
     ],legends:[{fill:'pace',type:'gradient',direction:'horizontal',orient:'none',legendX:cx-110,legendY:H-6,title:'Records a day, compared with the state’s own average',titleLimit:width-40,titleAnchor:'middle',values:[.5,1,2],gradientLength:220,gradientThickness:9,
       encode:{labels:{update:{text:{signal:"datum.value===1?'usual':datum.value<1?'half':'double'"}}}}}]});
 }
@@ -332,7 +335,7 @@ function seasonMatrix(D,w) {
       mark:{type:'rect',stroke:C.paper,strokeWidth:2,cornerRadius:1},
       encoding:{x:{field:'label',type:'ordinal',sort:MONTHS,axis:{title:null,labelAngle:0,...(w<520?{labelExpr:'substring(datum.value,0,1)'}:{})}},
         y:{field:'name',type:'ordinal',sort:order.flatMap(g=>groups[g]),axis:{title:null,labelLimit:compact?130:210,labelFontSize:compact?10:12}},
-        color:{field:'relative',type:'quantitative',scale:{type:'log',domain:[.25,1,4],range:[CB.brbg[0],CB.brbg[2],CB.brbg[4]],clamp:true},
+        color:{field:'relative',type:'quantitative',scale:{type:'log',domain:[.25,1,4],range:[CB.piyg[0],CB.piyg[2],CB.piyg[4]],clamp:true},
           legend:{title:'Share relative to annual share',titleLimit:280,orient:'bottom',values:[.25,1,4],format:'.2~f',gradientLength:180}},
         tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('count','Records',','),tooltip('per10k','Per 10,000 bird records','.1f'),tooltip('relative','Relative to annual share','.2f')]}}};
 }

@@ -14,7 +14,7 @@ A single scrolling, evidence-led visual field journal about where citizen scient
 
 ## Brand Personality
 
-Observant, tactile, surprising. The user chose a modern field journal with paper surfaces, bird illustrations and specimen-style notes. They want an exceptional visual result, supported by real data rather than complexity for its own sake.
+Observant, tactile, surprising. The user chose a modern field journal with paper surfaces and specimen-style notes, without decorative imagery. They want an exceptional visual result, supported by real data rather than complexity for its own sake.
 
 ## Anti-references
 

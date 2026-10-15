@@ -38,4 +38,4 @@ The accessible ALA eBird snapshot contains January–August 2025 but no Septembe
 
 ## Technical and artistic credits
 
-Original chart specifications use Vega 5.33.0, Vega-Lite 5.23.0 and Vega-Embed 6.29.0; their licences are in `vendor/`. Fraunces and Source Sans 3 are linked from Google Fonts under the SIL Open Font License. The cover illustration is AI-generated and separately acknowledged in [artwork.md](artwork.md). OpenAI Codex and Anthropic Claude assisted with research, processing, writing and implementation.
+Original chart specifications use Vega 5.33.0, Vega-Lite 5.23.0 and Vega-Embed 6.29.0; their licences are in `vendor/`. Fraunces and Source Sans 3 are linked from Google Fonts under the SIL Open Font License. OpenAI Codex and Anthropic Claude assisted with research, processing, writing and implementation.

@@ -86,25 +86,26 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .top .nav-sources {color: var(--muted); font-weight: 400; padding-left: 28px; border-left: 1px solid var(--rule)}
 
 /* ---- cover: 7 + 5 ---- */
-.cover {align-items: center; min-height: min(860px, calc(100svh - 64px)); padding-block: 40px 56px}
+.cover {align-items: center; padding-block: 72px 56px}
 .cover-text {grid-column: 1 / 8}
 .kicker {font-size: var(--t-meta); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text)}
 .cover h1 {font-family: var(--display-font); font-weight: 400; font-size: clamp(56px, 6.2vw, 112px); line-height: 1.02; letter-spacing: -.025em; margin: 20px 0 28px; font-variation-settings: 'opsz' 144}
 .cover h1 em {color: var(--green-text)}
 .deck {font-size: 21px; line-height: 1.5}
 .byline {margin-top: 18px; font-size: var(--t-small); color: var(--muted)}
-.stats {display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: var(--gutter); margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--ink)}
-.stats div {display: flex; flex-direction: column-reverse; gap: 4px}
+/* The four key numbers fill the right of the cover: the record total across the top, the
+   other three beneath it, each on its own rule. */
+.stats {grid-column: 8 / 13; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px var(--gutter)}
+.stats div {display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 8px; padding-top: 16px; border-top: 1px solid var(--ink)}
+.stats div:first-child {grid-column: 1 / -1}
 .stats dt {font-size: var(--t-small); color: var(--muted); line-height: 1.35}
-.stats dd {font-family: var(--display-font); font-size: clamp(30px, 2.6vw, 44px); line-height: 1.05}
-.cover-art {grid-column: 8 / 13; display: grid; justify-content: center; justify-items: end; align-content: center}
-/* darken keeps the page colour wherever the illustration's paper is lighter than it, so the
-   picture has no visible box; the bird, darker than the page, keeps its own colours. */
-.cover-art img {display: block; width: auto; height: auto; max-width: 100%; max-height: min(760px, 78svh); mix-blend-mode: darken}
-.cover-art figcaption {font-size: var(--t-meta); color: var(--muted); margin-top: 8px}
+.stats dd {font-family: var(--display-font); font-size: clamp(36px, 3.4vw, 60px); line-height: 1}
+.stats div:first-child dd {font-size: clamp(52px, 5.4vw, 100px); color: var(--green-text)}
 
 .state-key {display: grid; grid-template-columns: repeat(8, auto); justify-content: space-between; gap: 6px 20px; padding: 14px 0; border-block: 1px solid var(--rule); font-size: 13px; color: var(--muted)}
 .state-key b {color: var(--ink)}
+/* The abbreviation key belongs to the first chapter, so that chapter starts close beneath it. */
+.key-band + .chapter {padding-top: 56px}
 
 /* ---- chapters ---- */
 .chapter {padding-top: 112px}
@@ -156,8 +157,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 }
 @media (max-width: 760px) {
   .top nav {display: none}
-  .cover-text, .cover-art {grid-column: 1 / -1} .cover {min-height: 0}
-  .stats {grid-template-columns: repeat(2, minmax(0, 1fr))}
+  .cover-text, .stats {grid-column: 1 / -1} .stats {margin-top: 40px}
   .chapter {padding-top: 72px} .row + .row {margin-top: 64px}
   .state-key {grid-template-columns: repeat(2, auto); justify-content: start}
   .source-columns, .method-body, .credit {grid-template-columns: 1fr}
