@@ -1337,7 +1337,7 @@
     <!-- All page code: first the chart builders, then the code that draws them on the page. -->
     <script type="module">
       // Colours used by the charts.
-      export const C = {
+      export const colours = {
         ink: "#24281f",
         muted: "#5d6356",
         rule: "#d9d1bf",
@@ -1351,7 +1351,7 @@
         display: "'Fraunces', serif",
       };
       // Chart font, and the month and season names.
-      let FONT = "'Source Sans 3', sans-serif";
+      let chartFont = "'Source Sans 3', sans-serif";
       const MONTHS = [
         "Jan",
         "Feb",
@@ -1376,26 +1376,26 @@
       };
       // Colour ramps from ColorBrewer: greens for amounts, pink–green for less or more than usual,
       // brown–teal for summer against winter, orange–red for threat level.
-      const CB = {
+      const colourRamps = {
         greens: ["#edf8e9", "#bae4b3", "#74c476", "#31a354", "#006d2c"],
         brbg: ["#a6611a", "#dfc27d", "#f5f5f5", "#80cdc1", "#018571"],
         orrd: ["#ef6548", "#d7301f", "#990000"],
         piyg: ["#d01c8b", "#f1b6da", "#f7f7f7", "#b8e186", "#4dac26"],
       };
-      const lightRamp = CB.greens;
+      const lightRamp = colourRamps.greens;
       // Shared chart styling: fonts and how axes and legends look.
       const config = {
         background: "transparent",
-        font: FONT,
+        font: chartFont,
         view: { stroke: null },
         axis: {
-          labelFont: FONT,
-          titleFont: FONT,
+          labelFont: chartFont,
+          titleFont: chartFont,
           labelFontSize: 12,
           titleFontSize: 12,
           titleFontWeight: 500,
-          labelColor: C.muted,
-          titleColor: C.ink,
+          labelColor: colours.muted,
+          titleColor: colours.ink,
           domain: false,
           ticks: false,
           gridColor: "#e0dccf",
@@ -1404,45 +1404,57 @@
           titlePadding: 14,
         },
         legend: {
-          labelFont: FONT,
-          titleFont: FONT,
+          labelFont: chartFont,
+          titleFont: chartFont,
           labelFontSize: 11,
           titleFontSize: 11,
           titleFontWeight: 500,
-          labelColor: C.muted,
-          titleColor: C.ink,
+          labelColor: colours.muted,
+          titleColor: colours.ink,
           gradientThickness: 9,
           gradientLength: 130,
           padding: 8,
         },
-        title: { font: FONT, color: C.ink, fontSize: 15, fontWeight: 500, anchor: "start" },
+        title: {
+          font: chartFont,
+          color: colours.ink,
+          fontSize: 15,
+          fontWeight: 500,
+          anchor: "start",
+        },
       };
       // Lets the page change the chart font and text colours to match its design.
-      export function applyTheme(t = {}) {
-        const q = (f, fallback) => (f && !f.includes(",") ? `'${f}', ${fallback}` : f);
-        t = { ...t, font: q(t.font, "sans-serif"), display: q(t.display, "serif") };
-        if (t.font) {
-          FONT = t.font;
-          config.font = t.font;
-          config.title.font = t.font;
-          for (const k of ["axis", "legend"]) {
-            config[k].labelFont = t.font;
-            config[k].titleFont = t.font;
+      export function applyTheme(options = {}) {
+        const quoteFontName = (fontName, fallback) =>
+          fontName && !fontName.includes(",") ? `'${fontName}', ${fallback}` : fontName;
+        options = {
+          ...options,
+          font: quoteFontName(options.font, "sans-serif"),
+          display: quoteFontName(options.display, "serif"),
+        };
+        if (options.font) {
+          chartFont = options.font;
+          config.font = options.font;
+          config.title.font = options.font;
+          for (const part of ["axis", "legend"]) {
+            config[part].labelFont = options.font;
+            config[part].titleFont = options.font;
           }
         }
-        for (const k of ["paper", "ink", "muted", "display"]) if (t[k]) C[k] = t[k];
-        if (t.ink) {
-          config.axis.titleColor = t.ink;
-          config.legend.titleColor = t.ink;
-          config.title.color = t.ink;
+        for (const key of ["paper", "ink", "muted", "display"])
+          if (options[key]) colours[key] = options[key];
+        if (options.ink) {
+          config.axis.titleColor = options.ink;
+          config.legend.titleColor = options.ink;
+          config.title.color = options.ink;
         }
-        if (t.muted) {
-          config.axis.labelColor = t.muted;
-          config.legend.labelColor = t.muted;
+        if (options.muted) {
+          config.axis.labelColor = options.muted;
+          config.legend.labelColor = options.muted;
         }
       }
-      // Start a Vega-Lite (VL) or Vega (V) chart with the shared size and style.
-      const VL = (width, height, body) => ({
+      // Start a Vega-Lite or Vega chart with the shared size and style.
+      const vegaLiteChart = (width, height, body) => ({
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         width: Math.max(180, Math.round(width)),
         height: Math.round(height),
@@ -1450,69 +1462,89 @@
         config,
         ...body,
       });
-      const V = (width, height, body) => ({
+      const vegaChart = (width, height, body) => ({
         $schema: "https://vega.github.io/schema/vega/v5.json",
         width: Math.max(220, Math.round(width)),
         height: Math.round(height),
         padding: 8,
         background: "transparent",
         autosize: { type: "pad", contains: "padding" },
-        config: { text: { font: FONT, fill: C.ink }, axis: config.axis, legend: config.legend },
+        config: {
+          text: { font: chartFont, fill: colours.ink },
+          axis: config.axis,
+          legend: config.legend,
+        },
         ...body,
       });
       // Small helpers shared by several charts.
       const tooltip = (field, title, format) => ({ field, title, ...(format ? { format } : {}) });
       // Join each state's outline with its numbers.
-      const stateData = (D) =>
-        D.australia.features.map((f) => ({
-          ...f,
-          ...D.states.find((s) => s.code === f.properties.code),
+      const stateData = (data) =>
+        data.australia.features.map((feature) => ({
+          ...feature,
+          ...data.states.find((state) => state.code === feature.properties.code),
         }));
       // Grey land drawn underneath a map.
-      const baseMap = (D) => ({
-        data: { values: D.australia.features },
+      const baseMap = (data) => ({
+        data: { values: data.australia.features },
         mark: { type: "geoshape", fill: "#e8e4d9", stroke: "#c7c6b8", strokeWidth: 0.7 },
       });
       // Chart heights, worked out from the width available.
-      const mapH = (w) => Math.min(620, Math.max(270, w * 0.78));
-      const clockRadius = (w) => Math.max(140, Math.min(245, (w - 120) / 2));
-      const dorlingH = (w) => Math.min(520, Math.max(380, (w - 16) * 0.9));
+      const mapH = (width) => Math.min(620, Math.max(270, width * 0.78));
+      const clockRadius = (width) => Math.max(140, Math.min(245, (width - 120) / 2));
+      const dorlingH = (width) => Math.min(520, Math.max(380, (width - 16) * 0.9));
 
       // Longitude and latitude fields for placing marks on a map.
-      const LON = { field: "longitude", type: "quantitative" },
-        LAT = { field: "latitude", type: "quantitative" };
+      const longitudeField = { field: "longitude", type: "quantitative" },
+        latitudeField = { field: "latitude", type: "quantitative" };
       // Text with a pale outline, so labels stay readable on any colour.
       const haloText = (values, mark, encoding = {}) => [
         {
           data: { values },
-          mark: { type: "text", ...mark, stroke: C.paper, strokeWidth: 4, strokeJoin: "round" },
-          encoding: { longitude: LON, latitude: LAT, text: { field: "text" }, ...encoding },
+          mark: {
+            type: "text",
+            ...mark,
+            stroke: colours.paper,
+            strokeWidth: 4,
+            strokeJoin: "round",
+          },
+          encoding: {
+            longitude: longitudeField,
+            latitude: latitudeField,
+            text: { field: "text" },
+            ...encoding,
+          },
         },
         {
           data: { values },
-          mark: { type: "text", color: C.ink, ...mark },
-          encoding: { longitude: LON, latitude: LAT, text: { field: "text" }, ...encoding },
+          mark: { type: "text", color: colours.ink, ...mark },
+          encoding: {
+            longitude: longitudeField,
+            latitude: latitudeField,
+            text: { field: "text" },
+            ...encoding,
+          },
         },
       ];
       // Thin coastline drawn on top of a map.
-      const outline = (D) => ({
-        data: { values: D.australia.features },
+      const outline = (data) => ({
+        data: { values: data.australia.features },
         mark: { type: "geoshape", fill: null, stroke: "#9b9d8d", strokeWidth: 0.6 },
       });
 
       // ---------- Chart builders ----------
-      // Each function takes the data (D) and the width available (w) and returns the chart's
+      // Each function takes the data and the width available (availableWidth) and returns the chart's
       // Vega or Vega-Lite spec. Each one is named after its chart's heading on the page.
       //
       // Map of Australia in 1° squares, darker = more records. The buttons outline the fewest
       // squares that hold 25, 50, 75 or 90% of all records, and the headline counts them.
-      function halfOfAllRecordsComeFrom12Of720Squares(D, w) {
-        const byCell = Object.fromEntries(D.grid.map((r) => [r.cell, r]));
-        const cells = D.gridShapes.features.map((f) => ({
-          ...f,
-          properties: byCell[f.properties.cell],
+      function halfOfAllRecordsComeFrom12Of720Squares(data, availableWidth) {
+        const byCell = Object.fromEntries(data.grid.map((square) => [square.cell, square]));
+        const cells = data.gridShapes.features.map((feature) => ({
+          ...feature,
+          properties: byCell[feature.properties.cell],
         }));
-        const regions = D.gridShapes.outlines;
+        const regions = data.gridShapes.outlines;
         const shown = "abs(datum.properties.cover-cover)<0.001";
         // City names drawn on the map.
         const cities = [
@@ -1522,18 +1554,18 @@
           { text: "Brisbane", longitude: 153.03, latitude: -27.47 },
           { text: "Adelaide", longitude: 138.6, latitude: -34.93 },
         ];
-        const small = w < 440,
-          f = Math.round(Math.max(18, Math.min(26, w / 30)));
-        return VL(w - 16, mapH(w) + (small ? 34 : 0), {
+        const small = availableWidth < 440,
+          headlineSize = Math.round(Math.max(18, Math.min(26, availableWidth / 30)));
+        return vegaLiteChart(availableWidth - 16, mapH(availableWidth) + (small ? 34 : 0), {
           description:
             "2024 observation records in one-degree squares. The control outlines the fewest squares that together hold a chosen share of all records.",
           params: [{ name: "cover", value: 0.5 }],
           projection,
           layer: [
-            baseMap(D),
+            baseMap(data),
             {
               data: { values: cells },
-              mark: { type: "geoshape", stroke: C.paper, strokeWidth: 0.45 },
+              mark: { type: "geoshape", stroke: colours.paper, strokeWidth: 0.45 },
               encoding: {
                 color: {
                   field: "properties.count",
@@ -1561,7 +1593,7 @@
               mark: {
                 type: "geoshape",
                 fill: null,
-                stroke: C.paper,
+                stroke: colours.paper,
                 strokeWidth: 4.2,
                 strokeCap: "square",
               },
@@ -1572,25 +1604,25 @@
               mark: {
                 type: "geoshape",
                 fill: null,
-                stroke: C.ink,
+                stroke: colours.ink,
                 strokeWidth: 1.8,
                 strokeCap: "square",
               },
             },
-            outline(D),
+            outline(data),
             ...haloText(cities, { fontSize: 11, fontWeight: 600, dy: 15 }),
             ...(small
               ? [
                   {
                     data: { values: [{ longitude: 126, latitude: -6.5 }] },
                     mark: { type: "point", opacity: 0 },
-                    encoding: { longitude: LON, latitude: LAT },
+                    encoding: { longitude: longitudeField, latitude: latitudeField },
                   },
                 ]
               : []),
             // Headline on the map: how many squares hold the chosen share.
             {
-              data: { values: D.grid },
+              data: { values: data.grid },
               transform: [
                 { filter: "datum.cumBefore < cover" },
                 { aggregate: [{ op: "count", as: "n" }] },
@@ -1603,10 +1635,10 @@
                     type: "text",
                     align: "left",
                     baseline: "top",
-                    fontSize: small ? 20 : f,
+                    fontSize: small ? 20 : headlineSize,
                     fontWeight: 600,
-                    font: C.display,
-                    color: C.green,
+                    font: colours.display,
+                    color: colours.green,
                     x: 0,
                     y: 0,
                   },
@@ -1617,10 +1649,10 @@
                     type: "text",
                     align: "left",
                     baseline: "top",
-                    fontSize: small || f < 22 ? 12 : 14,
-                    color: C.ink,
+                    fontSize: small || headlineSize < 22 ? 12 : 14,
+                    color: colours.ink,
                     x: 1,
-                    y: small ? 26 : f + 8,
+                    y: small ? 26 : headlineSize + 8,
                   },
                   encoding: { text: { field: "line2" } },
                 },
@@ -1632,20 +1664,23 @@
 
       // Map of states shaded by records per 1,000 km² or per 1,000 residents, chosen by the
       // buttons. Each state is labelled with its value.
-      function perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes(D, w) {
-        const small = w < 560;
-        const t = (r) => ({
-          areaT: Math.log(r.density / 200) / Math.log(150000 / 200),
-          peopleT: Math.log(r.perResident / 200) / Math.log(1400 / 200),
+      function perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes(
+        data,
+        availableWidth,
+      ) {
+        const small = availableWidth < 560;
+        const logPositions = (state) => ({
+          areaT: Math.log(state.density / 200) / Math.log(150000 / 200),
+          peopleT: Math.log(state.perResident / 200) / Math.log(1400 / 200),
         });
-        const rows = stateData(D).map((r) => ({ ...r, ...t(r) }));
-        const labels = D.states.map((s) => ({
-          ...s,
-          ...t(s),
-          ...(s.code === "ACT" ? { longitude: 153.4, latitude: -35.2 } : {}),
+        const rows = stateData(data).map((state) => ({ ...state, ...logPositions(state) }));
+        const labels = data.states.map((state) => ({
+          ...state,
+          ...logPositions(state),
+          ...(state.code === "ACT" ? { longitude: 153.4, latitude: -35.2 } : {}),
         }));
         const value = "measure==='area'?datum.density:datum.perResident";
-        return VL(w - 16, mapH(w), {
+        return vegaLiteChart(availableWidth - 16, mapH(availableWidth), {
           description:
             "State and territory choropleth of 2024 records, per 1,000 km² of land or per 1,000 residents. Darker means more records for the chosen denominator.",
           params: [{ name: "measure", value: "area" }],
@@ -1654,7 +1689,7 @@
             {
               data: { values: rows },
               transform: [{ calculate: value, as: "value" }],
-              mark: { type: "geoshape", stroke: C.paper, strokeWidth: 1.3 },
+              mark: { type: "geoshape", stroke: colours.paper, strokeWidth: 1.3 },
               encoding: {
                 color: {
                   field: "value",
@@ -1696,15 +1731,15 @@
                   { longitude: 153.1, latitude: -35.45 },
                 ],
               },
-              mark: { type: "line", color: C.ink, strokeWidth: 0.8 },
-              encoding: { longitude: LON, latitude: LAT },
+              mark: { type: "line", color: colours.ink, strokeWidth: 0.8 },
+              encoding: { longitude: longitudeField, latitude: latitudeField },
             },
             {
               data: { values: [{ longitude: 149.05, latitude: -35.45 }] },
-              mark: { type: "point", size: 110, color: C.ink, strokeWidth: 1.2 },
-              encoding: { longitude: LON, latitude: LAT },
+              mark: { type: "point", size: 110, color: colours.ink, strokeWidth: 1.2 },
+              encoding: { longitude: longitudeField, latitude: latitudeField },
             },
-            ...["halo", "ink"].map((k) => ({
+            ...["halo", "ink"].map((layer) => ({
               data: { values: labels },
               transform: [
                 { calculate: value, as: "value" },
@@ -1717,10 +1752,16 @@
                 lineBreak: "|",
                 lineHeight: 15,
                 align: { expr: "datum.code==='ACT'?'left':'center'" },
-                color: C.ink,
-                ...(k === "halo" ? { stroke: C.paper, strokeWidth: 3.5, strokeJoin: "round" } : {}),
+                color: colours.ink,
+                ...(layer === "halo"
+                  ? { stroke: colours.paper, strokeWidth: 3.5, strokeJoin: "round" }
+                  : {}),
               },
-              encoding: { longitude: LON, latitude: LAT, text: { field: "label" } },
+              encoding: {
+                longitude: longitudeField,
+                latitude: latitudeField,
+                text: { field: "label" },
+              },
             })),
           ],
         });
@@ -1728,30 +1769,30 @@
 
       // Circular heatmap: one ring per state (north inside, south outside), one slice per month.
       // Colour compares each month's records per day with that state's average day.
-      function everyStateKeepsItsOwnBusySeason(D, w) {
-        const width = w - 16,
-          radius = clockRadius(w),
-          H = radius * 2 + 86,
-          cx = width / 2,
-          cy = H / 2;
+      function everyStateKeepsItsOwnBusySeason(data, availableWidth) {
+        const width = availableWidth - 16,
+          radius = clockRadius(availableWidth),
+          height = radius * 2 + 86,
+          centreX = width / 2,
+          centreY = height / 2;
         const codes = ["NT", "QLD", "WA", "SA", "NSW", "ACT", "VIC", "TAS"];
         const inner = 38,
           band = (radius - inner) / 8,
           gap = 0.64,
           step = (Math.PI * 2 - gap) / 12;
-        const vals = D.stateMonth.map((r) => ({
-          ...r,
-          a0: gap / 2 + (r.month - 1) * step + 0.012,
-          a1: gap / 2 + r.month * step - 0.012,
-          r0: inner + codes.indexOf(r.code) * band + 1,
-          r1: inner + (codes.indexOf(r.code) + 1) * band - 1,
+        const vals = data.stateMonth.map((cell) => ({
+          ...cell,
+          a0: gap / 2 + (cell.month - 1) * step + 0.012,
+          a1: gap / 2 + cell.month * step - 0.012,
+          r0: inner + codes.indexOf(cell.code) * band + 1,
+          r1: inner + (codes.indexOf(cell.code) + 1) * band - 1,
         }));
-        const labels = MONTHS.map((label, i) => ({
+        const labels = MONTHS.map((label, monthIndex) => ({
           label,
-          angle: gap / 2 + (i + 0.5) * step,
-          peak: label === D.insights.peakMonth,
+          angle: gap / 2 + (monthIndex + 0.5) * step,
+          peak: label === data.insights.peakMonth,
         }));
-        return V(width, H, {
+        return vegaChart(width, height, {
           description:
             "Circular heatmap of monthly records per day relative to each state’s annual daily average. Rings show states from north to south; sectors follow the calendar.",
           data: [
@@ -1759,7 +1800,10 @@
             { name: "months", values: labels },
             {
               name: "rings",
-              values: codes.map((code, i) => ({ code, r: inner + (i + 0.5) * band })),
+              values: codes.map((code, ringIndex) => ({
+                code,
+                r: inner + (ringIndex + 0.5) * band,
+              })),
             },
           ],
           scales: [
@@ -1767,7 +1811,7 @@
               name: "pace",
               type: "log",
               domain: [0.5, 1, 2],
-              range: [CB.piyg[0], CB.piyg[2], CB.piyg[4]],
+              range: [colourRamps.piyg[0], colourRamps.piyg[2], colourRamps.piyg[4]],
               clamp: true,
             },
           ],
@@ -1777,8 +1821,8 @@
               from: { data: "cells" },
               encode: {
                 enter: {
-                  x: { value: cx },
-                  y: { value: cy },
+                  x: { value: centreX },
+                  y: { value: centreY },
                   startAngle: { field: "a0" },
                   endAngle: { field: "a1" },
                   innerRadius: { field: "r0" },
@@ -1790,7 +1834,7 @@
                   },
                 },
                 update: { strokeWidth: { value: 0 } },
-                hover: { stroke: { value: C.ink }, strokeWidth: { value: 1.4 } },
+                hover: { stroke: { value: colours.ink }, strokeWidth: { value: 1.4 } },
               },
             },
             {
@@ -1799,15 +1843,15 @@
               encode: {
                 enter: {
                   x: {
-                    signal: `${cx}+sin(datum.angle)*(datum.peak?${radius + 12}:${radius + 24})`,
+                    signal: `${centreX}+sin(datum.angle)*(datum.peak?${radius + 12}:${radius + 24})`,
                   },
-                  y: { signal: `${cy}-cos(datum.angle)*${radius + 24}` },
+                  y: { signal: `${centreY}-cos(datum.angle)*${radius + 24}` },
                   text: { signal: "datum.peak?[datum.label,'busiest month']:datum.label" },
                   align: { signal: "datum.peak?(sin(datum.angle)<0?'right':'left'):'center'" },
                   baseline: { value: "middle" },
                   fontSize: { signal: "datum.peak?13:12" },
                   fontWeight: { signal: "datum.peak?700:400" },
-                  fill: { signal: `datum.peak?'${C.green}':'${C.ink}'` },
+                  fill: { signal: `datum.peak?'${colours.green}':'${colours.ink}'` },
                 },
               },
             },
@@ -1816,13 +1860,13 @@
               from: { data: "rings" },
               encode: {
                 enter: {
-                  x: { value: cx },
-                  y: { signal: `${cy}-datum.r` },
+                  x: { value: centreX },
+                  y: { signal: `${centreY}-datum.r` },
                   text: { field: "code" },
                   align: { value: "center" },
                   baseline: { value: "middle" },
-                  fontSize: { value: w < 450 ? 10 : 11 },
-                  fill: { value: C.muted },
+                  fontSize: { value: availableWidth < 450 ? 10 : 11 },
+                  fill: { value: colours.muted },
                 },
               },
             },
@@ -1830,8 +1874,8 @@
               type: "text",
               encode: {
                 enter: {
-                  x: { value: cx },
-                  y: { value: cy - 3 },
+                  x: { value: centreX },
+                  y: { value: centreY - 3 },
                   text: { value: "2024" },
                   align: { value: "center" },
                   fontSize: { value: 17 },
@@ -1843,12 +1887,12 @@
               type: "text",
               encode: {
                 enter: {
-                  x: { value: cx },
-                  y: { value: cy + 14 },
+                  x: { value: centreX },
+                  y: { value: centreY + 14 },
                   text: { value: "daily pace" },
                   align: { value: "center" },
                   fontSize: { value: 10 },
-                  fill: { value: C.muted },
+                  fill: { value: colours.muted },
                 },
               },
             },
@@ -1859,8 +1903,8 @@
               type: "gradient",
               direction: "horizontal",
               orient: "none",
-              legendX: cx - 110,
-              legendY: H - 6,
+              legendX: centreX - 110,
+              legendY: height - 6,
               title: "Records a day, compared with the state’s own average",
               titleLimit: width - 40,
               titleAnchor: "middle",
@@ -1881,12 +1925,14 @@
 
       // Bump chart: each line is one of the seven most-recorded birds, showing its rank each month.
       // The dropdown picks a bird to highlight; the others fade.
-      function theWelcomeSwallowClimbsTheRankingsAsSpringArrives(D, w) {
-        const compact = w < 680;
-        const end = D.rankings.filter((r) => r.month === 12),
-          max = Math.max(...D.rankings.map((r) => r.rank));
-        const birds = [...end].sort((a, b) => a.rank - b.rank).map((r) => r.name);
-        const order = ["Welcome Swallow", ...birds.filter((b) => b !== "Welcome Swallow")];
+      function theWelcomeSwallowClimbsTheRankingsAsSpringArrives(data, availableWidth) {
+        const compact = availableWidth < 680;
+        const end = data.rankings.filter((row) => row.month === 12),
+          max = Math.max(...data.rankings.map((row) => row.rank));
+        const birds = [...end]
+          .sort((first, second) => first.rank - second.rank)
+          .map((row) => row.name);
+        const order = ["Welcome Swallow", ...birds.filter((bird) => bird !== "Welcome Swallow")];
         const line = ["#d95f02", "#1b9e77", "#7570b3", "#e7298a", "#377eb8", "#a6761d", "#666666"];
         const ink = ["#a84a02", "#137a5c", "#585494", "#b81f6c", "#2a6491", "#7f5a16", "#4d4d4d"];
         const hue = {
@@ -1902,10 +1948,10 @@
           legend: null,
         };
         const faded = "highlight!=='All birds'&&datum.name!==highlight";
-        const width = w - (compact ? 118 : 190);
+        const width = availableWidth - (compact ? 118 : 190);
         const picked = "datum.name===highlight";
         const monthLabel =
-          w < 520
+          availableWidth < 520
             ? "['J','F','M','A','M','J','J','A','S','O','N','D'][datum.value-1]"
             : "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]";
         const base = {
@@ -1927,11 +1973,11 @@
             },
           },
         };
-        return VL(width, 350, {
+        return vegaLiteChart(width, 350, {
           description:
             "Monthly ranks for the seven species with the most annual records. Rank is among all named species recorded in that month. Each bird has its own colour; the selected bird is drawn thicker and the others fade.",
           params: [{ name: "highlight", value: "Welcome Swallow" }],
-          data: { values: D.rankings },
+          data: { values: data.rankings },
           encoding: base,
           layer: [
             {
@@ -1945,7 +1991,13 @@
             },
             {
               transform: [{ filter: "!(" + picked + ")" }],
-              mark: { type: "point", filled: true, size: 34, stroke: C.paper, strokeWidth: 1 },
+              mark: {
+                type: "point",
+                filled: true,
+                size: 34,
+                stroke: colours.paper,
+                strokeWidth: 1,
+              },
               encoding: {
                 color: hue,
                 opacity: { condition: { test: faded, value: 0.28 }, value: 1 },
@@ -1964,7 +2016,13 @@
             },
             {
               transform: [{ filter: picked }],
-              mark: { type: "point", filled: true, size: 72, stroke: C.paper, strokeWidth: 1.4 },
+              mark: {
+                type: "point",
+                filled: true,
+                size: 72,
+                stroke: colours.paper,
+                strokeWidth: 1.4,
+              },
               encoding: {
                 color: hue,
                 tooltip: [
@@ -1979,23 +2037,25 @@
             ...[
               { month: 6, rank: 8, text: "8th in June", align: "center", dx: 0, dy: 17 },
               { month: 11, rank: 2, text: "2nd from September", align: "center", dx: 0, dy: -15 },
-            ].flatMap((a) =>
-              [{ stroke: C.paper, strokeWidth: 3.5, strokeJoin: "round" }, {}].map((halo) => ({
-                data: { values: [a] },
-                transform: [{ filter: "highlight==='Welcome Swallow'" }],
-                mark: {
-                  type: "text",
-                  align: a.align,
-                  dx: a.dx,
-                  dy: a.dy,
-                  baseline: "middle",
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: ink[0],
-                  ...halo,
-                },
-                encoding: { x: base.x, y: base.y, text: { field: "text" } },
-              })),
+            ].flatMap((note) =>
+              [{ stroke: colours.paper, strokeWidth: 3.5, strokeJoin: "round" }, {}].map(
+                (halo) => ({
+                  data: { values: [note] },
+                  transform: [{ filter: "highlight==='Welcome Swallow'" }],
+                  mark: {
+                    type: "text",
+                    align: note.align,
+                    dx: note.dx,
+                    dy: note.dy,
+                    baseline: "middle",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    color: ink[0],
+                    ...halo,
+                  },
+                  encoding: { x: base.x, y: base.y, text: { field: "text" } },
+                }),
+              ),
             ),
             // Bird names at the end of each line, so no separate legend is needed.
             {
@@ -2022,37 +2082,37 @@
       // Bubble map of bee-eater records by season. Records are grouped into 2° squares and
       // circle size = records. Filled circles show the chosen season, rings the opposite one.
       // 'phase' (0 to 4) lets the play button blend smoothly from one season to the next.
-      function watchTheBeeEatersRangeSlideNorth(D, w) {
+      function watchTheBeeEatersRangeSlideNorth(data, availableWidth) {
         const bins = new Map();
-        for (const r of D.beeMap) {
-          const lat0 = Math.floor(r.latitude / 2) * 2,
-            lon0 = Math.floor(r.longitude / 2) * 2,
-            k = `${lat0}|${lon0}`;
-          if (!bins.has(k))
-            bins.set(k, {
+        for (const point of data.beeMap) {
+          const lat0 = Math.floor(point.latitude / 2) * 2,
+            lon0 = Math.floor(point.longitude / 2) * 2,
+            key = `${lat0}|${lon0}`;
+          if (!bins.has(key))
+            bins.set(key, {
               c: [0, 0, 0, 0],
               sumLat: 0,
               sumLon: 0,
               n: 0,
               square: `${Math.abs(lat0 + 1.5)}–${Math.abs(lat0 - 0.5)}°S, ${lon0 - 0.5}–${lon0 + 1.5}°E`,
             });
-          const b = bins.get(k);
-          b.c[SEASONS.indexOf(r.season)] += r.count;
-          b.n += r.count;
-          b.sumLat += r.latitude * r.count;
-          b.sumLon += r.longitude * r.count;
+          const bin = bins.get(key);
+          bin.c[SEASONS.indexOf(point.season)] += point.count;
+          bin.n += point.count;
+          bin.sumLat += point.latitude * point.count;
+          bin.sumLon += point.longitude * point.count;
         }
-        const cells = [...bins.values()].map(({ sumLat, sumLon, n, ...b }) => ({
-          ...b,
-          latitude: sumLat / n,
-          longitude: sumLon / n,
+        const cells = [...bins.values()].map(({ sumLat, sumLon, n: total, ...bin }) => ({
+          ...bin,
+          latitude: sumLat / total,
+          longitude: sumLon / total,
         }));
-        const max = Math.max(...cells.flatMap((r) => r.c)),
-          small = w < 560;
+        const max = Math.max(...cells.flatMap((cell) => cell.c)),
+          small = availableWidth < 560;
         const names = JSON.stringify(SEASONS).replace(/"/g, "'");
         // Records in a square at any point between two seasons, used for the animation.
-        const at = (p) =>
-          `datum.c[floor(${p})%4]*(1-(${p})+floor(${p}))+datum.c[(floor(${p})+1)%4]*((${p})-floor(${p}))`;
+        const countAtPhase = (phaseExpr) =>
+          `datum.c[floor(${phaseExpr})%4]*(1-(${phaseExpr})+floor(${phaseExpr}))+datum.c[(floor(${phaseExpr})+1)%4]*((${phaseExpr})-floor(${phaseExpr}))`;
         const size = {
           field: "now",
           type: "quantitative",
@@ -2073,26 +2133,26 @@
           type: "quantitative",
           scale: {
             domain: [0, 1, 2, 3, 4],
-            range: [...C.seasons, C.seasons[0]],
+            range: [...colours.seasons, colours.seasons[0]],
             interpolate: "rgb",
           },
           legend: null,
         };
-        const layerFor = (p, filled) => ({
+        const layerFor = (phaseExpr, filled) => ({
           data: { values: cells },
           transform: [
-            { calculate: at(p), as: "now" },
+            { calculate: countAtPhase(phaseExpr), as: "now" },
             { filter: "datum.now>0.5" },
-            { calculate: `(${p})%4`, as: "hue" },
-            { calculate: `${names}[round(${p})%4]`, as: "season" },
+            { calculate: `(${phaseExpr})%4`, as: "hue" },
+            { calculate: `${names}[round(${phaseExpr})%4]`, as: "season" },
             { calculate: "round(datum.now)", as: "count" },
           ],
           mark: filled
-            ? { type: "circle", opacity: 0.78, stroke: C.paper, strokeWidth: 0.6 }
+            ? { type: "circle", opacity: 0.78, stroke: colours.paper, strokeWidth: 0.6 }
             : { type: "circle", filled: false, strokeWidth: 1.1, opacity: 0.75 },
           encoding: {
-            longitude: LON,
-            latitude: LAT,
+            longitude: longitudeField,
+            latitude: latitudeField,
             size,
             color: colour,
             tooltip: [
@@ -2102,7 +2162,7 @@
             ],
           },
         });
-        return VL(w - 16, mapH(w), {
+        return vegaLiteChart(availableWidth - 16, mapH(availableWidth), {
           description:
             "Proportional-symbol map of rainbow bee-eater records in two-degree squares for the chosen season, with the opposite season drawn as hollow rings. Circle area represents count, on one fixed scale; moving between seasons, each circle grows or shrinks and changes colour.",
           params: [
@@ -2111,7 +2171,7 @@
           ],
           projection,
           layer: [
-            baseMap(D),
+            baseMap(data),
             layerFor("phase+2", false),
             layerFor("phase", true),
             {
@@ -2121,8 +2181,8 @@
                   { longitude: 154, latitude: -30 },
                 ],
               },
-              mark: { type: "line", strokeDash: [4, 5], color: C.ink, strokeWidth: 1 },
-              encoding: { longitude: LON, latitude: LAT },
+              mark: { type: "line", strokeDash: [4, 5], color: colours.ink, strokeWidth: 1 },
+              encoding: { longitude: longitudeField, latitude: latitudeField },
             },
             ...(small
               ? []
@@ -2135,15 +2195,15 @@
                       baseline: "bottom",
                       dy: -4,
                       fontSize: 11,
-                      color: C.muted,
+                      color: colours.muted,
                       text: "30°S",
                     },
-                    encoding: { longitude: LON, latitude: LAT },
+                    encoding: { longitude: longitudeField, latitude: latitudeField },
                   },
                 ]),
             // Share of records south of 30°S, written on the map.
             {
-              data: { values: D.beeMonth },
+              data: { values: data.beeMonth },
               transform: [
                 { filter: "datum.season===season" },
                 {
@@ -2166,12 +2226,16 @@
                     dy: 9,
                     fontSize: small ? 22 : 30,
                     fontWeight: 500,
-                    font: C.display,
-                    color: C.ink,
-                    stroke: C.paper,
+                    font: colours.display,
+                    color: colours.ink,
+                    stroke: colours.paper,
                     strokeWidth: 4,
                   },
-                  encoding: { longitude: LON, latitude: LAT, text: { field: "share" } },
+                  encoding: {
+                    longitude: longitudeField,
+                    latitude: latitudeField,
+                    text: { field: "share" },
+                  },
                 },
                 {
                   mark: {
@@ -2181,10 +2245,14 @@
                     dy: 9,
                     fontSize: small ? 22 : 30,
                     fontWeight: 500,
-                    font: C.display,
-                    color: C.ink,
+                    font: colours.display,
+                    color: colours.ink,
                   },
-                  encoding: { longitude: LON, latitude: LAT, text: { field: "share" } },
+                  encoding: {
+                    longitude: longitudeField,
+                    latitude: latitudeField,
+                    text: { field: "share" },
+                  },
                 },
                 {
                   mark: {
@@ -2193,11 +2261,15 @@
                     baseline: "top",
                     dy: small ? 35 : 45,
                     fontSize: 12,
-                    color: C.ink,
-                    stroke: C.paper,
+                    color: colours.ink,
+                    stroke: colours.paper,
                     strokeWidth: 4,
                   },
-                  encoding: { longitude: LON, latitude: LAT, text: { field: "what" } },
+                  encoding: {
+                    longitude: longitudeField,
+                    latitude: latitudeField,
+                    text: { field: "what" },
+                  },
                 },
                 {
                   mark: {
@@ -2206,9 +2278,13 @@
                     baseline: "top",
                     dy: small ? 35 : 45,
                     fontSize: 12,
-                    color: C.ink,
+                    color: colours.ink,
                   },
-                  encoding: { longitude: LON, latitude: LAT, text: { field: "what" } },
+                  encoding: {
+                    longitude: longitudeField,
+                    latitude: latitudeField,
+                    text: { field: "what" },
+                  },
                 },
                 {
                   mark: {
@@ -2217,11 +2293,11 @@
                     baseline: "top",
                     dy: small ? 50 : 60,
                     fontSize: 12,
-                    color: C.muted,
+                    color: colours.muted,
                   },
                   encoding: {
-                    longitude: LON,
-                    latitude: LAT,
+                    longitude: longitudeField,
+                    latitude: latitudeField,
                     text: { value: small ? "lie south of the 30°S line" : "lie south of 30°S" },
                   },
                 },
@@ -2234,7 +2310,7 @@
       // Contour map: where a place's share of winter records is bigger than its share of summer
       // records (teal) or smaller (brown). Each band is a doubling. Buttons switch between all
       // birds and the bee-eater.
-      function allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters(D, w) {
+      function allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters(data, availableWidth) {
         const bands = [
           "Summer share 4× or more",
           "Summer share 2–4×",
@@ -2244,7 +2320,7 @@
           "Winter share 4× or more",
         ];
         const none = "Too few records to estimate";
-        const small = w < 560;
+        const small = availableWidth < 560;
         const colour = {
           field: "properties.label",
           type: "ordinal",
@@ -2254,7 +2330,7 @@
           },
           legend: {
             title: "Season with the bigger share of a place’s records",
-            titleLimit: w,
+            titleLimit: availableWidth,
             orient: "bottom",
             direction: "horizontal",
             columns: small ? 2 : 3,
@@ -2267,14 +2343,14 @@
             rowPadding: 6,
           },
         };
-        return VL(w - 16, mapH(w), {
+        return vegaLiteChart(availableWidth - 16, mapH(availableWidth), {
           description:
             "Filled contour map of a smoothed field: for each place, its share of all winter (June–August) records divided by its share of all summer (December–February) records, 2024. Contours fall on a constant interval of one doubling. Toggle between all bird records and rainbow bee-eater records. Grey land has too few records to estimate.",
           params: [{ name: "who", value: "Everyone" }],
           projection,
           layer: [
             {
-              data: { values: D.australia.features },
+              data: { values: data.australia.features },
               mark: { type: "geoshape", stroke: "#c7c6b8", strokeWidth: 0.7 },
               encoding: {
                 color: { datum: none, type: "ordinal", scale: colour.scale },
@@ -2282,7 +2358,7 @@
               },
             },
             {
-              data: { values: D.seasonField.features },
+              data: { values: data.seasonField.features },
               transform: [
                 { filter: "datum.properties.who===who && isValid(datum.properties.label)" },
               ],
@@ -2290,18 +2366,18 @@
               encoding: { color: colour, tooltip: [tooltip("properties.label", "Seasonal lean")] },
             },
             {
-              data: { values: D.seasonField.features },
+              data: { values: data.seasonField.features },
               transform: [{ filter: "datum.properties.who===who && datum.properties.line===0" }],
               mark: {
                 type: "geoshape",
                 fill: null,
                 filled: false,
-                stroke: C.ink,
+                stroke: colours.ink,
                 strokeWidth: 1.1,
                 strokeOpacity: 0.7,
               },
             },
-            outline(D),
+            outline(data),
             {
               data: {
                 values: [
@@ -2309,14 +2385,14 @@
                   { longitude: 154, latitude: -30 },
                 ],
               },
-              mark: { type: "line", strokeDash: [4, 5], color: C.ink, strokeWidth: 1 },
-              encoding: { longitude: LON, latitude: LAT },
+              mark: { type: "line", strokeDash: [4, 5], color: colours.ink, strokeWidth: 1 },
+              encoding: { longitude: longitudeField, latitude: latitudeField },
             },
             ...haloText([{ text: "30°S", longitude: 113.2, latitude: -30 }], {
               fontSize: 11,
               dy: -9,
               align: "left",
-              color: C.muted,
+              color: colours.muted,
             }),
             ...haloText(
               [
@@ -2331,19 +2407,19 @@
 
       // Ridgeline chart: one ridge per month, showing where along the south–north axis the
       // bee-eater's records fall. The triangle marks the middle record of each month.
-      function theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober(D, w) {
-        const width = w - 64,
-          H = 470,
+      function theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober(data, availableWidth) {
+        const width = availableWidth - 64,
+          height = 470,
           step = 32,
           baseline = 22;
-        const data = D.beeRidges.map((r) => ({ ...r, south: Math.abs(r.latitude) }));
-        return V(width, H, {
+        const ridgeRows = data.beeRidges.map((row) => ({ ...row, south: Math.abs(row.latitude) }));
+        return vegaChart(width, height, {
           description:
             "Monthly latitude distributions of rainbow bee-eater records. Each ridge is normalised to that month’s bee-eater records, at one-degree latitude bins. Peaks show where records concentrate, not a bird’s flight path.",
           padding: { left: 46, right: 10, top: 16, bottom: 40 },
           data: [
-            { name: "ridges", values: data },
-            { name: "months", values: D.beeMonth },
+            { name: "ridges", values: ridgeRows },
+            { name: "months", values: data.beeMonth },
           ],
           scales: [
             {
@@ -2354,7 +2430,7 @@
               nice: false,
               zero: false,
             },
-            { name: "season", type: "ordinal", domain: SEASONS, range: C.seasons },
+            { name: "season", type: "ordinal", domain: SEASONS, range: colours.seasons },
           ],
           axes: [
             {
@@ -2376,7 +2452,7 @@
                   align: { value: "left" },
                   fontSize: { value: 12 },
                   fontWeight: { value: 500 },
-                  fill: { value: C.ink },
+                  fill: { value: colours.ink },
                 },
               },
             },
@@ -2390,7 +2466,7 @@
                   align: { value: "right" },
                   fontSize: { value: 12 },
                   fontWeight: { value: 500 },
-                  fill: { value: C.ink },
+                  fill: { value: colours.ink },
                 },
               },
             },
@@ -2400,8 +2476,8 @@
                 enter: {
                   x: { scale: "x", value: -30 },
                   y: { value: 0 },
-                  y2: { value: H - 20 },
-                  stroke: { value: C.muted },
+                  y2: { value: height - 20 },
+                  stroke: { value: colours.muted },
                   strokeDash: { value: [3, 5] },
                   strokeOpacity: { value: 0.5 },
                 },
@@ -2425,7 +2501,7 @@
                       x: { value: 0 },
                       x2: { signal: "width" },
                       y: { value: step },
-                      stroke: { value: C.rule },
+                      stroke: { value: colours.rule },
                       strokeWidth: { value: 0.6 },
                     },
                   },
@@ -2474,7 +2550,7 @@
                   y: { signal: `datum.month*${step}+${baseline}+1` },
                   shape: { value: "triangle-up" },
                   size: { value: 46 },
-                  fill: { value: C.ink },
+                  fill: { value: colours.ink },
                   tooltip: {
                     signal:
                       "{'Month':datum.label,'Half of records lie south of':abs(datum.medianLatitude)+'°S'}",
@@ -2487,10 +2563,10 @@
               encode: {
                 enter: {
                   x: { value: 4 },
-                  y: { value: H - 4 },
+                  y: { value: height - 4 },
                   shape: { value: "triangle-up" },
                   size: { value: 46 },
-                  fill: { value: C.ink },
+                  fill: { value: colours.ink },
                 },
               },
             },
@@ -2499,11 +2575,11 @@
               encode: {
                 enter: {
                   x: { value: 13 },
-                  y: { value: H - 4 },
+                  y: { value: height - 4 },
                   baseline: { value: "middle" },
                   text: { value: "Middle of the month’s records: half lie south of the tick" },
                   fontSize: { value: 11 },
-                  fill: { value: C.muted },
+                  fill: { value: colours.muted },
                 },
               },
             },
@@ -2527,7 +2603,7 @@
       // Heatmap: eight birds by twelve months. Each cell = the bird's share of that month's records
       // divided by its share across the year, so 1 means a usual month. Rows are split into birds
       // that come and go and birds that stay all year.
-      function someBirdsComeAndGoOthersStayAllYear(D, w) {
+      function someBirdsComeAndGoOthersStayAllYear(data, availableWidth) {
         const groups = {
           "Share swings with the seasons": [
             "White-throated Needletail",
@@ -2543,14 +2619,19 @@
           ],
         };
         const order = Object.keys(groups);
-        const group = new Map(order.flatMap((g) => groups[g].map((name) => [name, g])));
-        const rows = D.speciesMonth
-          .filter((r) => group.has(r.name))
-          .map((r) => ({ ...r, group: group.get(r.name) }));
-        const compact = w < 500,
-          width = w - (compact ? 146 : 190),
+        const group = new Map(
+          order.flatMap((groupName) => groups[groupName].map((name) => [name, groupName])),
+        );
+        const rows = data.speciesMonth
+          .filter((row) => group.has(row.name))
+          .map((row) => ({ ...row, group: group.get(row.name) }));
+        const compact = availableWidth < 500,
+          width = availableWidth - (compact ? 146 : 190),
           step = Math.round(
-            Math.max(26, Math.min(56, (width / 12) * 1.5, (2 * clockRadius(w) - 59) / 8)),
+            Math.max(
+              26,
+              Math.min(56, (width / 12) * 1.5, (2 * clockRadius(availableWidth) - 59) / 8),
+            ),
           );
         return {
           $schema: "https://vega.github.io/schema/vega-lite/v5.json",
@@ -2575,15 +2656,15 @@
                 labelPadding: 6,
                 labelFontSize: compact ? 11 : 13,
                 labelFontWeight: 600,
-                labelColor: C.ink,
-                labelFont: FONT,
+                labelColor: colours.ink,
+                labelFont: chartFont,
               },
             },
           },
           spec: {
             width: Math.max(180, Math.round(width)),
             height: { step },
-            mark: { type: "rect", stroke: C.paper, strokeWidth: 2, cornerRadius: 1 },
+            mark: { type: "rect", stroke: colours.paper, strokeWidth: 2, cornerRadius: 1 },
             encoding: {
               x: {
                 field: "label",
@@ -2592,13 +2673,13 @@
                 axis: {
                   title: null,
                   labelAngle: 0,
-                  ...(w < 520 ? { labelExpr: "substring(datum.value,0,1)" } : {}),
+                  ...(availableWidth < 520 ? { labelExpr: "substring(datum.value,0,1)" } : {}),
                 },
               },
               y: {
                 field: "name",
                 type: "ordinal",
-                sort: order.flatMap((g) => groups[g]),
+                sort: order.flatMap((groupName) => groups[groupName]),
                 axis: {
                   title: null,
                   labelLimit: compact ? 130 : 210,
@@ -2611,7 +2692,7 @@
                 scale: {
                   type: "log",
                   domain: [0.25, 1, 4],
-                  range: [CB.piyg[0], CB.piyg[2], CB.piyg[4]],
+                  range: [colourRamps.piyg[0], colourRamps.piyg[2], colourRamps.piyg[4]],
                   clamp: true,
                 },
                 legend: {
@@ -2637,14 +2718,14 @@
 
       // Beeswarm: one dot per threatened species, placed by its 2024 record count on a log scale,
       // in rows by threat level. The most- and least-recorded birds are labelled.
-      function someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful(D, w) {
-        const small = w < 560,
-          width = w - (small ? 40 : 70),
+      function someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful(data, availableWidth) {
+        const small = availableWidth < 560,
+          width = availableWidth - (small ? 40 : 70),
           statuses = ["Vulnerable", "Endangered", "Critically Endangered"];
-        const r = Math.max(4.5, Math.min(10.5, width / 150)),
-          d = 2 * r + 1.5;
-        const x = (n) => (Math.log10(n) / Math.log10(15000)) * width;
-        const all = [...D.threatenedRecords].sort((a, b) => b.count - a.count);
+        const dotRadius = Math.max(4.5, Math.min(10.5, width / 150)),
+          dotGap = 2 * dotRadius + 1.5;
+        const xPosition = (count) => (Math.log10(count) / Math.log10(15000)) * width;
+        const all = [...data.threatenedRecords].sort((first, second) => second.count - first.count);
         const top = all[0],
           bottom = all[all.length - 1];
         const rows = [],
@@ -2653,53 +2734,56 @@
         // Place the dots: each sits on its count and moves up or down until it doesn't overlap.
         for (const status of statuses) {
           const placed = [];
-          for (const b of all.filter((b) => b.status === status)) {
-            const px = x(b.count);
-            let py = 0;
+          for (const bird of all.filter((bird) => bird.status === status)) {
+            const dotX = xPosition(bird.count);
+            let dotY = 0;
             const candidates = [
               0,
-              ...Array.from({ length: 12 }, (_, k) => [
-                (k + 1) * d * 0.88,
-                -(k + 1) * d * 0.88,
+              ...Array.from({ length: 12 }, (_, index) => [
+                (index + 1) * dotGap * 0.88,
+                -(index + 1) * dotGap * 0.88,
               ]).flat(),
             ];
-            for (const c of candidates) {
-              if (placed.every((p) => Math.hypot(px - p.x, c - p.y) >= d)) {
-                py = c;
+            for (const offset of candidates) {
+              if (placed.every((dot) => Math.hypot(dotX - dot.x, offset - dot.y) >= dotGap)) {
+                dotY = offset;
                 break;
               }
             }
-            placed.push({ x: px, y: py, b });
+            placed.push({ x: dotX, y: dotY, b: bird });
           }
-          const lo = Math.min(...placed.map((p) => p.y)) - r,
-            hi = Math.max(...placed.map((p) => p.y)) + r;
-          const hasTop = placed.some((p) => p.b === top),
-            hasBottom = placed.some((p) => p.b === bottom);
+          const lowest = Math.min(...placed.map((dot) => dot.y)) - dotRadius,
+            highest = Math.max(...placed.map((dot) => dot.y)) + dotRadius;
+          const hasTop = placed.some((dot) => dot.b === top),
+            hasBottom = placed.some((dot) => dot.b === bottom);
           const next = hasBottom
-            ? Math.min(...placed.filter((p) => p.b !== bottom).map((p) => p.x))
+            ? Math.min(...placed.filter((dot) => dot.b !== bottom).map((dot) => dot.x))
             : 0;
           const inline =
-            hasBottom && next - x(bottom.count) > r * 2 + 8 + bottom.name.length * 6.4 + 80;
-          const centre = cursor + 22 - lo + (hasTop ? 26 : 0);
-          for (const p of placed) rows.push({ ...p.b, cy: centre + p.y, centre, lo, hi, inline });
+            hasBottom &&
+            next - xPosition(bottom.count) > dotRadius * 2 + 8 + bottom.name.length * 6.4 + 80;
+          const centre = cursor + 22 - lowest + (hasTop ? 26 : 0);
+          for (const dot of placed)
+            rows.push({ ...dot.b, cy: centre + dot.y, centre, lo: lowest, hi: highest, inline });
           bands.push({ status, n: placed.length, labelY: cursor + 8, y: centre });
-          cursor = centre + Math.max(hi, hasBottom && !inline ? hi + 22 : 0) + (small ? 18 : 24);
+          cursor =
+            centre + Math.max(highest, hasBottom && !inline ? highest + 22 : 0) + (small ? 18 : 24);
         }
-        const H = Math.round(cursor);
-        const fmt = (n) => n.toLocaleString("en-AU");
-        const rowOf = (b) => rows.find((row) => row.scientific === b.scientific);
+        const height = Math.round(cursor);
+        const formatCount = (count) => count.toLocaleString("en-AU");
+        const rowOf = (bird) => rows.find((row) => row.scientific === bird.scientific);
         // Labels for the most- and least-recorded birds.
         const notes = [
           {
             ...rowOf(top),
-            text: [top.name, fmt(top.count) + " records"],
+            text: [top.name, formatCount(top.count) + " records"],
             align: "right",
             baseline: "bottom",
-            dx: r,
+            dx: dotRadius,
           },
           {
             ...rowOf(bottom),
-            text: bottom.name + " · " + fmt(bottom.count) + " records",
+            text: bottom.name + " · " + formatCount(bottom.count) + " records",
             align: "left",
             baseline: "middle",
           },
@@ -2707,20 +2791,20 @@
         Object.assign(notes[0], {
           ny: notes[0].centre + notes[0].lo - 6 - 15,
           y1: notes[0].centre + notes[0].lo - 3,
-          y2: notes[0].cy - r - 2,
+          y2: notes[0].cy - dotRadius - 2,
         });
         Object.assign(
           notes[1],
           notes[1].inline
-            ? { dx: r + 8, ny: notes[1].cy, y1: 0, y2: 0 }
+            ? { dx: dotRadius + 8, ny: notes[1].cy, y1: 0, y2: 0 }
             : {
-                dx: -r,
+                dx: -dotRadius,
                 ny: notes[1].centre + notes[1].hi + 16,
-                y1: notes[1].cy + r + 2,
+                y1: notes[1].cy + dotRadius + 2,
                 y2: notes[1].centre + notes[1].hi + 7,
               },
         );
-        return V(width, H, {
+        return vegaChart(width, height, {
           description:
             "Beeswarm showing the record counts of 65 nationally threatened, species-level birds whose scientific names match exactly between ALA and DCCEEW. Every dot is a species. Unmatched names and listed subspecies are excluded, not treated as zero.",
           padding: { left: small ? 14 : 24, right: small ? 14 : 20, top: 6, bottom: 50 },
@@ -2731,7 +2815,7 @@
           ],
           scales: [
             { name: "x", type: "log", domain: [1, 15000], range: "width", nice: false },
-            { name: "color", type: "ordinal", domain: statuses, range: CB.orrd },
+            { name: "color", type: "ordinal", domain: statuses, range: colourRamps.orrd },
           ],
           axes: [
             {
@@ -2753,7 +2837,7 @@
                   x: { value: 0 },
                   x2: { signal: "width" },
                   y: { field: "y" },
-                  stroke: { value: C.rule },
+                  stroke: { value: colours.rule },
                   strokeWidth: { value: 0.7 },
                 },
               },
@@ -2767,7 +2851,7 @@
                   y: { field: "labelY" },
                   baseline: { value: "middle" },
                   fontSize: { value: 12 },
-                  fill: { value: C.muted },
+                  fill: { value: colours.muted },
                   text: { signal: "datum.status+' · '+datum.n" },
                 },
               },
@@ -2780,7 +2864,7 @@
                   x: { scale: "x", field: "count" },
                   y: { field: "cy" },
                   fill: { scale: "color", field: "status" },
-                  stroke: { value: C.paper },
+                  stroke: { value: colours.paper },
                   strokeWidth: { value: 1 },
                   tooltip: {
                     signal:
@@ -2788,12 +2872,12 @@
                   },
                 },
                 update: {
-                  size: { value: Math.round(Math.PI * r * r) },
-                  stroke: { value: C.paper },
+                  size: { value: Math.round(Math.PI * dotRadius * dotRadius) },
+                  stroke: { value: colours.paper },
                 },
                 hover: {
-                  size: { value: Math.round(Math.PI * r * r * 2) },
-                  stroke: { value: C.ink },
+                  size: { value: Math.round(Math.PI * dotRadius * dotRadius * 2) },
+                  stroke: { value: colours.ink },
                 },
               },
             },
@@ -2806,7 +2890,7 @@
                   x: { scale: "x", field: "count" },
                   y: { field: "y1" },
                   y2: { field: "y2" },
-                  stroke: { value: C.ink },
+                  stroke: { value: colours.ink },
                   strokeWidth: { value: 1 },
                   opacity: { signal: "datum.y2>datum.y1+2?1:0" },
                 },
@@ -2826,7 +2910,7 @@
                   text: { field: "text" },
                   fontSize: { value: 12 },
                   fontWeight: { value: 600 },
-                  fill: { value: C.ink },
+                  fill: { value: colours.ink },
                 },
               },
             },
@@ -2848,14 +2932,17 @@
       // Dorling cartogram: one circle per state, near its real position. Circle size = threatened
       // birds listed there, colour = 2024 records. Clicking a circle highlights that state in the
       // chart beside it.
-      function southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords(D, w) {
-        const width = w - 16,
-          H = dorlingH(w),
+      function southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords(
+        data,
+        availableWidth,
+      ) {
+        const width = availableWidth - 16,
+          height = dorlingH(availableWidth),
           band = 58,
-          mapH = H - band,
-          R = Math.min(width, mapH) * 0.15;
-        const maxListed = Math.max(...D.states.map((s) => s.listed));
-        return V(width, H, {
+          mapH = height - band,
+          maxRadius = Math.min(width, mapH) * 0.15;
+        const maxListed = Math.max(...data.states.map((state) => state.listed));
+        return vegaChart(width, height, {
           description:
             "Dorling cartogram of the eight states and territories. Circle area is proportional to the number of nationally listed threatened bird taxa associated with the jurisdiction; colour lightness shows its 2024 bird records. Select a circle to highlight its combinations in the overlap chart.",
           signals: [
@@ -2875,26 +2962,29 @@
               name: "records",
               type: "linear",
               domain: [300000, 2500000],
-              range: [CB.greens[1], CB.greens[4]],
+              range: [colourRamps.greens[1], colourRamps.greens[4]],
               clamp: true,
             },
           ],
           data: [
-            { name: "states", values: D.australia.features },
+            { name: "states", values: data.australia.features },
             {
               name: "sizeKey",
-              values: [85, 50, 20].map((v) => ({ v, r: Math.sqrt(v / maxListed) * R })),
+              values: [85, 50, 20].map((value) => ({
+                v: value,
+                r: Math.sqrt(value / maxListed) * maxRadius,
+              })),
             },
             {
               name: "nodes",
-              values: D.states.map((s) => ({
-                code: s.code,
-                state: s.state,
-                count: s.count,
-                listed: s.listed,
-                longitude: s.longitude,
-                latitude: s.latitude,
-                r: Math.max(9, Math.sqrt(s.listed / maxListed) * R),
+              values: data.states.map((state) => ({
+                code: state.code,
+                state: state.state,
+                count: state.count,
+                listed: state.listed,
+                longitude: state.longitude,
+                latitude: state.latitude,
+                r: Math.max(9, Math.sqrt(state.listed / maxListed) * maxRadius),
               })),
               transform: [
                 {
@@ -2940,22 +3030,22 @@
             },
             // Size key: three nested circles for 85, 50 and 20 listed birds.
             ...(() => {
-              const lx = width < 520 ? 0 : Math.min(240, width - 20) + 60,
+              const keyX = width < 520 ? 0 : Math.min(240, width - 20) + 60,
                 top = `max(circleBottom,${mapH})+16+${width < 520 ? 58 : 0}`;
-              const base = `${top}+20+${2 * R}`;
+              const base = `${top}+20+${2 * maxRadius}`;
               return [
                 {
                   type: "text",
                   interactive: false,
                   encode: {
                     update: {
-                      x: { value: lx },
+                      x: { value: keyX },
                       y: { signal: top },
                       baseline: { value: "top" },
                       text: { value: "Threatened birds listed" },
                       fontSize: { value: 11 },
                       fontWeight: { value: 500 },
-                      fill: { value: C.ink },
+                      fill: { value: colours.ink },
                     },
                   },
                 },
@@ -2965,7 +3055,7 @@
                   from: { data: "sizeKey" },
                   encode: {
                     update: {
-                      x: { value: lx + R },
+                      x: { value: keyX + maxRadius },
                       y: { signal: base + "-datum.r" },
                       size: { signal: "4*datum.r*datum.r" },
                       fill: { value: "transparent" },
@@ -2980,8 +3070,8 @@
                   from: { data: "sizeKey" },
                   encode: {
                     update: {
-                      x: { value: lx + R },
-                      x2: { value: lx + 2 * R + 8 },
+                      x: { value: keyX + maxRadius },
+                      x2: { value: keyX + 2 * maxRadius + 8 },
                       y: { signal: base + "-2*datum.r" },
                       stroke: { value: "#b5b2a5" },
                       strokeDash: { value: [2, 2] },
@@ -2994,12 +3084,12 @@
                   from: { data: "sizeKey" },
                   encode: {
                     update: {
-                      x: { value: lx + 2 * R + 12 },
+                      x: { value: keyX + 2 * maxRadius + 12 },
                       y: { signal: base + "-2*datum.r" },
                       baseline: { value: "middle" },
                       text: { field: "v" },
                       fontSize: { value: 11 },
-                      fill: { value: C.muted },
+                      fill: { value: colours.muted },
                     },
                   },
                 },
@@ -3016,7 +3106,7 @@
                   cursor: { value: "pointer" },
                   fill: { scale: "records", field: "count" },
                   fillOpacity: { signal: "picked===''||picked===datum.code?1:.35" },
-                  stroke: { signal: `picked===datum.code?'${C.ink}':'${C.paper}'` },
+                  stroke: { signal: `picked===datum.code?'${colours.ink}':'${colours.paper}'` },
                   strokeWidth: { signal: "picked===datum.code?2.5:1.5" },
                   tooltip: {
                     signal:
@@ -3025,11 +3115,11 @@
                 },
               },
             },
-            ...["halo", "ink"].flatMap((k) => {
+            ...["halo", "ink"].flatMap((layer) => {
               const halo =
-                k === "halo"
+                layer === "halo"
                   ? {
-                      stroke: { value: C.paper },
+                      stroke: { value: colours.paper },
                       strokeWidth: { value: 3.5 },
                       strokeJoin: { value: "round" },
                     }
@@ -3048,7 +3138,7 @@
                       baseline: { value: "middle" },
                       fontSize: { signal: "datum.r>26?12:11" },
                       fontWeight: { value: 700 },
-                      fill: { value: C.ink },
+                      fill: { value: colours.ink },
                       ...halo,
                     },
                   },
@@ -3065,7 +3155,7 @@
                       baseline: { value: "middle" },
                       text: { signal: "datum.r>26?datum.listed+' listed':datum.listed" },
                       fontSize: { signal: "datum.r>26?11:10" },
-                      fill: { value: C.ink },
+                      fill: { value: colours.ink },
                       ...halo,
                     },
                   },
@@ -3094,32 +3184,37 @@
       // UpSet chart: each column is one exact group of states, shown as joined dots below it.
       // The bar counts the listed birds in exactly that group. Clicking a state code, or a circle
       // in the chart beside it, highlights the columns that include that state.
-      function ninetyOneOf150ListedBirdsAreSharedBetweenStates(D, w) {
-        const Rd = Math.min(w - 16, dorlingH(w) - 58) * 0.15;
-        const width = w - 66,
-          H = Math.round(dorlingH(w) + 2 * Rd + 45),
-          step = Math.min(38, Math.round(H / 16)),
-          base = H - 61 - 7 * step,
+      function ninetyOneOf150ListedBirdsAreSharedBetweenStates(data, availableWidth) {
+        const cartogramRadius = Math.min(availableWidth - 16, dorlingH(availableWidth) - 58) * 0.15;
+        const width = availableWidth - 66,
+          height = Math.round(dorlingH(availableWidth) + 2 * cartogramRadius + 45),
+          step = Math.min(38, Math.round(height / 16)),
+          base = height - 61 - 7 * step,
           top = base + 38,
           codes = ["WA", "NT", "SA", "QLD", "NSW", "VIC", "TAS", "ACT"];
         // Copy each row as a new object, so Vega doesn't merge rows that share a hidden id.
-        const combo = (c) => ({
-          id: c.id,
-          combination: c.combination,
-          count: c.count,
-          states: [...c.states],
+        const combo = (stateGroup) => ({
+          id: stateGroup.id,
+          combination: stateGroup.combination,
+          count: stateGroup.count,
+          states: [...stateGroup.states],
         });
-        const bars = D.upset.map(combo);
-        const matrix = D.upset.flatMap((c) =>
-          codes.map((code, row) => ({ ...combo(c), code, row, active: c.states.includes(code) })),
+        const bars = data.upset.map(combo);
+        const matrix = data.upset.flatMap((stateGroup) =>
+          codes.map((code, row) => ({
+            ...combo(stateGroup),
+            code,
+            row,
+            active: stateGroup.states.includes(code),
+          })),
         );
-        const rules = D.upset.map((c) => ({
-          ...combo(c),
-          min: Math.min(...c.states.map((s) => codes.indexOf(s))),
-          max: Math.max(...c.states.map((s) => codes.indexOf(s))),
+        const rules = data.upset.map((stateGroup) => ({
+          ...combo(stateGroup),
+          min: Math.min(...stateGroup.states.map((state) => codes.indexOf(state))),
+          max: Math.max(...stateGroup.states.map((state) => codes.indexOf(state))),
         }));
-        const on = "picked==='' || indexof(datum.states,picked)>=0";
-        return V(width, H, {
+        const isHighlighted = "picked==='' || indexof(datum.states,picked)>=0";
+        return vegaChart(width, height, {
           description:
             "An UpSet chart of the twelve most common exact state combinations among 150 extant threatened bird taxa listed by DCCEEW in the eight jurisdictions. A connected column is an exact combination of states, and the bar above counts listed taxa in it.",
           padding: { left: 45, right: 10, top: 20, bottom: 18 },
@@ -3147,7 +3242,7 @@
             {
               name: "y",
               type: "linear",
-              domain: [0, Math.max(...bars.map((r) => r.count)) * 1.22],
+              domain: [0, Math.max(...bars.map((bar) => bar.count)) * 1.22],
               range: [base, 0],
               zero: true,
             },
@@ -3181,7 +3276,7 @@
                       "{'Exactly these states':datum.combination,'Listed bird taxa':datum.count}",
                   },
                 },
-                update: { fill: { signal: `${on}?'${C.rust}':'#e6d8d2'` } },
+                update: { fill: { signal: `${isHighlighted}?'${colours.rust}':'#e6d8d2'` } },
               },
             },
             {
@@ -3196,7 +3291,9 @@
                   fontSize: { value: 12 },
                   fontWeight: { value: 600 },
                 },
-                update: { fill: { signal: `${on}?'${C.ink}':'${C.muted}'` } },
+                update: {
+                  fill: { signal: `${isHighlighted}?'${colours.ink}':'${colours.muted}'` },
+                },
               },
             },
             {
@@ -3209,7 +3306,7 @@
                   align: { value: "left" },
                   fontSize: { value: 11 },
                   fontStyle: { value: "italic" },
-                  fill: { value: C.muted },
+                  fill: { value: colours.muted },
                   text: {
                     signal:
                       "datum.states.length===1&&datum.id===0?'only '+datum.states[0]:datum.id===1?'shared by '+datum.states.length:''",
@@ -3224,7 +3321,7 @@
                   x: { value: 0 },
                   x2: { signal: "width" },
                   y: { value: base + 17 },
-                  stroke: { value: C.rule },
+                  stroke: { value: colours.rule },
                 },
               },
             },
@@ -3238,7 +3335,7 @@
                   y2: { signal: top + "+datum.max*" + step },
                   strokeWidth: { value: 1.5 },
                 },
-                update: { stroke: { signal: `${on}?'${C.ink}':'#aaa699'` } },
+                update: { stroke: { signal: `${isHighlighted}?'${colours.ink}':'#aaa699'` } },
               },
             },
             {
@@ -3248,13 +3345,17 @@
                 enter: {
                   x: { scale: "x", field: "id", band: 0.5 },
                   y: { signal: top + "+datum.row*" + step },
-                  size: { value: w < 500 ? 28 : 54 },
+                  size: { value: availableWidth < 500 ? 28 : 54 },
                   tooltip: {
                     signal:
                       "{'Exactly these states':datum.combination,'Listed bird taxa':datum.count,'State':datum.code,'Included':datum.active?'Yes':'No'}",
                   },
                 },
-                update: { fill: { signal: `!datum.active?'#ebe7dc':${on}?'${C.ink}':'#aaa699'` } },
+                update: {
+                  fill: {
+                    signal: `!datum.active?'#ebe7dc':${isHighlighted}?'${colours.ink}':'#aaa699'`,
+                  },
+                },
               },
             },
             {
@@ -3273,7 +3374,7 @@
                 update: {
                   fontSize: { signal: "picked===datum.code?13:11" },
                   fontWeight: { signal: "picked===datum.code?700:400" },
-                  fill: { signal: `picked===datum.code?'${C.rust}':'${C.ink}'` },
+                  fill: { signal: `picked===datum.code?'${colours.rust}':'${colours.ink}'` },
                 },
               },
             },
@@ -3313,7 +3414,7 @@
       const widths = new Map();
       const errors = [];
       const settings = {};
-      let D;
+      let data;
       // Charts are drawn one at a time from this queue.
       const queue = [];
       const forced = new Set();
@@ -3323,11 +3424,11 @@
       // Keep chart tooltips inside the screen on small phones.
       function keepTooltipOnScreen(tip) {
         const clamp = () => {
-          const r = tip.getBoundingClientRect();
-          const x = Math.max(8, Math.min(r.left, innerWidth - r.width - 8)),
-            y = Math.max(8, Math.min(r.top, innerHeight - r.height - 8));
-          if (Math.abs(x - r.left) > 0.5) tip.style.left = x + "px";
-          if (Math.abs(y - r.top) > 0.5) tip.style.top = y + "px";
+          const box = tip.getBoundingClientRect();
+          const newLeft = Math.max(8, Math.min(box.left, innerWidth - box.width - 8)),
+            newTop = Math.max(8, Math.min(box.top, innerHeight - box.height - 8));
+          if (Math.abs(newLeft - box.left) > 0.5) tip.style.left = newLeft + "px";
+          if (Math.abs(newTop - box.top) > 0.5) tip.style.top = newTop + "px";
         };
         clamp();
         new MutationObserver(clamp).observe(tip, { attributes: true, attributeFilter: ["style"] });
@@ -3342,46 +3443,52 @@
 
       // Fill in the numbers written in the text (elements with data-stat) and the bird dropdown.
       function fillStats() {
-        const i = D.insights;
-        const percent = (n) => (100 * n).toFixed(1) + "%";
+        const insights = data.insights;
+        const percent = (share) => (100 * share).toFixed(1) + "%";
         const values = {
           ...Object.fromEntries(
-            Object.entries(i)
-              .filter(([, v]) => typeof v === "number")
-              .map(([k, v]) => [k, format.format(Math.round(v))]),
+            Object.entries(insights)
+              .filter(([, value]) => typeof value === "number")
+              .map(([key, value]) => [key, format.format(Math.round(value))]),
           ),
-          eastShare: percent(i.eastShare),
-          ebirdShare: percent(i.ebirdShare),
-          beeSummerSouth: percent(i.beeSummerSouth),
-          beeWinterSouth: percent(i.beeWinterSouth),
-          actDensity: format.format(Math.round(D.states.find((s) => s.code === "ACT").density)),
-          topGridShare: percent(i.topGridShare),
-          allSummerSouth: Math.round(100 * i.allSummerSouth) + "%",
-          allWinterSouth: Math.round(100 * i.allWinterSouth) + "%",
-          beeSummerSouthRound: Math.round(100 * i.beeSummerSouth) + "%",
-          beeWinterSouthRound: Math.round(100 * i.beeWinterSouth) + "%",
-          saListed: String(D.states.find((s) => s.code === "SA").listed),
-          sharedTaxa: String(D.threatenedListings.filter((r) => r.states.length > 1).length),
+          eastShare: percent(insights.eastShare),
+          ebirdShare: percent(insights.ebirdShare),
+          beeSummerSouth: percent(insights.beeSummerSouth),
+          beeWinterSouth: percent(insights.beeWinterSouth),
+          actDensity: format.format(
+            Math.round(data.states.find((state) => state.code === "ACT").density),
+          ),
+          topGridShare: percent(insights.topGridShare),
+          allSummerSouth: Math.round(100 * insights.allSummerSouth) + "%",
+          allWinterSouth: Math.round(100 * insights.allWinterSouth) + "%",
+          beeSummerSouthRound: Math.round(100 * insights.beeSummerSouth) + "%",
+          beeWinterSouthRound: Math.round(100 * insights.beeWinterSouth) + "%",
+          saListed: String(data.states.find((state) => state.code === "SA").listed),
+          sharedTaxa: String(
+            data.threatenedListings.filter((listing) => listing.states.length > 1).length,
+          ),
           ntMultiple: (
-            D.states.find((s) => s.code === "NT").perResident /
-            ((i.total / D.states.reduce((n, s) => n + s.population, 0)) * 1000)
+            data.states.find((state) => state.code === "NT").perResident /
+            ((insights.total / data.states.reduce((sum, state) => sum + state.population, 0)) *
+              1000)
           ).toFixed(1),
         };
-        for (const el of document.querySelectorAll("[data-stat]"))
-          if (values[el.dataset.stat] !== undefined) el.textContent = values[el.dataset.stat];
+        for (const element of document.querySelectorAll("[data-stat]"))
+          if (values[element.dataset.stat] !== undefined)
+            element.textContent = values[element.dataset.stat];
         const select = document.getElementById("bird-highlight");
-        for (const name of new Set(D.rankings.map((r) => r.name))) {
+        for (const name of new Set(data.rankings.map((row) => row.name))) {
           const option = document.createElement("option");
           option.textContent = name;
           select.append(option);
         }
-        if ([...select.options].some((o) => o.value === "Welcome Swallow"))
+        if ([...select.options].some((option) => option.value === "Welcome Swallow"))
           select.value = "Welcome Swallow";
-        for (const el of document.querySelectorAll("select[data-signal]"))
-          setting(el.dataset.chart, el.dataset.signal, el.value);
-        for (const b of document.querySelectorAll('.segmented [aria-pressed="true"]')) {
-          const g = b.closest(".segmented");
-          setting(g.dataset.chart, g.dataset.signal, value(b));
+        for (const element of document.querySelectorAll("select[data-signal]"))
+          setting(element.dataset.chart, element.dataset.signal, element.value);
+        for (const button of document.querySelectorAll('.segmented [aria-pressed="true"]')) {
+          const group = button.closest(".segmented");
+          setting(group.dataset.chart, group.dataset.signal, value(button));
         }
       }
 
@@ -3391,7 +3498,8 @@
         for (const figure of document.querySelectorAll("figure[data-chart]")) {
           index++;
           const heading = figure.querySelector(".figure-heading");
-          const label = theme.figureLabel || ((n) => "Fig. " + String(n).padStart(2, "0"));
+          const label =
+            theme.figureLabel || ((number) => "Fig. " + String(number).padStart(2, "0"));
           let period = heading.querySelector(".figure-period");
           const text = [label(index), period?.textContent].filter(Boolean).join(" · ");
           if (text) {
@@ -3408,28 +3516,29 @@
       // Draw one chart: build its spec at the current width, render it with Vega-Embed, and
       // restore the reader's control settings.
       async function draw(id, force) {
-        const el = document.getElementById(id);
-        if (!el) return;
-        const width = Math.floor(el.getBoundingClientRect().width);
+        const element = document.getElementById(id);
+        if (!element) return;
+        const width = Math.floor(element.getBoundingClientRect().width);
         if (width < 1) return;
         if (!force && views.has(id) && Math.abs((widths.get(id) || 0) - width) < 4) return;
-        el.classList.add("is-loading");
-        el.setAttribute("aria-busy", "true");
+        element.classList.add("is-loading");
+        element.setAttribute("aria-busy", "true");
         widths.set(id, width);
         try {
           if (views.has(id)) {
             views.get(id).finalize();
             views.delete(id);
           }
-          const spec = chartBuilders[id](D, width);
-          const result = await window.vegaEmbed(el, spec, {
+          const spec = chartBuilders[id](data, width);
+          const result = await window.vegaEmbed(element, spec, {
             actions: false,
             renderer: "svg",
             tooltip: { theme: "light" },
             hover: true,
           });
           views.set(id, result.view);
-          for (const [name, v] of Object.entries(settings[id] || {})) result.view.signal(name, v);
+          for (const [name, value] of Object.entries(settings[id] || {}))
+            result.view.signal(name, value);
           await result.view.runAsync();
           // The cartogram and the UpSet chart share the selected state: clicking one updates the other.
           const partner = {
@@ -3449,18 +3558,18 @@
               const other = views.get(partner);
               if (other) other.signal("picked", code).runAsync();
             });
-          el.dataset.rendered = "true";
+          element.dataset.rendered = "true";
         } catch (error) {
           errors.push(`${id}: ${error.message}`);
-          el.replaceChildren();
+          element.replaceChildren();
           const message = document.createElement("p");
           message.className = "chart-error";
           message.textContent = "This figure could not be drawn.";
-          el.append(message);
+          element.append(message);
           console.error(id, error);
         } finally {
-          el.classList.remove("is-loading");
-          el.removeAttribute("aria-busy");
+          element.classList.remove("is-loading");
+          element.removeAttribute("aria-busy");
         }
       }
 
@@ -3496,8 +3605,8 @@
         let promise = waiting.get(id) && waiting.get(id).promise;
         if (!promise) {
           let resolve;
-          promise = new Promise((r) => {
-            resolve = r;
+          promise = new Promise((done) => {
+            resolve = done;
           });
           const waiter = () => resolve();
           waiter.promise = promise;
@@ -3508,31 +3617,33 @@
       }
 
       // Remember a control's value, read a button's value, and send a new value to a chart.
-      function setting(chart, name, v) {
-        (settings[chart] || (settings[chart] = {}))[name] = v;
+      function setting(chart, name, value) {
+        (settings[chart] || (settings[chart] = {}))[name] = value;
       }
-      function value(b) {
-        const v = b.dataset.value;
-        return isNaN(+v) ? v : +v;
+      function value(button) {
+        const raw = button.dataset.value;
+        return isNaN(+raw) ? raw : +raw;
       }
-      async function apply(chart, name, v) {
-        setting(chart, name, v);
+      async function apply(chart, name, value) {
+        setting(chart, name, value);
         await render(chart);
         const view = views.get(chart);
-        if (view) await view.signal(name, v).runAsync();
+        if (view) await view.signal(name, value).runAsync();
       }
 
       // Hook up every button, dropdown and the season player.
       function setupControls() {
-        for (const el of document.querySelectorAll("select[data-signal]"))
-          el.addEventListener("change", () => apply(el.dataset.chart, el.dataset.signal, el.value));
+        for (const element of document.querySelectorAll("select[data-signal]"))
+          element.addEventListener("change", () =>
+            apply(element.dataset.chart, element.dataset.signal, element.value),
+          );
         for (const group of document.querySelectorAll(".segmented"))
           group.addEventListener("click", (event) => {
-            const b = event.target.closest("button");
-            if (!b) return;
+            const button = event.target.closest("button");
+            if (!button) return;
             for (const other of group.querySelectorAll("button"))
-              other.setAttribute("aria-pressed", String(other === b));
-            apply(group.dataset.chart, group.dataset.signal, value(b));
+              other.setAttribute("aria-pressed", String(other === button));
+            apply(group.dataset.chart, group.dataset.signal, value(button));
           });
         // Season player for the bee-eater map. 'phase' runs 0 to 4 through the seasons: the play
         // button runs through the year once, and clicking a season glides to it.
@@ -3543,18 +3654,20 @@
         head.className = "playhead";
         track.append(head);
         const still = matchMedia("(prefers-reduced-motion: reduce)");
-        const SEG = 2600,
-          MOVE = 1100,
-          ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+        const seasonDuration = 2600,
+          blendDuration = 1100,
+          ease = (progress) =>
+            progress < 0.5 ? 4 * progress * progress * progress : 1 - (-2 * progress + 2) ** 3 / 2;
         let phase = 0,
           frame = 0;
-        const set = (p) => {
-          phase = p;
-          setting("seasonal-footprint", "phase", p);
+        const set = (newPhase) => {
+          phase = newPhase;
+          setting("seasonal-footprint", "phase", newPhase);
           const view = views.get("seasonal-footprint");
-          if (view) view.signal("phase", p).run();
-          const on = seasons[Math.round(p) % 4];
-          for (const o of seasons) o.setAttribute("aria-pressed", String(o === on));
+          if (view) view.signal("phase", newPhase).run();
+          const current = seasons[Math.round(newPhase) % 4];
+          for (const seasonButton of seasons)
+            seasonButton.setAttribute("aria-pressed", String(seasonButton === current));
         };
         const stop = () => {
           cancelAnimationFrame(frame);
@@ -3563,14 +3676,14 @@
           play.setAttribute("aria-pressed", "false");
           play.setAttribute("aria-label", "Play the year");
         };
-        const run = (duration, at, done) => {
+        const run = (duration, onFrame, done) => {
           cancelAnimationFrame(frame);
-          const t0 = performance.now();
+          const startTime = performance.now();
           const tick = (now) => {
-            const e = Math.min(1, (now - t0) / duration);
-            at(e);
-            frame = e < 1 ? requestAnimationFrame(tick) : 0;
-            if (e >= 1 && done) done();
+            const progress = Math.min(1, (now - startTime) / duration);
+            onFrame(progress);
+            frame = progress < 1 ? requestAnimationFrame(tick) : 0;
+            if (progress >= 1 && done) done();
           };
           frame = requestAnimationFrame(tick);
         };
@@ -3580,34 +3693,42 @@
           play.setAttribute("aria-pressed", "true");
           play.setAttribute("aria-label", "Pause");
           track.classList.add("is-playing");
-          const total = 4 * SEG;
+          const total = 4 * seasonDuration;
           run(
             total,
-            (e) => {
-              const ms = e * total;
-              let p = 0;
-              for (let k = 1; k < 4; k++)
-                p += still.matches
-                  ? +(ms >= k * SEG)
-                  : ease(Math.min(1, Math.max(0, (ms - k * SEG + MOVE / 2) / MOVE)));
-              set(p);
-              head.style.width = e * 100 + "%";
-              head.style.background = getComputedStyle(seasons[Math.round(p) % 4]).getPropertyValue(
-                "--season",
-              );
+            (progress) => {
+              const elapsed = progress * total;
+              let blended = 0;
+              for (let step = 1; step < 4; step++)
+                blended += still.matches
+                  ? +(elapsed >= step * seasonDuration)
+                  : ease(
+                      Math.min(
+                        1,
+                        Math.max(
+                          0,
+                          (elapsed - step * seasonDuration + blendDuration / 2) / blendDuration,
+                        ),
+                      ),
+                    );
+              set(blended);
+              head.style.width = progress * 100 + "%";
+              head.style.background = getComputedStyle(
+                seasons[Math.round(blended) % 4],
+              ).getPropertyValue("--season");
             },
             stop,
           );
         });
         track.addEventListener("click", async (event) => {
-          const b = event.target.closest("button");
-          if (!b) return;
+          const button = event.target.closest("button");
+          if (!button) return;
           if (frame) stop();
           await render("seasonal-footprint");
           const from = phase,
-            to = seasons.indexOf(b);
-          if (still.matches) return set(to);
-          run(700, (e) => set(from + (to - from) * ease(e)));
+            target = seasons.indexOf(button);
+          if (still.matches) return set(target);
+          run(700, (progress) => set(from + (target - from) * ease(progress)));
         });
         // Redraw charts when their box changes size.
         let timer;
@@ -3617,7 +3738,7 @@
             for (const id of widths.keys()) render(id);
           }, 180);
         });
-        for (const el of document.querySelectorAll(".chart")) resize.observe(el);
+        for (const element of document.querySelectorAll(".chart")) resize.observe(element);
         // Only draw a chart when it is about to scroll into view.
         const observer = new IntersectionObserver(
           (entries) => {
@@ -3629,9 +3750,9 @@
           },
           { rootMargin: "700px 0px" },
         );
-        for (const el of document.querySelectorAll(".chart")) {
-          el.classList.add("is-loading");
-          observer.observe(el);
+        for (const element of document.querySelectorAll(".chart")) {
+          element.classList.add("is-loading");
+          observer.observe(element);
         }
         // Draw every chart before printing.
         window.addEventListener("beforeprint", () => {
@@ -3643,13 +3764,13 @@
       try {
         const response = await fetch("data/story.json");
         if (!response.ok) throw new Error("Chart data unavailable");
-        D = await response.json();
+        data = await response.json();
         fillStats();
         labelFigures();
         await document.fonts.ready;
         setupControls();
         window.fieldJournal = {
-          data: D,
+          data: data,
           views,
           errors,
           renderAll: async () => {

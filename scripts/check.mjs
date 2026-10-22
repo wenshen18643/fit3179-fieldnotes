@@ -7,15 +7,15 @@ import { compile } from "vega-lite";
 
 // Same as build-specs.mjs: load the chart builders out of index.html.
 const chartCode = (page) => {
-  const js = page.split('<script type="module">')[1];
-  const end = js.indexOf("};", js.indexOf("export const chartBuilders")) + 2;
-  return js.slice(0, end);
+  const script = page.split('<script type="module">')[1];
+  const end = script.indexOf("};", script.indexOf("export const chartBuilders")) + 2;
+  return script.slice(0, end);
 };
 const page = await fs.readFile("index.html", "utf8");
 const { chartBuilders } = await import(
   "data:text/javascript," + encodeURIComponent(chartCode(page))
 );
-const D = JSON.parse(await fs.readFile("data/story.json", "utf8"));
+const data = JSON.parse(await fs.readFile("data/story.json", "utf8"));
 const table = async (name) => JSON.parse(await fs.readFile(`data/processed/${name}.json`, "utf8"));
 const [flows, monthly, families, coverage] = await Promise.all(
   ["flows", "monthly", "families", "coverage"].map(table),
@@ -25,38 +25,41 @@ const assert = (ok, message) => {
   if (!ok) throw new Error(message);
 };
 assert(
-  D.states.reduce((n, r) => n + r.count, 0) === D.insights.total,
+  data.states.reduce((sum, row) => sum + row.count, 0) === data.insights.total,
   "State totals do not reconcile",
 );
 assert(
-  flows.reduce((n, r) => n + r.count, 0) === D.insights.total,
+  flows.reduce((sum, row) => sum + row.count, 0) === data.insights.total,
   "Source totals do not reconcile",
 );
-assert(D.grid.reduce((n, r) => n + r.count, 0) === D.insights.total, "Map totals do not reconcile");
 assert(
-  monthly.reduce((n, r) => n + r.count, 0) === D.insights.total,
+  data.grid.reduce((sum, row) => sum + row.count, 0) === data.insights.total,
+  "Map totals do not reconcile",
+);
+assert(
+  monthly.reduce((sum, row) => sum + row.count, 0) === data.insights.total,
   "Monthly totals do not reconcile",
 );
 assert(
-  families.reduce((n, r) => n + r.count, 0) === D.insights.total,
+  families.reduce((sum, row) => sum + row.count, 0) === data.insights.total,
   "Family totals do not reconcile",
 );
 assert(
   coverage
-    .filter((r) => r.year === 2025 && r.source === "eBird Australia" && r.month >= 9)
-    .every((r) => r.count === 0),
+    .filter((row) => row.year === 2025 && row.source === "eBird Australia" && row.month >= 9)
+    .every((row) => row.count === 0),
   "Unexpected source coverage; reconsider 2024 baseline",
 );
 assert(
-  D.threatenedRecords.every((r) => r.count > 0 && r.scientific.split(" ").length === 2),
+  data.threatenedRecords.every((row) => row.count > 0 && row.scientific.split(" ").length === 2),
   "Conservation join contains unmatched or infraspecific taxa",
 );
 // Draw each chart without a browser and save it as an SVG in artifacts/qa to look at.
 await fs.mkdir("artifacts/qa", { recursive: true });
-let n = 0;
+let passed = 0;
 for (const width of [920, 360])
   for (const [id, builder] of Object.entries(chartBuilders)) {
-    const spec = builder(D, width);
+    const spec = builder(data, width);
     const runtime = spec.$schema.includes("vega-lite") ? compile(spec).spec : spec;
     const view = new vega.View(vega.parse(runtime), { renderer: "none" });
     try {
@@ -81,11 +84,11 @@ for (const width of [920, 360])
         assert((await view.toSVG()) !== svg, "Control did not change output: " + id);
       }
       console.log("PASS", id, width);
-      n++;
+      passed++;
     } finally {
       view.finalize();
     }
   }
 console.log(
-  `Passed aggregation, source-coverage and interaction checks; rendered ${n} desktop/mobile SVG charts.`,
+  `Passed aggregation, source-coverage and interaction checks; rendered ${passed} desktop/mobile SVG charts.`,
 );

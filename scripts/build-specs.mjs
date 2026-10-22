@@ -8,9 +8,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 // The chart builders live inside index.html. Cut out the part of its script that
 // runs from the top down to the end of the chartBuilders list, and load it as code.
 const chartCode = (page) => {
-  const js = page.split('<script type="module">')[1];
-  const end = js.indexOf("};", js.indexOf("export const chartBuilders")) + 2;
-  return js.slice(0, end);
+  const script = page.split('<script type="module">')[1];
+  const end = script.indexOf("};", script.indexOf("export const chartBuilders")) + 2;
+  return script.slice(0, end);
 };
 const page = await fs.readFile(path.join(root, "index.html"), "utf8");
 const { chartBuilders } = await import(
@@ -47,9 +47,9 @@ await fs.writeFile(path.join(root, "data/story.json"), JSON.stringify(data));
 // Old files are deleted first, so a changed heading leaves no stale copy.
 const headings = Object.fromEntries(
   [...page.matchAll(/<figure[^>]*data-chart="([^"]+)"[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/g)].map(
-    ([, id, h]) => [
+    ([, id, heading]) => [
       id,
-      h
+      heading
         .replace(/<[^>]+>/g, "")
         .replace(/&[a-z]+;|['’]/g, "")
         .toLowerCase()
@@ -71,15 +71,18 @@ for (const [id, build] of Object.entries(chartBuilders)) {
 }
 // Copy Vega, Vega-Lite and Vega-Embed (and their licences) from node_modules into vendor/.
 await fs.mkdir(path.join(root, "vendor"), { recursive: true });
-for (const [pkg, file, out] of [
+for (const [packageName, file, out] of [
   ["vega", "build/vega.min.js", "vega.min.js"],
   ["vega-lite", "build/vega-lite.min.js", "vega-lite.min.js"],
   ["vega-embed", "build/vega-embed.min.js", "vega-embed.min.js"],
 ]) {
-  await fs.copyFile(path.join(root, "node_modules", pkg, file), path.join(root, "vendor", out));
   await fs.copyFile(
-    path.join(root, "node_modules", pkg, "LICENSE"),
-    path.join(root, "vendor", pkg + "-LICENSE.txt"),
+    path.join(root, "node_modules", packageName, file),
+    path.join(root, "vendor", out),
+  );
+  await fs.copyFile(
+    path.join(root, "node_modules", packageName, "LICENSE"),
+    path.join(root, "vendor", packageName + "-LICENSE.txt"),
   );
 }
 console.log(
