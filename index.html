@@ -1340,6 +1340,7 @@
         "Dec",
       ];
       const SEASONS = ["Summer", "Autumn", "Winter", "Spring"];
+      // projection-all: equal-area conic (Albers) projection, standard parallels 18°S and 36°S, centred on Australia; used by every Vega-Lite map
       const projection = {
         type: "conicEqualArea",
         parallels: [-18, -36],
@@ -1455,8 +1456,11 @@
         data: { values: data.australia.features },
         mark: { type: "geoshape", fill: "#e8e4d9", stroke: "#c7c6b8", strokeWidth: 0.7 },
       });
+      // layout-all: map height from the width available (270 to 620 px)
       const mapH = (width) => Math.min(620, Math.max(270, width * 0.78));
+      // layout-all: circular heatmap radius from the width available
       const clockRadius = (width) => Math.max(140, Math.min(245, (width - 120) / 2));
+      // layout-all: cartogram height from the width available
       const dorlingH = (width) => Math.min(520, Math.max(380, (width - 16) * 0.9));
 
       const longitudeField = { field: "longitude", type: "quantitative" },
@@ -1495,8 +1499,10 @@
         mark: { type: "geoshape", fill: null, stroke: "#9b9d8d", strokeWidth: 0.6 },
       });
 
+      // idiom-halfOfAllRecordsComeFrom12Of720Squares: gridded choropleth map (Vega-Lite): Australia in 1° squares
       function halfOfAllRecordsComeFrom12Of720Squares(data, availableWidth) {
         // data-halfOfAllRecordsComeFrom12Of720Squares: data.grid (records per 1° square) joined to data.gridShapes (square outlines)
+        // calculation-halfOfAllRecordsComeFrom12Of720Squares: look up each square's numbers by its id and attach them to its shape
         const byCell = Object.fromEntries(data.grid.map((square) => [square.cell, square]));
         const cells = data.gridShapes.features.map((feature) => ({
           ...feature,
@@ -1512,6 +1518,7 @@
           { text: "Brisbane", longitude: 153.03, latitude: -27.47 },
           { text: "Adelaide", longitude: 138.6, latitude: -34.93 },
         ];
+        // phone-halfOfAllRecordsComeFrom12Of720Squares: on phones the headline sits above the map and the text is smaller
         const small = availableWidth < 440,
           headlineSize = Math.round(Math.max(18, Math.min(26, availableWidth / 30)));
         return vegaLiteChart(availableWidth - 16, mapH(availableWidth) + (small ? 34 : 0), {
@@ -1524,12 +1531,15 @@
             baseMap(data),
             {
               data: { values: cells },
+              // mark-halfOfAllRecordsComeFrom12Of720Squares: geoshape: one filled shape per 1° square
               mark: { type: "geoshape", stroke: colours.paper, strokeWidth: 0.45 },
+              // encoding-halfOfAllRecordsComeFrom12Of720Squares: colour = records in the square; position comes from the square's shape on the map
               encoding: {
                 // color-halfOfAllRecordsComeFrom12Of720Squares: squares shaded by record count (Greens, log scale) and its legend
                 color: {
                   field: "properties.count",
                   type: "quantitative",
+                  // scale-halfOfAllRecordsComeFrom12Of720Squares: log colour scale 1 to 1.2 million, so squares with 1 record and 1 million both show
                   scale: { type: "log", domain: [1, 1200000], range: lightRamp },
                   // legend-halfOfAllRecordsComeFrom12Of720Squares: colour legend for records per square
                   legend: {
@@ -1552,6 +1562,7 @@
             // annotation-halfOfAllRecordsComeFrom12Of720Squares: pale halo under the outline of the busiest squares
             {
               data: { values: regions },
+              // transform-halfOfAllRecordsComeFrom12Of720Squares: keep only the outline for the chosen share
               transform: [{ filter: shown }],
               mark: {
                 type: "geoshape",
@@ -1576,6 +1587,7 @@
             outline(data),
             // annotation-halfOfAllRecordsComeFrom12Of720Squares: city name labels
             ...haloText(cities, { fontSize: 11, fontWeight: 600, dy: 15 }),
+            // phone-halfOfAllRecordsComeFrom12Of720Squares: invisible point north of Australia leaves room for the headline on phones
             ...(small
               ? [
                   {
@@ -1588,6 +1600,7 @@
             // annotation-halfOfAllRecordsComeFrom12Of720Squares: headline "46 of 720 squares / hold 75% of all records"
             {
               data: { values: data.grid },
+              // transform-halfOfAllRecordsComeFrom12Of720Squares: keep squares before the chosen share, count them, and write the headline text
               transform: [
                 { filter: "datum.cumBefore < cover" },
                 { aggregate: [{ op: "count", as: "n" }] },
@@ -1628,11 +1641,14 @@
         });
       }
 
+      // idiom-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: choropleth map by state (Vega-Lite), switchable between per area and per resident
       function perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes(
         data,
         availableWidth,
       ) {
+        // phone-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: on phones the labels are smaller and the legend sits underneath
         const small = availableWidth < 560;
+        // calculation-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: where each state's value falls on the log scale (0 to 1), for area and for people
         const logPositions = (state) => ({
           areaT: Math.log(state.density / 200) / Math.log(150000 / 200),
           peopleT: Math.log(state.perResident / 200) / Math.log(1400 / 200),
@@ -1654,13 +1670,17 @@
           layer: [
             {
               data: { values: rows },
+              // transform-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: pick records per km² or per resident as "value", depending on "measure"
               transform: [{ calculate: value, as: "value" }],
+              // mark-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: geoshape: one filled shape per state
               mark: { type: "geoshape", stroke: colours.paper, strokeWidth: 1.3 },
+              // encoding-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: colour = records per km² or per resident
               encoding: {
                 // color-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: states shaded by records per km² or per resident (Greens, log scale) and its legend
                 color: {
                   field: "value",
                   type: "quantitative",
+                  // scale-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: log colour scale; its range switches with "measure"
                   scale: {
                     type: "log",
                     domain: { expr: "measure==='area'?[200,150000]:[200,1400]" },
@@ -1737,7 +1757,9 @@
         });
       }
 
+      // idiom-everyStateKeepsItsOwnBusySeason: circular heatmap (Vega): rings = states, slices = months
       function everyStateKeepsItsOwnBusySeason(data, availableWidth) {
+        // layout-everyStateKeepsItsOwnBusySeason: chart size, centre, ring width and gaps between months
         const width = availableWidth - 16,
           radius = clockRadius(availableWidth),
           height = radius * 2 + 86,
@@ -1749,6 +1771,7 @@
           gap = 0.64,
           step = (Math.PI * 2 - gap) / 12;
         // data-everyStateKeepsItsOwnBusySeason: data.stateMonth (records per state per month, with pace)
+        // calculation-everyStateKeepsItsOwnBusySeason: work out each cell's start and end angle (month) and inner and outer radius (state)
         const vals = data.stateMonth.map((cell) => ({
           ...cell,
           a0: gap / 2 + (cell.month - 1) * step + 0.012,
@@ -1776,6 +1799,7 @@
             },
           ],
           // color-everyStateKeepsItsOwnBusySeason: pace colour scale, pink (quieter) to green (busier), log scale centred on 1
+          // scale-everyStateKeepsItsOwnBusySeason: log colour scale 0.5, 1, 2, so half and double the usual pace look equally strong
           scales: [
             {
               name: "pace",
@@ -1787,6 +1811,8 @@
           ],
           marks: [
             {
+              // mark-everyStateKeepsItsOwnBusySeason: arc: one slice per state per month
+              // encoding-everyStateKeepsItsOwnBusySeason: angle = month, ring = state, colour = pace
               type: "arc",
               from: { data: "cells" },
               encode: {
@@ -1902,9 +1928,12 @@
         });
       }
 
+      // idiom-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: bump chart (Vega-Lite): each bird's rank, month by month
       function theWelcomeSwallowClimbsTheRankingsAsSpringArrives(data, availableWidth) {
+        // phone-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: on narrow screens the labels are smaller and the name column narrower
         const compact = availableWidth < 680;
         // data-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: data.rankings (monthly ranks of the seven most-recorded birds)
+        // calculation-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: December ranks set the order of the bird names
         const end = data.rankings.filter((row) => row.month === 12),
           max = Math.max(...data.rankings.map((row) => row.rank));
         const birds = [...end]
@@ -1933,10 +1962,12 @@
         const width = availableWidth - (compact ? 118 : 190);
         // interaction-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: the picked bird is drawn thicker and on top
         const picked = "datum.name===highlight";
+        // axis-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: month labels; just initials on phones
         const monthLabel =
           availableWidth < 520
             ? "['J','F','M','A','M','J','J','A','S','O','N','D'][datum.value-1]"
             : "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]";
+        // encoding-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: x = month, y = rank, colour = bird
         const base = {
           x: {
             field: "month",
@@ -1947,7 +1978,9 @@
           y: {
             field: "rank",
             type: "quantitative",
+            // scale-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: rank scale reversed so rank 1 is at the top
             scale: { domain: [1, max], reverse: true, zero: false },
+            // axis-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: rank axis title and whole-number ticks
             axis: {
               title: "Rank among all birds that month (1 = most records)",
               titleLimit: 400,
@@ -1965,7 +1998,9 @@
           encoding: base,
           layer: [
             {
+              // transform-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: split birds into the picked one (drawn on top) and the rest
               transform: [{ filter: "!(" + picked + ")" }],
+              // mark-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: line per bird, with a point on each month
               mark: { type: "line", strokeWidth: 2, interpolate: "monotone" },
               encoding: {
                 color: hue,
@@ -2065,8 +2100,10 @@
         });
       }
 
+      // idiom-watchTheBeeEatersRangeSlideNorth: proportional-symbol (bubble) map (Vega-Lite), animated through the seasons
       function watchTheBeeEatersRangeSlideNorth(data, availableWidth) {
         // data-watchTheBeeEatersRangeSlideNorth: data.beeMap (records per 1° point per season), grouped into 2° squares here
+        // calculation-watchTheBeeEatersRangeSlideNorth: group 1° points into 2° squares, add up each season's records, and find the record-weighted centre
         const bins = new Map();
         for (const point of data.beeMap) {
           const lat0 = Math.floor(point.latitude / 2) * 2,
@@ -2092,13 +2129,16 @@
           longitude: sumLon / total,
         }));
         const max = Math.max(...cells.flatMap((cell) => cell.c)),
+          // phone-watchTheBeeEatersRangeSlideNorth: on phones the circles are smaller and the headline moves
           small = availableWidth < 560;
         const names = JSON.stringify(SEASONS).replace(/"/g, "'");
+        // calculation-watchTheBeeEatersRangeSlideNorth: blend a square's records between two seasons, for the animation
         const countAtPhase = (phaseExpr) =>
           `datum.c[floor(${phaseExpr})%4]*(1-(${phaseExpr})+floor(${phaseExpr}))+datum.c[(floor(${phaseExpr})+1)%4]*((${phaseExpr})-floor(${phaseExpr}))`;
         const size = {
           field: "now",
           type: "quantitative",
+          // scale-watchTheBeeEatersRangeSlideNorth: size scale from 0 to the biggest count, the same for every season
           scale: { domain: [0, max], range: [0, small ? 560 : 980] },
           // legend-watchTheBeeEatersRangeSlideNorth: circle size legend (100, 500, 1,500 records)
           legend: {
@@ -2116,6 +2156,7 @@
         const colour = {
           field: "hue",
           type: "quantitative",
+          // scale-watchTheBeeEatersRangeSlideNorth: colour scale 0 to 4 that blends between the season colours
           scale: {
             domain: [0, 1, 2, 3, 4],
             range: [...colours.seasons, colours.seasons[0]],
@@ -2126,6 +2167,7 @@
         };
         const layerFor = (phaseExpr, filled) => ({
           data: { values: cells },
+          // transform-watchTheBeeEatersRangeSlideNorth: records at the current phase, drop empty squares, set the colour and season
           transform: [
             { calculate: countAtPhase(phaseExpr), as: "now" },
             { filter: "datum.now>0.5" },
@@ -2133,9 +2175,11 @@
             { calculate: `${names}[round(${phaseExpr})%4]`, as: "season" },
             { calculate: "round(datum.now)", as: "count" },
           ],
+          // mark-watchTheBeeEatersRangeSlideNorth: circle: filled for the chosen season, hollow ring for the opposite season
           mark: filled
             ? { type: "circle", opacity: 0.78, stroke: colours.paper, strokeWidth: 0.6 }
             : { type: "circle", filled: false, strokeWidth: 1.1, opacity: 0.75 },
+          // encoding-watchTheBeeEatersRangeSlideNorth: position = square centre, size = records, colour = season
           encoding: {
             longitude: longitudeField,
             latitude: latitudeField,
@@ -2175,6 +2219,7 @@
               encoding: { longitude: longitudeField, latitude: latitudeField },
             },
             // annotation-watchTheBeeEatersRangeSlideNorth: "30°S" label (wide screens only)
+            // phone-watchTheBeeEatersRangeSlideNorth: "30°S" label hidden on phones
             ...(small
               ? []
               : [
@@ -2195,6 +2240,7 @@
             // annotation-watchTheBeeEatersRangeSlideNorth: headline "9% of autumn records lie south of 30°S"
             {
               data: { values: data.beeMonth },
+              // transform-watchTheBeeEatersRangeSlideNorth: add up the season's months to get the share south of 30°S
               transform: [
                 { filter: "datum.season===season" },
                 {
@@ -2298,6 +2344,7 @@
         });
       }
 
+      // idiom-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: filled contour (isopleth) map (Vega-Lite)
       function allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters(data, availableWidth) {
         const bands = [
           "Summer share 4× or more",
@@ -2308,11 +2355,13 @@
           "Winter share 4× or more",
         ];
         const none = "Too few records to estimate";
+        // phone-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: on phones the legend has two columns and the labels are smaller
         const small = availableWidth < 560;
         // color-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: BrBG bands, brown = summer lean, teal = winter lean, grey = too few records; and its legend
         const colour = {
           field: "properties.label",
           type: "ordinal",
+          // scale-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: ordinal colour scale: one colour per band
           scale: {
             domain: [...bands, none],
             range: ["#8c510a", "#d8b365", "#f6e8c3", "#c7eae5", "#5ab4ac", "#01665e", "#d6d2c6"],
@@ -2354,16 +2403,20 @@
               // color-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: contour bands coloured by seasonal lean
               // data-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: data.seasonField contour shapes for both groups, each tagged with "who"
               data: { values: data.seasonField.features },
+              // transform-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: keep the bands for the chosen group ("who")
               transform: [
                 { filter: "datum.properties.who===who && isValid(datum.properties.label)" },
               ],
+              // mark-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: geoshape: one filled shape per contour band
               mark: { type: "geoshape", strokeWidth: 0 },
               // tooltip-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: hover a band: its seasonal lean
+              // encoding-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: colour = seasonal lean band
               encoding: { color: colour, tooltip: [tooltip("properties.label", "Seasonal lean")] },
             },
             // annotation-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: heavier line where winter and summer shares are equal
             {
               data: { values: data.seasonField.features },
+              // transform-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: keep only the equal-shares contour (line 0)
               transform: [{ filter: "datum.properties.who===who && datum.properties.line===0" }],
               mark: {
                 type: "geoshape",
@@ -2405,7 +2458,9 @@
         });
       }
 
+      // idiom-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: ridgeline chart (Vega): one latitude distribution per month
       function theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober(data, availableWidth) {
+        // layout-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: chart size, row height (step) and top gap
         const width = availableWidth - 64,
           height = 470,
           step = 32,
@@ -2420,6 +2475,7 @@
             { name: "ridges", values: ridgeRows },
             { name: "months", values: data.beeMonth },
           ],
+          // scale-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: x scale for latitude 44°S to 10°S; season colour scale
           scales: [
             {
               name: "x",
@@ -2432,6 +2488,7 @@
             // color-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: season colours for the ridges
             { name: "season", type: "ordinal", domain: SEASONS, range: colours.seasons },
           ],
+          // axis-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: latitude axis labelled as "40°S", "35°S"…
           axes: [
             {
               orient: "bottom",
@@ -2511,6 +2568,8 @@
                   },
                 },
                 {
+                  // mark-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: area: one smoothed ridge per month
+                  // encoding-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: x = latitude, ridge height = share of the month's records, colour = season
                   type: "area",
                   from: { data: "series" },
                   sort: { field: "datum.latitude" },
@@ -2611,6 +2670,7 @@
         });
       }
 
+      // idiom-someBirdsComeAndGoOthersStayAllYear: heatmap (Vega-Lite), split into two groups of birds
       function someBirdsComeAndGoOthersStayAllYear(data, availableWidth) {
         const groups = {
           "Share swings with the seasons": [
@@ -2631,9 +2691,12 @@
           order.flatMap((groupName) => groups[groupName].map((name) => [name, groupName])),
         );
         // data-someBirdsComeAndGoOthersStayAllYear: data.speciesMonth, kept to the eight featured birds
+        // calculation-someBirdsComeAndGoOthersStayAllYear: keep the eight birds and tag each with its group
         const rows = data.speciesMonth
           .filter((row) => group.has(row.name))
           .map((row) => ({ ...row, group: group.get(row.name) }));
+        // phone-someBirdsComeAndGoOthersStayAllYear: on narrow screens the bird names are shorter and the text smaller
+        // layout-someBirdsComeAndGoOthersStayAllYear: row height matches the circular heatmap beside it
         const compact = availableWidth < 500,
           width = availableWidth - (compact ? 146 : 190),
           step = Math.round(
@@ -2675,12 +2738,15 @@
           spec: {
             width: Math.max(180, Math.round(width)),
             height: { step },
+            // mark-someBirdsComeAndGoOthersStayAllYear: rect: one cell per bird per month
             mark: { type: "rect", stroke: colours.paper, strokeWidth: 2, cornerRadius: 1 },
+            // encoding-someBirdsComeAndGoOthersStayAllYear: x = month, y = bird, colour = share relative to the year
             encoding: {
               x: {
                 field: "label",
                 type: "ordinal",
                 sort: MONTHS,
+                // axis-someBirdsComeAndGoOthersStayAllYear: month axis; just initials on phones
                 axis: {
                   title: null,
                   labelAngle: 0,
@@ -2691,6 +2757,7 @@
                 field: "name",
                 type: "ordinal",
                 sort: order.flatMap((groupName) => groups[groupName]),
+                // axis-someBirdsComeAndGoOthersStayAllYear: bird name axis
                 axis: {
                   title: null,
                   labelLimit: compact ? 130 : 210,
@@ -2701,6 +2768,7 @@
               color: {
                 field: "relative",
                 type: "quantitative",
+                // scale-someBirdsComeAndGoOthersStayAllYear: log colour scale 0.25, 1, 4, so a quarter and four times look equally strong
                 scale: {
                   type: "log",
                   domain: [0.25, 1, 4],
@@ -2730,7 +2798,9 @@
         };
       }
 
+      // idiom-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: beeswarm (Vega): one dot per threatened species
       function someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful(data, availableWidth) {
+        // phone-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: on phones the padding and dots are smaller
         const small = availableWidth < 560,
           width = availableWidth - (small ? 40 : 70),
           statuses = ["Vulnerable", "Endangered", "Critically Endangered"];
@@ -2738,17 +2808,20 @@
           dotGap = 2 * dotRadius + 1.5;
         const xPosition = (count) => (Math.log10(count) / Math.log10(15000)) * width;
         // data-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: data.threatenedRecords (2024 records per threatened species)
+        // calculation-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: sort the species from most to least recorded
         const all = [...data.threatenedRecords].sort((first, second) => second.count - first.count);
         const top = all[0],
           bottom = all[all.length - 1];
         const rows = [],
           bands = [];
+        // layout-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: stack the threat-level rows one under another; the chart height follows
         let cursor = 0;
         for (const status of statuses) {
           const placed = [];
           for (const bird of all.filter((bird) => bird.status === status)) {
             const dotX = xPosition(bird.count);
             let dotY = 0;
+            // calculation-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: try positions above and below until the dot doesn't overlap another
             const candidates = [
               0,
               ...Array.from({ length: 12 }, (_, index) => [
@@ -2826,11 +2899,13 @@
             { name: "notes", values: notes },
           ],
           scales: [
+            // scale-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: log x scale 1 to 15,000 records
             { name: "x", type: "log", domain: [1, 15000], range: "width", nice: false },
             // color-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: threat level colours (OrRd: Vulnerable, Endangered, Critically Endangered)
             // legend-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: no colour legend: each row is labelled with its threat level
             { name: "color", type: "ordinal", domain: statuses, range: colourRamps.orrd },
           ],
+          // axis-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: records axis 1, 10, 100, 1,000, 10,000 with grid lines
           axes: [
             {
               scale: "x",
@@ -2873,6 +2948,8 @@
               },
             },
             {
+              // mark-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: symbol: one dot per species
+              // encoding-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: x = records, y = place in its threat-level row, colour = threat level
               type: "symbol",
               from: { data: "birds" },
               encode: {
@@ -2939,6 +3016,7 @@
         });
       }
 
+      // projection-all: the same projection written for Vega (used by the cartogram), fitted to the states
       const vegaProjection = {
         name: "projection",
         type: "conicEqualArea",
@@ -2949,10 +3027,12 @@
         size: { signal: "[width,height]" },
       };
 
+      // idiom-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: Dorling cartogram (Vega): one circle per state, placed by a force layout
       function southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords(
         data,
         availableWidth,
       ) {
+        // layout-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: map area and the size of the largest circle
         const width = availableWidth - 16,
           height = dorlingH(availableWidth),
           band = 58,
@@ -2974,8 +3054,10 @@
             },
             { name: "circleBottom", update: "extent(pluck(data('nodes'),'bottom'))[1]" },
           ],
+          // projection-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: the Vega projection, sized to the map area
           projections: [{ ...vegaProjection, size: [width, mapH] }],
           // color-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: record colour scale (Greens)
+          // scale-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: linear colour scale from 300,000 to 2.5 million records
           scales: [
             {
               name: "records",
@@ -3004,8 +3086,10 @@
                 listed: state.listed,
                 longitude: state.longitude,
                 latitude: state.latitude,
+                // calculation-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: circle radius from the number listed, so circle area is proportional
                 r: Math.max(9, Math.sqrt(state.listed / maxListed) * maxRadius),
               })),
+              // transform-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: project each state's centre to pixels
               transform: [
                 {
                   type: "formula",
@@ -3020,6 +3104,7 @@
                 { type: "formula", expr: "datum.tx", as: "x" },
                 { type: "formula", expr: "datum.ty", as: "y" },
                 {
+                  // calculation-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: force layout: collide pushes circles apart, x and y pull each back towards its state
                   type: "force",
                   static: true,
                   iterations: 300,
@@ -3046,6 +3131,7 @@
                   strokeWidth: { value: 0.7 },
                 },
               },
+              // transform-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: draw the state outlines with the projection
               transform: [{ type: "geoshape", projection: "projection" }],
             },
             // annotation-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: size key (nested circles for 85, 50 and 20 listed birds)
@@ -3116,6 +3202,8 @@
               ];
             })(),
             {
+              // mark-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: symbol: one circle per state
+              // encoding-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: position = force layout near the state, size = listed, colour = records
               type: "symbol",
               from: { data: "nodes" },
               encode: {
@@ -3208,7 +3296,9 @@
         });
       }
 
+      // idiom-ninetyOneOf150ListedBirdsAreSharedBetweenStates: UpSet chart (Vega): bars plus a dot matrix of state groups
       function ninetyOneOf150ListedBirdsAreSharedBetweenStates(data, availableWidth) {
+        // layout-ninetyOneOf150ListedBirdsAreSharedBetweenStates: height matches the cartogram beside it; row spacing
         const cartogramRadius = Math.min(availableWidth - 16, dorlingH(availableWidth) - 58) * 0.15;
         const width = availableWidth - 66,
           height = Math.round(dorlingH(availableWidth) + 2 * cartogramRadius + 45),
@@ -3216,6 +3306,7 @@
           base = height - 61 - 7 * step,
           top = base + 38,
           codes = ["WA", "NT", "SA", "QLD", "NSW", "VIC", "TAS", "ACT"];
+        // calculation-ninetyOneOf150ListedBirdsAreSharedBetweenStates: build the bars, the dot matrix and the joining lines from the groups
         const combo = (stateGroup) => ({
           id: stateGroup.id,
           combination: stateGroup.combination,
@@ -3257,6 +3348,7 @@
             { name: "links", values: rules },
             { name: "codes", values: codes.map((code, row) => ({ code, row })) },
           ],
+          // scale-ninetyOneOf150ListedBirdsAreSharedBetweenStates: x = one band per group, y = listed birds
           scales: [
             {
               name: "x",
@@ -3290,6 +3382,8 @@
               },
             },
             {
+              // mark-ninetyOneOf150ListedBirdsAreSharedBetweenStates: rect: one bar per group
+              // encoding-ninetyOneOf150ListedBirdsAreSharedBetweenStates: bar height = birds in exactly that group
               type: "rect",
               from: { data: "bars" },
               encode: {
@@ -3357,6 +3451,7 @@
               },
             },
             {
+              // mark-ninetyOneOf150ListedBirdsAreSharedBetweenStates: rule: line joining the dots of one group
               type: "rule",
               from: { data: "links" },
               encode: {
@@ -3371,6 +3466,8 @@
               },
             },
             {
+              // mark-ninetyOneOf150ListedBirdsAreSharedBetweenStates: symbol: one dot per state per group
+              // encoding-ninetyOneOf150ListedBirdsAreSharedBetweenStates: column = group, row = state, filled if the state is in the group
               type: "symbol",
               from: { data: "matrix" },
               encode: {
