@@ -2486,6 +2486,7 @@
                 },
               },
             },
+            // facet-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: split into 12 rows, one per month (January at the top)
             {
               type: "group",
               from: { facet: { name: "series", data: "ridges", groupby: ["month", "season"] } },
@@ -2650,6 +2651,7 @@
           data: { values: rows },
           spacing: 30,
           resolve: { scale: { y: "independent" } },
+          // facet-someBirdsComeAndGoOthersStayAllYear: split into 2 groups (birds that leave / birds that stay), one heatmap each
           facet: {
             row: {
               field: "group",
