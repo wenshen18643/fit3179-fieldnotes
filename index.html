@@ -1525,6 +1525,7 @@
           description:
             "2024 observation records in one-degree squares. The control outlines the fewest squares that together hold a chosen share of all records.",
           // interaction-halfOfAllRecordsComeFrom12Of720Squares: "cover" setting (share of records), changed by the share buttons
+          // setting-halfOfAllRecordsComeFrom12Of720Squares: share-to-outline setting ("cover"): which share of records to outline, 25 / 50 / 75 / 90%
           params: [{ name: "cover", value: 0.5 }],
           projection,
           layer: [
@@ -1665,6 +1666,7 @@
           description:
             "State and territory choropleth of 2024 records, per 1,000 km² of land or per 1,000 residents. Darker means more records for the chosen denominator.",
           // interaction-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: "measure" setting (area or people), changed by the buttons
+          // setting-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: per-area-or-per-person setting ("measure"): divide records by land area or by residents
           params: [{ name: "measure", value: "area" }],
           projection,
           layer: [
@@ -1993,6 +1995,7 @@
           description:
             "Monthly ranks for the seven species with the most annual records. Rank is among all named species recorded in that month. Each bird has its own colour; the selected bird is drawn thicker and the others fade.",
           // interaction-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: "highlight" setting (a bird or "All birds"), changed by the dropdown
+          // setting-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: bird-to-follow setting ("highlight"): which bird's line is made thick
           params: [{ name: "highlight", value: "Welcome Swallow" }],
           data: { values: data.rankings },
           encoding: base,
@@ -2197,6 +2200,7 @@
           description:
             "Proportional-symbol map of rainbow bee-eater records in two-degree squares for the chosen season, with the opposite season drawn as hollow rings. Circle area represents count, on one fixed scale; moving between seasons, each circle grows or shrinks and changes colour.",
           // interaction-watchTheBeeEatersRangeSlideNorth: "phase" setting (0 to 4), changed by the play and season buttons; "season" follows it
+          // setting-watchTheBeeEatersRangeSlideNorth: season-shown setting ("phase"): which season the map shows, including in-between while animating
           params: [
             { name: "phase", value: 0 },
             { name: "season", expr: `${names}[round(phase)%4]` },
@@ -2386,6 +2390,7 @@
           description:
             "Filled contour map of a smoothed field: for each place, its share of all winter (June–August) records divided by its share of all summer (December–February) records, 2024. Contours fall on a constant interval of one doubling. Toggle between all bird records and rainbow bee-eater records. Grey land has too few records to estimate.",
           // interaction-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: "who" setting (Everyone or Bee-eater), changed by the buttons
+          // setting-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: all-birds-or-bee-eater setting ("who"): whose records the map shows
           params: [{ name: "who", value: "Everyone" }],
           projection,
           layer: [
@@ -3043,6 +3048,7 @@
           description:
             "Dorling cartogram of the eight states and territories. Circle area is proportional to the number of nationally listed threatened bird taxa associated with the jurisdiction; colour lightness shows its 2024 bird records. Select a circle to highlight its combinations in the overlap chart.",
           // interaction-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: "picked" setting: click a circle to select its state, click again or double-click to clear
+          // setting-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: chosen-state setting ("picked"): which state is selected, shared with the UpSet chart
           signals: [
             {
               name: "picked",
@@ -3335,6 +3341,7 @@
             "An UpSet chart of the twelve most common exact state combinations among 150 extant threatened bird taxa listed by DCCEEW in the eight jurisdictions. A connected column is an exact combination of states, and the bar above counts listed taxa in it.",
           padding: { left: 45, right: 10, top: 20, bottom: 18 },
           // interaction-ninetyOneOf150ListedBirdsAreSharedBetweenStates: "picked" setting: click a state code to select it, again to clear
+          // setting-ninetyOneOf150ListedBirdsAreSharedBetweenStates: chosen-state setting ("picked"): which state is selected, shared with the cartogram
           signals: [
             {
               name: "picked",
