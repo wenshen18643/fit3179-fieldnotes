@@ -841,12 +841,6 @@ export const chartBuilders = {
   'shared-responsibility':upset,
 };
 
-export const chartFiles = {
-  'observation-atlas':'grid', 'record-density':'states', 'seasonal-clock':'state-month',
-  'monthly-ranks':'rankings', 'seasonal-footprint':'bee-map', 'latitude-ridges':'bee-ridges',
-  'season-field':'season-field', 'state-circles':'states', 'seasonal-signatures':'species-month',
-  'threatened-swarm':'threatened-records', 'shared-responsibility':'upset',
-};
 // ---- page ----
 // Design pages set window.fieldTheme to restyle chart type and paper.
 const theme=window.fieldTheme||{};
@@ -912,48 +906,11 @@ function fillStats(){
   for(const b of document.querySelectorAll('.segmented [aria-pressed="true"]')){const g=b.closest('.segmented');setting(g.dataset.chart,g.dataset.signal,value(b));}
 }
 
-const tableKeys={
-  'observation-atlas':['latitude','longitude','count'],
-  'record-density':['state','count','area','density','species'],
-  'seasonal-clock':['state','label','count','dailyIndex'],
-  'monthly-ranks':['name','label','rank','count'],
-  'seasonal-footprint':['season','latitude','longitude','count'],
-  'season-field':null,
-  'state-circles':['state','count','listed','population','perResident'],
-  'latitude-ridges':['label','latitude','count','share'],
-  'seasonal-signatures':['name','label','count','per10k','relative'],
-  'threatened-swarm':['name','scientific','status','count'],
-  'shared-responsibility':['combination','count'],
-};
-const names={latitude:'Latitude',longitude:'Longitude',count:'Records',state:'State',area:'Land area (km²)',density:'Records / 1,000 km²',species:'Named species',
-  source:'Source',family:'Family',share:'Share',label:'Month',dailyIndex:'Daily pace / yearly average',name:'Bird',rank:'Rank',season:'Season',
-  per10k:'Per 10,000 records',relative:'Relative share',scientific:'Scientific name',status:'National status (2026)',combination:'Exact state combination',
-  year:'Year',availability:'Coverage',group:'Kind of bird',threatened:'Threatened-bird records',records:'All bird records',per1000:'Threatened per 1,000 records',
-  top:'Most recorded threatened bird',listed:'Listed threatened taxa',population:'Residents (June 2024)',perResident:'Records per 1,000 residents',pct:'Change in share (%)',count2024:'2024 records',count2025:'2025 records',rate2024:'2024 per 10,000',rate2025:'2025 per 10,000',difference:'Share change per 10,000'};
-
-async function showTable(id,button,figure){
-  let wrap=figure.querySelector('.data-table-wrap');
-  if(wrap){const open=wrap.hidden;wrap.hidden=!open;button.setAttribute('aria-expanded',String(open));button.textContent=open?'Hide data table':'View data table';return;}
-  const response=await fetch(`data/processed/${chartFiles[id]}.json`);
-  if(!response.ok)throw new Error('Data table could not be loaded');
-  const rows=await response.json();
-  const keys=tableKeys[id];
-  wrap=document.createElement('div');wrap.className='data-table-wrap';wrap.id=`table-${id}`;wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label',figure.querySelector('h3').textContent+' data table');
-  const table=document.createElement('table');const caption=document.createElement('caption');caption.textContent=figure.querySelector('h3').textContent;table.append(caption);
-  const head=document.createElement('thead'),tr=document.createElement('tr');
-  for(const key of keys){const th=document.createElement('th');th.scope='col';th.textContent=id==='shared-responsibility'&&key==='count'?'Listed bird taxa':names[key]||key;tr.append(th);}
-  head.append(tr);table.append(head);const body=document.createElement('tbody');
-  for(const row of rows){const tr=document.createElement('tr');for(const key of keys){const td=document.createElement('td'),val=row[key];
-    td.textContent=val===null?'Not included':typeof val==='number'?new Intl.NumberFormat('en-AU',{maximumFractionDigits:4}).format(val):String(val??'');tr.append(td);}body.append(tr);}
-  table.append(body);wrap.append(table);figure.append(wrap);button.setAttribute('aria-expanded','true');button.textContent='Hide data table';
-}
-
-function addFigureTools(){
+function labelFigures(){
   let index=0;
   for(const figure of document.querySelectorAll('figure[data-chart]')){
-    const id=figure.dataset.chart;index++;
-    const bar=document.createElement('div');bar.className='figure-tools';
-    // The figure number leads the metadata line above the title, not the tools row.
+    index++;
+    // The figure number leads the metadata line above the title.
     const heading=figure.querySelector('.figure-heading');
     // A page may drop figure numbers (figureLabel returns ''); the period line then shows
     // only when the figure has a date of its own, and disappears when it has none.
@@ -962,14 +919,6 @@ function addFigureTools(){
     const text=[label(index),period?.textContent].filter(Boolean).join(' · ');
     if(text){if(!period){period=document.createElement('span');period.className='figure-period';heading.append(period);}period.textContent=text;}
     else period?.remove();
-    if(tableKeys[id]){
-      const b=document.createElement('button');b.type='button';b.textContent='View data table';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls',`table-${id}`);
-      b.addEventListener('click',()=>showTable(id,b,figure).catch(error=>{b.textContent='Could not load table — retry';errors.push(error.message);}));bar.append(b);
-    }
-    const ext=tableKeys[id]?'csv':'json';
-    const data=document.createElement('a');data.href=`data/processed/${chartFiles[id]}.${ext}`;data.download='';data.textContent=ext.toUpperCase()+' ↓';data.setAttribute('aria-label','Download data for '+figure.querySelector('h3').textContent);bar.append(data);
-    const spec=document.createElement('a');spec.href=`specs/${id}.json`;spec.target='_blank';spec.rel='noopener';spec.textContent='Chart specification ↗';bar.append(spec);
-    // Tools row removed from the page; data and specs stay in the repository.
   }
 }
 
@@ -1107,7 +1056,7 @@ window.addEventListener('scroll',()=>{if(!scrollTick){scrollTick=true;requestAni
 
 try{
   const response=await fetch('data/story.json');if(!response.ok)throw new Error('Chart data unavailable');D=await response.json();
-  fillStats();addFigureTools();
+  fillStats();labelFigures();
   await document.fonts.ready;
   setupControls();
   window.fieldJournal={data:D,views,errors,renderAll:async()=>{for(const id of Object.keys(chartBuilders))await render(id);},render};
