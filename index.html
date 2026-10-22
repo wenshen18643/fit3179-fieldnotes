@@ -1336,6 +1336,7 @@
     </footer>
     <!-- All page code: first the chart builders, then the code that draws them on the page. -->
     <script type="module">
+      // color-all: the named colours every chart uses (ink, paper, green, ochre, rust)
       // Colours used by the charts.
       export const colours = {
         ink: "#24281f",
@@ -1346,6 +1347,7 @@
         ochre: "#ad7926",
         ochreText: "#875c1b",
         rust: "#a74735",
+        // color-all: the four season colours (summer, autumn, winter, spring)
         // One colour per season: summer, autumn, winter, spring.
         seasons: ["#b0782c", "#8c5a86", "#557784", "#58723e"],
         display: "'Fraunces', serif",
@@ -1374,6 +1376,7 @@
         rotate: [-134, 0, 0],
         center: [0, -28],
       };
+      // color-all: ColorBrewer colour ramps used by the colour scales
       // Colour ramps from ColorBrewer: greens for amounts, pink–green for less or more than usual,
       // brown–teal for summer against winter, orange–red for threat level.
       const colourRamps = {
@@ -1484,6 +1487,7 @@
           ...feature,
           ...data.states.find((state) => state.code === feature.properties.code),
         }));
+      // color-all: grey land drawn under every map
       // Grey land drawn underneath a map.
       const baseMap = (data) => ({
         data: { values: data.australia.features },
@@ -1497,6 +1501,7 @@
       // Longitude and latitude fields for placing marks on a map.
       const longitudeField = { field: "longitude", type: "quantitative" },
         latitudeField = { field: "latitude", type: "quantitative" };
+      // annotation-all: haloText, the pale-outlined labels used on maps
       // Text with a pale outline, so labels stay readable on any colour.
       const haloText = (values, mark, encoding = {}) => [
         {
@@ -1532,6 +1537,20 @@
         mark: { type: "geoshape", fill: null, stroke: "#9b9d8d", strokeWidth: 0.6 },
       });
 
+      // Search tags: "annotation-<chart>" marks text, lines and labels added to explain a chart;
+      // "color-<chart>" marks where a chart's colours are set. "-all" tags are shared by every chart.
+      // Chart ids (data-chart in the HTML):
+      //   observation-atlas      Half of all records come from 12 of 720 squares
+      //   record-density         Per square kilometre, Canberra leads...
+      //   seasonal-clock         Every state keeps its own busy season
+      //   seasonal-signatures    Some birds come and go. Others stay all year.
+      //   monthly-ranks          The Welcome Swallow climbs the rankings...
+      //   latitude-ridges        The Rainbow Bee-eater heads north in April...
+      //   seasonal-footprint     Watch the bee-eater's range slide north
+      //   season-field           All winter records lean north too...
+      //   threatened-swarm       Some threatened birds are logged thousands of times...
+      //   state-circles          South Australia lists the most threatened birds...
+      //   shared-responsibility  91 of 150 listed birds are shared between states
       // ---------- Chart builders ----------
       // Each function takes the data and the width available (availableWidth) and returns the chart's
       // Vega or Vega-Lite spec. Each one is named after its chart's heading on the page.
@@ -1546,6 +1565,7 @@
         }));
         const regions = data.gridShapes.outlines;
         const shown = "abs(datum.properties.cover-cover)<0.001";
+        // annotation-observation-atlas: list of city names and positions
         // City names drawn on the map.
         const cities = [
           { text: "Perth", longitude: 115.86, latitude: -31.95 },
@@ -1567,6 +1587,7 @@
               data: { values: cells },
               mark: { type: "geoshape", stroke: colours.paper, strokeWidth: 0.45 },
               encoding: {
+                // color-observation-atlas: squares shaded by record count (Greens, log scale) and its legend
                 color: {
                   field: "properties.count",
                   type: "quantitative",
@@ -1587,6 +1608,7 @@
                 ],
               },
             },
+            // annotation-observation-atlas: pale halo under the outline of the busiest squares
             {
               data: { values: regions },
               transform: [{ filter: shown }],
@@ -1598,6 +1620,7 @@
                 strokeCap: "square",
               },
             },
+            // annotation-observation-atlas: black outline round the fewest squares holding the chosen share
             {
               data: { values: regions },
               transform: [{ filter: shown }],
@@ -1610,6 +1633,7 @@
               },
             },
             outline(data),
+            // annotation-observation-atlas: city name labels
             ...haloText(cities, { fontSize: 11, fontWeight: 600, dy: 15 }),
             ...(small
               ? [
@@ -1620,6 +1644,7 @@
                   },
                 ]
               : []),
+            // annotation-observation-atlas: headline "46 of 720 squares / hold 75% of all records"
             // Headline on the map: how many squares hold the chosen share.
             {
               data: { values: data.grid },
@@ -1638,6 +1663,7 @@
                     fontSize: small ? 20 : headlineSize,
                     fontWeight: 600,
                     font: colours.display,
+                    // color-observation-atlas: headline number in green
                     color: colours.green,
                     x: 0,
                     y: 0,
@@ -1691,6 +1717,7 @@
               transform: [{ calculate: value, as: "value" }],
               mark: { type: "geoshape", stroke: colours.paper, strokeWidth: 1.3 },
               encoding: {
+                // color-record-density: states shaded by records per km² or per resident (Greens, log scale) and its legend
                 color: {
                   field: "value",
                   type: "quantitative",
@@ -1723,6 +1750,7 @@
                 ],
               },
             },
+            // annotation-record-density: pointer line and ring for the tiny ACT
             // The ACT is tiny, so it gets a circle and a pointer out to its label.
             {
               data: {
@@ -1739,6 +1767,7 @@
               mark: { type: "point", size: 110, color: colours.ink, strokeWidth: 1.2 },
               encoding: { longitude: longitudeField, latitude: latitudeField },
             },
+            // annotation-record-density: each state's code and value, written on the map
             ...["halo", "ink"].map((layer) => ({
               data: { values: labels },
               transform: [
@@ -1806,6 +1835,7 @@
               })),
             },
           ],
+          // color-seasonal-clock: pace colour scale, pink (quieter) to green (busier), log scale centred on 1
           scales: [
             {
               name: "pace",
@@ -1827,6 +1857,7 @@
                   endAngle: { field: "a1" },
                   innerRadius: { field: "r0" },
                   outerRadius: { field: "r1" },
+                  // color-seasonal-clock: each cell coloured by its pace
                   fill: { scale: "pace", field: "dailyIndex" },
                   tooltip: {
                     signal:
@@ -1837,6 +1868,7 @@
                 hover: { stroke: { value: colours.ink }, strokeWidth: { value: 1.4 } },
               },
             },
+            // annotation-seasonal-clock: month labels round the dial, with "busiest month" in green
             {
               type: "text",
               from: { data: "months" },
@@ -1855,6 +1887,7 @@
                 },
               },
             },
+            // annotation-seasonal-clock: state code on each ring
             {
               type: "text",
               from: { data: "rings" },
@@ -1870,6 +1903,7 @@
                 },
               },
             },
+            // annotation-seasonal-clock: "2024" in the centre
             {
               type: "text",
               encode: {
@@ -1883,6 +1917,7 @@
                 },
               },
             },
+            // annotation-seasonal-clock: "daily pace" in the centre
             {
               type: "text",
               encode: {
@@ -1897,6 +1932,7 @@
               },
             },
           ],
+          // color-seasonal-clock: colour legend (half / usual / double)
           legends: [
             {
               fill: "pace",
@@ -1933,7 +1969,9 @@
           .sort((first, second) => first.rank - second.rank)
           .map((row) => row.name);
         const order = ["Welcome Swallow", ...birds.filter((bird) => bird !== "Welcome Swallow")];
+        // color-monthly-ranks: one line colour per bird
         const line = ["#d95f02", "#1b9e77", "#7570b3", "#e7298a", "#377eb8", "#a6761d", "#666666"];
+        // color-monthly-ranks: darker shade of each bird's colour, for its name label
         const ink = ["#a84a02", "#137a5c", "#585494", "#b81f6c", "#2a6491", "#7f5a16", "#4d4d4d"];
         const hue = {
           field: "name",
@@ -1947,6 +1985,7 @@
           scale: { domain: order, range: ink },
           legend: null,
         };
+        // color-monthly-ranks: birds other than the one picked fade
         const faded = "highlight!=='All birds'&&datum.name!==highlight";
         const width = availableWidth - (compact ? 118 : 190);
         const picked = "datum.name===highlight";
@@ -2033,6 +2072,7 @@
                 ],
               },
             },
+            // annotation-monthly-ranks: "8th in June" and "2nd from September" notes on the Welcome Swallow line
             // Notes on the Welcome Swallow's line.
             ...[
               { month: 6, rank: 8, text: "8th in June", align: "center", dx: 0, dy: 17 },
@@ -2057,6 +2097,7 @@
                 }),
               ),
             ),
+            // annotation-monthly-ranks: bird names at the end of each line, instead of a legend
             // Bird names at the end of each line, so no separate legend is needed.
             {
               data: { values: end },
@@ -2128,6 +2169,7 @@
             symbolOpacity: 1,
           },
         };
+        // color-seasonal-footprint: circle colour slides between the season colours
         const colour = {
           field: "hue",
           type: "quantitative",
@@ -2172,8 +2214,10 @@
           projection,
           layer: [
             baseMap(data),
+            // color-seasonal-footprint: rings show the opposite season, filled circles the chosen one
             layerFor("phase+2", false),
             layerFor("phase", true),
+            // annotation-seasonal-footprint: dashed 30°S line
             {
               data: {
                 values: [
@@ -2184,6 +2228,7 @@
               mark: { type: "line", strokeDash: [4, 5], color: colours.ink, strokeWidth: 1 },
               encoding: { longitude: longitudeField, latitude: latitudeField },
             },
+            // annotation-seasonal-footprint: "30°S" label (wide screens only)
             ...(small
               ? []
               : [
@@ -2201,6 +2246,7 @@
                     encoding: { longitude: longitudeField, latitude: latitudeField },
                   },
                 ]),
+            // annotation-seasonal-footprint: headline "9% of autumn records lie south of 30°S"
             // Share of records south of 30°S, written on the map.
             {
               data: { values: data.beeMonth },
@@ -2321,6 +2367,7 @@
         ];
         const none = "Too few records to estimate";
         const small = availableWidth < 560;
+        // color-season-field: BrBG bands, brown = summer lean, teal = winter lean, grey = too few records; and its legend
         const colour = {
           field: "properties.label",
           type: "ordinal",
@@ -2349,6 +2396,7 @@
           params: [{ name: "who", value: "Everyone" }],
           projection,
           layer: [
+            // color-season-field: land with too few records, in grey
             {
               data: { values: data.australia.features },
               mark: { type: "geoshape", stroke: "#c7c6b8", strokeWidth: 0.7 },
@@ -2358,6 +2406,7 @@
               },
             },
             {
+              // color-season-field: contour bands coloured by seasonal lean
               data: { values: data.seasonField.features },
               transform: [
                 { filter: "datum.properties.who===who && isValid(datum.properties.label)" },
@@ -2365,6 +2414,7 @@
               mark: { type: "geoshape", strokeWidth: 0 },
               encoding: { color: colour, tooltip: [tooltip("properties.label", "Seasonal lean")] },
             },
+            // annotation-season-field: heavier line where winter and summer shares are equal
             {
               data: { values: data.seasonField.features },
               transform: [{ filter: "datum.properties.who===who && datum.properties.line===0" }],
@@ -2378,6 +2428,7 @@
               },
             },
             outline(data),
+            // annotation-season-field: dashed 30°S line
             {
               data: {
                 values: [
@@ -2388,12 +2439,14 @@
               mark: { type: "line", strokeDash: [4, 5], color: colours.ink, strokeWidth: 1 },
               encoding: { longitude: longitudeField, latitude: latitudeField },
             },
+            // annotation-season-field: "30°S" label
             ...haloText([{ text: "30°S", longitude: 113.2, latitude: -30 }], {
               fontSize: 11,
               dy: -9,
               align: "left",
               color: colours.muted,
             }),
+            // annotation-season-field: "Tropical north" and "Temperate south" labels
             ...haloText(
               [
                 { text: "Tropical north", longitude: 133.5, latitude: -17.5 },
@@ -2430,6 +2483,7 @@
               nice: false,
               zero: false,
             },
+            // color-latitude-ridges: season colours for the ridges
             { name: "season", type: "ordinal", domain: SEASONS, range: colours.seasons },
           ],
           axes: [
@@ -2442,6 +2496,7 @@
             },
           ],
           marks: [
+            // annotation-latitude-ridges: "← South" label
             {
               type: "text",
               encode: {
@@ -2456,6 +2511,7 @@
                 },
               },
             },
+            // annotation-latitude-ridges: "North →" label
             {
               type: "text",
               encode: {
@@ -2470,6 +2526,7 @@
                 },
               },
             },
+            // annotation-latitude-ridges: dashed 30°S line
             {
               type: "rule",
               encode: {
@@ -2515,6 +2572,7 @@
                       x: { scale: "x", field: "latitude" },
                       y: { signal: `${step}-datum.share*${step * 5.2}` },
                       y2: { value: step },
+                      // color-latitude-ridges: ridge fill and outline in the month's season colour
                       fill: { scale: "season", field: "season" },
                       fillOpacity: { value: 0.48 },
                       stroke: { scale: "season", field: "season" },
@@ -2541,6 +2599,7 @@
                 },
               ],
             },
+            // annotation-latitude-ridges: ▲ tick at each month's middle record
             {
               type: "symbol",
               from: { data: "months" },
@@ -2558,6 +2617,7 @@
                 },
               },
             },
+            // annotation-latitude-ridges: ▲ in the key at the bottom
             {
               type: "symbol",
               encode: {
@@ -2570,6 +2630,7 @@
                 },
               },
             },
+            // annotation-latitude-ridges: key text "Middle of the month's records…"
             {
               type: "text",
               encode: {
@@ -2583,6 +2644,7 @@
                 },
               },
             },
+            // annotation-latitude-ridges: month labels
             {
               type: "text",
               from: { data: "months" },
@@ -2648,6 +2710,7 @@
               type: "nominal",
               sort: order,
               title: null,
+              // annotation-seasonal-signatures: group headings ("Share swings with the seasons" / "Share steady all year")
               header: {
                 labelAngle: 0,
                 labelAlign: "left",
@@ -2686,6 +2749,7 @@
                   labelFontSize: compact ? 10 : 12,
                 },
               },
+              // color-seasonal-signatures: cells pink (less than usual) to green (more), log scale centred on 1; and its legend
               color: {
                 field: "relative",
                 type: "quantitative",
@@ -2772,6 +2836,7 @@
         const height = Math.round(cursor);
         const formatCount = (count) => count.toLocaleString("en-AU");
         const rowOf = (bird) => rows.find((row) => row.scientific === bird.scientific);
+        // annotation-threatened-swarm: where the most- and least-recorded bird labels go
         // Labels for the most- and least-recorded birds.
         const notes = [
           {
@@ -2815,6 +2880,7 @@
           ],
           scales: [
             { name: "x", type: "log", domain: [1, 15000], range: "width", nice: false },
+            // color-threatened-swarm: threat level colours (OrRd: Vulnerable, Endangered, Critically Endangered)
             { name: "color", type: "ordinal", domain: statuses, range: colourRamps.orrd },
           ],
           axes: [
@@ -2829,6 +2895,7 @@
             },
           ],
           marks: [
+            // annotation-threatened-swarm: line under each threat-level row
             {
               type: "rule",
               from: { data: "bands" },
@@ -2842,6 +2909,7 @@
                 },
               },
             },
+            // annotation-threatened-swarm: row labels such as "Vulnerable · 30"
             {
               type: "text",
               from: { data: "bands" },
@@ -2863,6 +2931,7 @@
                 enter: {
                   x: { scale: "x", field: "count" },
                   y: { field: "cy" },
+                  // color-threatened-swarm: each dot coloured by threat level
                   fill: { scale: "color", field: "status" },
                   stroke: { value: colours.paper },
                   strokeWidth: { value: 1 },
@@ -2881,6 +2950,7 @@
                 },
               },
             },
+            // annotation-threatened-swarm: leader lines to the labelled birds
             {
               type: "rule",
               from: { data: "notes" },
@@ -2896,6 +2966,7 @@
                 },
               },
             },
+            // annotation-threatened-swarm: most- and least-recorded bird labels
             {
               type: "text",
               from: { data: "notes" },
@@ -2957,6 +3028,7 @@
             { name: "circleBottom", update: "extent(pluck(data('nodes'),'bottom'))[1]" },
           ],
           projections: [{ ...vegaProjection, size: [width, mapH] }],
+          // color-state-circles: record colour scale (Greens)
           scales: [
             {
               name: "records",
@@ -3016,6 +3088,7 @@
             },
           ],
           marks: [
+            // color-state-circles: pale state shapes underneath
             {
               type: "shape",
               from: { data: "states" },
@@ -3028,6 +3101,7 @@
               },
               transform: [{ type: "geoshape", projection: "projection" }],
             },
+            // annotation-state-circles: size key (nested circles for 85, 50 and 20 listed birds)
             // Size key: three nested circles for 85, 50 and 20 listed birds.
             ...(() => {
               const keyX = width < 520 ? 0 : Math.min(240, width - 20) + 60,
@@ -3104,6 +3178,7 @@
                   y: { field: "y" },
                   size: { signal: "4*datum.r*datum.r" },
                   cursor: { value: "pointer" },
+                  // color-state-circles: circle colour = 2024 records; others fade when a state is picked
                   fill: { scale: "records", field: "count" },
                   fillOpacity: { signal: "picked===''||picked===datum.code?1:.35" },
                   stroke: { signal: `picked===datum.code?'${colours.ink}':'${colours.paper}'` },
@@ -3125,6 +3200,7 @@
                     }
                   : {};
               return [
+                // annotation-state-circles: state code on each circle
                 {
                   type: "text",
                   from: { data: "nodes" },
@@ -3144,6 +3220,7 @@
                   },
                 },
                 {
+                  // annotation-state-circles: "72 listed" under each code
                   type: "text",
                   from: { data: "nodes" },
                   interactive: false,
@@ -3163,6 +3240,7 @@
               ];
             }),
           ],
+          // color-state-circles: record colour legend
           legends: [
             {
               fill: "records",
@@ -3213,6 +3291,7 @@
           min: Math.min(...stateGroup.states.map((state) => codes.indexOf(state))),
           max: Math.max(...stateGroup.states.map((state) => codes.indexOf(state))),
         }));
+        // color-shared-responsibility: rule for what stays coloured when a state is picked
         const isHighlighted = "picked==='' || indexof(datum.states,picked)>=0";
         return vegaChart(width, height, {
           description:
@@ -3257,6 +3336,7 @@
                   x2: { signal: "width" },
                   y: { signal: top + "+datum.row*" + step + "-" + step * 0.45 },
                   height: { value: step * 0.9 },
+                  // color-shared-responsibility: pale band behind the picked state's row
                   fill: { value: "#efe3dc" },
                   opacity: { signal: "picked===datum.code?1:0" },
                 },
@@ -3276,9 +3356,11 @@
                       "{'Exactly these states':datum.combination,'Listed bird taxa':datum.count}",
                   },
                 },
+                // color-shared-responsibility: bars rust if they include the picked state, pale otherwise
                 update: { fill: { signal: `${isHighlighted}?'${colours.rust}':'#e6d8d2'` } },
               },
             },
+            // annotation-shared-responsibility: count above each bar
             {
               type: "text",
               from: { data: "bars" },
@@ -3296,6 +3378,7 @@
                 },
               },
             },
+            // annotation-shared-responsibility: italic notes "only SA" and "shared by 6"
             {
               type: "text",
               from: { data: "bars" },
@@ -3335,6 +3418,7 @@
                   y2: { signal: top + "+datum.max*" + step },
                   strokeWidth: { value: 1.5 },
                 },
+                // color-shared-responsibility: lines joining the dots, dark or grey
                 update: { stroke: { signal: `${isHighlighted}?'${colours.ink}':'#aaa699'` } },
               },
             },
@@ -3352,6 +3436,7 @@
                   },
                 },
                 update: {
+                  // color-shared-responsibility: dots pale if not in the group, dark if highlighted, grey otherwise
                   fill: {
                     signal: `!datum.active?'#ebe7dc':${isHighlighted}?'${colours.ink}':'#aaa699'`,
                   },
@@ -3374,6 +3459,7 @@
                 update: {
                   fontSize: { signal: "picked===datum.code?13:11" },
                   fontWeight: { signal: "picked===datum.code?700:400" },
+                  // color-shared-responsibility: picked state's code in rust
                   fill: { signal: `picked===datum.code?'${colours.rust}':'${colours.ink}'` },
                 },
               },
