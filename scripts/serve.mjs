@@ -1,3 +1,5 @@
+// npm start: a small local web server for previewing the site at http://127.0.0.1:4179.
+// Opening index.html directly from disk doesn't work, because the page has to fetch its data.
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,6 +14,7 @@ http.createServer((req,res)=>{
   try{
     const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
     const file=path.resolve(root,'.'+(pathname==='/'?'/index.html':pathname));
+    // Only serve files inside the project folder.
     if(!file.startsWith(root+path.sep)){res.writeHead(403).end('Forbidden');return;}
     fs.stat(file,(err,stat)=>{
       if(err||!stat.isFile()){res.writeHead(404).end('Not found');return;}

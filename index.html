@@ -10,17 +10,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Source+Sans+3:ital,wght@0,400..700;1,400..700&display=swap">
+  <!-- All the page styling. -->
   <style>
-/* Base: type scale, figures, controls and tooltip. The field-guide layout follows below. */
+/* Sizes used across the page: text sizes, line length, spacing. */
 :root {
-  --t-body: 16px;          /* 12 pt on screen, the top of the unit's 11–12 pt band */
-  --t-small: 14px;
+  --t-body: 16px;  --t-small: 14px;
   --t-meta: 12px;
-  --measure: 24em;         /* about 60 characters: these faces set ~2.4 characters per em */
-  --gutter: 24px;
+  --measure: 24em;  --gutter: 24px;
   --max: 1680px;
   --pad: clamp(24px, 3.2vw, 64px);
 }
+/* Basic resets for the whole page. */
 * {box-sizing: border-box}
 html {scroll-behavior: smooth; scroll-padding-top: 88px}
 body {margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body-font); font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility}
@@ -30,14 +30,15 @@ p {text-wrap: pretty}
 a {color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px}
 button, select {font: inherit}
 :focus-visible {outline: 3px solid var(--focus, #875c1b); outline-offset: 3px}
+/* Hidden link for keyboard users that jumps straight to the charts. */
 .skip-link {position: fixed; left: 16px; top: -80px; z-index: 50; background: var(--ink); color: var(--paper); padding: 10px 18px}
 .skip-link:focus {top: 12px}
-/* Margins, not padding, so a rule drawn on a .wrap lines up with the text inside it. */
+/* Page width and the 12-column grid. */
 .wrap {width: min(100% - 2 * var(--pad), var(--max) - 2 * var(--pad)); margin-inline: auto}
 .grid {display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter)}
 .prose, .deck, .byline, .figure-deck, .intro, .sources p {max-width: var(--measure)}
 
-/* ---- figures and charts ---- */
+/* A figure: its heading, short description and chart area. */
 .figure {min-width: 0; position: relative}
 .figure-heading {display: flex; flex-direction: column-reverse; gap: 6px}
 .figure-period {font-family: var(--ui-font); font-size: var(--t-meta); letter-spacing: .02em; color: var(--muted)}
@@ -49,7 +50,7 @@ button, select {font: inherit}
 .chart.is-loading::before {content: 'Drawing…'; position: absolute; left: 0; top: 40%; font-size: var(--t-small); color: var(--muted)}
 .chart-error {padding: 16px; font-size: var(--t-small); background: color-mix(in oklch, var(--paper) 80%, #c9a35f)}
 
-/* ---- controls ---- */
+/* Controls: button groups, dropdowns and the text readout under a chart. */
 .segmented {display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 14px; font-family: var(--ui-font)}
 .segmented-label, .control, .inline-control {font-size: var(--t-meta); color: var(--muted)}
 .segmented-label {margin-right: 4px}
@@ -62,14 +63,12 @@ button, select {font: inherit}
 select {font-size: var(--t-small); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius-select, 2px); padding: 6px 28px 6px 10px; min-height: 34px; cursor: pointer}
 .readout {font-family: var(--ui-font); font-size: var(--t-small); color: var(--accent-text, var(--ink)); margin-top: 10px; min-height: 1.6em}
 
-/* ---- season key (matches the chart hues) ---- */
+/* Season colour key used by the bee-eater charts. */
 .season-key {display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--ui-font); font-size: var(--t-meta); color: var(--muted)}
 .season-key span {display: inline-flex; align-items: center; gap: 7px}
 .season-key i {width: 9px; height: 9px; border-radius: 50%; display: inline-block}
 .summer {background: #b0782c} .autumn {background: #8c5a86} .winter {background: #557784} .spring {background: #58723e}
-/* The bee-eater's season player: a round play button and the year as four steps, which
-   double as the colour key. The chosen step is underlined in its own season colour; while
-   playing, one playhead crosses all four steps instead, in the colour of the season showing. */
+/* The bee-eater map's play button and four season buttons. */
 .season-player {display: flex; align-items: stretch; gap: 14px; margin-top: 16px; font-family: var(--ui-font)}
 .play-btn {flex: none; width: 48px; height: 48px; align-self: center; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer}
 .play-btn:hover {background: color-mix(in oklch, var(--ink) 82%, var(--paper))}
@@ -92,27 +91,26 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .season-track [data-value="Summer"] {--season: #b0782c} .season-track [data-value="Autumn"] {--season: #8c5a86}
 .season-track [data-value="Winter"] {--season: #557784} .season-track [data-value="Spring"] {--season: #58723e}
 
-/* ---- sources ---- */
+/* Sources section: the 'Methods and limitations' dropdown and download links. */
 .method-details summary {cursor: pointer; font-family: var(--ui-font); font-size: var(--t-small); font-weight: 600}
 .source-downloads {display: flex; flex-wrap: wrap; gap: 10px 24px; font-family: var(--ui-font); font-size: var(--t-small)}
 
-/* ---- tooltip ---- */
+/* Tooltips shown when hovering over a chart. */
 #vg-tooltip-element {font-family: var(--ui-font) !important; font-size: 13px !important; background: var(--paper) !important; color: var(--ink) !important; border: 1px solid var(--rule) !important; border-radius: 3px !important; box-shadow: 0 6px 20px rgb(0 0 0 / .08) !important; padding: 10px 14px !important; max-width: 460px}
 #vg-tooltip-element td {white-space: nowrap}
 @media (max-width: 480px) {#vg-tooltip-element {max-width: calc(100vw - 16px)} #vg-tooltip-element td.value {white-space: normal}}
 #vg-tooltip-element td.key {color: var(--muted) !important; padding-right: 10px !important; max-width: none !important}
 
+/* Turn off animation for people who ask for less motion. */
 @media (prefers-reduced-motion: reduce) {html {scroll-behavior: auto} *, *::before, *::after {animation: none !important; transition: none !important}}
 
-/* Field guide. Fraunces for display, Source Sans 3 for reading and charts. Every row is
-   either two figures side by side, sharing one header band so their charts start level,
-   or one figure across the full width: no chart sits beside empty space. */
+/* Colours and fonts. */
 :root {
   --paper: #f7f2e8; --ink: #24281f; --muted: #5d6356; --rule: #d9d1bf;
   --accent-text: #875c1b; --green-text: #315e4c; --focus: #875c1b;
   --display-font: 'Fraunces', Georgia, serif; --body-font: 'Source Sans 3', 'Segoe UI', sans-serif; --ui-font: var(--body-font);
-  --max: 1720px; --measure: 23em; /* Source Sans 3 is narrow: ~2.6 characters per em */
-}
+  --max: 1720px; --measure: 23em;}
+/* Top bar with the site name and chapter links. */
 .top {position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--rule)}
 .top-inner {display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px}
 .mark {font-family: var(--display-font); font-size: 24px; font-weight: 600; text-decoration: none; letter-spacing: -.02em}
@@ -122,7 +120,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .top nav a:hover {color: var(--accent-text)}
 .top .nav-sources {color: var(--muted); font-weight: 400; padding-left: 28px; border-left: 1px solid var(--rule)}
 
-/* ---- cover: 7 + 5 ---- */
+/* Opening section: title and the big numbers. */
 .cover {align-items: center; padding-block: 72px 56px}
 .cover-text {grid-column: 1 / 8}
 .kicker {font-size: var(--t-meta); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text)}
@@ -130,8 +128,6 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .cover h1 em {color: var(--green-text)}
 .deck {font-size: 21px; line-height: 1.5}
 .byline {margin-top: 18px; font-size: var(--t-small); color: var(--muted)}
-/* The four key numbers fill the right of the cover: the record total across the top, the
-   other three beneath it, each on its own rule. */
 .stats {grid-column: 8 / 13; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px var(--gutter)}
 .stats div {display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 8px; padding-top: 16px; border-top: 1px solid var(--ink)}
 .stats div:first-child {grid-column: 1 / -1}
@@ -139,25 +135,21 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .stats dd {font-family: var(--display-font); font-size: clamp(36px, 3.4vw, 60px); line-height: 1}
 .stats div:first-child dd {font-size: clamp(52px, 5.4vw, 100px); color: var(--green-text)}
 
+/* Strip explaining the state abbreviations. */
 .state-key {display: grid; grid-template-columns: repeat(8, auto); justify-content: space-between; gap: 6px 20px; padding: 14px 0; border-block: 1px solid var(--rule); font-size: 13px; color: var(--muted)}
 .state-key b {color: var(--ink)}
-/* The abbreviation key belongs to the first chapter, so that chapter starts close beneath it. */
 .key-band + .chapter {padding-top: 56px}
 
-/* ---- chapters ---- */
+/* Chapters, and how figures are laid out: two side by side, or one full width. */
 .chapter {padding-top: 112px}
 .ch-head {display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: end; padding-top: 22px; border-top: 1px solid var(--ink); margin-bottom: 56px}
 .ch-head h2 {grid-column: 1 / 7; font-family: var(--display-font); font-weight: 400; font-size: clamp(40px, 3.6vw, 64px); line-height: 1.04; letter-spacing: -.02em}
 .ch-head h2 em {color: var(--green-text)}
 .ch-head .intro {grid-column: 7 / 13; color: var(--muted); padding-bottom: 8px}
 .row + .row {margin-top: 96px}
-/* A pair is 6 + 6 on the page grid. Each figure is a two-row subgrid (text, chart), so the
-   taller header sets one band for both and the two charts start on the same line. */
 .row-pair {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: var(--gutter)}
 .row-pair > .figure {display: grid; grid-template-rows: subgrid; grid-row: span 2}
 .figure-text > * + * {margin-top: 10px}
-/* A full-width figure sets its title in the left half and its description and controls
-   in the right, so the heading band is filled rather than leaving half the row empty. */
 .row-full .figure-text {display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start}
 .row-full .figure-text > * {grid-column: 7 / 13; justify-self: start}
 .row-full .figure-text > .figure-heading {grid-column: 1 / 7; grid-row: 1 / span 3}
@@ -169,7 +161,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .figure > .season-key {margin-top: 28px}
 .figure > .season-key + .chart {margin-top: 8px}
 
-/* ---- sources ---- */
+/* Sources section and footer. */
 .sources {padding-top: 120px; padding-bottom: 56px}
 .sources h2 {font-family: var(--display-font); font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: -.02em; padding-top: 24px; border-top: 1px solid var(--ink)}
 .source-columns {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); margin: 28px 0}
@@ -183,6 +175,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .site-footer .mark {font-size: 18px; color: var(--ink)}
 .site-footer a {white-space: nowrap}
 
+/* Tablets: stack paired charts on top of each other. */
 @media (max-width: 1000px) {
   .row-pair {grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: 72px}
   .row-pair > .figure {display: block; grid-row: auto}
@@ -192,6 +185,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
   .ch-head .intro {margin-top: 16px; padding-bottom: 0}
   .state-key {grid-template-columns: repeat(4, auto)}
 }
+/* Phones: hide the chapter links and use one column. */
 @media (max-width: 760px) {
   .top nav {display: none}
   .cover-text, .stats {grid-column: 1 / -1} .stats {margin-top: 40px}
@@ -199,8 +193,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
   .state-key {grid-template-columns: repeat(2, auto); justify-content: start}
   .source-columns, .method-body, .credit {grid-template-columns: 1fr}
 }
-/* On a phone a quarter of the track is too narrow for the dot beside two lines, so the
-   dot sits beside the season name and the months run under both. */
+/* Small phones: squeeze the season buttons to fit. */
 @media (max-width: 520px) {
   .season-player {gap: 10px}
   .season-track button {column-gap: 5px; padding-right: 4px}
@@ -208,15 +201,19 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
   .season-track button span {grid-column: 1 / -1}
 }
   </style>
+  <!-- Hide the 'Fig. 01' numbers above chart titles. -->
   <script>window.fieldTheme={figureLabel:()=>''};</script>
+  <!-- Chart libraries: Vega, Vega-Lite and Vega-Embed, stored in vendor/. -->
   <script defer src="vendor/vega.min.js"></script>
   <script defer src="vendor/vega-lite.min.js"></script>
   <script defer src="vendor/vega-embed.min.js"></script>
 </head>
 <body class="d1">
   <a class="skip-link" href="#atlas">Skip to the charts</a>
+  <!-- Top bar -->
   <header class="top"><div class="wrap top-inner"><a class="mark" href="#top">fieldnotes <span>Australia</span></a><nav aria-label="Chapters"><a href="#atlas">The atlas</a><a href="#seasons">The seasons</a><a href="#conservation">The blind spots</a><a class="nav-sources" href="#sources">Sources</a></nav></div></header>
   <main id="top">
+    <!-- Cover: title, intro and key numbers -->
     <section class="cover wrap grid" aria-labelledby="cover-title">
       <div class="cover-text">
         <p class="kicker">A visual field journal · 2024</p>
@@ -227,9 +224,12 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
       <dl class="stats"><div><dt>bird records in 2024</dt><dd><span data-stat="total">9,575,922</span></dd></div><div><dt>named species</dt><dd><span data-stat="species">760</span></dd></div><div><dt>citizen-science platforms</dt><dd>3</dd></div><div><dt>threatened birds listed</dt><dd><span data-stat="listedTaxa">150</span></dd></div></dl>
     </section>
     <div class="wrap key-band"><p class="state-key" aria-label="State and territory abbreviations"><span><b>WA</b> Western Australia</span><span><b>NT</b> Northern Territory</span><span><b>SA</b> South Australia</span><span><b>QLD</b> Queensland</span><span><b>NSW</b> New South Wales</span><span><b>VIC</b> Victoria</span><span><b>TAS</b> Tasmania</span><span><b>ACT</b> Australian Capital Territory</span></p></div>
+    <!-- Chapter 1: where people record birds -->
     <section id="atlas" class="chapter wrap" aria-labelledby="atlas-title">
       <header class="ch-head"><h2 id="atlas-title">First, look at <em>where we look.</em></h2><p class="intro">Records pile up where people live. Before reading any pattern in the birds, see where the observers are.</p></header>
       <div class="row row-pair">
+      <!-- Each figure has a heading, a short description, any controls, and an empty chart box.
+           data-chart names the chart; the script at the bottom draws it into the box. -->
       <figure class="figure" id="fig-observation-atlas" data-chart="observation-atlas">
         <div class="figure-text"><div class="figure-heading"><h3>Half of all records come from 12 of 720 squares</h3></div>
         <p class="figure-deck">Darker squares hold more records. Pick a share to outline the fewest squares that hold it.</p><div class="segmented" role="group" aria-label="Outline the squares holding this share of records" data-chart="observation-atlas" data-signal="cover"><span class="segmented-label">Squares holding</span><button type="button" data-value="0.25" aria-pressed="false">25%</button><button type="button" data-value="0.5" aria-pressed="true">50%</button><button type="button" data-value="0.75" aria-pressed="false">75%</button><button type="button" data-value="0.9" aria-pressed="false">90%</button></div></div>
@@ -242,6 +242,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
       </figure>
       </div>
     </section>
+    <!-- Chapter 2: how records change through the year -->
     <section id="seasons" class="chapter wrap" aria-labelledby="seasons-title">
       <header class="ch-head"><h2 id="seasons-title">Turn the calendar. <em>The cast changes.</em></h2><p class="intro">Australia is in the southern hemisphere, so its seasons run opposite to the northern calendar: summer is December to February, winter is June to August.</p></header>
       <div class="row row-pair">
@@ -284,6 +285,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
       </figure>
       </div>
     </section>
+    <!-- Chapter 3: threatened birds -->
     <section id="conservation" class="chapter wrap" aria-labelledby="conservation-title">
       <header class="ch-head"><h2 id="conservation-title">Often recorded doesn’t mean <em>safe.</em></h2><p class="intro">The Australian Government lists threatened species by their risk of extinction: Vulnerable, Endangered and Critically Endangered.</p></header>
       <div class="row row-full">
@@ -306,6 +308,7 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
       </figure>
       </div>
     </section>
+    <!-- Sources, method and credits -->
     <section id="sources" class="sources wrap" aria-labelledby="sources-title">
     <h2 id="sources-title">Sources and method</h2>
     <div class="source-columns"><div><h3>Observation data</h3><p><a href="https://www.ala.org.au/">Atlas of Living Australia</a>, hosting <a href="https://collections.ala.org.au/public/show/dr2009">eBird Australia</a>, <a href="https://collections.ala.org.au/public/show/dr359">BirdLife Australia’s Birdata</a> and <a href="https://collections.ala.org.au/public/show/dr1411">iNaturalist Australia</a>. Downloaded 10 September 2026 as complete aggregate counts: records marked present, with a valid location and month, in the eight states and territories.</p></div><div><h3>Conservation, people and land</h3><p><a href="https://data.gov.au/data/dataset/threatened-species-state-lists">DCCEEW Threatened Species State Lists</a>, 28 August 2026. <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population">ABS estimated resident population</a>, June 2024. <a href="https://www.ga.gov.au/scientific-topics/national-location-information/dimensions/area-of-australia-states-and-territories">Geoscience Australia land areas</a>. <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-1-states-provinces/">Natural Earth</a> boundaries. <a href="https://birdlife.org.au/bird-profiles/rainbow-bee-eater/">BirdLife Australia bee-eater profile</a>.</p></div><div><h3>Reading the evidence</h3><p>Counts are database records, not birds or people. One sighting can be logged on more than one platform, and busy places are logged more often. Every map uses an equal-area (Albers) projection, so areas compare fairly.</p></div></div>
@@ -315,34 +318,29 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
   </section>
   </main>
   <footer class="site-footer wrap"><a class="mark" href="#top">fieldnotes</a><span>Lum Wen-Shen · FIT3179 Data Visualisation 2 · Monash University Malaysia · October 2026</span><a href="#top">Back to top ↑</a></footer>
+<!-- All page code: first the chart builders, then the code that draws them on the page. -->
 <script type="module">
-// ---- chart specifications ----
-// Original, data-driven Vega and Vega-Lite specifications for the field journal.
-// Also used by the browser: the published JSONs and live figures share one source.
+// Colours used by the charts.
 export const C = {
   ink: '#24281f', muted: '#5d6356', rule: '#d9d1bf', paper: '#f7f2e8',
-  // Green means record volume everywhere in the journal, ochre means below the
-  // usual volume, and rust is reserved for conservation. Nothing else encodes a
-  // hue, which is why there is no categorical species palette here any more.
   green: '#315e4c', ochre: '#ad7926', ochreText: '#875c1b', rust: '#a74735',
-  // The four seasons are the one categorical scale left. No pair is red against
-  // green: that is the pairing that collapses for the commonest colour blindness,
-  // so autumn is a mauve rather than a rust.
+  // One colour per season: summer, autumn, winter, spring.
   seasons: ['#b0782c', '#8c5a86', '#557784', '#58723e'],
   display: "'Fraunces', serif",
 };
+// Chart font, and the month and season names.
 let FONT = "'Source Sans 3', sans-serif";
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const SEASONS = ['Summer','Autumn','Winter','Spring'];
+// Map projection for every map: equal-area and centred on Australia, so sizes compare fairly.
 const projection = {type:'conicEqualArea', parallels:[-18,-36], rotate:[-134,0,0], center:[0,-28]};
-// Quantitative colour comes from ColorBrewer (colorbrewer2.org), as the unit's colour
-// notes direct: Greens for one-directional volume, OrRd for rising extinction risk, and two
-// diverging schemes kept apart by meaning: BrBG only for summer (brown) against winter (teal),
-// PiYG for quieter (pink) against busier (green) than usual, so no hue means two things.
+// Colour ramps from ColorBrewer: greens for amounts, pink–green for less or more than usual,
+// brown–teal for summer against winter, orange–red for threat level.
 const CB={greens:['#edf8e9','#bae4b3','#74c476','#31a354','#006d2c'],
   brbg:['#a6611a','#dfc27d','#f5f5f5','#80cdc1','#018571'],orrd:['#ef6548','#d7301f','#990000'],
   piyg:['#d01c8b','#f1b6da','#f7f7f7','#b8e186','#4dac26']};
 const lightRamp = CB.greens;
+// Shared chart styling: fonts and how axes and legends look.
 const config = {
   background:'transparent', font:FONT,
   view:{stroke:null},
@@ -352,11 +350,8 @@ const config = {
     labelColor:C.muted,titleColor:C.ink,gradientThickness:9,gradientLength:130,padding:8},
   title:{font:FONT,color:C.ink,fontSize:15,fontWeight:500,anchor:'start'},
 };
-// A page can restyle the charts' type and paper to match its own design. Data colours
-// are never themed: green, ochre, rust and the ramps keep one meaning on every page.
+// Lets the page change the chart font and text colours to match its design.
 export function applyTheme(t={}){
-  // Quote family names: an unquoted name such as Source Sans 3 is not a valid canvas font,
-  // so Vega would measure labels in the wrong face and truncate them.
   const q=(f,fallback)=>f&&!f.includes(',')?`'${f}', ${fallback}`:f;
   t={...t,font:q(t.font,'sans-serif'),display:q(t.display,'serif')};
   if(t.font){FONT=t.font;config.font=t.font;config.title.font=t.font;
@@ -365,47 +360,48 @@ export function applyTheme(t={}){
   if(t.ink){config.axis.titleColor=t.ink;config.legend.titleColor=t.ink;config.title.color=t.ink;}
   if(t.muted){config.axis.labelColor=t.muted;config.legend.labelColor=t.muted;}
 }
+// Start a Vega-Lite (VL) or Vega (V) chart with the shared size and style.
 const VL = (width,height,body) => ({$schema:'https://vega.github.io/schema/vega-lite/v5.json',
   width:Math.max(180,Math.round(width)),height:Math.round(height),padding:8,config,...body});
 const V = (width,height,body) => ({$schema:'https://vega.github.io/schema/vega/v5.json',
   width:Math.max(220,Math.round(width)),height:Math.round(height),padding:8,background:'transparent',
   autosize:{type:'pad',contains:'padding'},config:{text:{font:FONT,fill:C.ink},axis:config.axis,legend:config.legend},...body});
+// Small helpers shared by several charts.
 const tooltip = (field,title,format) => ({field,title,...(format?{format}:{})});
+// Join each state's outline with its numbers.
 const stateData = D => D.australia.features.map(f=>({...f,...D.states.find(s=>s.code===f.properties.code)}));
+// Grey land drawn underneath a map.
 const baseMap = D => ({data:{values:D.australia.features},mark:{type:'geoshape',fill:'#e8e4d9',stroke:'#c7c6b8',strokeWidth:.7}});
+// Chart heights, worked out from the width available.
 const mapH = w => Math.min(620, Math.max(270,w*.78));
-// Paired charts share a height: the heatmap's rows and the UpSet's rows follow the clock
-// and the cartogram beside them, so neither column ends in a gap.
 const clockRadius = w => Math.max(140,Math.min(245,(w-120)/2));
 const dorlingH = w => Math.min(520,Math.max(380,(w-16)*.9));
 
-// Text with a paper halo, so labels stay legible over any fill. Vega-Lite has no
-// halo property, so the same text is drawn twice: a thick paper stroke, then ink.
+// Longitude and latitude fields for placing marks on a map.
 const LON={field:'longitude',type:'quantitative'}, LAT={field:'latitude',type:'quantitative'};
+// Text with a pale outline, so labels stay readable on any colour.
 const haloText=(values,mark,encoding={})=>[
   {data:{values},mark:{type:'text',...mark,stroke:C.paper,strokeWidth:4,strokeJoin:'round'},encoding:{longitude:LON,latitude:LAT,text:{field:'text'},...encoding}},
   {data:{values},mark:{type:'text',color:C.ink,...mark},encoding:{longitude:LON,latitude:LAT,text:{field:'text'},...encoding}},
 ];
+// Thin coastline drawn on top of a map.
 const outline=D=>({data:{values:D.australia.features},mark:{type:'geoshape',fill:null,stroke:'#9b9d8d',strokeWidth:.6}});
 
-function gridMap(D,w) {
-  // Squares are clipped to the coastline in scripts/prepare_data.py, so no square paints
-  // sea; the 94 squares with no land (0.16% of records, mostly boat trips) are not drawn.
+// ---------- Chart builders ----------
+// Each function takes the data (D) and the width available (w) and returns the chart's
+// Vega or Vega-Lite spec. Each one is named after its chart's heading on the page.
+// 
+// Map of Australia in 1° squares, darker = more records. The buttons outline the fewest
+// squares that hold 25, 50, 75 or 90% of all records, and the headline counts them.
+function halfOfAllRecordsComeFrom12Of720Squares(D,w) {
   const byCell=Object.fromEntries(D.grid.map(r=>[r.cell,r]));
   const cells=D.gridShapes.features.map(f=>({...f,properties:byCell[f.properties.cell]}));
-  // A cell is lit when the busier cells before it hold less than the chosen share,
-  // so the lit set is always the fewest squares that reach that share. Lit squares are
-  // outlined as regions (precomputed per share), not square by square.
   const regions=D.gridShapes.outlines;
   const shown='abs(datum.properties.cover-cover)<0.001';
+  // City names drawn on the map.
   const cities=[{text:'Perth',longitude:115.86,latitude:-31.95},{text:'Melbourne',longitude:144.96,latitude:-37.81},
     {text:'Sydney',longitude:151.21,latitude:-33.87},{text:'Brisbane',longitude:153.03,latitude:-27.47},{text:'Adelaide',longitude:138.6,latitude:-34.93}];
-  // Phones get a band above the map for the headline; wider maps carry it in the open sea
-  // west of the Kimberley, sized with the map so it never reaches the coast.
   const small=w<440, f=Math.round(Math.max(18,Math.min(26,w/30)));
-  // The lit squares are marked with an outline only. Fading the rest would change
-  // their lightness, which is the channel carrying record count, so a faded busy
-  // square would read as a quiet one (Munzner ch. 11: outline to keep the coding).
   return VL(w-16,mapH(w)+(small?34:0),{description:'2024 observation records in one-degree squares. The control outlines the fewest squares that together hold a chosen share of all records.',
     params:[{name:'cover',value:.5}],projection,layer:[baseMap(D),{
       data:{values:cells},mark:{type:'geoshape',stroke:C.paper,strokeWidth:.45},
@@ -416,9 +412,8 @@ function gridMap(D,w) {
     {data:{values:regions},transform:[{filter:shown}],mark:{type:'geoshape',fill:null,stroke:C.ink,strokeWidth:1.8,strokeCap:'square'}},
     outline(D),
     ...haloText(cities,{fontSize:11,fontWeight:600,dy:15}),
-    // Phones: an invisible point north of Cape York widens the fit, opening sea for the headline.
     ...(small?[{data:{values:[{longitude:126,latitude:-6.5}]},mark:{type:'point',opacity:0},encoding:{longitude:LON,latitude:LAT}}]:[]),
-    // The running headline on the map itself: how many squares the chosen share needs.
+    // Headline on the map: how many squares hold the chosen share.
     {data:{values:D.grid},transform:[{filter:'datum.cumBefore < cover'},{aggregate:[{op:'count',as:'n'}]},
       {calculate:"datum.n+' of '+"+cells.length+"+' squares'",as:'line1'},
       {calculate:"'hold '+format(cover,'.0%')+' of all records'",as:'line2'}],
@@ -427,9 +422,9 @@ function gridMap(D,w) {
     ]});
 }
 
-function densityMap(D,w) {
-  // Two denominators, one map. Colour is a log scale over the chosen measure's range, and
-  // its legend redraws in that unit; every state also prints its own value.
+// Map of states shaded by records per 1,000 km² or per 1,000 residents, chosen by the
+// buttons. Each state is labelled with its value.
+function perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes(D,w) {
   const small=w<560;
   const t=r=>({areaT:Math.log(r.density/200)/Math.log(150000/200),peopleT:Math.log(r.perResident/200)/Math.log(1400/200)});
   const rows=stateData(D).map(r=>({...r,...t(r)}));
@@ -440,25 +435,23 @@ function densityMap(D,w) {
     layer:[{data:{values:rows},transform:[{calculate:value,as:'value'}],
       mark:{type:'geoshape',stroke:C.paper,strokeWidth:1.3},encoding:{
       color:{field:'value',type:'quantitative',scale:{type:'log',domain:{expr:"measure==='area'?[200,150000]:[200,1400]"},range:lightRamp,clamp:true},
-        // Vega-Lite passes a {signal} title through, so the legend names the chosen unit.
-        legend:{title:{signal:"measure==='area'?'2024 records per 1,000 km² of land':'2024 records per 1,000 residents'"},// The last tick is the scale's end, so the ACT (145,828) and NT (1,266) sit inside it.
+        legend:{title:{signal:"measure==='area'?'2024 records per 1,000 km² of land':'2024 records per 1,000 residents'"},
           values:{signal:"measure==='area'?[200,1000,10000,150000]:[200,500,1000,1400]"},
           orient:small?'bottom':'bottom-left',format:',~s',gradientLength:small?150:200,titleLimit:320}},
       tooltip:[tooltip('state','State / territory'),tooltip('count','2024 records',','),tooltip('density','Per 1,000 km²',',.0f'),tooltip('perResident','Per 1,000 residents',',.0f'),tooltip('population','Residents (ABS, June 2024)',',')],
     }},
-    // ACT is a speck at this scale: ring it and lead its label out to sea.
+    // The ACT is tiny, so it gets a circle and a pointer out to its label.
     {data:{values:[{longitude:149.05,latitude:-35.45},{longitude:153.1,latitude:-35.45}]},mark:{type:'line',color:C.ink,strokeWidth:.8},encoding:{longitude:LON,latitude:LAT}},
     {data:{values:[{longitude:149.05,latitude:-35.45}]},mark:{type:'point',size:110,color:C.ink,strokeWidth:1.2},encoding:{longitude:LON,latitude:LAT}},
-    // Ink on a paper halo reads on every shade, so no label has to switch colour.
     ...['halo','ink'].map(k=>({data:{values:labels},transform:[{calculate:value,as:'value'},{calculate:"datum.code+'|'+format(datum.value,',.0f')",as:'label'}],
       mark:{type:'text',fontSize:small?11:12,fontWeight:600,lineBreak:'|',lineHeight:15,align:{expr:"datum.code==='ACT'?'left':'center'"},color:C.ink,
         ...(k==='halo'?{stroke:C.paper,strokeWidth:3.5,strokeJoin:'round'}:{})},
       encoding:{longitude:LON,latitude:LAT,text:{field:'label'}}}))]});
 }
 
-function seasonalClock(D,w) {
-  // The dial grows with the column. Month labels sit at radius+24, so leave
-  // room for them on both sides rather than capping the dial at a fixed size.
+// Circular heatmap: one ring per state (north inside, south outside), one slice per month.
+// Colour compares each month's records per day with that state's average day.
+function everyStateKeepsItsOwnBusySeason(D,w) {
   const width=w-16, radius=clockRadius(w), H=radius*2+86, cx=width/2,cy=H/2;
   const codes=['NT','QLD','WA','SA','NSW','ACT','VIC','TAS'];
   const inner=38,band=(radius-inner)/8, gap=.64,step=(Math.PI*2-gap)/12;
@@ -468,8 +461,6 @@ function seasonalClock(D,w) {
   return V(width,H,{description:'Circular heatmap of monthly records per day relative to each state’s annual daily average. Rings show states from north to south; sectors follow the calendar.',
     data:[{name:'cells',values:vals},{name:'months',values:labels},
       {name:'rings',values:codes.map((code,i)=>({code,r:inner+(i+.5)*band}))}],
-    // Pace is a ratio, so the diverging scale is logarithmic and symmetric about 1:
-    // half the usual pace sits as far from the midpoint as double it does.
     scales:[{name:'pace',type:'log',domain:[.5,1,2],range:[CB.piyg[0],CB.piyg[2],CB.piyg[4]],clamp:true}],
     marks:[{type:'arc',from:{data:'cells'},encode:{enter:{x:{value:cx},y:{value:cy},startAngle:{field:'a0'},endAngle:{field:'a1'},innerRadius:{field:'r0'},outerRadius:{field:'r1'},
       fill:{scale:'pace',field:'dailyIndex'},tooltip:{signal:"{'State':datum.state,'Month':datum.label,'Records':format(datum.count,','),'Pace vs state’s usual day':format(datum.dailyIndex,'.2f')+'×'}"}},
@@ -484,16 +475,13 @@ function seasonalClock(D,w) {
       encode:{labels:{update:{text:{signal:"datum.value===1?'usual':datum.value<1?'half':'double'"}}}}}]});
 }
 
-function bump(D,w) {
-  // One ColorBrewer Dark2 hue per bird (seven of its eight; the yellow is dropped, it
-  // fails contrast on paper), and each name is printed at its line's end in a darker
-  // shade of the same hue, so the labels are the legend. Following a bird thickens its
-  // line and fades the others; "All birds" shows every line at full strength.
+// Bump chart: each line is one of the seven most-recorded birds, showing its rank each month.
+// The dropdown picks a bird to highlight; the others fade.
+function theWelcomeSwallowClimbsTheRankingsAsSpringArrives(D,w) {
   const compact=w<680;
   const end=D.rankings.filter(r=>r.month===12),max=Math.max(...D.rankings.map(r=>r.rank));
   const birds=[...end].sort((a,b)=>a.rank-b.rank).map(r=>r.name);
   const order=['Welcome Swallow',...birds.filter(b=>b!=='Welcome Swallow')];
-  // Dark2's green is swapped for Set1's blue: green means record volume on every other chart.
   const line=['#d95f02','#1b9e77','#7570b3','#e7298a','#377eb8','#a6761d','#666666'];
   const ink=['#a84a02','#137a5c','#585494','#b81f6c','#2a6491','#7f5a16','#4d4d4d'];
   const hue={field:'name',type:'nominal',scale:{domain:order,range:line},legend:null};
@@ -501,8 +489,6 @@ function bump(D,w) {
   const faded="highlight!=='All birds'&&datum.name!==highlight";
   const width=w-(compact?118:190);
   const picked="datum.name===highlight";
-  // Below about 520px twelve three-letter months overprint each other, so they drop
-  // to initials.
   const monthLabel=w<520?"['J','F','M','A','M','J','J','A','S','O','N','D'][datum.value-1]":"['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value-1]";
   const base={x:{field:'month',type:'ordinal',sort:'ascending',axis:{title:null,labelAngle:0,labelExpr:monthLabel}},
     y:{field:'rank',type:'quantitative',scale:{domain:[1,max],reverse:true,zero:false},axis:{title:'Rank among all birds that month (1 = most records)',titleLimit:400,tickCount:Math.min(max,10),format:'d'}}};
@@ -517,29 +503,22 @@ function bump(D,w) {
       {transform:[{filter:picked}],mark:{type:'line',strokeWidth:3.2,interpolate:'monotone'},encoding:{color:hue,detail:{field:'name'}}},
       {transform:[{filter:picked}],mark:{type:'point',filled:true,size:72,stroke:C.paper,strokeWidth:1.4},
         encoding:{color:hue,tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('rank','Rank'),tooltip('count','Records',',')]}},
-      // The default view's finding, written where it happens: under the June low, and in the
-      // clear band above the flat September–December run, so no grey line passes behind it.
+      // Notes on the Welcome Swallow's line.
       ...[{month:6,rank:8,text:'8th in June',align:'center',dx:0,dy:17},{month:11,rank:2,text:'2nd from September',align:'center',dx:0,dy:-15}].flatMap(a=>
         [{stroke:C.paper,strokeWidth:3.5,strokeJoin:'round'},{}].map(halo=>({data:{values:[a]},transform:[{filter:"highlight==='Welcome Swallow'"}],
           mark:{type:'text',align:a.align,dx:a.dx,dy:a.dy,baseline:'middle',fontSize:12,fontWeight:600,color:ink[0],...halo},
           encoding:{x:base.x,y:base.y,text:{field:'text'}}}))),
+      // Bird names at the end of each line, so no separate legend is needed.
       {data:{values:end},mark:{type:'text',align:'left',dx:13,fontSize:compact?10:11,fontWeight:600},
         encoding:{...base,text:{field:'name'},color:hueText,opacity:{condition:{test:faded,value:.45},value:1},
           fontWeight:{condition:{test:picked,value:700},value:600}}},
     ]});
 }
 
-function beeMap(D,w) {
-  // Proportional symbols overplot past a few dozen per map (Week 8 notes). The 1°
-  // squares gave about 250 circles a season plus as many rings, so they are summed
-  // into 2° squares here, which halves the count. ALA's 1° points are rounded to whole
-  // degrees, so each stands for the cell ±0.5° around it, and each 2° circle is drawn at
-  // the record-weighted mean of its points: on the records, not on an offshore corner.
-  // Each 2° square keeps its four seasonal counts, so the map can move between seasons:
-  // 'phase' runs 0–4 (summer, autumn, winter, spring, back to summer) and every circle's
-  // area and colour are interpolated from the two seasons either side of it. A square is
-  // drawn at the record-weighted mean of its points over the year: on the records, not on
-  // an offshore corner, and still while it grows and shrinks.
+// Bubble map of bee-eater records by season. Records are grouped into 2° squares and
+// circle size = records. Filled circles show the chosen season, rings the opposite one.
+// 'phase' (0 to 4) lets the play button blend smoothly from one season to the next.
+function watchTheBeeEatersRangeSlideNorth(D,w) {
   const bins=new Map();
   for(const r of D.beeMap){
     const lat0=Math.floor(r.latitude/2)*2, lon0=Math.floor(r.longitude/2)*2, k=`${lat0}|${lon0}`;
@@ -550,11 +529,9 @@ function beeMap(D,w) {
   const cells=[...bins.values()].map(({sumLat,sumLon,n,...b})=>({...b,latitude:sumLat/n,longitude:sumLon/n}));
   const max=Math.max(...cells.flatMap(r=>r.c)), small=w<560;
   const names=JSON.stringify(SEASONS).replace(/"/g,"'");
-  // The count at a phase p: a straight blend of the two neighbouring seasons.
+  // Records in a square at any point between two seasons, used for the animation.
   const at=p=>`datum.c[floor(${p})%4]*(1-(${p})+floor(${p}))+datum.c[(floor(${p})+1)%4]*((${p})-floor(${p}))`;
   const size={field:'now',type:'quantitative',scale:{domain:[0,max],range:[0,small?560:980]},legend:{title:'Bee-eater records in a 2° square',orient:'bottom',direction:'horizontal',values:[100,500,1500],symbolFillColor:'#d9bd90',symbolStrokeColor:'#9b6a26',symbolStrokeWidth:1,symbolOpacity:1}};
-  // The season hues on a continuous 0–4 scale, ending on summer again, so a circle's
-  // colour slides from one season to the next as the phase moves.
   const colour={field:'hue',type:'quantitative',scale:{domain:[0,1,2,3,4],range:[...C.seasons,C.seasons[0]],interpolate:'rgb'},legend:null};
   const layerFor=(p,filled)=>({data:{values:cells},transform:[
       {calculate:at(p),as:'now'},{filter:'datum.now>0.5'},{calculate:`(${p})%4`,as:'hue'},
@@ -564,18 +541,13 @@ function beeMap(D,w) {
       tooltip:[tooltip('season','Season'),tooltip('count','Bee-eater records',','),tooltip('square','2° square')]}});
   return VL(w-16,mapH(w),{description:'Proportional-symbol map of rainbow bee-eater records in two-degree squares for the chosen season, with the opposite season drawn as hollow rings. Circle area represents count, on one fixed scale; moving between seasons, each circle grows or shrinks and changes colour.',
     params:[{name:'phase',value:0},{name:'season',expr:`${names}[round(phase)%4]`}],projection,layer:[baseMap(D),
-      // The opposite season stays on the map as hollow rings, so the comparison never
-      // depends on remembering a previous frame.
       layerFor('phase+2',false),layerFor('phase',true),
       {data:{values:[{longitude:112,latitude:-30},{longitude:154,latitude:-30}]},mark:{type:'line',strokeDash:[4,5],color:C.ink,strokeWidth:1},encoding:{longitude:LON,latitude:LAT}},
-      // Phones have no open sea at the line's west end (a coastal circle sits there), so the
-      // annotation names the line instead.
       ...(small?[]:[{data:{values:[{longitude:112.2,latitude:-30}]},mark:{type:'text',align:'left',baseline:'bottom',dy:-4,fontSize:11,color:C.muted,text:'30°S'},encoding:{longitude:LON,latitude:LAT}}]),
-      // The finding, recomputed for whichever season is showing, printed beside the line.
+      // Share of records south of 30°S, written on the map.
       {data:{values:D.beeMonth},transform:[{filter:'datum.season===season'},
         {aggregate:[{op:'sum',field:'southOf30',as:'south'},{op:'sum',field:'count',as:'n'}]},
         {calculate:"format(datum.south/datum.n,'.0%')",as:'share'},{calculate:"'of '+lower(season)+' records'",as:'what'},
-        // In the Great Australian Bight; on a phone the Bight is too narrow, so open sea south-west of WA.
         {calculate:small?'113.4':'125.6',as:'longitude'},{calculate:small?'-36.7':'-33.1',as:'latitude'}],
         layer:[{mark:{type:'text',align:'left',baseline:'top',dy:9,fontSize:small?22:30,fontWeight:500,font:C.display,color:C.ink,stroke:C.paper,strokeWidth:4},encoding:{longitude:LON,latitude:LAT,text:{field:'share'}}},
           {mark:{type:'text',align:'left',baseline:'top',dy:9,fontSize:small?22:30,fontWeight:500,font:C.display,color:C.ink},encoding:{longitude:LON,latitude:LAT,text:{field:'share'}}},
@@ -585,13 +557,10 @@ function beeMap(D,w) {
     ]});
 }
 
-function seasonField(D,w) {
-  // Filled isolines of a smoothed field: where does a place's share of winter records
-  // outweigh its share of summer records? The two seasons keep their own hues, and
-  // lightness carries strength, so the pale middle band means no seasonal lean.
-  // Six bands on a constant interval: every boundary is a doubling of the ratio, and
-  // the middle boundary is equal shares. ColorBrewer BrBG-6, with the two seasons'
-  // hues and lightness carrying how strong the lean is.
+// Contour map: where a place's share of winter records is bigger than its share of summer
+// records (teal) or smaller (brown). Each band is a doubling. Buttons switch between all
+// birds and the bee-eater.
+function allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters(D,w) {
   const bands=['Summer share 4× or more','Summer share 2–4×','Summer share up to 2×','Winter share up to 2×','Winter share 2–4×','Winter share 4× or more'];
   const none='Too few records to estimate';
   const small=w<560;
@@ -602,7 +571,6 @@ function seasonField(D,w) {
         encoding:{color:{datum:none,type:'ordinal',scale:colour.scale},tooltip:{value:none}}},
       {data:{values:D.seasonField.features},transform:[{filter:'datum.properties.who===who && isValid(datum.properties.label)'}],mark:{type:'geoshape',strokeWidth:0},
         encoding:{color:colour,tooltip:[tooltip('properties.label','Seasonal lean')]}},
-      // The equal-share isoline is the index contour: drawn heavier, as the notes ask.
       {data:{values:D.seasonField.features},transform:[{filter:'datum.properties.who===who && datum.properties.line===0'}],mark:{type:'geoshape',fill:null,filled:false,stroke:C.ink,strokeWidth:1.1,strokeOpacity:.7}},
       outline(D),
       {data:{values:[{longitude:112,latitude:-30},{longitude:154,latitude:-30}]},mark:{type:'line',strokeDash:[4,5],color:C.ink,strokeWidth:1},encoding:{longitude:LON,latitude:LAT}},
@@ -611,7 +579,9 @@ function seasonField(D,w) {
     ]});
 }
 
-function ridgeline(D,w) {
+// Ridgeline chart: one ridge per month, showing where along the south–north axis the
+// bee-eater's records fall. The triangle marks the middle record of each month.
+function theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober(D,w) {
   const width=w-64,H=470,step=32, baseline=22;
   const data=D.beeRidges.map(r=>({...r,south:Math.abs(r.latitude)}));
   return V(width,H,{description:'Monthly latitude distributions of rainbow bee-eater records. Each ridge is normalised to that month’s bee-eater records, at one-degree latitude bins. Peaks show where records concentrate, not a bird’s flight path.',
@@ -622,7 +592,6 @@ function ridgeline(D,w) {
     axes:[{orient:'bottom',scale:'x',values:[-40,-35,-30,-25,-20,-15,-10],title:null,
       encode:{labels:{update:{text:{signal:"abs(datum.value)+'°S'"}}}}}],
     marks:[
-      // Direction labels at the two ends of the axis; spaces in an axis title collapse.
       {type:'text',encode:{enter:{x:{value:0},y:{signal:'height+34'},text:{value:'← South'},align:{value:'left'},fontSize:{value:12},fontWeight:{value:500},fill:{value:C.ink}}}},
       {type:'text',encode:{enter:{x:{signal:'width'},y:{signal:'height+34'},text:{value:'North →'},align:{value:'right'},fontSize:{value:12},fontWeight:{value:500},fill:{value:C.ink}}}},{type:'rule',encode:{enter:{x:{scale:'x',value:-30},y:{value:0},y2:{value:H-20},stroke:{value:C.muted},strokeDash:{value:[3,5]},strokeOpacity:{value:.5}}}},
       {type:'group',from:{facet:{name:'series',data:'ridges',groupby:['month','season']}},
@@ -633,7 +602,6 @@ function ridgeline(D,w) {
           {type:'symbol',from:{data:'series'},encode:{enter:{x:{scale:'x',field:'latitude'},y:{signal:`${step}-datum.share*${step*5.2}`},size:{value:90},fill:{value:'transparent'},
             tooltip:{signal:"{'Month':datum.label,'Latitude':abs(datum.latitude)+'°S','Bee-eater records':format(datum.count,','),'Share of month':format(datum.share,'.1%')}"}}}},
         ]},
-      // Half of each month's records lie south of its tick.
       {type:'symbol',from:{data:'months'},encode:{enter:{x:{scale:'x',field:'medianLatitude'},y:{signal:`datum.month*${step}+${baseline}+1`},shape:{value:'triangle-up'},size:{value:46},fill:{value:C.ink},
         tooltip:{signal:"{'Month':datum.label,'Half of records lie south of':abs(datum.medianLatitude)+'°S'}"}}}},
       {type:'symbol',encode:{enter:{x:{value:4},y:{value:H-4},shape:{value:'triangle-up'},size:{value:46},fill:{value:C.ink}}}},
@@ -642,11 +610,10 @@ function ridgeline(D,w) {
     ]});
 }
 
-function seasonMatrix(D,w) {
-  // The flat rows are the control, not filler: grouping them against the birds
-  // that swing makes the contrast the chart's actual claim.
-  // The bee-eater sits with the steady birds: nationally its share hardly moves,
-  // because it relocates within Australia rather than leaving (see the bee-eater maps).
+// Heatmap: eight birds by twelve months. Each cell = the bird's share of that month's records
+// divided by its share across the year, so 1 means a usual month. Rows are split into birds
+// that come and go and birds that stay all year.
+function someBirdsComeAndGoOthersStayAllYear(D,w) {
   const groups={
     'Share swings with the seasons':['White-throated Needletail','Eastern Koel','Red-necked Stint'],
     'Share steady all year':['Rainbow Bee-eater','Silvereye','Welcome Swallow','Superb Fairy-wren','Australian Magpie'],
@@ -654,8 +621,6 @@ function seasonMatrix(D,w) {
   const order=Object.keys(groups);
   const group=new Map(order.flatMap(g=>groups[g].map(name=>[name,g])));
   const rows=D.speciesMonth.filter(r=>group.has(r.name)).map(r=>({...r,group:group.get(r.name)}));
-  // Row height follows the seasonal clock beside it (its SVG is about 2r + 150 px; this
-  // chart's is 8 rows + 209 px), capped so cells are never more than 1.5 times as tall as wide.
   const compact=w<500, width=w-(compact?146:190), step=Math.round(Math.max(26,Math.min(56,width/12*1.5,(2*clockRadius(w)-59)/8)));
   return {$schema:'https://vega.github.io/schema/vega-lite/v5.json',padding:8,config,
     description:'Monthly share of all records for eight featured species, divided by each species’ annual share. One means the species occupies its typical share. Rows are grouped into birds whose share swings through the year and birds recorded steadily all year. This adjusts for total monthly record volume, not survey effort.',
@@ -672,9 +637,9 @@ function seasonMatrix(D,w) {
         tooltip:[tooltip('name','Bird'),tooltip('label','Month'),tooltip('count','Records',','),tooltip('per10k','Per 10,000 bird records','.1f'),tooltip('relative','Relative to annual share','.2f')]}}};
 }
 
-function swarm(D,w) {
-  // Rows are packed as tight as their swarms allow, so the dots read as clusters, not a
-  // sparse strip. The two extremes the headline names are labelled on the chart.
+// Beeswarm: one dot per threatened species, placed by its 2024 record count on a log scale,
+// in rows by threat level. The most- and least-recorded birds are labelled.
+function someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful(D,w) {
   const small=w<560, width=w-(small?40:70), statuses=['Vulnerable','Endangered','Critically Endangered'];
   const r=Math.max(4.5,Math.min(10.5,width/150)), d=2*r+1.5;
   const x=n=>(Math.log10(n)/Math.log10(15000))*width;
@@ -682,6 +647,7 @@ function swarm(D,w) {
   const top=all[0], bottom=all[all.length-1];
   const rows=[], bands=[];
   let cursor=0;
+  // Place the dots: each sits on its count and moves up or down until it doesn't overlap.
   for(const status of statuses){
     const placed=[];
     for(const b of all.filter(b=>b.status===status)){
@@ -692,8 +658,6 @@ function swarm(D,w) {
     }
     const lo=Math.min(...placed.map(p=>p.y))-r, hi=Math.max(...placed.map(p=>p.y))+r;
     const hasTop=placed.some(p=>p.b===top), hasBottom=placed.some(p=>p.b===bottom);
-    // The least-recorded bird is labelled on its own line when the gap to the next dot
-    // allows (wide screens), otherwise beneath the swarm. The most-recorded is labelled above.
     const next=hasBottom?Math.min(...placed.filter(p=>p.b!==bottom).map(p=>p.x)):0;
     const inline=hasBottom&&next-x(bottom.count)>r*2+8+bottom.name.length*6.4+80;
     const centre=cursor+22-lo+(hasTop?26:0);
@@ -704,12 +668,10 @@ function swarm(D,w) {
   const H=Math.round(cursor);
   const fmt=n=>n.toLocaleString('en-AU');
   const rowOf=b=>rows.find(row=>row.scientific===b.scientific);
+  // Labels for the most- and least-recorded birds.
   const notes=[
     {...rowOf(top),text:[top.name,fmt(top.count)+' records'],align:'right',baseline:'bottom',dx:r},
     {...rowOf(bottom),text:bottom.name+' · '+fmt(bottom.count)+' records',align:'left',baseline:'middle'}];
-  // Most-recorded: two lines above its swarm, ending at its dot, with a leader down to it.
-  // Least-recorded: beside its dot when the gap allows, otherwise beneath the swarm with a leader.
-  // Vega stacks a multi-line label downward from its anchor, so the anchor is the first line.
   Object.assign(notes[0],{ny:notes[0].centre+notes[0].lo-6-15,y1:notes[0].centre+notes[0].lo-3,y2:notes[0].cy-r-2});
   Object.assign(notes[1],notes[1].inline?{dx:r+8,ny:notes[1].cy,y1:0,y2:0}
     :{dx:-r,ny:notes[1].centre+notes[1].hi+16,y1:notes[1].cy+r+2,y2:notes[1].centre+notes[1].hi+7});
@@ -733,19 +695,18 @@ function swarm(D,w) {
     ]});
 }
 
+// The same map projection, written for Vega charts.
 const vegaProjection={name:'projection',type:'conicEqualArea',parallels:[-18,-36],rotate:[-134,0,0],center:[0,-28],
   fit:{signal:"data('states')"},size:{signal:'[width,height]'}};
 
-function stateCircles(D,w) {
-  // Dorling cartogram, the textbook form from the Week 9 notes: circle area is one
-  // attribute (threatened bird taxa listed in the jurisdiction) and colour adds a
-  // second (2024 records), so both halves of the headline show with no control.
-  // Records use the journal's green volume ramp, light low and dark high.
+// Dorling cartogram: one circle per state, near its real position. Circle size = threatened
+// birds listed there, colour = 2024 records. Clicking a circle highlights that state in the
+// chart beside it.
+function southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords(D,w) {
   const width=w-16,H=dorlingH(w),band=58,mapH=H-band,R=Math.min(width,mapH)*.15;
   const maxListed=Math.max(...D.states.map(s=>s.listed));
   return V(width,H,{description:'Dorling cartogram of the eight states and territories. Circle area is proportional to the number of nationally listed threatened bird taxa associated with the jurisdiction; colour lightness shows its 2024 bird records. Select a circle to highlight its combinations in the overlap chart.',
     signals:[{name:'picked',value:'',on:[{events:'symbol:click',update:"picked===datum.code?'':datum.code"},{events:'dblclick',update:"''"}]},
-      // Lowest circle edge once the layout settles: the legend sits beneath it.
       {name:'circleBottom',update:"extent(pluck(data('nodes'),'bottom'))[1]"}],
     projections:[{...vegaProjection,size:[width,mapH]}],
     scales:[{name:'records',type:'linear',domain:[300000,2500000],range:[CB.greens[1],CB.greens[4]],clamp:true},
@@ -757,14 +718,12 @@ function stateCircles(D,w) {
           {type:'formula',expr:"scale('projection',[datum.longitude,datum.latitude])[0]",as:'tx'},
           {type:'formula',expr:"scale('projection',[datum.longitude,datum.latitude])[1]",as:'ty'},
           {type:'formula',expr:'datum.tx',as:'x'},{type:'formula',expr:'datum.ty',as:'y'},
+          // Push overlapping circles apart while keeping each close to its state.
           {type:'force',static:true,iterations:300,forces:[{force:'collide',radius:{expr:'datum.r+3'},strength:1,iterations:6},
             {force:'x',x:'tx',strength:.05},{force:'y',y:'ty',strength:.05}]},
-          // Circles may settle below the coast (Tasmania is pushed south by Victoria); clamping them
-          // back up would re-create the overlaps the collide force removed, so only the sides are held.
           {type:'formula',expr:'clamp(datum.x,datum.r+2,width-datum.r-2)',as:'x'},{type:'formula',expr:'datum.y+datum.r',as:'bottom'}]}],
     marks:[{type:'shape',from:{data:'states'},encode:{enter:{fill:{value:'#ebe7dc'},stroke:{value:'#d5d0c1'},strokeWidth:{value:.7}}},transform:[{type:'geoshape',projection:'projection'}]},
-      // Size key: nested circles on the map's own area scale, bottom-aligned, each value led
-      // out to the right. It sits beside the colour legend, or under it on phones.
+      // Size key: three nested circles for 85, 50 and 20 listed birds.
       ...(()=>{const lx=width<520?0:Math.min(240,width-20)+60, top=`max(circleBottom,${mapH})+16+${width<520?58:0}`;
         const base=`${top}+20+${2*R}`;
         return [{type:'text',interactive:false,encode:{update:{x:{value:lx},y:{signal:top},baseline:{value:'top'},text:{value:'Threatened birds listed'},fontSize:{value:11},fontWeight:{value:500},fill:{value:C.ink}}}},
@@ -775,7 +734,6 @@ function stateCircles(D,w) {
         fill:{scale:'records',field:'count'},fillOpacity:{signal:"picked===''||picked===datum.code?1:.35"},
         stroke:{signal:`picked===datum.code?'${C.ink}':'${C.paper}'`},strokeWidth:{signal:'picked===datum.code?2.5:1.5'},
         tooltip:{signal:"{'Jurisdiction':datum.state,'Listed threatened bird taxa':datum.listed,'2024 bird records':format(datum.count,',')}"}}}},
-      // Ink on a paper halo stays readable on every shade of green.
       ...['halo','ink'].flatMap(k=>{const halo=k==='halo'?{stroke:{value:C.paper},strokeWidth:{value:3.5},strokeJoin:{value:'round'}}:{};return [
         {type:'text',from:{data:'nodes'},interactive:false,encode:{update:{x:{field:'x'},y:{signal:'datum.y-6'},text:{field:'code'},align:{value:'center'},baseline:{value:'middle'},
           fontSize:{signal:'datum.r>26?12:11'},fontWeight:{value:700},fill:{value:C.ink},...halo}}},
@@ -786,21 +744,17 @@ function stateCircles(D,w) {
       values:[500000,1000000,1500000,2000000,2500000],format:'.2~s',gradientLength:Math.min(240,width-20),gradientThickness:9}]});
 }
 
-function upset(D,w) {
-  // The cartogram is its height H plus two legends, the size key 2R + 45 px tall.
+// UpSet chart: each column is one exact group of states, shown as joined dots below it.
+// The bar counts the listed birds in exactly that group. Clicking a state code, or a circle
+// in the chart beside it, highlights the columns that include that state.
+function ninetyOneOf150ListedBirdsAreSharedBetweenStates(D,w) {
   const Rd=Math.min(w-16,dorlingH(w)-58)*.15;
   const width=w-66,H=Math.round(dorlingH(w)+2*Rd+45),step=Math.min(38,Math.round(H/16)),base=H-61-7*step,top=base+38,codes=['WA','NT','SA','QLD','NSW','VIC','TAS','ACT'];
-  // Vega stamps every datum it ingests with a tuple id kept on a symbol key, and
-  // object spread copies symbol keys. Spreading one combination into eight row
-  // objects would therefore hand all eight the same id on any redraw after the
-  // first, and Vega would keep only the last, collapsing the matrix onto a single
-  // row. Copy the fields explicitly so each row object is genuinely new.
+  // Copy each row as a new object, so Vega doesn't merge rows that share a hidden id.
   const combo=c=>({id:c.id,combination:c.combination,count:c.count,states:[...c.states]});
   const bars=D.upset.map(combo);
   const matrix=D.upset.flatMap(c=>codes.map((code,row)=>({...combo(c),code,row,active:c.states.includes(code)})));
   const rules=D.upset.map(c=>({...combo(c),min:Math.min(...c.states.map(s=>codes.indexOf(s))),max:Math.max(...c.states.map(s=>codes.indexOf(s)))}));
-  // picked is set from the cartogram beside this chart: columns that include the
-  // selected state keep their colour and the rest fade.
   const on="picked==='' || indexof(datum.states,picked)>=0";
   return V(width,H,{description:'An UpSet chart of the twelve most common exact state combinations among 150 extant threatened bird taxa listed by DCCEEW in the eight jurisdictions. A connected column is an exact combination of states, and the bar above counts listed taxa in it.',
     padding:{left:45,right:10,top:20,bottom:18},
@@ -813,7 +767,6 @@ function upset(D,w) {
       tooltip:{signal:"{'Exactly these states':datum.combination,'Listed bird taxa':datum.count}"}},update:{fill:{signal:`${on}?'${C.rust}':'#e6d8d2'`}}}},
       {type:'text',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id',band:.5},y:{scale:'y',field:'count',offset:-7},text:{field:'count'},align:{value:'center'},fontSize:{value:12},fontWeight:{value:600}},
         update:{fill:{signal:`${on}?'${C.ink}':'${C.muted}'`}}}},
-      // Two worked examples, so the matrix can be decoded from the chart itself.
       {type:'text',from:{data:'bars'},encode:{enter:{x:{scale:'x',field:'id',band:0},y:{scale:'y',field:'count',offset:-24},align:{value:'left'},fontSize:{value:11},fontStyle:{value:'italic'},fill:{value:C.muted},
         text:{signal:"datum.states.length===1&&datum.id===0?'only '+datum.states[0]:datum.id===1?'shared by '+datum.states.length:''"}}}},
       {type:'rule',encode:{enter:{x:{value:0},x2:{signal:'width'},y:{value:base+17},stroke:{value:C.rule}}}},
@@ -827,45 +780,42 @@ function upset(D,w) {
     ]});
 }
 
+// Which builder draws which chart. The names on the left match data-chart in the HTML.
 export const chartBuilders = {
-  'observation-atlas':gridMap,
-  'record-density':densityMap,
-  'seasonal-clock':seasonalClock,
-  'monthly-ranks':bump,
-  'seasonal-footprint':beeMap,
-  'latitude-ridges':ridgeline,
-  'season-field':seasonField,
-  'state-circles':stateCircles,
-  'seasonal-signatures':seasonMatrix,
-  'threatened-swarm':swarm,
-  'shared-responsibility':upset,
+  'observation-atlas':halfOfAllRecordsComeFrom12Of720Squares,
+  'record-density':perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes,
+  'seasonal-clock':everyStateKeepsItsOwnBusySeason,
+  'monthly-ranks':theWelcomeSwallowClimbsTheRankingsAsSpringArrives,
+  'seasonal-footprint':watchTheBeeEatersRangeSlideNorth,
+  'latitude-ridges':theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober,
+  'season-field':allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters,
+  'state-circles':southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords,
+  'seasonal-signatures':someBirdsComeAndGoOthersStayAllYear,
+  'threatened-swarm':someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful,
+  'shared-responsibility':ninetyOneOf150ListedBirdsAreSharedBetweenStates,
 };
 
-// ---- page ----
-// Design pages set window.fieldTheme to restyle chart type and paper.
+// ---------- Page code ----------
+// Apply the page's font and colours to the charts, then wait for the HTML to be ready.
 const theme=window.fieldTheme||{};
 applyTheme(theme);
 
 if(document.readyState==='loading') await new Promise(resolve=>document.addEventListener('DOMContentLoaded',resolve,{once:true}));
 
+// Shared state: drawn charts, their widths, errors, and each chart's current control values.
 const format=new Intl.NumberFormat('en-AU');
 const views=new Map();
 const widths=new Map();
 const errors=[];
-// Current value of every control, per chart, so a redraw (resize, lazy load) keeps
-// what the reader chose.
 const settings={};
 let D;
-// Charts are drawn one at a time. A chart's width is measured when it is drawn,
-// not when it is queued, so a resize arriving mid-queue cannot strand a figure
-// at a stale width. A request made while a chart is drawing re-queues it.
+// Charts are drawn one at a time from this queue.
 const queue=[];
 const forced=new Set();
 const waiting=new Map();
 let draining=false;
 
-// vega-tooltip tries the four corners around the pointer and, if none fits, uses the
-// top-left one, which on a phone can push a wide tooltip off screen. Keep it inside.
+// Keep chart tooltips inside the screen on small phones.
 function keepTooltipOnScreen(tip){
   const clamp=()=>{
     const r=tip.getBoundingClientRect();
@@ -873,7 +823,6 @@ function keepTooltipOnScreen(tip){
     if(Math.abs(x-r.left)>.5)tip.style.left=x+'px';
     if(Math.abs(y-r.top)>.5)tip.style.top=y+'px';
   };
-  // The first position is set in the same task that creates the element, before this runs.
   clamp();
   new MutationObserver(clamp).observe(tip,{attributes:true,attributeFilter:['style']});
 }
@@ -882,6 +831,7 @@ new MutationObserver((_,observer)=>{
   if(tip){observer.disconnect();keepTooltipOnScreen(tip);}
 }).observe(document.body,{childList:true});
 
+// Fill in the numbers written in the text (elements with data-stat) and the bird dropdown.
 function fillStats(){
   const i=D.insights;
   const percent=n=>(100*n).toFixed(1)+'%';
@@ -890,7 +840,6 @@ function fillStats(){
     actDensity:format.format(Math.round(D.states.find(s=>s.code==='ACT').density)),
     topGridShare:percent(i.topGridShare),
     allSummerSouth:Math.round(100*i.allSummerSouth)+'%',allWinterSouth:Math.round(100*i.allWinterSouth)+'%',
-    // Same precision as the all-birds row it sits beside.
     beeSummerSouthRound:Math.round(100*i.beeSummerSouth)+'%',beeWinterSouthRound:Math.round(100*i.beeWinterSouth)+'%',
     saListed:String(D.states.find(s=>s.code==='SA').listed),
     sharedTaxa:String(D.threatenedListings.filter(r=>r.states.length>1).length),
@@ -898,22 +847,17 @@ function fillStats(){
   for(const el of document.querySelectorAll('[data-stat]')) if(values[el.dataset.stat]!==undefined)el.textContent=values[el.dataset.stat];
   const select=document.getElementById('bird-highlight');
   for(const name of new Set(D.rankings.map(r=>r.name))){const option=document.createElement('option');option.textContent=name;select.append(option);}
-  // The bump chart's headline promises a bird changing places, so the page must
-  // land on that bird rather than on an unhighlighted default the reader has to
-  // discover. 'All birds' remains in the list as the reset.
   if([...select.options].some(o=>o.value==='Welcome Swallow')) select.value='Welcome Swallow';
   for(const el of document.querySelectorAll('select[data-signal]'))setting(el.dataset.chart,el.dataset.signal,el.value);
   for(const b of document.querySelectorAll('.segmented [aria-pressed="true"]')){const g=b.closest('.segmented');setting(g.dataset.chart,g.dataset.signal,value(b));}
 }
 
+// Add the small line above each chart title (figure number and date, if any).
 function labelFigures(){
   let index=0;
   for(const figure of document.querySelectorAll('figure[data-chart]')){
     index++;
-    // The figure number leads the metadata line above the title.
     const heading=figure.querySelector('.figure-heading');
-    // A page may drop figure numbers (figureLabel returns ''); the period line then shows
-    // only when the figure has a date of its own, and disappears when it has none.
     const label=theme.figureLabel||(n=>'Fig. '+String(n).padStart(2,'0'));
     let period=heading.querySelector('.figure-period');
     const text=[label(index),period?.textContent].filter(Boolean).join(' · ');
@@ -922,6 +866,8 @@ function labelFigures(){
   }
 }
 
+// Draw one chart: build its spec at the current width, render it with Vega-Embed, and
+// restore the reader's control settings.
 async function draw(id,force){
   const el=document.getElementById(id);if(!el)return;
   const width=Math.floor(el.getBoundingClientRect().width);
@@ -935,7 +881,7 @@ async function draw(id,force){
     views.set(id,result.view);
     for(const [name,v] of Object.entries(settings[id]||{}))result.view.signal(name,v);
     await result.view.runAsync();
-    // The cartogram and the overlap chart share one selected state, in both directions.
+    // The cartogram and the UpSet chart share the selected state: clicking one updates the other.
     const partner={'state-circles':'shared-responsibility','shared-responsibility':'state-circles'}[id];
     if(partner)result.view.addSignalListener('picked',(_,code)=>{
       setting(id,'picked',code);
@@ -947,11 +893,12 @@ async function draw(id,force){
     el.dataset.rendered='true';
   }catch(error){
     errors.push(`${id}: ${error.message}`);
-    el.replaceChildren();const message=document.createElement('p');message.className='chart-error';message.textContent='This figure could not be drawn. The data table and CSV below are still available.';el.append(message);
+    el.replaceChildren();const message=document.createElement('p');message.className='chart-error';message.textContent='This figure could not be drawn.';el.append(message);
     console.error(id,error);
   }finally{el.classList.remove('is-loading');el.removeAttribute('aria-busy');}
 }
 
+// Work through the queue, drawing one chart at a time.
 async function drain(){
   if(draining)return;
   draining=true;
@@ -965,6 +912,7 @@ async function drain(){
   }finally{draining=false;}
 }
 
+// Ask for a chart to be drawn. Returns a promise that resolves once it is drawn.
 function render(id,force=false){
   if(!document.getElementById(id)||!chartBuilders[id])return Promise.resolve();
   if(force)forced.add(id);
@@ -978,6 +926,7 @@ function render(id,force=false){
   return promise;
 }
 
+// Remember a control's value, read a button's value, and send a new value to a chart.
 function setting(chart,name,v){(settings[chart]||(settings[chart]={}))[name]=v;}
 function value(b){const v=b.dataset.value;return isNaN(+v)?v:+v;}
 async function apply(chart,name,v){
@@ -985,6 +934,7 @@ async function apply(chart,name,v){
   await render(chart);const view=views.get(chart);if(view)await view.signal(name,v).runAsync();
 }
 
+// Hook up every button, dropdown and the season player.
 function setupControls(){
   for(const el of document.querySelectorAll('select[data-signal]'))
     el.addEventListener('change',()=>apply(el.dataset.chart,el.dataset.signal,el.value));
@@ -994,11 +944,8 @@ function setupControls(){
       for(const other of group.querySelectorAll('button'))other.setAttribute('aria-pressed',String(other===b));
       apply(group.dataset.chart,group.dataset.signal,value(b));
     });
-  // The bee-eater map's 'phase' signal runs 0–4 through the seasons, and the map
-  // interpolates every circle between them, so changes are animated rather than cut.
-  // Play runs the year once: each season holds, then the circles grow, shrink and change
-  // colour into the next, while a playhead crosses the four steps beneath them. Picking a
-  // season glides there. With reduced motion every change is an instant cut.
+  // Season player for the bee-eater map. 'phase' runs 0 to 4 through the seasons: the play
+  // button runs through the year once, and clicking a season glides to it.
   const play=document.getElementById('season-play'),track=play.nextElementSibling;
   const seasons=[...track.querySelectorAll('button')],head=document.createElement('span');
   head.className='playhead';track.append(head);
@@ -1021,7 +968,6 @@ function setupControls(){
     if(frame)return stop();
     await render('seasonal-footprint');
     play.setAttribute('aria-pressed','true');play.setAttribute('aria-label','Pause');track.classList.add('is-playing');
-    // Four equal segments; each move into the next season is centred on a boundary.
     const total=4*SEG;
     run(total,e=>{
       const ms=e*total;let p=0;
@@ -1037,23 +983,18 @@ function setupControls(){
     if(still.matches)return set(to);
     run(700,e=>set(from+(to-from)*ease(e)));
   });
+  // Redraw charts when their box changes size.
   let timer;
   const resize=new ResizeObserver(()=>{clearTimeout(timer);timer=setTimeout(()=>{for(const id of widths.keys())render(id);},180);});
   for(const el of document.querySelectorAll('.chart'))resize.observe(el);
+  // Only draw a chart when it is about to scroll into view.
   const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){render(entry.target.id);observer.unobserve(entry.target);}},{rootMargin:'700px 0px'});
   for(const el of document.querySelectorAll('.chart')){el.classList.add('is-loading');observer.observe(el);}
+  // Draw every chart before printing.
   window.addEventListener('beforeprint',()=>{for(const id of Object.keys(chartBuilders))render(id);});
 }
 
-let scrollTick=false;
-function updateProgress(){
-  scrollTick=false;
-  const bar=document.querySelector('.reading-progress span');if(!bar)return;
-  const scrollMax=document.documentElement.scrollHeight-window.innerHeight;
-  bar.style.transform=`scaleX(${scrollMax>0?window.scrollY/scrollMax:0})`;
-}
-window.addEventListener('scroll',()=>{if(!scrollTick){scrollTick=true;requestAnimationFrame(updateProgress);}},{passive:true});
-
+// Start: load the chart data, fill in the text, then set up the controls.
 try{
   const response=await fetch('data/story.json');if(!response.ok)throw new Error('Chart data unavailable');D=await response.json();
   fillStats();labelFigures();
