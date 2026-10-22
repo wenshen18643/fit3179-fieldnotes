@@ -1910,11 +1910,11 @@
               type: "gradient",
               direction: "horizontal",
               orient: "none",
-              legendX: centreX - 110,
+              legendX: 8,
               legendY: height - 6,
               title: "Records a day, compared with the state’s own average",
               titleLimit: width - 40,
-              titleAnchor: "middle",
+              titleAnchor: "start",
               values: [0.5, 1, 2],
               gradientLength: 220,
               gradientThickness: 9,
@@ -3371,6 +3371,13 @@
               range: [base, 0],
               zero: true,
             },
+            // color-ninetyOneOf150ListedBirdsAreSharedBetweenStates: legend colours for the dots, dark if the state is in the group, pale if not
+            {
+              name: "dotKey",
+              type: "ordinal",
+              domain: ["state in the group", "state not in the group"],
+              range: [colours.ink, "#ebe7dc"],
+            },
           ],
           marks: [
             {
@@ -3517,6 +3524,15 @@
                   fill: { signal: `picked===datum.code?'${colours.rust}':'${colours.ink}'` },
                 },
               },
+            },
+          ],
+          // legend-ninetyOneOf150ListedBirdsAreSharedBetweenStates: dot legend (in the group / not in it), top right
+          legends: [
+            {
+              fill: "dotKey",
+              orient: "top-right",
+              symbolType: "circle",
+              symbolSize: availableWidth < 500 ? 28 : 54,
             },
           ],
         });

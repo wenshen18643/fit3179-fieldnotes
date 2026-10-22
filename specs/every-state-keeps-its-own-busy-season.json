@@ -1587,11 +1587,11 @@
       "type": "gradient",
       "direction": "horizontal",
       "orient": "none",
-      "legendX": 342,
+      "legendX": 8,
       "legendY": 570,
       "title": "Records a day, compared with the state’s own average",
       "titleLimit": 864,
-      "titleAnchor": "middle",
+      "titleAnchor": "start",
       "values": [
         0.5,
         1,

@@ -1618,6 +1618,18 @@
         0
       ],
       "zero": true
+    },
+    {
+      "name": "dotKey",
+      "type": "ordinal",
+      "domain": [
+        "state in the group",
+        "state not in the group"
+      ],
+      "range": [
+        "#24281f",
+        "#ebe7dc"
+      ]
     }
   ],
   "marks": [
@@ -1870,6 +1882,14 @@
           }
         }
       }
+    }
+  ],
+  "legends": [
+    {
+      "fill": "dotKey",
+      "orient": "top-right",
+      "symbolType": "circle",
+      "symbolSize": 54
     }
   ]
 }
