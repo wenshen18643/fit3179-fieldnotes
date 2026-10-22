@@ -1,9 +1,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chartBuilders } from '../src/chart-specs.js';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+// The chart builders live in index.html; import that block as a module.
+const page=await fs.readFile(path.join(root,'index.html'),'utf8');
+const {chartBuilders}=await import('data:text/javascript,'+encodeURIComponent(page.split('// ---- chart specifications ----')[1].split('// ---- page ----')[0]));
 // Only the tables the eleven charts and the page read; the rest stay in data/processed.
 const tables={australia:'australia',states:'states',grid:'grid',gridShapes:'grid-shapes',stateMonth:'state-month',speciesMonth:'species-month',rankings:'rankings',
   beeMap:'bee-map',beeRidges:'bee-ridges',beeMonth:'bee-month',threatenedRecords:'threatened-records',

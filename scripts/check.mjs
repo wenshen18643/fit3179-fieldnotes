@@ -2,8 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import * as vega from 'vega';
 import {compile} from 'vega-lite';
-import {chartBuilders} from '../src/chart-specs.js';
 
+// The chart builders live in index.html; import that block as a module.
+const page=await fs.readFile('index.html','utf8');
+const {chartBuilders}=await import('data:text/javascript,'+encodeURIComponent(page.split('// ---- chart specifications ----')[1].split('// ---- page ----')[0]));
 const D=JSON.parse(await fs.readFile('data/story.json','utf8'));
 const table=async name=>JSON.parse(await fs.readFile(`data/processed/${name}.json`,'utf8'));
 const [flows,monthly,families,coverage]=await Promise.all(['flows','monthly','families','coverage'].map(table));
