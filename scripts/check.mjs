@@ -28,7 +28,7 @@ for(const width of [920,360])for(const [id,builder] of Object.entries(chartBuild
     assert(!/\b(?:NaN|Infinity)\b/.test(svg),'Invalid plotted coordinate: '+id);
     await fs.writeFile(path.join('artifacts/qa',`${id}-${width}.svg`),svg);
     // Every control must visibly change its chart.
-    const controls={'seasonal-footprint':['season','Winter'],'monthly-ranks':['highlight','Australian Magpie'],
+    const controls={'seasonal-footprint':['phase',2],'monthly-ranks':['highlight','Australian Magpie'],
       'observation-atlas':['cover',.9],'record-density':['measure','people'],'season-field':['who','Bee-eater'],
       'state-circles':['picked','SA'],'shared-responsibility':['picked','SA']};
     if(controls[id]){

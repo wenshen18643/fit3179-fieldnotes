@@ -9197,7 +9197,7 @@
             "signal": "max(circleBottom,462)+16+0+20+138.6-datum.r"
           },
           "size": {
-            "signal": "PI*datum.r*datum.r"
+            "signal": "4*datum.r*datum.r"
           },
           "fill": {
             "value": "transparent"
@@ -9283,7 +9283,7 @@
             "field": "y"
           },
           "size": {
-            "signal": "PI*datum.r*datum.r"
+            "signal": "4*datum.r*datum.r"
           },
           "cursor": {
             "value": "pointer"

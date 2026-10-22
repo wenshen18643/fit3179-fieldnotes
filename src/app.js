@@ -197,19 +197,49 @@ function setupControls(){
       for(const other of group.querySelectorAll('button'))other.setAttribute('aria-pressed',String(other===b));
       apply(group.dataset.chart,group.dataset.signal,value(b));
     });
-  // Play steps the season selector through the year, one season at a time, and
-  // stops on its own. Each step is a discrete frame, so reduced motion is unaffected.
-  const play=document.getElementById('season-play'),seasonSelect=document.getElementById('season-select');
-  let playing=null;
-  const stop=()=>{clearInterval(playing);playing=null;play.textContent='▶ Play the year';play.setAttribute('aria-pressed','false');};
-  play.addEventListener('click',()=>{
-    if(playing)return stop();
-    play.textContent='❚❚ Pause';play.setAttribute('aria-pressed','true');
-    const order=['Summer','Autumn','Winter','Spring'];let i=order.indexOf(seasonSelect.value),steps=0;
-    const step=()=>{i=(i+1)%4;seasonSelect.value=order[i];apply('seasonal-footprint','season',order[i]);if(++steps>=4)stop();};
-    step();playing=setInterval(step,1600);
+  // The bee-eater map's 'phase' signal runs 0–4 through the seasons, and the map
+  // interpolates every circle between them, so changes are animated rather than cut.
+  // Play runs the year once: each season holds, then the circles grow, shrink and change
+  // colour into the next, while a playhead crosses the four steps beneath them. Picking a
+  // season glides there. With reduced motion every change is an instant cut.
+  const play=document.getElementById('season-play'),track=play.nextElementSibling;
+  const seasons=[...track.querySelectorAll('button')],head=document.createElement('span');
+  head.className='playhead';track.append(head);
+  const still=matchMedia('(prefers-reduced-motion: reduce)');
+  const SEG=2600,MOVE=1100,ease=t=>t<.5?4*t*t*t:1-(-2*t+2)**3/2;
+  let phase=0,frame=0;
+  const set=p=>{
+    phase=p;setting('seasonal-footprint','phase',p);
+    const view=views.get('seasonal-footprint');if(view)view.signal('phase',p).run();
+    const on=seasons[Math.round(p)%4];
+    for(const o of seasons)o.setAttribute('aria-pressed',String(o===on));
+  };
+  const stop=()=>{cancelAnimationFrame(frame);frame=0;track.classList.remove('is-playing');play.setAttribute('aria-pressed','false');play.setAttribute('aria-label','Play the year');};
+  const run=(duration,at,done)=>{
+    cancelAnimationFrame(frame);const t0=performance.now();
+    const tick=now=>{const e=Math.min(1,(now-t0)/duration);at(e);frame=e<1?requestAnimationFrame(tick):0;if(e>=1&&done)done();};
+    frame=requestAnimationFrame(tick);
+  };
+  play.addEventListener('click',async()=>{
+    if(frame)return stop();
+    await render('seasonal-footprint');
+    play.setAttribute('aria-pressed','true');play.setAttribute('aria-label','Pause');track.classList.add('is-playing');
+    // Four equal segments; each move into the next season is centred on a boundary.
+    const total=4*SEG;
+    run(total,e=>{
+      const ms=e*total;let p=0;
+      for(let k=1;k<4;k++)p+=still.matches?+(ms>=k*SEG):ease(Math.min(1,Math.max(0,(ms-k*SEG+MOVE/2)/MOVE)));
+      set(p);head.style.width=(e*100)+'%';head.style.background=getComputedStyle(seasons[Math.round(p)%4]).getPropertyValue('--season');
+    },stop);
   });
-  seasonSelect.addEventListener('pointerdown',()=>{if(playing)stop();});
+  track.addEventListener('click',async event=>{
+    const b=event.target.closest('button');if(!b)return;
+    if(frame)stop();
+    await render('seasonal-footprint');
+    const from=phase,to=seasons.indexOf(b);
+    if(still.matches)return set(to);
+    run(700,e=>set(from+(to-from)*ease(e)));
+  });
   let timer;
   const resize=new ResizeObserver(()=>{clearTimeout(timer);timer=setTimeout(()=>{for(const id of widths.keys())render(id);},180);});
   for(const el of document.querySelectorAll('.chart'))resize.observe(el);

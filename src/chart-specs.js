@@ -216,25 +216,38 @@ function beeMap(D,w) {
   // into 2° squares here, which halves the count. ALA's 1° points are rounded to whole
   // degrees, so each stands for the cell ±0.5° around it, and each 2° circle is drawn at
   // the record-weighted mean of its points: on the records, not on an offshore corner.
+  // Each 2° square keeps its four seasonal counts, so the map can move between seasons:
+  // 'phase' runs 0–4 (summer, autumn, winter, spring, back to summer) and every circle's
+  // area and colour are interpolated from the two seasons either side of it. A square is
+  // drawn at the record-weighted mean of its points over the year: on the records, not on
+  // an offshore corner, and still while it grows and shrinks.
   const bins=new Map();
   for(const r of D.beeMap){
-    const lat0=Math.floor(r.latitude/2)*2, lon0=Math.floor(r.longitude/2)*2, k=`${r.season}|${lat0}|${lon0}`;
-    if(!bins.has(k))bins.set(k,{season:r.season,count:0,sumLat:0,sumLon:0,
+    const lat0=Math.floor(r.latitude/2)*2, lon0=Math.floor(r.longitude/2)*2, k=`${lat0}|${lon0}`;
+    if(!bins.has(k))bins.set(k,{c:[0,0,0,0],sumLat:0,sumLon:0,n:0,
       square:`${Math.abs(lat0+1.5)}–${Math.abs(lat0-.5)}°S, ${lon0-.5}–${lon0+1.5}°E`});
-    const b=bins.get(k);b.count+=r.count;b.sumLat+=r.latitude*r.count;b.sumLon+=r.longitude*r.count;
+    const b=bins.get(k);b.c[SEASONS.indexOf(r.season)]+=r.count;b.n+=r.count;b.sumLat+=r.latitude*r.count;b.sumLon+=r.longitude*r.count;
   }
-  const cells=[...bins.values()].map(({sumLat,sumLon,...b})=>({...b,latitude:sumLat/b.count,longitude:sumLon/b.count}));
-  const max=Math.max(...cells.map(r=>r.count)), small=w<560;
-  // The opposite season stays on the map as hollow rings, so the comparison never
-  // depends on remembering a previous frame.
-  const opposite="{'Summer':'Winter','Winter':'Summer','Autumn':'Spring','Spring':'Autumn'}[season]";
-  const size={field:'count',type:'quantitative',scale:{domain:[0,max],range:[0,small?560:980]},legend:{title:'Bee-eater records in a 2° square',orient:'bottom',direction:'horizontal',values:[100,500,1500],symbolFillColor:'#d9bd90',symbolStrokeColor:'#9b6a26',symbolStrokeWidth:1,symbolOpacity:1}};
-  const colour={field:'season',type:'nominal',scale:{domain:SEASONS,range:C.seasons},legend:null};
-  const tip=[tooltip('season','Season'),tooltip('count','Bee-eater records',','),tooltip('square','2° square')];
-  return VL(w-16,mapH(w),{description:'Proportional-symbol map of rainbow bee-eater records in two-degree squares for the chosen season, with the opposite season drawn as hollow rings. Circle area represents count, on one fixed scale.',
-    params:[{name:'season',value:'Summer'}],projection,layer:[baseMap(D),
-      {data:{values:cells},transform:[{filter:`datum.season===${opposite}`}],mark:{type:'circle',filled:false,strokeWidth:1.1,opacity:.75},encoding:{longitude:LON,latitude:LAT,size,color:colour,tooltip:tip}},
-      {data:{values:cells},transform:[{filter:'datum.season===season'}],mark:{type:'circle',opacity:.78,stroke:C.paper,strokeWidth:.6},encoding:{longitude:LON,latitude:LAT,size,color:colour,tooltip:tip}},
+  const cells=[...bins.values()].map(({sumLat,sumLon,n,...b})=>({...b,latitude:sumLat/n,longitude:sumLon/n}));
+  const max=Math.max(...cells.flatMap(r=>r.c)), small=w<560;
+  const names=JSON.stringify(SEASONS).replace(/"/g,"'");
+  // The count at a phase p: a straight blend of the two neighbouring seasons.
+  const at=p=>`datum.c[floor(${p})%4]*(1-(${p})+floor(${p}))+datum.c[(floor(${p})+1)%4]*((${p})-floor(${p}))`;
+  const size={field:'now',type:'quantitative',scale:{domain:[0,max],range:[0,small?560:980]},legend:{title:'Bee-eater records in a 2° square',orient:'bottom',direction:'horizontal',values:[100,500,1500],symbolFillColor:'#d9bd90',symbolStrokeColor:'#9b6a26',symbolStrokeWidth:1,symbolOpacity:1}};
+  // The season hues on a continuous 0–4 scale, ending on summer again, so a circle's
+  // colour slides from one season to the next as the phase moves.
+  const colour={field:'hue',type:'quantitative',scale:{domain:[0,1,2,3,4],range:[...C.seasons,C.seasons[0]],interpolate:'rgb'},legend:null};
+  const layerFor=(p,filled)=>({data:{values:cells},transform:[
+      {calculate:at(p),as:'now'},{filter:'datum.now>0.5'},{calculate:`(${p})%4`,as:'hue'},
+      {calculate:`${names}[round(${p})%4]`,as:'season'},{calculate:'round(datum.now)',as:'count'}],
+    mark:filled?{type:'circle',opacity:.78,stroke:C.paper,strokeWidth:.6}:{type:'circle',filled:false,strokeWidth:1.1,opacity:.75},
+    encoding:{longitude:LON,latitude:LAT,size,color:colour,
+      tooltip:[tooltip('season','Season'),tooltip('count','Bee-eater records',','),tooltip('square','2° square')]}});
+  return VL(w-16,mapH(w),{description:'Proportional-symbol map of rainbow bee-eater records in two-degree squares for the chosen season, with the opposite season drawn as hollow rings. Circle area represents count, on one fixed scale; moving between seasons, each circle grows or shrinks and changes colour.',
+    params:[{name:'phase',value:0},{name:'season',expr:`${names}[round(phase)%4]`}],projection,layer:[baseMap(D),
+      // The opposite season stays on the map as hollow rings, so the comparison never
+      // depends on remembering a previous frame.
+      layerFor('phase+2',false),layerFor('phase',true),
       {data:{values:[{longitude:112,latitude:-30},{longitude:154,latitude:-30}]},mark:{type:'line',strokeDash:[4,5],color:C.ink,strokeWidth:1},encoding:{longitude:LON,latitude:LAT}},
       // Phones have no open sea at the line's west end (a coastal circle sits there), so the
       // annotation names the line instead.
@@ -436,10 +449,10 @@ function stateCircles(D,w) {
       ...(()=>{const lx=width<520?0:Math.min(240,width-20)+60, top=`max(circleBottom,${mapH})+16+${width<520?58:0}`;
         const base=`${top}+20+${2*R}`;
         return [{type:'text',interactive:false,encode:{update:{x:{value:lx},y:{signal:top},baseline:{value:'top'},text:{value:'Threatened birds listed'},fontSize:{value:11},fontWeight:{value:500},fill:{value:C.ink}}}},
-          {type:'symbol',interactive:false,from:{data:'sizeKey'},encode:{update:{x:{value:lx+R},y:{signal:base+'-datum.r'},size:{signal:'PI*datum.r*datum.r'},fill:{value:'transparent'},stroke:{value:'#8a8f80'},strokeWidth:{value:1}}}},
+          {type:'symbol',interactive:false,from:{data:'sizeKey'},encode:{update:{x:{value:lx+R},y:{signal:base+'-datum.r'},size:{signal:'4*datum.r*datum.r'},fill:{value:'transparent'},stroke:{value:'#8a8f80'},strokeWidth:{value:1}}}},
           {type:'rule',interactive:false,from:{data:'sizeKey'},encode:{update:{x:{value:lx+R},x2:{value:lx+2*R+8},y:{signal:base+'-2*datum.r'},stroke:{value:'#b5b2a5'},strokeDash:{value:[2,2]}}}},
           {type:'text',interactive:false,from:{data:'sizeKey'},encode:{update:{x:{value:lx+2*R+12},y:{signal:base+'-2*datum.r'},baseline:{value:'middle'},text:{field:'v'},fontSize:{value:11},fill:{value:C.muted}}}}];})(),
-      {type:'symbol',from:{data:'nodes'},encode:{update:{x:{field:'x'},y:{field:'y'},size:{signal:'PI*datum.r*datum.r'},cursor:{value:'pointer'},
+      {type:'symbol',from:{data:'nodes'},encode:{update:{x:{field:'x'},y:{field:'y'},size:{signal:'4*datum.r*datum.r'},cursor:{value:'pointer'},
         fill:{scale:'records',field:'count'},fillOpacity:{signal:"picked===''||picked===datum.code?1:.35"},
         stroke:{signal:`picked===datum.code?'${C.ink}':'${C.paper}'`},strokeWidth:{signal:'picked===datum.code?2.5:1.5'},
         tooltip:{signal:"{'Jurisdiction':datum.state,'Listed threatened bird taxa':datum.listed,'2024 bird records':format(datum.count,',')}"}}}},

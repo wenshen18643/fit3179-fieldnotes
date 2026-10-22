@@ -54,6 +54,30 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
 .season-key span {display: inline-flex; align-items: center; gap: 7px}
 .season-key i {width: 9px; height: 9px; border-radius: 50%; display: inline-block}
 .summer {background: #b0782c} .autumn {background: #8c5a86} .winter {background: #557784} .spring {background: #58723e}
+/* The bee-eater's season player: a round play button and the year as four steps, which
+   double as the colour key. The chosen step is underlined in its own season colour; while
+   playing, one playhead crosses all four steps instead, in the colour of the season showing. */
+.season-player {display: flex; align-items: stretch; gap: 14px; margin-top: 16px; font-family: var(--ui-font)}
+.play-btn {flex: none; width: 48px; height: 48px; align-self: center; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer}
+.play-btn:hover {background: color-mix(in oklch, var(--ink) 82%, var(--paper))}
+.play-btn svg {width: 16px; height: 16px; fill: currentColor}
+.play-btn .i-pause, .play-btn[aria-pressed="true"] .i-play {display: none}
+.play-btn[aria-pressed="true"] .i-pause {display: inline}
+.season-track {flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--rule)}
+.season-track button {position: relative; display: grid; font: inherit; cursor: pointer; grid-template-columns: auto 1fr; align-items: center; column-gap: 7px; text-align: left; min-height: 48px; padding: 6px 8px 9px 2px; border: 0; border-radius: 0; background: transparent; color: var(--muted)}
+.season-track button:hover {color: var(--ink); border: 0}
+.season-track button i {width: 10px; height: 10px; border-radius: 50%; grid-row: 1 / 3}
+.season-track button b {font-size: var(--t-small); font-weight: 600}
+.season-track button span {grid-column: 2; font-size: var(--t-meta)}
+.season-track button::after {content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--season); opacity: 0}
+.season-track button[aria-pressed="true"] {background: transparent; color: var(--ink)}
+.season-track button[aria-pressed="true"]::after {opacity: 1}
+.season-track {position: relative}
+.season-track .playhead {position: absolute; left: 0; bottom: -1px; height: 3px; width: 0; display: none; pointer-events: none}
+.season-track.is-playing .playhead {display: block}
+.season-track.is-playing button::after {opacity: 0}
+.season-track [data-value="Summer"] {--season: #b0782c} .season-track [data-value="Autumn"] {--season: #8c5a86}
+.season-track [data-value="Winter"] {--season: #557784} .season-track [data-value="Spring"] {--season: #58723e}
 
 /* ---- sources ---- */
 .method-details summary {cursor: pointer; font-family: var(--ui-font); font-size: var(--t-small); font-weight: 600}
@@ -161,4 +185,12 @@ select {font-size: var(--t-small); color: var(--ink); background: var(--paper); 
   .chapter {padding-top: 72px} .row + .row {margin-top: 64px}
   .state-key {grid-template-columns: repeat(2, auto); justify-content: start}
   .source-columns, .method-body, .credit {grid-template-columns: 1fr}
+}
+/* On a phone a quarter of the track is too narrow for the dot beside two lines, so the
+   dot sits beside the season name and the months run under both. */
+@media (max-width: 520px) {
+  .season-player {gap: 10px}
+  .season-track button {column-gap: 5px; padding-right: 4px}
+  .season-track button i {grid-row: 1; width: 9px; height: 9px}
+  .season-track button span {grid-column: 1 / -1}
 }
