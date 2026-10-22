@@ -1,12 +1,8 @@
-// npm run build: makes data/story.json (the one data file the page loads), writes every
-// chart's spec to specs/ as readable JSON, and copies the chart libraries into vendor/.
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-// The chart builders live inside index.html. Cut out the part of its script that
-// runs from the top down to the end of the chartBuilders list, and load it as code.
 const chartCode = (page) => {
   const script = page.split('<script type="module">')[1];
   const end = script.indexOf("};", script.indexOf("export const chartBuilders")) + 2;
@@ -16,7 +12,6 @@ const page = await fs.readFile(path.join(root, "index.html"), "utf8");
 const { chartBuilders } = await import(
   "data:text/javascript," + encodeURIComponent(chartCode(page))
 );
-// Combine the tables the charts use into data/story.json.
 const tables = {
   australia: "australia",
   states: "states",
@@ -42,9 +37,6 @@ const entries = await Promise.all(
 );
 const data = Object.fromEntries(entries);
 await fs.writeFile(path.join(root, "data/story.json"), JSON.stringify(data));
-// Name each spec file after its chart's heading on the page, e.g.
-// "Every state keeps its own busy season" -> every-state-keeps-its-own-busy-season.json.
-// Old files are deleted first, so a changed heading leaves no stale copy.
 const headings = Object.fromEntries(
   [...page.matchAll(/<figure[^>]*data-chart="([^"]+)"[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/g)].map(
     ([, id, heading]) => [
@@ -69,7 +61,6 @@ for (const [id, build] of Object.entries(chartBuilders)) {
     JSON.stringify(spec, null, 2) + "\n",
   );
 }
-// Copy Vega, Vega-Lite and Vega-Embed (and their licences) from node_modules into vendor/.
 await fs.mkdir(path.join(root, "vendor"), { recursive: true });
 for (const [packageName, file, out] of [
   ["vega", "build/vega.min.js", "vega.min.js"],

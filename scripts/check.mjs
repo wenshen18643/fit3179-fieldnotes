@@ -1,11 +1,8 @@
-// npm run check: checks the data adds up, then draws every chart at desktop and phone
-// width and makes sure each one renders and each control changes its chart.
 import fs from "node:fs/promises";
 import path from "node:path";
 import * as vega from "vega";
 import { compile } from "vega-lite";
 
-// Same as build-specs.mjs: load the chart builders out of index.html.
 const chartCode = (page) => {
   const script = page.split('<script type="module">')[1];
   const end = script.indexOf("};", script.indexOf("export const chartBuilders")) + 2;
@@ -20,7 +17,6 @@ const table = async (name) => JSON.parse(await fs.readFile(`data/processed/${nam
 const [flows, monthly, families, coverage] = await Promise.all(
   ["flows", "monthly", "families", "coverage"].map(table),
 );
-// Every breakdown (by state, source, map square, month, family) must sum to the same total.
 const assert = (ok, message) => {
   if (!ok) throw new Error(message);
 };
@@ -54,7 +50,6 @@ assert(
   data.threatenedRecords.every((row) => row.count > 0 && row.scientific.split(" ").length === 2),
   "Conservation join contains unmatched or infraspecific taxa",
 );
-// Draw each chart without a browser and save it as an SVG in artifacts/qa to look at.
 await fs.mkdir("artifacts/qa", { recursive: true });
 let passed = 0;
 for (const width of [920, 360])
@@ -68,7 +63,6 @@ for (const width of [920, 360])
       assert(svg.includes("<svg"), "No SVG output: " + id);
       assert(!/\b(?:NaN|Infinity)\b/.test(svg), "Invalid plotted coordinate: " + id);
       await fs.writeFile(path.join("artifacts/qa", `${id}-${width}.svg`), svg);
-      // Change each chart's control and make sure the picture changes.
       const controls = {
         "seasonal-footprint": ["phase", 2],
         "monthly-ranks": ["highlight", "Australian Magpie"],
