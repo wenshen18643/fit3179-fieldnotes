@@ -25,7 +25,7 @@ npm run build
 npm run check
 ```
 
-Downloads use a local cache to preserve the snapshot and avoid unnecessary API requests. Refresh intentionally by moving the archived files to a dated directory first; a newer snapshot may change the findings and must be reviewed. `scripts/fetch_fonts.py` downloads Fraunces and Source Sans 3 into `assets/fonts/` with their licences and writes `assets/fonts.css`, if you want to self-host them instead of linking Google Fonts.
+Downloads use a local cache to preserve the snapshot and avoid unnecessary API requests. Refresh intentionally by moving the archived files to a dated directory first; a newer snapshot may change the findings and must be reviewed.
 
 ## Files
 
@@ -33,9 +33,8 @@ Downloads use a local cache to preserve the snapshot and avoid unnecessary API r
 - `src/chart-specs.js`: original chart builders; `specs/*.json`: readable exported specifications.
 - `data/provenance.json`: exact data queries and response checksums.
 - `data/raw/`: source snapshots and provider metadata.
-- `data/processed/`: chart tables in JSON and CSV.
+- `data/processed/`: chart tables in JSON.
 - `docs/methodology.md`: definitions, attribution and limitations.
-- `docs/assessment-guide.md`: rationale, rubric mapping and remaining submission work.
 
 ## GitHub Pages — final stage
 

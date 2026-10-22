@@ -62,7 +62,6 @@ def main():
     jobs = [('overview-2024', 2024, ['state', 'month', 'data_resource_uid', 'species', 'family', 'point-1'], None, None)]
     for m in range(1, 13):
         jobs.append((f'month-2024-{m:02}', 2024, ['state', 'species', 'family', 'point-1', 'data_resource_uid'], [f'month:{m}'], None))
-        jobs.append((f'inat-2025-{m:02}', 2025, ['species', 'state'], [f'month:{m}'], 'dr1411'))
         jobs.append((f'bee-eater-2024-{m:02}', 2024, ['point-1', 'state'], [f'month:{m}', 'species:"Merops ornatus"'], None))
     jobs.append(('inat-species-2024', 2024, ['species'], None, 'dr1411'))
     jobs.append(('inat-species-2025', 2025, ['species'], None, 'dr1411'))

@@ -37,13 +37,6 @@ def facet(d, field, include_missing=False):
 
 def save(name, rows):
     (OUT / f'{name}.json').write_text(json.dumps(rows, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
-    if rows and isinstance(rows, list) and isinstance(rows[0], dict):
-        keys = list(dict.fromkeys(k for row in rows for k in row))
-        with (OUT / f'{name}.csv').open('w', newline='', encoding='utf-8') as f:
-            w = csv.DictWriter(f, keys)
-            w.writeheader()
-            for row in rows:
-                w.writerow({k: json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v for k,v in row.items()})
 
 def weighted_median(rows):
     total = sum(n for x,n in rows)
@@ -96,7 +89,6 @@ def main():
                            'area':AREAS[state],'density':round(state_counts[state]/AREAS[state]*1000,3),
                            'species':len(facet(sd,'species')),'longitude':CENTRES[code][0],'latitude':CENTRES[code][1]})
     save('states',state_rows)
-    save('areas',[{'state':s,'area_km2':a,'source':'Geoscience Australia: Area of Australia - States and Territories (2014 table)'} for s,a in AREAS.items()])
     grid=[]
     for cell,count in facet(d,'point-1').items():
         lat,lon=map(float,cell.split(','))
@@ -139,7 +131,6 @@ def main():
     save('state-month',state_month)
     save('species-month',species_month)
     save('rankings',[x for x in species_month if x['topSeven']])
-    save('species',[{'scientific':s,'name':common.get(s,s),'count':n} for s,n in sorted(species.items(),key=lambda t:-t[1])])
 
     # The flows represent source composition, never physical movements of birds.
     flows=[]
@@ -219,19 +210,7 @@ def main():
                                   'availability':'Outside comparison' if not included else ('Recorded' if n else 'No records in snapshot')})
     save('coverage',coverage)
 
-    i24=facet(raw('inat-species-2024'),'species')
-    i25=facet(raw('inat-species-2025'),'species')
     t24=raw('inat-species-2024')['totalRecords']; t25=raw('inat-species-2025')['totalRecords']
-    recent=[]
-    for s in common:
-        # Every featured bird with at least 500 iNaturalist records in 2024. No further
-        # selection, so the chart cannot favour the birds that happened to move most.
-        if i24.get(s,0)>=500 and s in i25:
-            a=i24[s]/t24*10000;b=i25[s]/t25*10000
-            recent.append({'scientific':s,'name':common[s],'count2024':i24[s],'count2025':i25[s],
-                           'rate2024':round(a,4),'rate2025':round(b,4),'difference':round(b-a,4),
-                           'pct':round(100*(b-a)/a,2)})
-    save('recent',sorted(recent,key=lambda r:-r['pct']))
 
     def season_stats(season):
         a=[r for r in bee_month if r['season']==season]
