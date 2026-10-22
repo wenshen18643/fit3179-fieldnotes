@@ -34,10 +34,10 @@ Downloads use a local cache to preserve the snapshot and avoid unnecessary API r
 - `data/provenance.json`: exact data queries and response checksums.
 - `data/raw/`: source snapshots and provider metadata.
 - `data/processed/`: chart tables in JSON.
-- `docs/methodology.md`: definitions, attribution and limitations.
+- `methodology.md`: definitions, attribution and limitations.
 
 ## GitHub Pages — final stage
 
-The live static site is published at https://wenshen18643.github.io/fit3179-fieldnotes/. The site uses relative URLs and is published from the repository root with `index.html`, `assets/`, `vendor/`, `src/`, `data/`, `specs/`, and `docs/` available.
+The live static site is published at https://wenshen18643.github.io/fit3179-fieldnotes/. The site uses relative URLs and is published from the repository root with `index.html`, `assets/`, `vendor/`, `src/`, `data/`, `specs/` and `methodology.md` available.
 
 Source data retain their own licences, including non-commercial conditions. This is an educational visualisation, not a relicensed dataset. See the methodology and archived provider metadata.
