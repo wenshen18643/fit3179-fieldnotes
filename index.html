@@ -893,9 +893,9 @@
                 <h3>Half of all records come from 12 of 720 squares</h3>
               </div>
               <p class="figure-deck">
-                Each 1° square is about 100 km across. Darker squares hold more records; each
-                labelled step in the key is 100 times the last. Pick a share to outline the fewest
-                squares that hold it.
+                The 720 squares are the 1° squares (about 100 km across) with any records; grey
+                land has none. Darker squares hold more records; each labelled step in the key is
+                100 times the last. Pick a share to outline the fewest squares that hold it.
               </p>
               <p class="figure-insight">
                 They sit mostly around the capital cities. A typical square logs about
@@ -933,8 +933,8 @@
                 </h3>
               </div>
               <p class="figure-deck">
-                Darker states log more records for the chosen measure; each equal step darker
-                multiplies the rate. Each state is labelled with its value.
+                Darker states log more records for the chosen measure, on a log scale: each step
+                darker multiplies the rate by the same factor. Each state is labelled with its value.
               </p>
               <p class="figure-insight">
                 Dividing by land favours small, crowded places: the ACT logs over 500 times Western
@@ -1132,14 +1132,14 @@
               </div>
               <p class="figure-deck">
                 A smoothed estimate: blue places hold a bigger share of winter records than of
-                summer ones; brown, the reverse. Each darker step doubles the lean, and the dark
+                summer ones; gold, the reverse. Each darker step doubles the lean, and the dark
                 line marks equal shares.
               </p>
               <p class="figure-insight">
                 For all birds the north turns deep blue, likely because winter is its dry season,
                 when birdwatchers travel north. The south stays pale and still holds
                 <span data-stat="allWinterSouth">58%</span> of winter records. Switch to the
-                bee-eater: the south turns deep brown, with
+                bee-eater: the south turns deep gold, with
                 <span data-stat="beeWinterSouthRound">1%</span> of its winter records.
               </p>
               <!-- interaction-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: buttons All birds / Rainbow Bee-eater set the chart's "who" setting -->
@@ -2550,14 +2550,14 @@
         const none = "Too few records to estimate";
         // phone-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: on phones the legend has two columns and the labels are smaller
         const small = availableWidth < 560;
-        // color-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: diverging bands in the season hues, brown-gold = summer lean, blue = winter lean, grey = too few records; and its legend
+        // color-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: diverging bands in the season hues, gold = summer lean (its darkest step stays closer to summer's gold than to autumn's brown), blue = winter lean, grey = too few records; and its legend
         const colour = {
           field: "properties.label",
           type: "ordinal",
           // scale-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: ordinal colour scale: one colour per band
           scale: {
             domain: [...bands, none],
-            range: ["#8c510a", "#d8b365", "#f6e8c3", "#d4e4ee", "#86abc2", "#355f78", "#d6d2c6"],
+            range: ["#9a6d10", "#d8b365", "#f6e8c3", "#d4e4ee", "#86abc2", "#355f78", "#d6d2c6"],
           },
           // legend-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: colour legend for the bands
           legend: {
@@ -2730,7 +2730,8 @@
               legendX: -38,
               legendY: height + (availableWidth < 640 ? 118 : 98),
               symbolFillColor: colours.ink,
-              symbolStrokeColor: colours.ink,
+              symbolStrokeColor: colours.paper,
+              symbolStrokeWidth: 1,
               symbolSize: 46,
               labelLimit: 420,
             },
@@ -2864,6 +2865,9 @@
                   shape: { value: "triangle-up" },
                   size: { value: 46 },
                   fill: { value: colours.ink },
+                  // color-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: a thin paper outline keeps the triangle visible on the dark autumn and winter ridges
+                  stroke: { value: colours.paper },
+                  strokeWidth: { value: 1 },
                   // tooltip-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: hover a ▲: latitude that half the month's records lie south of
                   tooltip: {
                     signal:
@@ -4043,7 +4047,7 @@
               const readout = document.getElementById("picked-state");
               if (readout)
                 readout.textContent = code
-                  ? `Showing only the combinations that include ${code}. Select ${code} again to clear.`
+                  ? `Highlighting the combinations that include ${code}. Select ${code} again to clear.`
                   : "Select a circle or a state code to light up the combinations that include it.";
               if ((settings[partner] || {}).picked === code) return;
               setting(partner, "picked", code);

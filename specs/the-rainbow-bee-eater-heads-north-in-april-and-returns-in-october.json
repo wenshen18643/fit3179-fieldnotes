@@ -233,7 +233,8 @@
       "legendX": -38,
       "legendY": 574,
       "symbolFillColor": "#24281f",
-      "symbolStrokeColor": "#24281f",
+      "symbolStrokeColor": "#f7f2e8",
+      "symbolStrokeWidth": 1,
       "symbolSize": 46,
       "labelLimit": 420
     }
@@ -487,6 +488,12 @@
           },
           "fill": {
             "value": "#24281f"
+          },
+          "stroke": {
+            "value": "#f7f2e8"
+          },
+          "strokeWidth": {
+            "value": 1
           },
           "tooltip": {
             "signal": "{'Month':datum.label,'Half of records lie south of':abs(datum.medianLatitude)+'°S'}"
