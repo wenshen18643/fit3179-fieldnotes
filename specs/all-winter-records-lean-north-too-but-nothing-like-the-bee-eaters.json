@@ -8962,9 +8962,9 @@
               "#8c510a",
               "#d8b365",
               "#f6e8c3",
-              "#c7eae5",
-              "#5ab4ac",
-              "#01665e",
+              "#d4e4ee",
+              "#86abc2",
+              "#355f78",
               "#d6d2c6"
             ]
           }
@@ -29788,9 +29788,9 @@
               "#8c510a",
               "#d8b365",
               "#f6e8c3",
-              "#c7eae5",
-              "#5ab4ac",
-              "#01665e",
+              "#d4e4ee",
+              "#86abc2",
+              "#355f78",
               "#d6d2c6"
             ]
           },
@@ -29800,6 +29800,7 @@
             "orient": "bottom",
             "direction": "horizontal",
             "columns": 3,
+            "labelExpr": "replace(replace(replace(datum.label,' 4× or more',' ≥4×'),'up to ','<'),' to estimate','')",
             "symbolType": "square",
             "symbolSize": 160,
             "symbolStrokeColor": "#b9b4a4",

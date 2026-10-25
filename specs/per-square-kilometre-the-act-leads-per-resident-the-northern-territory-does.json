@@ -9080,6 +9080,7 @@
               "signal": "measure==='area'?[200,1000,10000,150000]:[200,500,1000,1400]"
             },
             "orient": "bottom-left",
+            "offset": 0,
             "format": ",~s",
             "gradientLength": 200,
             "titleLimit": 320

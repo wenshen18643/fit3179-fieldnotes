@@ -1396,7 +1396,10 @@
         "legend": {
           "title": "Share relative to annual share",
           "titleLimit": 280,
-          "orient": "bottom",
+          "orient": "none",
+          "direction": "horizontal",
+          "legendX": -146,
+          "legendY": 537,
           "values": [
             0.25,
             1,

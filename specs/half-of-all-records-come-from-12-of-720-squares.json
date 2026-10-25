@@ -44481,6 +44481,7 @@
           "legend": {
             "title": "Records in each 1° square",
             "orient": "bottom-left",
+            "offset": 0,
             "values": [
               1,
               100,

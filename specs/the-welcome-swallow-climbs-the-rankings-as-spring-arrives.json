@@ -1093,6 +1093,11 @@
       }
     }
   },
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
   "layer": [
     {
       "transform": [
@@ -1107,6 +1112,10 @@
       },
       "encoding": {
         "color": {
+          "condition": {
+            "test": "highlight!=='All birds'&&datum.name!==highlight",
+            "value": "#cbc6b8"
+          },
           "field": "name",
           "type": "nominal",
           "scale": {
@@ -1121,22 +1130,15 @@
             ],
             "range": [
               "#d95f02",
-              "#1b9e77",
-              "#7570b3",
-              "#e7298a",
+              "#262626",
+              "#6a51a3",
               "#377eb8",
-              "#a6761d",
-              "#666666"
+              "#e6ab02",
+              "#8c2d04",
+              "#8c8c8c"
             ]
           },
           "legend": null
-        },
-        "opacity": {
-          "condition": {
-            "test": "highlight!=='All birds'&&datum.name!==highlight",
-            "value": 0.28
-          },
-          "value": 1
         },
         "detail": {
           "field": "name"
@@ -1158,6 +1160,10 @@
       },
       "encoding": {
         "color": {
+          "condition": {
+            "test": "highlight!=='All birds'&&datum.name!==highlight",
+            "value": "#cbc6b8"
+          },
           "field": "name",
           "type": "nominal",
           "scale": {
@@ -1172,22 +1178,15 @@
             ],
             "range": [
               "#d95f02",
-              "#1b9e77",
-              "#7570b3",
-              "#e7298a",
+              "#262626",
+              "#6a51a3",
               "#377eb8",
-              "#a6761d",
-              "#666666"
+              "#e6ab02",
+              "#8c2d04",
+              "#8c8c8c"
             ]
           },
           "legend": null
-        },
-        "opacity": {
-          "condition": {
-            "test": "highlight!=='All birds'&&datum.name!==highlight",
-            "value": 0.28
-          },
-          "value": 1
         },
         "tooltip": [
           {
@@ -1223,6 +1222,10 @@
       },
       "encoding": {
         "color": {
+          "condition": {
+            "test": "highlight!=='All birds'&&datum.name!==highlight",
+            "value": "#cbc6b8"
+          },
           "field": "name",
           "type": "nominal",
           "scale": {
@@ -1237,12 +1240,12 @@
             ],
             "range": [
               "#d95f02",
-              "#1b9e77",
-              "#7570b3",
-              "#e7298a",
+              "#262626",
+              "#6a51a3",
               "#377eb8",
-              "#a6761d",
-              "#666666"
+              "#e6ab02",
+              "#8c2d04",
+              "#8c8c8c"
             ]
           },
           "legend": null
@@ -1267,6 +1270,10 @@
       },
       "encoding": {
         "color": {
+          "condition": {
+            "test": "highlight!=='All birds'&&datum.name!==highlight",
+            "value": "#cbc6b8"
+          },
           "field": "name",
           "type": "nominal",
           "scale": {
@@ -1281,12 +1288,12 @@
             ],
             "range": [
               "#d95f02",
-              "#1b9e77",
-              "#7570b3",
-              "#e7298a",
+              "#262626",
+              "#6a51a3",
               "#377eb8",
-              "#a6761d",
-              "#666666"
+              "#e6ab02",
+              "#8c2d04",
+              "#8c8c8c"
             ]
           },
           "legend": null
@@ -1695,6 +1702,10 @@
           "field": "name"
         },
         "color": {
+          "condition": {
+            "test": "highlight!=='All birds'&&datum.name!==highlight",
+            "value": "#5d6356"
+          },
           "field": "name",
           "type": "nominal",
           "scale": {
@@ -1709,29 +1720,15 @@
             ],
             "range": [
               "#a84a02",
-              "#137a5c",
-              "#585494",
-              "#b81f6c",
+              "#262626",
+              "#54408a",
               "#2a6491",
-              "#7f5a16",
-              "#4d4d4d"
+              "#8a6500",
+              "#8c2d04",
+              "#5f5f5f"
             ]
           },
           "legend": null
-        },
-        "opacity": {
-          "condition": {
-            "test": "highlight!=='All birds'&&datum.name!==highlight",
-            "value": 0.45
-          },
-          "value": 1
-        },
-        "fontWeight": {
-          "condition": {
-            "test": "datum.name===highlight",
-            "value": 700
-          },
-          "value": 600
         }
       }
     }

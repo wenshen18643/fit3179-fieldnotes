@@ -98,6 +98,7 @@
       .deck,
       .byline,
       .figure-deck,
+      .figure-insight,
       .intro,
       .sources p {
         max-width: var(--measure);
@@ -121,6 +122,9 @@
       .figure-deck {
         color: var(--muted);
         margin-top: 8px;
+      }
+      .figure-insight {
+        color: var(--ink);
       }
       .chart {
         margin-top: 20px;
@@ -233,25 +237,6 @@
         min-height: 1.6em;
       }
 
-      .season-key {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 22px;
-        font-family: var(--ui-font);
-        font-size: var(--t-meta);
-        color: var(--muted);
-      }
-      .season-key span {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-      }
-      .season-key i {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        display: inline-block;
-      }
       .summer {
         background: #b0782c;
       }
@@ -665,14 +650,12 @@
         font-weight: 600;
         color: var(--accent-text);
       }
-      .season-key {
-        margin-top: 14px;
+      #closing .ch-head {
+        align-items: start;
+        margin-bottom: 0;
       }
-      .figure > .season-key {
-        margin-top: 28px;
-      }
-      .figure > .season-key + .chart {
-        margin-top: 8px;
+      #closing .intro {
+        color: var(--ink);
       }
 
       .sources {
@@ -841,7 +824,8 @@
           <h1 id="cover-title">Australia, through a <em>birdwatcher’s</em> eyes</h1>
           <p class="deck prose">
             9.6 million bird records, 760 species, one year. Where people record birds, how the
-            records shift with the seasons, and what they cannot tell us.
+            records shift with the seasons, and what they cannot tell us. Some of these birds pass
+            through Malaysia on their way north.
           </p>
           <p class="byline">
             Lum Wen-Shen · FIT3179 Data Visualisation 2 · Monash University Malaysia · October 2026
@@ -892,6 +876,10 @@
                 Darker squares hold more records. Pick a share to outline the fewest squares that
                 hold it.
               </p>
+              <p class="figure-insight">
+                They sit mostly around the capital cities. A typical square logs about 500 records a
+                year, so a pale inland square means few observers, not necessarily few birds.
+              </p>
               <!-- interaction-halfOfAllRecordsComeFrom12Of720Squares: buttons 25 / 50 / 75 / 90% set the chart's "cover" setting -->
               <div
                 class="segmented"
@@ -918,14 +906,20 @@
             <div class="figure-text">
               <div class="figure-heading">
                 <h3>
-                  Per square kilometre, Canberra leads. Per resident, the Northern Territory does.
+                  Per square kilometre, the ACT leads.<br />Per resident, the Northern Territory
+                  does.
                 </h3>
               </div>
               <p class="figure-deck">
                 Darker states log more records for the chosen measure. Each state is labelled with
                 its value.
               </p>
-              <!-- interaction-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: buttons per 1,000 km² / per 1,000 residents set the chart's "measure" setting -->
+              <p class="figure-insight">
+                Dividing by land favours small, crowded places: the ACT logs over 500 times Western
+                Australia’s rate. Per resident, the Northern Territory logs
+                <span data-stat="ntMultiple">3.6</span> times the national rate.
+              </p>
+              <!-- interaction-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: buttons per 1,000 km² / per 1,000 residents set the chart's "measure" setting -->
               <div
                 class="segmented"
                 role="group"
@@ -966,6 +960,11 @@
                 Each ring is a state, north inside to south outside; each slice is a month. Green:
                 busier than the state’s average day. Pink: quieter.
               </p>
+              <p class="figure-insight">
+                Seven of the eight peak in spring, September to November; only the ACT peaks in
+                January. The tropical Northern Territory is quietest in December, as the wet season
+                sets in.
+              </p>
             </div>
             <div
               class="chart"
@@ -982,6 +981,11 @@
               <p class="figure-deck">
                 Each cell compares a bird’s share of that month’s records with its share across the
                 year. Green: more than usual. Pink: less.
+              </p>
+              <p class="figure-insight">
+                The top three spend their pink months abroad. The koel winters in New Guinea and
+                Indonesia; the needletail and stint breed in north-east Asia and fly the East
+                Asian–Australasian Flyway, which passes through Malaysia.
               </p>
             </div>
             <div
@@ -1002,6 +1006,10 @@
               <p class="figure-deck">
                 Each line is one bird’s rank among all species, month by month. Rank 1 has the most
                 records.
+              </p>
+              <p class="figure-insight">
+                The Australian Magpie is first in all twelve months. The swallow’s swing, from 8th in
+                June to 2nd from September, is the largest of the seven.
               </p>
               <!-- interaction-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: "Follow a bird" dropdown sets the chart's "highlight" setting -->
               <label class="control"
@@ -1029,16 +1037,14 @@
                 <h3>The Rainbow Bee-eater heads north in April and returns in October</h3>
               </div>
               <p class="figure-deck">
-                Each ridge is one month of bee-eater records, south on the left. The tick marks the
-                middle record.
+                Each ridge shows where one month’s bee-eater records fall, scaled to that month’s
+                total, south on the left. The tick marks the middle record.
               </p>
-            </div>
-            <!-- legend-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: season colour key, written in HTML above the chart -->
-            <div class="season-key" aria-label="Season colours">
-              <span><i class="summer"></i>Summer · Dec–Feb</span
-              ><span><i class="autumn"></i>Autumn · Mar–May</span
-              ><span><i class="winter"></i>Winter · Jun–Aug</span
-              ><span><i class="spring"></i>Spring · Sep–Nov</span>
+              <p class="figure-insight">
+                In the heatmap above, its national share barely moves: the bee-eater does not leave
+                Australia, it shifts north. The middle record jumps from 27°S in March to 19°S in
+                April, about 900 km, and back again in October.
+              </p>
             </div>
             <div
               class="chart"
@@ -1055,6 +1061,12 @@
               <p class="figure-deck">
                 Circle area: bee-eater records in each 2° square. Filled: the chosen season. Rings:
                 the opposite one.
+              </p>
+              <p class="figure-insight">
+                Press play: the share of records south of 30°S falls from
+                <span data-stat="beeSummerSouthRound">48%</span> in summer to
+                <span data-stat="beeWinterSouthRound">1%</span> in winter, as the southern breeders
+                fly north.
               </p>
               <!-- interaction-watchTheBeeEatersRangeSlideNorth: play button and four season buttons (also the colour key) set the chart's "phase" setting -->
               <div class="season-player">
@@ -1096,8 +1108,14 @@
                 <h3>All winter records lean north too, but nothing like the bee-eater’s</h3>
               </div>
               <p class="figure-deck">
-                Teal places hold a bigger share of winter records than of summer ones; brown, the
+                Blue places hold a bigger share of winter records than of summer ones; brown, the
                 reverse. Each band is a doubling.
+              </p>
+              <p class="figure-insight">
+                The share south of 30°S drops from <span data-stat="allSummerSouth">75%</span> of
+                summer records to <span data-stat="allWinterSouth">58%</span> of winter ones. For the
+                bee-eater it drops from <span data-stat="beeSummerSouthRound">48%</span> to
+                <span data-stat="beeWinterSouthRound">1%</span>.
               </p>
               <!-- interaction-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: buttons All birds / Rainbow Bee-eater set the chart's "who" setting -->
               <div
@@ -1128,7 +1146,8 @@
           <h2 id="conservation-title">Often recorded doesn’t mean <em>safe.</em></h2>
           <p class="intro">
             The Australian Government lists threatened species by their risk of extinction:
-            Vulnerable, Endangered and Critically Endangered.
+            Vulnerable, Endangered and Critically Endangered. A record shows that a bird was seen,
+            not that it is doing well.
           </p>
         </header>
         <div class="row row-full">
@@ -1140,6 +1159,11 @@
               <p class="figure-deck">
                 Each dot is one of <span data-stat="matchedThreatenedSpecies">65</span> threatened
                 species found in the records. Each step along the axis is ten times the last.
+              </p>
+              <p class="figure-insight">
+                Counts follow how easy a bird is to find, not how safe it is. The Eastern Curlew feeds
+                on open coastal mudflats; the White-throated Grasswren hides in remote Arnhem Land
+                sandstone.
               </p>
             </div>
             <div
@@ -1164,6 +1188,10 @@
                 Circle area: threatened birds listed in the state. Darker green: more 2024 records.
                 A bird listed in several states counts in each.
               </p>
+              <p class="figure-insight">
+                Western Australia, South Australia and the Northern Territory cover 63% of the land
+                but log only 16% of the records.
+              </p>
             </div>
             <div
               class="chart"
@@ -1183,7 +1211,13 @@
               </div>
               <p class="figure-deck">
                 Each column is one exact group of states, shown by its joined dots. The bar counts
-                the listed birds in that group.
+                the listed birds in that group. The <span data-stat="upsetShownGroups">12</span>
+                largest of <span data-stat="upsetCombinations">42</span> groups are shown, covering
+                <span data-stat="upsetShown">104</span> birds.
+              </p>
+              <p class="figure-insight">
+                Most listed birds cross state borders, so protecting them takes several governments
+                acting together. South Australia alone is responsible for 19.
               </p>
               <p class="readout" id="picked-state" aria-live="polite">
                 Select a circle or a state code to light up the combinations that include it.
@@ -1197,6 +1231,18 @@
             ></div>
           </figure>
         </div>
+      </section>
+      <section id="closing" class="chapter wrap" aria-labelledby="closing-title">
+        <header class="ch-head">
+          <h2 id="closing-title">Records map the watchers, <em>not just the birds.</em></h2>
+          <p class="intro">
+            9.6 million records show where people live, when they go out and which birds are easy to
+            spot. They cannot say whether a bird is common or safe: the most-logged threatened bird
+            is Critically Endangered. New records count most in the inland, the north and the quiet
+            months. Malaysian birdwatchers can add to the same story: the Red-necked Stint and
+            White-throated Needletail pass through Malaysia every year.
+          </p>
+        </header>
       </section>
       <section id="sources" class="sources wrap" aria-labelledby="sources-title">
         <h2 id="sources-title">Sources and method</h2>
@@ -1235,8 +1281,12 @@
               >
               boundaries.
               <a href="https://birdlife.org.au/bird-profiles/rainbow-bee-eater/"
-                >BirdLife Australia bee-eater profile</a
-              >.
+                >BirdLife Australia bee-eater</a
+              >
+              and
+              <a href="https://birdlife.org.au/bird-profiles/eastern-koel/">Eastern Koel</a>
+              profiles.
+              <a href="https://www.eaaflyway.net/">East Asian–Australasian Flyway Partnership</a>.
             </p>
           </div>
           <div>
@@ -1350,7 +1400,6 @@
       // color-all: ColorBrewer colour ramps used by the colour scales
       const colourRamps = {
         greens: ["#edf8e9", "#bae4b3", "#74c476", "#31a354", "#006d2c"],
-        brbg: ["#a6611a", "#dfc27d", "#f5f5f5", "#80cdc1", "#018571"],
         orrd: ["#ef6548", "#d7301f", "#990000"],
         piyg: ["#d01c8b", "#f1b6da", "#f7f7f7", "#b8e186", "#4dac26"],
       };
@@ -1459,7 +1508,33 @@
       // layout-all: map height from the width available (270 to 620 px)
       const mapH = (width) => Math.min(620, Math.max(270, width * 0.78));
       // layout-all: circular heatmap radius from the width available
-      const clockRadius = (width) => Math.max(140, Math.min(245, (width - 120) / 2));
+      // layout-all: leaves room for the month labels and the "busiest month" note on either side
+      const clockRadius = (width) => Math.max(140, Math.min(245, (width - 174) / 2));
+      // layout-all: heatmap row height from the width available, sized so the heatmap matches the circular heatmap beside it
+      const heatmapStep = (width) =>
+        Math.round(
+          Math.max(
+            26,
+            Math.min(
+              56,
+              ((width - (width < 500 ? 146 : 190)) / 12) * 1.5,
+              (2 * clockRadius(width) - 59) / 8,
+            ),
+          ),
+        );
+      // layout-all: shared top of the two legends in the seasons pair, so they sit on one sight line
+      const seasonPairLegendTop = (width) =>
+        Math.max(2 * clockRadius(width) + 89, 8 * heatmapStep(width) + 147);
+      // layout-all: width of a line of chart text, measured in the browser and estimated elsewhere
+      const textWidth = (text, fontSize, weight = 400) => {
+        try {
+          const context = (textWidth.canvas ||= document.createElement("canvas")).getContext("2d");
+          context.font = `${weight} ${fontSize}px ${chartFont}`;
+          return context.measureText(text).width;
+        } catch {
+          return text.length * fontSize * 0.46;
+        }
+      };
       // layout-all: cartogram height from the width available
       const dorlingH = (width) => Math.min(520, Math.max(380, (width - 16) * 0.9));
 
@@ -1546,6 +1621,8 @@
                   legend: {
                     title: "Records in each 1° square",
                     orient: small ? "bottom" : "bottom-left",
+                    // layout-halfOfAllRecordsComeFrom12Of720Squares: no inset, so the legend lines up with every other legend's left edge
+                    offset: small ? 18 : 0,
                     values: [1, 100, 10000, 1000000],
                     format: ".0s",
                     gradientLength: small ? 150 : 200,
@@ -1642,19 +1719,20 @@
         });
       }
 
-      // idiom-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: choropleth map by state (Vega-Lite), switchable between per area and per resident
-      function perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes(
+      // idiom-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: choropleth map by state (Vega-Lite), switchable between per area and per resident
+      function perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes(
         data,
         availableWidth,
       ) {
-        // phone-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: on phones the labels are smaller and the legend sits underneath
-        const small = availableWidth < 560;
-        // calculation-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: where each state's value falls on the log scale (0 to 1), for area and for people
+        // phone-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: on phones the labels are smaller and the legend sits underneath
+        const small = availableWidth < 560,
+          legendBelow = availableWidth < 440;
+        // calculation-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: where each state's value falls on the log scale (0 to 1), for area and for people
         const logPositions = (state) => ({
           areaT: Math.log(state.density / 200) / Math.log(150000 / 200),
           peopleT: Math.log(state.perResident / 200) / Math.log(1400 / 200),
         });
-        // data-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: data.states joined to each state's outline, with log positions for the colour scale
+        // data-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: data.states joined to each state's outline, with log positions for the colour scale
         const rows = stateData(data).map((state) => ({ ...state, ...logPositions(state) }));
         const labels = data.states.map((state) => ({
           ...state,
@@ -1665,31 +1743,31 @@
         return vegaLiteChart(availableWidth - 16, mapH(availableWidth), {
           description:
             "State and territory choropleth of 2024 records, per 1,000 km² of land or per 1,000 residents. Darker means more records for the chosen denominator.",
-          // interaction-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: "measure" setting (area or people), changed by the buttons
-          // setting-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: per-area-or-per-person setting ("measure"): divide records by land area or by residents
+          // interaction-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: "measure" setting (area or people), changed by the buttons
+          // setting-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: per-area-or-per-person setting ("measure"): divide records by land area or by residents
           params: [{ name: "measure", value: "area" }],
           projection,
           layer: [
             {
               data: { values: rows },
-              // transform-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: pick records per km² or per resident as "value", depending on "measure"
+              // transform-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: pick records per km² or per resident as "value", depending on "measure"
               transform: [{ calculate: value, as: "value" }],
-              // mark-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: geoshape: one filled shape per state
+              // mark-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: geoshape: one filled shape per state
               mark: { type: "geoshape", stroke: colours.paper, strokeWidth: 1.3 },
-              // encoding-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: colour = records per km² or per resident
+              // encoding-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: colour = records per km² or per resident
               encoding: {
-                // color-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: states shaded by records per km² or per resident (Greens, log scale) and its legend
+                // color-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: states shaded by records per km² or per resident (Greens, log scale) and its legend
                 color: {
                   field: "value",
                   type: "quantitative",
-                  // scale-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: log colour scale; its range switches with "measure"
+                  // scale-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: log colour scale; its range switches with "measure"
                   scale: {
                     type: "log",
                     domain: { expr: "measure==='area'?[200,150000]:[200,1400]" },
                     range: lightRamp,
                     clamp: true,
                   },
-                  // legend-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: colour legend; its title and numbers switch with "measure"
+                  // legend-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: colour legend; its title and numbers switch with "measure"
                   legend: {
                     title: {
                       signal:
@@ -1698,13 +1776,16 @@
                     values: {
                       signal: "measure==='area'?[200,1000,10000,150000]:[200,500,1000,1400]",
                     },
-                    orient: small ? "bottom" : "bottom-left",
+                    // layout-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: legend moves under the map at the same width as the bin map's, so the pair keeps one height
+                    orient: legendBelow ? "bottom" : "bottom-left",
+                    // layout-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: no inset, so the legend lines up with every other legend's left edge
+                    offset: legendBelow ? 18 : 0,
                     format: ",~s",
-                    gradientLength: small ? 150 : 200,
+                    gradientLength: legendBelow ? 150 : 200,
                     titleLimit: 320,
                   },
                 },
-                // tooltip-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: hover a state: records, per 1,000 km², per 1,000 residents, population
+                // tooltip-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: hover a state: records, per 1,000 km², per 1,000 residents, population
                 tooltip: [
                   tooltip("state", "State / territory"),
                   tooltip("count", "2024 records", ","),
@@ -1714,7 +1795,7 @@
                 ],
               },
             },
-            // annotation-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: pointer line and ring for the tiny ACT
+            // annotation-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: pointer line and ring for the tiny ACT
             {
               data: {
                 values: [
@@ -1730,7 +1811,7 @@
               mark: { type: "point", size: 110, color: colours.ink, strokeWidth: 1.2 },
               encoding: { longitude: longitudeField, latitude: latitudeField },
             },
-            // annotation-perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes: each state's code and value, written on the map
+            // annotation-perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes: each state's code and value, written on the map
             ...["halo", "ink"].map((layer) => ({
               data: { values: labels },
               transform: [
@@ -1765,13 +1846,19 @@
         const width = availableWidth - 16,
           radius = clockRadius(availableWidth),
           height = radius * 2 + 86,
-          centreX = width / 2,
           centreY = height / 2;
         const codes = ["NT", "QLD", "WA", "SA", "NSW", "ACT", "VIC", "TAS"];
         const inner = 38,
           band = (radius - inner) / 8,
           gap = 0.64,
           step = (Math.PI * 2 - gap) / 12;
+        // layout-everyStateKeepsItsOwnBusySeason: nudge the dial sideways so the "busiest month" label stays inside the chart and the legend keeps its left edge
+        const peakIndex = MONTHS.indexOf(data.insights.peakMonth),
+          peakSine = Math.sin(gap / 2 + (peakIndex + 0.5) * step),
+          peakTextWidth = 96,
+          peakEdge = width / 2 + peakSine * (radius + 12) + Math.sign(peakSine) * peakTextWidth,
+          centreX =
+            width / 2 - (peakEdge < 0 ? peakEdge : peakEdge > width ? peakEdge - width : 0);
         // data-everyStateKeepsItsOwnBusySeason: data.stateMonth (records per state per month, with pace)
         // calculation-everyStateKeepsItsOwnBusySeason: work out each cell's start and end angle (month) and inner and outer radius (state)
         const vals = data.stateMonth.map((cell) => ({
@@ -1910,8 +1997,9 @@
               type: "gradient",
               direction: "horizontal",
               orient: "none",
-              legendX: 8,
-              legendY: height - 6,
+              legendX: 0,
+              // layout-everyStateKeepsItsOwnBusySeason: legend top shared with the heatmap beside it
+              legendY: seasonPairLegendTop(availableWidth) - 8,
               title: "Records a day, compared with the state’s own average",
               titleLimit: width - 40,
               titleAnchor: "start",
@@ -1942,11 +2030,14 @@
           .sort((first, second) => first.rank - second.rank)
           .map((row) => row.name);
         const order = ["Welcome Swallow", ...birds.filter((bird) => bird !== "Welcome Swallow")];
-        // color-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: one line colour per bird
-        const line = ["#d95f02", "#1b9e77", "#7570b3", "#e7298a", "#377eb8", "#a6761d", "#666666"];
+        // color-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: one line colour per bird, with no pink or green (they mean less and more in the heatmaps above) and no season colour
+        const line = ["#d95f02", "#262626", "#6a51a3", "#377eb8", "#e6ab02", "#8c2d04", "#8c8c8c"];
         // color-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: darker shade of each bird's colour, for its name label
-        const ink = ["#a84a02", "#137a5c", "#585494", "#b81f6c", "#2a6491", "#7f5a16", "#4d4d4d"];
+        const ink = ["#a84a02", "#262626", "#54408a", "#2a6491", "#8a6500", "#8c2d04", "#5f5f5f"];
+        // color-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: birds other than the one picked turn grey
+        const faded = "highlight!=='All birds'&&datum.name!==highlight";
         const hue = {
+          condition: { test: faded, value: "#cbc6b8" },
           field: "name",
           type: "nominal",
           scale: { domain: order, range: line },
@@ -1954,13 +2045,12 @@
           legend: null,
         };
         const hueText = {
+          condition: { test: faded, value: colours.muted },
           field: "name",
           type: "nominal",
           scale: { domain: order, range: ink },
           legend: null,
         };
-        // color-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: birds other than the one picked fade
-        const faded = "highlight!=='All birds'&&datum.name!==highlight";
         const width = availableWidth - (compact ? 118 : 190);
         // interaction-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: the picked bird is drawn thicker and on top
         const picked = "datum.name===highlight";
@@ -1999,6 +2089,8 @@
           params: [{ name: "highlight", value: "Welcome Swallow" }],
           data: { values: data.rankings },
           encoding: base,
+          // color-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: lines and name labels keep separate colour scales, so labels get the darker shade
+          resolve: { scale: { color: "independent" } },
           layer: [
             {
               // transform-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: split birds into the picked one (drawn on top) and the rest
@@ -2007,7 +2099,6 @@
               mark: { type: "line", strokeWidth: 2, interpolate: "monotone" },
               encoding: {
                 color: hue,
-                opacity: { condition: { test: faded, value: 0.28 }, value: 1 },
                 detail: { field: "name" },
               },
             },
@@ -2022,7 +2113,6 @@
               },
               encoding: {
                 color: hue,
-                opacity: { condition: { test: faded, value: 0.28 }, value: 1 },
                 // tooltip-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: hover a dot: bird, month, rank, records
                 tooltip: [
                   tooltip("name", "Bird"),
@@ -2095,8 +2185,6 @@
                 ...base,
                 text: { field: "name" },
                 color: hueText,
-                opacity: { condition: { test: faded, value: 0.45 }, value: 1 },
-                fontWeight: { condition: { test: picked, value: 700 }, value: 600 },
               },
             },
           ],
@@ -2361,14 +2449,14 @@
         const none = "Too few records to estimate";
         // phone-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: on phones the legend has two columns and the labels are smaller
         const small = availableWidth < 560;
-        // color-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: BrBG bands, brown = summer lean, teal = winter lean, grey = too few records; and its legend
+        // color-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: diverging bands built from the season colours, ochre-brown = summer lean, slate blue = winter lean, grey = too few records; and its legend
         const colour = {
           field: "properties.label",
           type: "ordinal",
           // scale-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: ordinal colour scale: one colour per band
           scale: {
             domain: [...bands, none],
-            range: ["#8c510a", "#d8b365", "#f6e8c3", "#c7eae5", "#5ab4ac", "#01665e", "#d6d2c6"],
+            range: ["#8c510a", "#d8b365", "#f6e8c3", "#d4e4ee", "#86abc2", "#355f78", "#d6d2c6"],
           },
           // legend-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: colour legend for the bands
           legend: {
@@ -2376,7 +2464,10 @@
             titleLimit: availableWidth,
             orient: "bottom",
             direction: "horizontal",
-            columns: small ? 2 : 3,
+            // layout-allWinterRecordsLeanNorthTooButNothingLikeTheBeeEaters: short labels keep three columns down to 440 px, so this map stays level with the one beside it
+            columns: availableWidth < 440 ? 2 : 3,
+            labelExpr:
+              "replace(replace(replace(datum.label,' 4× or more',' ≥4×'),'up to ','<'),' to estimate','')",
             symbolType: "square",
             symbolSize: 160,
             symbolStrokeColor: "#b9b4a4",
@@ -2466,7 +2557,7 @@
       // idiom-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: ridgeline chart (Vega): one latitude distribution per month
       function theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober(data, availableWidth) {
         // layout-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: chart size, row height (step) and top gap
-        const width = availableWidth - 64,
+        const width = availableWidth - 76,
           height = 470,
           step = 32,
           baseline = 22;
@@ -2475,7 +2566,7 @@
         return vegaChart(width, height, {
           description:
             "Monthly latitude distributions of rainbow bee-eater records. Each ridge is normalised to that month’s bee-eater records, at one-degree latitude bins. Peaks show where records concentrate, not a bird’s flight path.",
-          padding: { left: 46, right: 10, top: 16, bottom: 40 },
+          padding: { left: 8, right: 10, top: 16, bottom: 8 },
           data: [
             { name: "ridges", values: ridgeRows },
             { name: "months", values: data.beeMonth },
@@ -2492,6 +2583,49 @@
             },
             // color-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: season colours for the ridges
             { name: "season", type: "ordinal", domain: SEASONS, range: colours.seasons },
+            // legend-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: one-entry scale for the ▲ key
+            {
+              name: "tickKey",
+              type: "ordinal",
+              domain: ["Middle of the month’s records: half lie south of the tick"],
+              range: ["triangle-up"],
+            },
+          ],
+          // legend-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: season key and ▲ key, bottom left on the figure's left edge
+          legends: [
+            {
+              fill: "season",
+              orient: "none",
+              direction: "horizontal",
+              legendX: -38,
+              legendY: height + 50,
+              title: "Season",
+              symbolType: "circle",
+              symbolSize: 80,
+              // phone-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: two columns of seasons on narrow screens
+              columns: availableWidth < 640 ? 2 : 4,
+              columnPadding: 20,
+              encode: {
+                labels: {
+                  update: {
+                    text: {
+                      signal:
+                        "datum.value+' · '+{'Summer':'Dec–Feb','Autumn':'Mar–May','Winter':'Jun–Aug','Spring':'Sep–Nov'}[datum.value]",
+                    },
+                  },
+                },
+              },
+            },
+            {
+              shape: "tickKey",
+              orient: "none",
+              legendX: -38,
+              legendY: height + (availableWidth < 640 ? 118 : 98),
+              symbolFillColor: colours.ink,
+              symbolStrokeColor: colours.ink,
+              symbolSize: 46,
+              labelLimit: 420,
+            },
           ],
           // axis-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: latitude axis labelled as "40°S", "35°S"…
           axes: [
@@ -2630,33 +2764,6 @@
                 },
               },
             },
-            // annotation-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: ▲ in the key at the bottom
-            {
-              type: "symbol",
-              encode: {
-                enter: {
-                  x: { value: 4 },
-                  y: { value: height - 4 },
-                  shape: { value: "triangle-up" },
-                  size: { value: 46 },
-                  fill: { value: colours.ink },
-                },
-              },
-            },
-            // annotation-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: key text "Middle of the month's records…"
-            {
-              type: "text",
-              encode: {
-                enter: {
-                  x: { value: 13 },
-                  y: { value: height - 4 },
-                  baseline: { value: "middle" },
-                  text: { value: "Middle of the month’s records: half lie south of the tick" },
-                  fontSize: { value: 11 },
-                  fill: { value: colours.muted },
-                },
-              },
-            },
             // annotation-theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober: month labels
             {
               type: "text",
@@ -2704,12 +2811,15 @@
         // layout-someBirdsComeAndGoOthersStayAllYear: row height matches the circular heatmap beside it
         const compact = availableWidth < 500,
           width = availableWidth - (compact ? 146 : 190),
-          step = Math.round(
-            Math.max(
-              26,
-              Math.min(56, (width / 12) * 1.5, (2 * clockRadius(availableWidth) - 59) / 8),
-            ),
-          );
+          step = heatmapStep(availableWidth);
+        // layout-someBirdsComeAndGoOthersStayAllYear: the bird-name column's width, so the legend can start under the names, on the figure's left edge
+        const labelFontSize = compact ? 10 : 12,
+          labelLimit = compact ? 130 : 210,
+          nameColumn =
+            Math.min(
+              labelLimit,
+              Math.max(...rows.map((row) => textWidth(row.name, labelFontSize))),
+            ) + config.axis.labelPadding;
         return {
           $schema: "https://vega.github.io/schema/vega-lite/v5.json",
           padding: 8,
@@ -2765,8 +2875,8 @@
                 // axis-someBirdsComeAndGoOthersStayAllYear: bird name axis
                 axis: {
                   title: null,
-                  labelLimit: compact ? 130 : 210,
-                  labelFontSize: compact ? 10 : 12,
+                  labelLimit,
+                  labelFontSize,
                 },
               },
               // color-someBirdsComeAndGoOthersStayAllYear: cells pink (less than usual) to green (more), log scale centred on 1; and its legend
@@ -2784,7 +2894,11 @@
                 legend: {
                   title: "Share relative to annual share",
                   titleLimit: 280,
-                  orient: "bottom",
+                  // layout-someBirdsComeAndGoOthersStayAllYear: legend under the bird names, level with the circular heatmap's legend
+                  orient: "none",
+                  direction: "horizontal",
+                  legendX: -Math.ceil(nameColumn),
+                  legendY: seasonPairLegendTop(availableWidth) - 42,
                   values: [0.25, 1, 4],
                   format: ".2~f",
                   gradientLength: 180,
@@ -3307,7 +3421,13 @@
         // layout-ninetyOneOf150ListedBirdsAreSharedBetweenStates: height matches the cartogram beside it; row spacing
         const cartogramRadius = Math.min(availableWidth - 16, dorlingH(availableWidth) - 58) * 0.15;
         const width = availableWidth - 66,
-          height = Math.round(dorlingH(availableWidth) + 2 * cartogramRadius + 45),
+          // layout-ninetyOneOf150ListedBirdsAreSharedBetweenStates: below 520 px the cartogram's size key drops under its colour legend, so this chart grows to match
+          height = Math.round(
+            dorlingH(availableWidth) +
+              2 * cartogramRadius +
+              7 +
+              (availableWidth - 16 < 520 ? 41 : 0),
+          ),
           step = Math.min(38, Math.round(height / 16)),
           base = height - 61 - 7 * step,
           top = base + 38,
@@ -3339,7 +3459,7 @@
         return vegaChart(width, height, {
           description:
             "An UpSet chart of the twelve most common exact state combinations among 150 extant threatened bird taxa listed by DCCEEW in the eight jurisdictions. A connected column is an exact combination of states, and the bar above counts listed taxa in it.",
-          padding: { left: 45, right: 10, top: 20, bottom: 18 },
+          padding: { left: 8, right: 10, top: 20, bottom: 18 },
           // interaction-ninetyOneOf150ListedBirdsAreSharedBetweenStates: "picked" setting: click a state code to select it, again to clear
           // setting-ninetyOneOf150ListedBirdsAreSharedBetweenStates: chosen-state setting ("picked"): which state is selected, shared with the cartogram
           signals: [
@@ -3526,13 +3646,17 @@
               },
             },
           ],
-          // legend-ninetyOneOf150ListedBirdsAreSharedBetweenStates: dot legend (in the group / not in it), top right
+          // legend-ninetyOneOf150ListedBirdsAreSharedBetweenStates: dot legend (in the group / not in it), bottom left under the state codes, on the figure's left edge
           legends: [
             {
               fill: "dotKey",
-              orient: "top-right",
+              orient: "none",
+              direction: "horizontal",
+              legendX: -40,
+              legendY: height - 1,
               symbolType: "circle",
               symbolSize: availableWidth < 500 ? 28 : 54,
+              columnPadding: 18,
             },
           ],
         });
@@ -3540,7 +3664,7 @@
 
       export const chartBuilders = {
         "observation-atlas": halfOfAllRecordsComeFrom12Of720Squares,
-        "record-density": perSquareKilometreCanberraLeadsPerResidentTheNorthernTerritoryDoes,
+        "record-density": perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes,
         "seasonal-clock": everyStateKeepsItsOwnBusySeason,
         "monthly-ranks": theWelcomeSwallowClimbsTheRankingsAsSpringArrives,
         "seasonal-footprint": watchTheBeeEatersRangeSlideNorth,
@@ -3614,6 +3738,7 @@
           beeSummerSouthRound: Math.round(100 * insights.beeSummerSouth) + "%",
           beeWinterSouthRound: Math.round(100 * insights.beeWinterSouth) + "%",
           saListed: String(data.states.find((state) => state.code === "SA").listed),
+          upsetShownGroups: String(data.upset.length),
           sharedTaxa: String(
             data.threatenedListings.filter((listing) => listing.states.length > 1).length,
           ),

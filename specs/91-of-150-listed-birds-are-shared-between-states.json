@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 854,
-  "height": 704,
+  "height": 666,
   "padding": {
-    "left": 45,
+    "left": 8,
     "right": 10,
     "top": 20,
     "bottom": 18
@@ -1614,7 +1614,7 @@
         23.18
       ],
       "range": [
-        377,
+        339,
         0
       ],
       "zero": true
@@ -1647,7 +1647,7 @@
             "signal": "width"
           },
           "y": {
-            "signal": "415+datum.row*38-17.1"
+            "signal": "377+datum.row*38-17.1"
           },
           "height": {
             "value": 34.2
@@ -1681,7 +1681,7 @@
             "field": "count"
           },
           "y2": {
-            "value": 377
+            "value": 339
           },
           "tooltip": {
             "signal": "{'Exactly these states':datum.combination,'Listed bird taxa':datum.count}"
@@ -1777,7 +1777,7 @@
             "signal": "width"
           },
           "y": {
-            "value": 394
+            "value": 356
           },
           "stroke": {
             "value": "#d9d1bf"
@@ -1798,10 +1798,10 @@
             "band": 0.5
           },
           "y": {
-            "signal": "415+datum.min*38"
+            "signal": "377+datum.min*38"
           },
           "y2": {
-            "signal": "415+datum.max*38"
+            "signal": "377+datum.max*38"
           },
           "strokeWidth": {
             "value": 1.5
@@ -1827,7 +1827,7 @@
             "band": 0.5
           },
           "y": {
-            "signal": "415+datum.row*38"
+            "signal": "377+datum.row*38"
           },
           "size": {
             "value": 54
@@ -1855,7 +1855,7 @@
             "value": -12
           },
           "y": {
-            "signal": "415+datum.row*38"
+            "signal": "377+datum.row*38"
           },
           "text": {
             "field": "code"
@@ -1887,9 +1887,13 @@
   "legends": [
     {
       "fill": "dotKey",
-      "orient": "top-right",
+      "orient": "none",
+      "direction": "horizontal",
+      "legendX": -40,
+      "legendY": 665,
       "symbolType": "circle",
-      "symbolSize": 54
+      "symbolSize": 54,
+      "columnPadding": 18
     }
   ]
 }
