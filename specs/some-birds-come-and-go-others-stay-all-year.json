@@ -186,6 +186,25 @@
             "dx": 30.416666666666668,
             "fontSize": 11,
             "fontWeight": 600,
+            "lineHeight": 13,
+            "color": "#ffffff",
+            "stroke": "#d01c8b",
+            "strokeWidth": 4,
+            "strokeJoin": "round"
+          },
+          "encoding": {
+            "text": {
+              "field": "note"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 30.416666666666668,
+            "fontSize": 11,
+            "fontWeight": 600,
+            "lineHeight": 13,
             "color": "#ffffff"
           },
           "encoding": {
@@ -337,6 +356,25 @@
             "dx": 30.416666666666668,
             "fontSize": 11,
             "fontWeight": 600,
+            "lineHeight": 13,
+            "color": "#ffffff",
+            "stroke": "#d01c8b",
+            "strokeWidth": 4,
+            "strokeJoin": "round"
+          },
+          "encoding": {
+            "text": {
+              "field": "note"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 30.416666666666668,
+            "fontSize": 11,
+            "fontWeight": 600,
+            "lineHeight": 13,
             "color": "#ffffff"
           },
           "encoding": {

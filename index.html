@@ -557,6 +557,19 @@
         font-size: clamp(36px, 3.4vw, 60px);
         line-height: 1;
       }
+      @media (min-width: 761px) {
+        /* wide screens: the four figures stack in one column, spread from the kicker's line to the byline's */
+        .stats {
+          grid-template-columns: minmax(0, 1fr);
+          row-gap: 18px;
+        }
+        .stats div + div {
+          flex-direction: row-reverse;
+          justify-content: flex-end;
+          align-items: baseline;
+          gap: 16px;
+        }
+      }
       .stats div:first-child dd {
         font-size: clamp(52px, 6.2vw, 112px);
         color: var(--green-text);
@@ -918,8 +931,8 @@
                 </h3>
               </div>
               <p class="figure-deck">
-                Darker states log more records for the chosen measure, on a logarithmic scale. Each
-                state is labelled with its value.
+                Darker states log more records for the chosen measure; each equal step darker
+                multiplies the rate. Each state is labelled with its value.
               </p>
               <p class="figure-insight">
                 Dividing by land favours small, crowded places: the ACT logs over 500 times Western
@@ -991,7 +1004,7 @@
               </p>
               <p class="figure-insight">
                 The top three spend their pink months away. The needletail and stint breed in
-                north-east Asia, and the stint stops on Malaysian mudflats along the East
+                north-east Asia, and the stint also feeds on Malaysian mudflats along the East
                 Asian–Australasian Flyway. The koel winters in New Guinea and Indonesia.
               </p>
             </div>
@@ -1121,8 +1134,8 @@
                 reverse. Each darker step doubles the lean.
               </p>
               <p class="figure-insight">
-                For all birds the north turns deep blue: winter is its dry season, when travelling
-                birdwatchers arrive. The south stays pale and still holds
+                For all birds the north turns deep blue, likely because winter is its dry season,
+                when birdwatchers travel north. The south stays pale and still holds
                 <span data-stat="allWinterSouth">58%</span> of winter records. Switch to the
                 bee-eater: the south turns deep brown, with
                 <span data-stat="beeWinterSouthRound">1%</span> of its winter records.
@@ -1174,7 +1187,7 @@
                 </p>
               </div>
               <p class="figure-insight">
-                Counts follow how easy a bird is to find, not how safe it is. The Eastern Curlew feeds
+                Counts seem to follow how easy a bird is to find, not how safe it is. The Eastern Curlew feeds
                 on open coastal mudflats; the White-throated Grasswren hides in remote Arnhem Land
                 sandstone.
               </p>
@@ -1254,8 +1267,9 @@
             9.6 million records show where people live, when they go out and which birds are easy to
             spot. They cannot say whether a bird is common or safe: the most-logged threatened bird
             is Critically Endangered. New records count most in the inland, the north and the quiet
-            months. Malaysian birdwatchers can add to the same story: the Red-necked Stints logged
-            on Australian shores stop on Malaysian mudflats on their way to and from Siberia.
+            months. Malaysian birdwatchers can add to the same story: the Red-necked Stint, logged
+            on Australian shores in summer, also feeds on Malaysian mudflats on the same flyway to
+            and from Siberia.
           </p>
         </header>
       </section>
@@ -1613,7 +1627,8 @@
         // annotation-halfOfAllRecordsComeFrom12Of720Squares: list of city names and positions
         const cities = [
           { text: "Perth", longitude: 115.86, latitude: -31.95 },
-          { text: "Melbourne", longitude: 144.96, latitude: -37.81 },
+          // annotation-halfOfAllRecordsComeFrom12Of720Squares: Melbourne's label sits a little lower so it clears its outlined squares
+          { text: "Melbourne", longitude: 144.96, latitude: -38.3 },
           { text: "Sydney", longitude: 151.21, latitude: -33.87 },
           { text: "Brisbane", longitude: 153.03, latitude: -27.47 },
           { text: "Adelaide", longitude: 138.6, latitude: -34.93 },
@@ -1999,14 +2014,14 @@
                 },
               },
             },
-            // annotation-everyStateKeepsItsOwnBusySeason: "daily pace" in the centre
+            // annotation-everyStateKeepsItsOwnBusySeason: "records a day" in the centre
             {
               type: "text",
               encode: {
                 enter: {
                   x: { value: centreX },
                   y: { value: centreY + 14 },
-                  text: { value: "daily pace" },
+                  text: { value: "records a day" },
                   align: { value: "center" },
                   fontSize: { value: 10 },
                   fill: { value: colours.muted },
@@ -2884,12 +2899,20 @@
             name: "Red-necked Stint",
             month: 6,
             months: 4,
-            text: ["Most breeding in Siberia", "In Siberia"],
+            text: [
+              ["Most breed in Siberia,", "on a flyway via Malaysia"],
+              "Most breeding in Siberia",
+              "In Siberia",
+            ],
           },
         ];
         const noted = rows.map((row) => {
           const note = away.find((item) => item.name === row.name && item.month === row.month);
-          const fits = note?.text.find((text) => textWidth(text, 11, 600) <= note.months * cellWidth - 8);
+          const fits = note?.text.find(
+            (text) =>
+              Math.max(...[text].flat().map((line) => textWidth(line, 11, 600))) <=
+              note.months * cellWidth - 8,
+          );
           return { ...row, note: fits || "" };
         });
         const legendTitle = "Share of the month’s records, compared with the bird’s usual share";
@@ -2982,17 +3005,21 @@
                 ],
               },
             },
-            // annotation-someBirdsComeAndGoOthersStayAllYear: white note across each migrant's pink run
-            {
-              mark: {
-                type: "text",
-                dx: cellWidth / 2,
-                fontSize: 11,
-                fontWeight: 600,
-                color: "#ffffff",
-              },
-              encoding: { text: { field: "note" } },
-            },
+            // annotation-someBirdsComeAndGoOthersStayAllYear: white note across each migrant's pink run, over a halo in the cell colour that bridges the gaps between cells
+            ...[{ stroke: colourRamps.piyg[0], strokeWidth: 4, strokeJoin: "round" }, {}].map(
+              (halo) => ({
+                mark: {
+                  type: "text",
+                  dx: cellWidth / 2,
+                  fontSize: 11,
+                  fontWeight: 600,
+                  lineHeight: 13,
+                  color: "#ffffff",
+                  ...halo,
+                },
+                encoding: { text: { field: "note" } },
+              }),
+            ),
           ],
         });
         return {
