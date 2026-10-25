@@ -115,35 +115,40 @@
             "month": 0.5,
             "monthEnd": 2.5,
             "middle": 1.5,
-            "colour": "#b0782c"
+            "colour": "#c9952a",
+            "textColour": "#8a6312"
           },
           {
             "season": "Autumn",
             "month": 2.5,
             "monthEnd": 5.5,
             "middle": 4,
-            "colour": "#8c5a86"
+            "colour": "#7f5230",
+            "textColour": "#7f5230"
           },
           {
             "season": "Winter",
             "month": 5.5,
             "monthEnd": 8.5,
             "middle": 7,
-            "colour": "#557784"
+            "colour": "#36608c",
+            "textColour": "#36608c"
           },
           {
             "season": "Spring",
             "month": 8.5,
             "monthEnd": 11.5,
             "middle": 10,
-            "colour": "#58723e"
+            "colour": "#a283c6",
+            "textColour": "#6e4f9e"
           },
           {
             "season": "Summer",
             "month": 11.5,
             "monthEnd": 12.5,
             "middle": 12,
-            "colour": "#b0782c"
+            "colour": "#c9952a",
+            "textColour": "#8a6312"
           }
         ]
       },
@@ -208,35 +213,40 @@
             "month": 0.5,
             "monthEnd": 2.5,
             "middle": 1.5,
-            "colour": "#b0782c"
+            "colour": "#c9952a",
+            "textColour": "#8a6312"
           },
           {
             "season": "Autumn",
             "month": 2.5,
             "monthEnd": 5.5,
             "middle": 4,
-            "colour": "#8c5a86"
+            "colour": "#7f5230",
+            "textColour": "#7f5230"
           },
           {
             "season": "Winter",
             "month": 5.5,
             "monthEnd": 8.5,
             "middle": 7,
-            "colour": "#557784"
+            "colour": "#36608c",
+            "textColour": "#36608c"
           },
           {
             "season": "Spring",
             "month": 8.5,
             "monthEnd": 11.5,
             "middle": 10,
-            "colour": "#58723e"
+            "colour": "#a283c6",
+            "textColour": "#6e4f9e"
           },
           {
             "season": "Summer",
             "month": 11.5,
             "monthEnd": 12.5,
             "middle": 12,
-            "colour": "#b0782c"
+            "colour": "#c9952a",
+            "textColour": "#8a6312"
           }
         ]
       },
@@ -287,7 +297,7 @@
           "field": "season"
         },
         "color": {
-          "field": "colour",
+          "field": "textColour",
           "type": "nominal",
           "scale": null
         }

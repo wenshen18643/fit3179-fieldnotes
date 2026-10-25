@@ -44,7 +44,7 @@
       "anchor": "start"
     }
   },
-  "description": "2024 observation records in one-degree squares. The control outlines the fewest squares that together hold a chosen share of all records.",
+  "description": "2024 observation records in one-degree squares; grey land squares have no records. The control outlines the fewest squares that together hold a chosen share of all records.",
   "params": [
     {
       "name": "cover",
@@ -213,6 +213,16 @@
             "text": "Adelaide",
             "longitude": 138.6,
             "latitude": -34.93
+          },
+          {
+            "text": "Cairns",
+            "longitude": 145.77,
+            "latitude": -16.92
+          },
+          {
+            "text": "Hobart",
+            "longitude": 147.33,
+            "latitude": -42.88
           }
         ]
       },
@@ -266,6 +276,16 @@
             "text": "Adelaide",
             "longitude": 138.6,
             "latitude": -34.93
+          },
+          {
+            "text": "Cairns",
+            "longitude": 145.77,
+            "latitude": -16.92
+          },
+          {
+            "text": "Hobart",
+            "longitude": 147.33,
+            "latitude": -42.88
           }
         ]
       },
@@ -288,6 +308,106 @@
         "text": {
           "field": "text"
         }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "Canberra",
+            "longitude": 149.13,
+            "latitude": -35.28
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "align": "right",
+        "dx": -10,
+        "stroke": "#f7f2e8",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "Canberra",
+            "longitude": 149.13,
+            "latitude": -35.28
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#24281f",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "align": "right",
+        "dx": -10
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "square",
+        "x": 236,
+        "y": 591.5,
+        "size": 81,
+        "fill": "#e8e4d9",
+        "stroke": "#c7c6b8",
+        "strokeWidth": 0.7,
+        "opacity": 1
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "x": 246,
+        "y": 591.5,
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 11,
+        "color": "#4d5347",
+        "text": "No records"
       }
     },
     {

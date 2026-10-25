@@ -466,10 +466,10 @@
             "value": 700
           },
           "fill": {
-            "value": "#24281f"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?'#ffffff':'#24281f'"
           },
           "stroke": {
-            "value": "#f7f2e8"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?scale('records',datum.count):'#f7f2e8'"
           },
           "strokeWidth": {
             "value": 3.5
@@ -507,10 +507,10 @@
             "signal": "datum.r>26?11:10"
           },
           "fill": {
-            "value": "#24281f"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?'#ffffff':'#24281f'"
           },
           "stroke": {
-            "value": "#f7f2e8"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?scale('records',datum.count):'#f7f2e8'"
           },
           "strokeWidth": {
             "value": 3.5
@@ -551,10 +551,10 @@
             "value": 600
           },
           "fill": {
-            "value": "#24281f"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?'#ffffff':'#24281f'"
           },
           "stroke": {
-            "value": "#f7f2e8"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?scale('records',datum.count):'#f7f2e8'"
           },
           "strokeWidth": {
             "value": 3.5
@@ -595,7 +595,7 @@
             "value": 700
           },
           "fill": {
-            "value": "#24281f"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?'#ffffff':'#24281f'"
           }
         }
       }
@@ -627,7 +627,7 @@
             "signal": "datum.r>26?11:10"
           },
           "fill": {
-            "value": "#24281f"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?'#ffffff':'#24281f'"
           }
         }
       }
@@ -662,7 +662,7 @@
             "value": 600
           },
           "fill": {
-            "value": "#24281f"
+            "signal": "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22?'#ffffff':'#24281f'"
           }
         }
       }

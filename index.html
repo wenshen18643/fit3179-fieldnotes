@@ -238,16 +238,16 @@
       }
 
       .summer {
-        background: #b0782c;
+        background: #c9952a;
       }
       .autumn {
-        background: #8c5a86;
+        background: #7f5230;
       }
       .winter {
-        background: #557784;
+        background: #36608c;
       }
       .spring {
-        background: #58723e;
+        background: #a283c6;
       }
       .season-player {
         display: flex;
@@ -360,16 +360,16 @@
         opacity: 0;
       }
       .season-track [data-value="Summer"] {
-        --season: #b0782c;
+        --season: #c9952a;
       }
       .season-track [data-value="Autumn"] {
-        --season: #8c5a86;
+        --season: #7f5230;
       }
       .season-track [data-value="Winter"] {
-        --season: #557784;
+        --season: #36608c;
       }
       .season-track [data-value="Spring"] {
-        --season: #58723e;
+        --season: #a283c6;
       }
 
       .method-details summary {
@@ -893,12 +893,14 @@
                 <h3>Half of all records come from 12 of 720 squares</h3>
               </div>
               <p class="figure-deck">
-                Darker squares hold more records; each labelled step in the key is 100 times the
-                last. Pick a share to outline the fewest squares that hold it.
+                Each 1° square is about 100 km across. Darker squares hold more records; each
+                labelled step in the key is 100 times the last. Pick a share to outline the fewest
+                squares that hold it.
               </p>
               <p class="figure-insight">
-                They sit mostly around the capital cities. A typical square logs about 500 records a
-                year, so a pale inland square means few observers, not necessarily few birds.
+                They sit mostly around the capital cities. A typical square logs about
+                <span data-stat="squareMedian">700</span> records a year, so a pale inland square
+                means few observers, not necessarily few birds.
               </p>
               <!-- interaction-halfOfAllRecordsComeFrom12Of720Squares: buttons 25 / 50 / 75 / 90% set the chart's "cover" setting -->
               <div
@@ -975,15 +977,14 @@
         <div class="row row-pair">
           <figure class="figure" id="fig-seasonal-clock" data-chart="seasonal-clock">
             <div class="figure-text">
-              <div class="figure-heading"><h3>Every state keeps its own busy season</h3></div>
+              <div class="figure-heading"><h3>Seven of eight states are busiest in spring</h3></div>
               <p class="figure-deck">
                 Each ring is a state, north inside to south outside; each slice is a month. Green:
                 busier than the state’s average day. Pink: quieter.
               </p>
               <p class="figure-insight">
-                Seven of the eight peak in spring, September to November; only the ACT peaks in
-                January. The tropical Northern Territory is quietest in December, as the wet season
-                sets in.
+                Spring runs from September to November; only the ACT peaks outside it, in January.
+                The tropical Northern Territory is quietest in December, as the wet season sets in.
               </p>
             </div>
             <div
@@ -1000,7 +1001,7 @@
               </div>
               <p class="figure-deck">
                 Each cell compares a bird’s share of that month’s records with its usual share.
-                Green: more than usual. Pink: less. Same colours as the dial beside it.
+                Green: more than usual. Pink: less. Same colours as the dial.
               </p>
               <p class="figure-insight">
                 The top three spend their pink months away. The needletail and stint breed in
@@ -1130,8 +1131,9 @@
                 <h3>Winter records lean north for all birds, but only the bee-eater leaves the south</h3>
               </div>
               <p class="figure-deck">
-                Blue places hold a bigger share of winter records than of summer ones; brown, the
-                reverse. Each darker step doubles the lean.
+                A smoothed estimate: blue places hold a bigger share of winter records than of
+                summer ones; brown, the reverse. Each darker step doubles the lean, and the dark
+                line marks equal shares.
               </p>
               <p class="figure-insight">
                 For all birds the north turns deep blue, likely because winter is its dry season,
@@ -1187,9 +1189,9 @@
                 </p>
               </div>
               <p class="figure-insight">
-                Counts seem to follow how easy a bird is to find, not how safe it is. The Eastern Curlew feeds
-                on open coastal mudflats; the White-throated Grasswren hides in remote Arnhem Land
-                sandstone.
+                Counts seem to follow how easy a bird is to find, not how safe it is. The Eastern
+                Curlew feeds on open coastal mudflats and the Gang-gang Cockatoo in Canberra’s
+                suburbs; the White-throated Grasswren hides in remote Arnhem Land sandstone.
               </p>
             </div>
             <div
@@ -1400,8 +1402,10 @@
         ochre: "#ad7926",
         ochreText: "#875c1b",
         rust: "#a74735",
-        // color-all: the four season colours (summer, autumn, winter, spring)
-        seasons: ["#b0782c", "#8c5a86", "#557784", "#58723e"],
+        // color-all: the four season colours (summer gold, autumn brown, winter navy, spring jacaranda); none is green or pink, which mean "more" and "less" elsewhere, and all four stay apart for colour-blind readers
+        seasons: ["#c9952a", "#7f5230", "#36608c", "#a283c6"],
+        // color-all: darker gold and lavender for season names written as text, so they stay readable on the paper colour
+        seasonText: ["#8a6312", "#7f5230", "#36608c", "#6e4f9e"],
         display: "'Fraunces', serif",
       };
       let chartFont = "'Source Sans 3', sans-serif";
@@ -1632,13 +1636,19 @@
           { text: "Sydney", longitude: 151.21, latitude: -33.87 },
           { text: "Brisbane", longitude: 153.03, latitude: -27.47 },
           { text: "Adelaide", longitude: 138.6, latitude: -34.93 },
+          { text: "Cairns", longitude: 145.77, latitude: -16.92 },
+          { text: "Hobart", longitude: 147.33, latitude: -42.88 },
         ];
         // phone-halfOfAllRecordsComeFrom12Of720Squares: on phones the headline sits above the map and the text is smaller
         const small = availableWidth < 440,
-          headlineSize = Math.round(Math.max(18, Math.min(26, availableWidth / 30)));
-        return vegaLiteChart(availableWidth - 16, mapH(availableWidth) + (small ? 34 : 0), {
+          headlineSize = Math.round(Math.max(18, Math.min(26, availableWidth / 30))),
+          height = mapH(availableWidth) + (small ? 34 : 0);
+        // legend-halfOfAllRecordsComeFrom12Of720Squares: where the colour key's bar sits (below the map on phones, inside its bottom-left corner otherwise), so the "No records" swatch can follow it on the same line
+        const keyBarTop = small ? height + 33 : height - 33,
+          keyBarEnd = 8 + (small ? 146 : 200);
+        return vegaLiteChart(availableWidth - 16, height, {
           description:
-            "2024 observation records in one-degree squares. The control outlines the fewest squares that together hold a chosen share of all records.",
+            "2024 observation records in one-degree squares; grey land squares have no records. The control outlines the fewest squares that together hold a chosen share of all records.",
           // interaction-halfOfAllRecordsComeFrom12Of720Squares: "cover" setting (share of records), changed by the share buttons
           // setting-halfOfAllRecordsComeFrom12Of720Squares: share-to-outline setting ("cover"): which share of records to outline, 25 / 50 / 75 / 90%
           params: [{ name: "cover", value: 0.5 }],
@@ -1705,6 +1715,42 @@
             outline(data),
             // annotation-halfOfAllRecordsComeFrom12Of720Squares: city name labels
             ...haloText(cities, { fontSize: 11, fontWeight: 600, dy: 15 }),
+            // annotation-halfOfAllRecordsComeFrom12Of720Squares: Canberra's label sits to the left of its square, clear of Sydney's (left off on phones, where it would run into Adelaide's)
+            ...(small
+              ? []
+              : haloText([{ text: "Canberra", longitude: 149.13, latitude: -35.28 }], {
+                  fontSize: 11,
+                  fontWeight: 600,
+                  align: "right",
+                  dx: -10,
+                })),
+            // legend-halfOfAllRecordsComeFrom12Of720Squares: grey swatch after the colour key, for land squares with no 2024 records
+            {
+              data: { values: [{}] },
+              mark: {
+                type: "square",
+                x: keyBarEnd + 28,
+                y: keyBarTop + 4.5,
+                size: 81,
+                fill: "#e8e4d9",
+                stroke: "#c7c6b8",
+                strokeWidth: 0.7,
+                opacity: 1,
+              },
+            },
+            {
+              data: { values: [{}] },
+              mark: {
+                type: "text",
+                x: keyBarEnd + 38,
+                y: keyBarTop + 4.5,
+                align: "left",
+                baseline: "middle",
+                fontSize: 11,
+                color: colours.muted,
+                text: "No records",
+              },
+            },
             // phone-halfOfAllRecordsComeFrom12Of720Squares: invisible point north of Australia leaves room for the headline on phones
             ...(small
               ? [
@@ -1880,9 +1926,9 @@
         });
       }
 
-      // idiom-everyStateKeepsItsOwnBusySeason: circular heatmap (Vega): rings = states, slices = months
-      function everyStateKeepsItsOwnBusySeason(data, availableWidth) {
-        // layout-everyStateKeepsItsOwnBusySeason: chart size, centre, ring width and gaps between months
+      // idiom-sevenOfEightStatesAreBusiestInSpring: circular heatmap (Vega): rings = states, slices = months
+      function sevenOfEightStatesAreBusiestInSpring(data, availableWidth) {
+        // layout-sevenOfEightStatesAreBusiestInSpring: chart size, centre, ring width and gaps between months
         const width = availableWidth - 16,
           radius = clockRadius(availableWidth),
           height = radius * 2 + 86,
@@ -1892,15 +1938,15 @@
           band = (radius - inner) / 8,
           gap = 0.64,
           step = (Math.PI * 2 - gap) / 12;
-        // layout-everyStateKeepsItsOwnBusySeason: nudge the dial sideways so the "busiest nationwide" label stays inside the chart and the legend keeps its left edge
+        // layout-sevenOfEightStatesAreBusiestInSpring: nudge the dial sideways so the "busiest nationwide" label stays inside the chart and the legend keeps its left edge
         const peakIndex = MONTHS.indexOf(data.insights.peakMonth),
           peakSine = Math.sin(gap / 2 + (peakIndex + 0.5) * step),
           peakTextWidth = 96,
           peakEdge = width / 2 + peakSine * (radius + 12) + Math.sign(peakSine) * peakTextWidth,
           centreX =
             width / 2 - (peakEdge < 0 ? peakEdge : peakEdge > width ? peakEdge - width : 0);
-        // data-everyStateKeepsItsOwnBusySeason: data.stateMonth (records per state per month, with pace)
-        // calculation-everyStateKeepsItsOwnBusySeason: work out each cell's start and end angle (month) and inner and outer radius (state)
+        // data-sevenOfEightStatesAreBusiestInSpring: data.stateMonth (records per state per month, with pace)
+        // calculation-sevenOfEightStatesAreBusiestInSpring: work out each cell's start and end angle (month) and inner and outer radius (state)
         const vals = data.stateMonth.map((cell) => ({
           ...cell,
           a0: gap / 2 + (cell.month - 1) * step + 0.012,
@@ -1927,8 +1973,8 @@
               })),
             },
           ],
-          // color-everyStateKeepsItsOwnBusySeason: pace colour scale, pink (quieter) to green (busier), log scale centred on 1
-          // scale-everyStateKeepsItsOwnBusySeason: log colour scale 0.5, 1, 2, so half and double the usual pace look equally strong
+          // color-sevenOfEightStatesAreBusiestInSpring: pace colour scale, pink (quieter) to green (busier), log scale centred on 1
+          // scale-sevenOfEightStatesAreBusiestInSpring: log colour scale 0.5, 1, 2, so half and double the usual pace look equally strong
           scales: [
             {
               name: "pace",
@@ -1940,8 +1986,8 @@
           ],
           marks: [
             {
-              // mark-everyStateKeepsItsOwnBusySeason: arc: one slice per state per month
-              // encoding-everyStateKeepsItsOwnBusySeason: angle = month, ring = state, colour = pace
+              // mark-sevenOfEightStatesAreBusiestInSpring: arc: one slice per state per month
+              // encoding-sevenOfEightStatesAreBusiestInSpring: angle = month, ring = state, colour = pace
               type: "arc",
               from: { data: "cells" },
               encode: {
@@ -1952,20 +1998,20 @@
                   endAngle: { field: "a1" },
                   innerRadius: { field: "r0" },
                   outerRadius: { field: "r1" },
-                  // color-everyStateKeepsItsOwnBusySeason: each cell coloured by its pace
+                  // color-sevenOfEightStatesAreBusiestInSpring: each cell coloured by its pace
                   fill: { scale: "pace", field: "dailyIndex" },
-                  // tooltip-everyStateKeepsItsOwnBusySeason: hover a cell: state, month, records, pace
+                  // tooltip-sevenOfEightStatesAreBusiestInSpring: hover a cell: state, month, records, pace
                   tooltip: {
                     signal:
                       "{'State':datum.state,'Month':datum.label,'Records':format(datum.count,','),'Pace vs state’s usual day':format(datum.dailyIndex,'.2f')+'×'}",
                   },
                 },
                 update: { strokeWidth: { value: 0 } },
-                // interaction-everyStateKeepsItsOwnBusySeason: hovered cell gets a dark outline
+                // interaction-sevenOfEightStatesAreBusiestInSpring: hovered cell gets a dark outline
                 hover: { stroke: { value: colours.ink }, strokeWidth: { value: 1.4 } },
               },
             },
-            // annotation-everyStateKeepsItsOwnBusySeason: month labels round the dial, with "busiest nationwide" in green
+            // annotation-sevenOfEightStatesAreBusiestInSpring: month labels round the dial, with "busiest nationwide" in green
             {
               type: "text",
               from: { data: "months" },
@@ -1984,7 +2030,7 @@
                 },
               },
             },
-            // annotation-everyStateKeepsItsOwnBusySeason: state code on each ring
+            // annotation-sevenOfEightStatesAreBusiestInSpring: state code on each ring
             {
               type: "text",
               from: { data: "rings" },
@@ -2000,7 +2046,7 @@
                 },
               },
             },
-            // annotation-everyStateKeepsItsOwnBusySeason: "2024" in the centre
+            // annotation-sevenOfEightStatesAreBusiestInSpring: "2024" in the centre
             {
               type: "text",
               encode: {
@@ -2014,7 +2060,7 @@
                 },
               },
             },
-            // annotation-everyStateKeepsItsOwnBusySeason: "records a day" in the centre
+            // annotation-sevenOfEightStatesAreBusiestInSpring: "records a day" in the centre
             {
               type: "text",
               encode: {
@@ -2029,8 +2075,8 @@
               },
             },
           ],
-          // color-everyStateKeepsItsOwnBusySeason: colour legend (half / usual / double)
-          // legend-everyStateKeepsItsOwnBusySeason: pace legend (half / usual / double)
+          // color-sevenOfEightStatesAreBusiestInSpring: colour legend (half / usual / double)
+          // legend-sevenOfEightStatesAreBusiestInSpring: pace legend (half / usual / double)
           legends: [
             {
               fill: "pace",
@@ -2038,7 +2084,7 @@
               direction: "horizontal",
               orient: "none",
               legendX: 0,
-              // layout-everyStateKeepsItsOwnBusySeason: legend top shared with the heatmap beside it
+              // layout-sevenOfEightStatesAreBusiestInSpring: legend top shared with the heatmap beside it
               legendY: seasonPairLegendTop(availableWidth) - 8,
               title: "Records a day, compared with the state’s own average",
               titleLimit: width - 40,
@@ -2090,6 +2136,7 @@
           ...band,
           middle: (band.month + band.monthEnd) / 2,
           colour: colours.seasons[SEASONS.indexOf(band.season)],
+          textColour: colours.seasonText[SEASONS.indexOf(band.season)],
         }));
         // encoding-theWelcomeSwallowClimbsTheRankingsAsSpringArrives: x = month, y = rank
         const base = {
@@ -2161,7 +2208,7 @@
                 x: { ...base.x, field: "middle" },
                 y: { value: -8 },
                 text: { field: "season" },
-                color: { field: "colour", type: "nominal", scale: null },
+                color: { field: "textColour", type: "nominal", scale: null },
               },
             },
             {
@@ -2396,8 +2443,9 @@
                 },
                 { calculate: "format(datum.south/datum.n,'.0%')", as: "share" },
                 { calculate: "'of '+lower(season)+' records'", as: "what" },
-                { calculate: small ? "113.4" : "125.6", as: "longitude" },
-                { calculate: small ? "-36.7" : "-33.1", as: "latitude" },
+                // annotation-watchTheBeeEatersRangeSlideNorth: the headline number sits in the sea (the Great Australian Bight on wider screens), clear of every circle
+                { calculate: small ? "113.4" : "127.2", as: "longitude" },
+                { calculate: small ? "-36.7" : "-35.1", as: "latitude" },
               ],
               layer: [
                 {
@@ -2502,7 +2550,7 @@
         const none = "Too few records to estimate";
         // phone-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: on phones the legend has two columns and the labels are smaller
         const small = availableWidth < 560;
-        // color-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: diverging bands built from the season colours, ochre-brown = summer lean, slate blue = winter lean, grey = too few records; and its legend
+        // color-winterRecordsLeanNorthForAllBirdsButOnlyTheBeeEaterLeavesTheSouth: diverging bands in the season hues, brown-gold = summer lean, blue = winter lean, grey = too few records; and its legend
         const colour = {
           field: "properties.label",
           type: "ordinal",
@@ -2887,7 +2935,7 @@
             name: "White-throated Needletail",
             month: 6,
             months: 6,
-            text: ["Breeding in north-east Asia", "In north-east Asia"],
+            text: ["Breeding in north-east Asia", "In north-east Asia", "In NE Asia"],
           },
           {
             name: "Eastern Koel",
@@ -3027,7 +3075,7 @@
           padding: 8,
           config,
           description:
-            "Monthly share of all records for eight featured species, divided by each species’ annual share. One means the species occupies its typical share. Rows are grouped into birds whose share swings through the year and birds recorded steadily all year. The colour scale matches the circular heatmap beside it. This adjusts for total monthly record volume, not survey effort.",
+            "Monthly share of all records for eight featured species, divided by each species’ annual share. One means the species occupies its typical share. Rows are grouped into birds whose share swings through the year and birds recorded steadily all year. The colour scale matches the circular heatmap. This adjusts for total monthly record volume, not survey effort.",
           data: { values: noted },
           spacing: 30,
           vconcat: order.map(groupHeatmap),
@@ -3048,6 +3096,8 @@
         const all = [...data.threatenedRecords].sort((first, second) => second.count - first.count);
         const top = all[0],
           bottom = all[all.length - 1];
+        // annotation-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: the most-recorded Endangered bird (the Gang-gang Cockatoo, a suburban Canberra bird) is labelled too; it and the most-recorded bird get their label above their row
+        const above = [top, all.find((bird) => bird.status === "Endangered")];
         const rows = [],
           bands = [];
         // layout-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: stack the threat-level rows one under another; the chart height follows
@@ -3075,7 +3125,7 @@
           }
           const lowest = Math.min(...placed.map((dot) => dot.y)) - dotRadius,
             highest = Math.max(...placed.map((dot) => dot.y)) + dotRadius;
-          const hasTop = placed.some((dot) => dot.b === top),
+          const hasTop = placed.some((dot) => above.includes(dot.b)),
             hasBottom = placed.some((dot) => dot.b === bottom);
           const next = hasBottom
             ? Math.min(...placed.filter((dot) => dot.b !== bottom).map((dot) => dot.x))
@@ -3093,15 +3143,21 @@
         const height = Math.round(cursor);
         const formatCount = (count) => count.toLocaleString("en-AU");
         const rowOf = (bird) => rows.find((row) => row.scientific === bird.scientific);
-        // annotation-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: where the most- and least-recorded bird labels go
+        // annotation-someThreatenedBirdsAreLoggedThousandsOfTimesOthersAHandful: where the labels go: above the row for the most-recorded birds, beside or below the dot for the least-recorded one
         const notes = [
-          {
-            ...rowOf(top),
-            text: [top.name, formatCount(top.count) + " records"],
-            align: "right",
-            baseline: "bottom",
-            dx: dotRadius,
-          },
+          ...above.map((bird) => {
+            const row = rowOf(bird);
+            return {
+              ...row,
+              text: [bird.name, formatCount(bird.count) + " records"],
+              align: "right",
+              baseline: "bottom",
+              dx: dotRadius,
+              ny: row.centre + row.lo - 6 - 15,
+              y1: row.centre + row.lo - 3,
+              y2: row.cy - dotRadius - 2,
+            };
+          }),
           {
             ...rowOf(bottom),
             text: bottom.name + " · " + formatCount(bottom.count) + " records",
@@ -3109,20 +3165,16 @@
             baseline: "middle",
           },
         ];
-        Object.assign(notes[0], {
-          ny: notes[0].centre + notes[0].lo - 6 - 15,
-          y1: notes[0].centre + notes[0].lo - 3,
-          y2: notes[0].cy - dotRadius - 2,
-        });
+        const least = notes[notes.length - 1];
         Object.assign(
-          notes[1],
-          notes[1].inline
-            ? { dx: dotRadius + 8, ny: notes[1].cy, y1: 0, y2: 0 }
+          least,
+          least.inline
+            ? { dx: dotRadius + 8, ny: least.cy, y1: 0, y2: 0 }
             : {
                 dx: -dotRadius,
-                ny: notes[1].centre + notes[1].hi + 16,
-                y1: notes[1].cy + dotRadius + 2,
-                y2: notes[1].centre + notes[1].hi + 7,
+                ny: least.centre + least.hi + 16,
+                y1: least.cy + dotRadius + 2,
+                y2: least.centre + least.hi + 7,
               },
         );
         return vegaChart(width, height, {
@@ -3477,14 +3529,18 @@
               },
             },
             ...["halo", "ink"].flatMap((layer) => {
+              // color-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: labels on dark green circles are white with no halo; on pale or faded circles, dark with a paper halo
+              const dark =
+                "(picked===''||picked===datum.code)&&luminance(scale('records',datum.count))<0.22";
               const halo =
                 layer === "halo"
                   ? {
-                      stroke: { value: colours.paper },
+                      stroke: { signal: `${dark}?scale('records',datum.count):'${colours.paper}'` },
                       strokeWidth: { value: 3.5 },
                       strokeJoin: { value: "round" },
                     }
                   : {};
+              const ink = { signal: `${dark}?'#ffffff':'${colours.ink}'` };
               return [
                 // annotation-southAustraliaListsTheMostThreatenedBirdsYetLogsAFifthOfNewSouthWalessRecords: state code on each circle
                 {
@@ -3500,7 +3556,7 @@
                       baseline: { value: "middle" },
                       fontSize: { signal: "datum.r>26?12:11" },
                       fontWeight: { value: 700 },
-                      fill: { value: colours.ink },
+                      fill: ink,
                       ...halo,
                     },
                   },
@@ -3518,7 +3574,7 @@
                       baseline: { value: "middle" },
                       text: { signal: "datum.r>26?datum.listed+' listed':datum.listed" },
                       fontSize: { signal: "datum.r>26?11:10" },
-                      fill: { value: colours.ink },
+                      fill: ink,
                       ...halo,
                     },
                   },
@@ -3540,7 +3596,7 @@
                       },
                       fontSize: { value: 11 },
                       fontWeight: { value: 600 },
-                      fill: { value: colours.ink },
+                      fill: ink,
                       ...halo,
                     },
                   },
@@ -3815,7 +3871,7 @@
       export const chartBuilders = {
         "observation-atlas": halfOfAllRecordsComeFrom12Of720Squares,
         "record-density": perSquareKilometreTheActLeadsPerResidentTheNorthernTerritoryDoes,
-        "seasonal-clock": everyStateKeepsItsOwnBusySeason,
+        "seasonal-clock": sevenOfEightStatesAreBusiestInSpring,
         "monthly-ranks": theWelcomeSwallowClimbsTheRankingsAsSpringArrives,
         "seasonal-footprint": watchTheBeeEatersRangeSlideNorth,
         "latitude-ridges": theRainbowBeeEaterHeadsNorthInAprilAndReturnsInOctober,
@@ -3891,6 +3947,16 @@
           upsetShownGroups: String(upsetGroups(data).length),
           upsetShown: String(upsetGroups(data).reduce((sum, stateGroup) => sum + stateGroup.count, 0)),
           upsetHiddenGroups: String(insights.upsetCombinations - upsetGroups(data).length),
+          // calculation-all: the middle square's records among the 1° squares drawn on the bin map, to the nearest hundred
+          squareMedian: (() => {
+            const byCell = new Map(data.grid.map((square) => [square.cell, square.count]));
+            const counts = data.gridShapes.features
+              .map((feature) => byCell.get(feature.properties.cell))
+              .sort((first, second) => first - second);
+            const middle = (counts.length - 1) / 2;
+            const median = (counts[Math.floor(middle)] + counts[Math.ceil(middle)]) / 2;
+            return format.format(Math.round(median / 100) * 100);
+          })(),
           sharedTaxa: String(
             data.threatenedListings.filter((listing) => listing.states.length > 1).length,
           ),

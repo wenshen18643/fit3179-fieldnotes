@@ -42,7 +42,7 @@
       "anchor": "start"
     }
   },
-  "description": "Monthly share of all records for eight featured species, divided by each species’ annual share. One means the species occupies its typical share. Rows are grouped into birds whose share swings through the year and birds recorded steadily all year. The colour scale matches the circular heatmap beside it. This adjusts for total monthly record volume, not survey effort.",
+  "description": "Monthly share of all records for eight featured species, divided by each species’ annual share. One means the species occupies its typical share. Rows are grouped into birds whose share swings through the year and birds recorded steadily all year. The colour scale matches the circular heatmap. This adjusts for total monthly record volume, not survey effort.",
   "data": {
     "url": "https://wenshen18643.github.io/fit3179-fieldnotes/specs/data/some-birds-come-and-go-others-stay-all-year-1.json"
   },

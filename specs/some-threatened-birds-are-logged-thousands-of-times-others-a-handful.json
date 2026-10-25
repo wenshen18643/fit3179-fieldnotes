@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 850,
-  "height": 344,
+  "height": 370,
   "padding": {
     "left": 24,
     "right": 20,
@@ -65,13 +65,13 @@
           "status": "Endangered",
           "n": 24,
           "labelY": 143.8,
-          "y": 186.05333333333334
+          "y": 212.05333333333334
         },
         {
           "status": "Critically Endangered",
           "n": 7,
-          "labelY": 246.30666666666667,
-          "y": 291.97333333333336
+          "labelY": 272.3066666666667,
+          "y": 317.97333333333336
         }
       ]
     },
@@ -84,8 +84,8 @@
           "status": "Critically Endangered",
           "count": 9373,
           "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=847",
-          "cy": 291.97333333333336,
-          "centre": 291.97333333333336,
+          "cy": 317.97333333333336,
+          "centre": 317.97333333333336,
           "lo": -5.666666666666667,
           "hi": 28.253333333333337,
           "inline": false,
@@ -96,9 +96,31 @@
           "align": "right",
           "baseline": "bottom",
           "dx": 5.666666666666667,
-          "ny": 265.3066666666667,
-          "y1": 283.3066666666667,
-          "y2": 284.3066666666667
+          "ny": 291.3066666666667,
+          "y1": 309.3066666666667,
+          "y2": 310.3066666666667
+        },
+        {
+          "scientific": "Callocephalon fimbriatum",
+          "name": "Gang-gang Cockatoo",
+          "status": "Endangered",
+          "count": 8201,
+          "profile": "http://www.environment.gov.au/cgi-bin/sprat/public/publicspecies.pl?taxon_id=768",
+          "cy": 212.05333333333334,
+          "centre": 212.05333333333334,
+          "lo": -28.253333333333337,
+          "hi": 28.253333333333337,
+          "inline": false,
+          "text": [
+            "Gang-gang Cockatoo",
+            "8,201 records"
+          ],
+          "align": "right",
+          "baseline": "bottom",
+          "dx": 5.666666666666667,
+          "ny": 162.8,
+          "y1": 180.8,
+          "y2": 204.38666666666668
         },
         {
           "scientific": "Amytornis woodwardi",
