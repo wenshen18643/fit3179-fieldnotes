@@ -1,0 +1,435 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 904,
+  "height": 620,
+  "padding": 8,
+  "config": {
+    "background": "transparent",
+    "font": "'Source Sans 3', sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#4d5347",
+      "titleColor": "#24281f",
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e0dccf",
+      "gridOpacity": 0.75,
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFont": "'Source Sans 3', sans-serif",
+      "titleFont": "'Source Sans 3', sans-serif",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "labelColor": "#4d5347",
+      "titleColor": "#24281f",
+      "gradientThickness": 9,
+      "gradientLength": 130,
+      "padding": 8
+    },
+    "title": {
+      "font": "'Source Sans 3', sans-serif",
+      "color": "#24281f",
+      "fontSize": 15,
+      "fontWeight": 500,
+      "anchor": "start"
+    }
+  },
+  "description": "Filled contour map of a smoothed field: for each place, its share of all winter (June–August) records divided by its share of all summer (December–February) records, 2024. Contours fall on a constant interval of one doubling. Toggle between all bird records and rainbow bee-eater records. Grey land has too few records to estimate.",
+  "params": [
+    {
+      "name": "who",
+      "value": "Everyone"
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -28
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://wenshen18643.github.io/fit3179-fieldnotes/specs/data/half-of-all-records-come-from-12-of-720-squares-1.json"
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#c7c6b8",
+        "strokeWidth": 0.7
+      },
+      "encoding": {
+        "color": {
+          "datum": "Too few records to estimate",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "Summer share 4× or more",
+              "Summer share 2–4×",
+              "Summer share up to 2×",
+              "Winter share up to 2×",
+              "Winter share 2–4×",
+              "Winter share 4× or more",
+              "Too few records to estimate"
+            ],
+            "range": [
+              "#8c510a",
+              "#d8b365",
+              "#f6e8c3",
+              "#d4e4ee",
+              "#86abc2",
+              "#355f78",
+              "#d6d2c6"
+            ]
+          }
+        },
+        "tooltip": {
+          "value": "Too few records to estimate"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://wenshen18643.github.io/fit3179-fieldnotes/specs/data/winter-records-lean-north-for-all-birds-but-only-the-bee-eater-leaves-the-south-1.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.who===who && isValid(datum.properties.label)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "strokeWidth": 0
+      },
+      "encoding": {
+        "color": {
+          "field": "properties.label",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "Summer share 4× or more",
+              "Summer share 2–4×",
+              "Summer share up to 2×",
+              "Winter share up to 2×",
+              "Winter share 2–4×",
+              "Winter share 4× or more",
+              "Too few records to estimate"
+            ],
+            "range": [
+              "#8c510a",
+              "#d8b365",
+              "#f6e8c3",
+              "#d4e4ee",
+              "#86abc2",
+              "#355f78",
+              "#d6d2c6"
+            ]
+          },
+          "legend": {
+            "title": "Season with the bigger share of a place’s records",
+            "titleLimit": 920,
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 3,
+            "labelExpr": "replace(replace(replace(datum.label,' 4× or more',' ≥4×'),'up to ','<'),' to estimate','')",
+            "symbolType": "square",
+            "symbolSize": 160,
+            "symbolStrokeColor": "#b9b4a4",
+            "symbolStrokeWidth": 0.6,
+            "labelLimit": 220,
+            "columnPadding": 18,
+            "rowPadding": 6
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.label",
+            "title": "Seasonal lean"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://wenshen18643.github.io/fit3179-fieldnotes/specs/data/winter-records-lean-north-for-all-birds-but-only-the-bee-eater-leaves-the-south-1.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.who===who && datum.properties.line===0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "filled": false,
+        "stroke": "#24281f",
+        "strokeWidth": 1.1,
+        "strokeOpacity": 0.7
+      }
+    },
+    {
+      "data": {
+        "url": "https://wenshen18643.github.io/fit3179-fieldnotes/specs/data/half-of-all-records-come-from-12-of-720-squares-1.json"
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#9b9d8d",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 112,
+            "latitude": -30
+          },
+          {
+            "longitude": 154,
+            "latitude": -30
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "strokeDash": [
+          4,
+          5
+        ],
+        "color": "#24281f",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "30°S",
+            "longitude": 113.2,
+            "latitude": -30
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "dy": -9,
+        "align": "left",
+        "color": "#4d5347",
+        "stroke": "#f7f2e8",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "30°S",
+            "longitude": 113.2,
+            "latitude": -30
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#4d5347",
+        "fontSize": 11,
+        "dy": -9,
+        "align": "left"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "Tropical north",
+            "longitude": 133.5,
+            "latitude": -17.5
+          },
+          {
+            "text": "Temperate south",
+            "longitude": 141.6,
+            "latitude": -35.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": 600,
+        "fontStyle": "italic",
+        "stroke": "#f7f2e8",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "Tropical north",
+            "longitude": 133.5,
+            "latitude": -17.5
+          },
+          {
+            "text": "Temperate south",
+            "longitude": 141.6,
+            "latitude": -35.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#24281f",
+        "fontSize": 13,
+        "fontWeight": 600,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "winter = dry season",
+            "longitude": 133.5,
+            "latitude": -17.5
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "dy": 15,
+        "stroke": "#f7f2e8",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "text": "winter = dry season",
+            "longitude": 133.5,
+            "latitude": -17.5
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#24281f",
+        "fontSize": 11,
+        "dy": 15
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    }
+  ]
+}

@@ -975,6 +975,14 @@
       "title": "ABS Estimated Resident Population, states and territories, June 2024",
       "sha256": "ddfc4373641ca5a1f45edcc9cd97705e7eedabe2ceffde2fe381dfa59fa38171",
       "retrieved": "2026-09-27T04:27:32.076670+00:00"
+    },
+    {
+      "file": "data/raw/species-2024-renamed-check.json",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=class%3AAves&pageSize=0&flimit=10000&fsort=index&fq=country%3AAustralia&fq=basis_of_record%3AHUMAN_OBSERVATION&fq=occurrence_status%3APRESENT&fq=geospatial_kosher%3Atrue&fq=month%3A%5B1+TO+12%5D&fq=decimalLatitude%3A%5B-44+TO+-10%5D&fq=decimalLongitude%3A%5B112+TO+154%5D&fq=state%3A%28%22Western+Australia%22+OR+%22Northern+Territory%22+OR+%22South+Australia%22+OR+%22Queensland%22+OR+%22New+South+Wales%22+OR+%22Victoria%22+OR+%22Tasmania%22+OR+%22Australian+Capital+Territory%22%29&fq=year%3A2024&fq=data_resource_uid%3A%28dr2009+OR+dr359+OR+dr1411%29&facets=species",
+      "title": "2024 species counts, re-queried to match four listed birds recorded under newer names (Zanda latirostris, Zanda baudinii, Chloebia gouldiae, Psephotellus chrysopterygius)",
+      "retrieved": "2026-10-25T04:10:39.057Z",
+      "sha256": "6f5edf2ad15739e941d84f515fc31492d972337af520a777810465999a744a65",
+      "total": 9576952
     }
   ]
 }

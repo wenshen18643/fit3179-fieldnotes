@@ -23,11 +23,11 @@ npm run check
 ## Files
 
 - `index.html`: the whole page: text, styles, chart builders and interactions.
-- `specs/*.json`: readable exported chart specifications.
+- `specs/*.json`: readable exported chart specifications, one per chart, named after its headline. Long data tables sit in `specs/data/` and are linked by URL, so each specification also opens in the online Vega Editor.
 - `data/provenance.json`: exact data queries and response checksums.
 - `data/processed/`: chart tables in JSON.
 
-## GitHub Pages — final stage
+## GitHub Pages
 
 The live static site is published at https://wenshen18643.github.io/fit3179-fieldnotes/. The site uses relative URLs and is published from the repository root with `index.html`, `assets/`, `vendor/`, `data/`, and `specs/` available.
 

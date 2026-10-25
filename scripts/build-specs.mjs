@@ -50,12 +50,37 @@ const headings = Object.fromEntries(
     ],
   ),
 );
-await fs.mkdir(path.join(root, "specs"), { recursive: true });
-for (const file of await fs.readdir(path.join(root, "specs")))
-  if (file.endsWith(".json")) await fs.rm(path.join(root, "specs", file));
+// Long data tables are written to specs/data/ and linked by URL, so each specification stays short enough to read.
+// The URLs point at the published site, so a specification also opens in the online Vega Editor.
+const site = "https://wenshen18643.github.io/fit3179-fieldnotes/";
+const dataDir = path.join(root, "specs", "data");
+await fs.mkdir(dataDir, { recursive: true });
+for (const dir of [path.join(root, "specs"), dataDir])
+  for (const file of await fs.readdir(dir))
+    if (file.endsWith(".json")) await fs.rm(path.join(dir, file));
+const written = new Map();
+const linkData = async (node, name, counter) => {
+  if (Array.isArray(node)) {
+    for (const item of node) await linkData(item, name, counter);
+    return;
+  }
+  if (!node || typeof node !== "object") return;
+  if (Array.isArray(node.values) && JSON.stringify(node.values).length > 3000) {
+    const text = JSON.stringify(node.values);
+    if (!written.has(text)) {
+      const file = `${name}-${++counter.n}.json`;
+      await fs.writeFile(path.join(dataDir, file), text + "\n");
+      written.set(text, file);
+    }
+    node.url = site + "specs/data/" + written.get(text);
+    delete node.values;
+  }
+  for (const value of Object.values(node)) await linkData(value, name, counter);
+};
 for (const [id, build] of Object.entries(chartBuilders)) {
   if (!headings[id]) throw new Error("No heading on the page for " + id);
   const spec = build(data, 920);
+  await linkData(spec, headings[id], { n: 0 });
   await fs.writeFile(
     path.join(root, "specs", headings[id] + ".json"),
     JSON.stringify(spec, null, 2) + "\n",
